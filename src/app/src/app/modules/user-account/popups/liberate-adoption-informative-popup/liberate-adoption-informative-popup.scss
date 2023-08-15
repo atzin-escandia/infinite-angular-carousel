@@ -1,0 +1,13 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+
+@media (min-width: map_get($grid-breakpoints, 'md')) {
+  .liberate-adoption-informative-popup-container {
+    width: 504px;
+    max-width: 504px;
+  }
+
+  .liberate-adoption-informative-popup-title {
+    font-size: 18px !important;
+  }
+}

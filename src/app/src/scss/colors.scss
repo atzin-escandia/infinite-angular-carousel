@@ -1,0 +1,154 @@
+//Plain colors
+$red: red !default;
+$blackHeavy: #333 !default;
+$white: white !default;
+$grey: grey !default;
+$green: green !default;
+$black: #242424 !default;
+
+// General colors
+$CFinfo: #0098ff;
+$CF1: #64b2ae !default;
+$CF2: #edb65f !default;
+$CF3: #838383 !default;
+
+$greyBG: #f8f8f8 !default;
+$greyLight: #d8d8d8 !default;
+$greyLight2: #ced2d68f !default;
+$CF1light: #abcac8 !default;
+$CFdisabled: #bbb !default;
+$greyLine: rgba(0, 0, 0, 0.3);
+$correct: #9decb0 !default;
+$warning: #ece69d !default;
+$blocked-grey: #4e4e4f !default;
+$giftBlueIcon: #244c9b;
+
+//Background colors
+$greenBG: rgb(100, 178, 174);
+$greenBG2: #5d9e9b;
+$greenBG3: #f2f7f7;
+$blackShadow: rgba(0, 0, 0, 0.5);
+$pzMobileMenuBG: #4e4e4f;
+$blackBG: $black;
+$overlayBG: rgba(255, 255, 255, 0.9);
+$greyBtn: #eaeaea;
+$newsletterBG: #f9fafa;
+$CF2BG: #fabf61 !default;
+$langMenu: #f4f7f6;
+$cardGreyBG: #ececec;
+$redPopup: #f55;
+$bluePopup: #27a7ff;
+$toTop: #727272;
+$calendarRange: rgba(46, 158, 147, 0.24);
+$infoBox: #eef7f6;
+$giftIconBG: #bed6f0;
+
+//Texts
+$blackText: #3e3e3e !default;
+$blackLight: $CF3 !default;
+$lightGreyText: #939eab !default;
+$greyText: rgba(121, 131, 143, 0.9);
+$greyTextLight: rgba(121, 131, 143, 0.5);
+$greenLink: #2e9e93 !default;
+$errorForm: #f00;
+$almostBlackUp: #414141;
+$darkTexts: #31353a;
+$pzUpText: #d09e00;
+$orangeBG: #ffd56c;
+$bgWaveLigth: #d9e8e8;
+$bgWaveDark: #faf3e8;
+
+//Shadows
+$boxShadow: rgba(124, 124, 124, 0.5) !default;
+$boxSelectorShadow: hsla(0, 0%, 67%, 0.5) !default;
+$popupShadow: #555 !default;
+$pzMyGardenBoxShadow: rgba(0, 0, 0, 0.2);
+
+//Links
+$blueLink: #5f92bf !default;
+
+//Socials
+$darkGoogle: #c83c26 !default;
+$lightGoogle: #df4932 !default;
+$darkFB: #2553b4 !default;
+$lightFB: #427ab2 !default;
+
+//Borders
+$greyBorder: $greyBG !default;
+$greyHeavyBorder: #979797 !default;
+$cardGreyBorder: $cardGreyBG;
+
+//Gradients
+$black07: rgba(0, 0, 0, 0.7);
+$black04: rgba(0, 0, 0, 0.4);
+$black00: rgba(0, 0, 0, 0);
+
+/////////
+// New library
+/////////
+$color: (
+  primary: #2e9e93,
+  secondary: #eaa42c,
+  brand: #5d9e9b,
+  disabled: #e9ecf3,
+  // Background
+  white-1: #fff,
+  white-2: #e7e9eb,
+  // Suport
+  supp-1: #5da20d,
+  supp-2: #ebbf05,
+  supp-3: #de1127,
+  supp-4: #27a7ff,
+  // Background grey
+  grey-1: #f9fafa,
+  grey-2: #e4e6e8,
+  grey-3: #ced2d6,
+  // disabled button
+  grey-4: #b9bec5,
+  grey-5: #a4abb3,
+  grey-6: #8e97a1,
+  grey-7: #79838f,
+  // Text | Border
+  grey-8: #616a74,
+  grey-9: #555d66,
+  grey-10: #879796,
+  // Delivery Country/Change Language Text
+  grey-11: #5c716f,
+  // Mobile Line Dividers
+  grey-12: #c9d0d0,
+  // Not Available MasterBox in the Selector
+  grey-13: #b3bdbc,
+  //gift
+  grey-14: #f5f6f6,
+  // Background black
+  black-1: #31353a,
+  // Text
+  black-2: #242424,
+  // Text | Border
+  black-3: #1a1a1a,
+  // Text
+  black-4: #042522,
+  // Text
+  black-5: #000,
+  // Buttons
+  bt-hover: #34b2a5,
+  // For red buttons
+  red-1: #ffb29d,
+  red-2: #fa8a6b,
+  red-3: #e26f50,
+) !default;
+
+$text-black-T: map_get($color, 'black-1');
+$text-black-H: map_get($color, 'black-2');
+
+$text-grey: map_get($color, 'grey-7');
+$text-white: map_get($color, 'white-1');
+
+$text-green-brand: map_get($color, 'brand');
+$text-green-primary: map_get($color, 'primary');
+
+$text-yellow-secondary: map_get($color, 'secondary');
+
+$btn-warning-bg: map_get($color, 'red-3');
+$btn-warning-hover-bg: map_get($color, 'red-2');
+$btn-warning-disabled-bg: map_get($color, 'red-1');

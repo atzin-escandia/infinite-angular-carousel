@@ -1,0 +1,10 @@
+<div class="img-group" [ngClass]="{
+    'img-group--with-2': images.length === 2,
+    'img-group--with-3': images.length === 3,
+    'img-group--with-4': images.length === 4,
+    'img-group--more-than-4': images.length > 4,
+    'small': size === 'small'}">
+  <figure *ngFor="let src of images.slice(0,4)">
+    <img [src]="src" />
+  </figure>
+</div>

@@ -1,0 +1,452 @@
+<div class="manifest">
+  <section class="manifest-section manifest-section_intro pt-l pb-xl">
+    <div class="container">
+      <div class="col-12 manifest-animation">
+        <div lottie [options]="introAnimation"></div>
+      </div>
+    </div>
+
+    <div class="manifest-section_intro-title w-100 pt-l mob-pt-s">
+      <h1 class="t-black-H t-a-center" [ngClass]="domSrv.getIsDeviceSize() ? 't-h3-blackW' : 't-d2-blackW'">
+        {{ textSrv.getText('We are a solution for farming') }}
+      </h1>
+    </div>
+
+    <div class="container">
+      <div class="col-12 mt-xl mob-mt-m">
+        <p class="t-l-regular t-black-T t-a-center nomb"
+          [innerHTML]="textSrv.getText('We did not come about by typing code in a garage')"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifest-section manifest-section_founders pb-xxl">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-3" *ngFor="let founder of founders; let i = index">
+          <figure class="nom pb-s t-a-center">
+            <img [src]="founder.picture" [alt]="textSrv.getText('founder.name')"
+              [width]="domSrv.getIsDeviceSize() ? 106 : 152" [height]="domSrv.getIsDeviceSize() ? 106 : 152">
+            <figcaption class="t-black-T t-a-center mt-m"
+              [ngClass]="domSrv.getIsDeviceSize() ? 't-l-bold' : 't-l-bold'">{{textSrv.getText(founder.name)}}
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifest-section manifest-section_disintermediate mob-pt-xl pb-xxl mob-pb-xl">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h2 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-h4-blackW' : 't-h1-blackW'">
+            {{ textSrv.getText('We want to remove intermediaries') }}
+          </h2>
+
+          <p class="t-l-regular t-black-T pt-s"
+            [innerHTML]="textSrv.getText('We are working towards removing intermediaries')"></p>
+        </div>
+        <div class="manifest-animation col-12 col-md-6">
+          <div lottie [options]="disintermediateAnimation"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifest-section manifest-section_supermarket position-relative">
+    <div class="bg-top w-100 mb-xxl mob-mb-xl pb-m"></div>
+
+    <div class="container position-relative">
+      <div class="row mb-xxl mob-mb-l">
+        <div class="col-12">
+          <div class="narrowed-content">
+            <h2 class="t-black-H"
+              [ngClass]="domSrv.getIsDeviceSize() ? 't-h4-blackW' : 't-h1-blackW t-a-center pl-xxl pr-xxl'">
+              {{ textSrv.getText('We are not an online supermarket') }}
+            </h2>
+
+            <p class="t-l-regular t-black-T pt-s" [ngClass]="domSrv.getIsDeviceSize() ? '' : 't-a-center'">
+              {{ textSrv.getText('We do not have a purchasing hub') }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row flipcards-container">
+        <div class="narrowed-content" [ngClass]="domSrv.getIsDeviceSize() ? '' : 'row'">
+          <div class="col-6 pt-s" id="card1">
+            <div class="manifest-flipcard" id="supermarket-flipcard-01">
+              <div class="flipcard-wrapper" (click)="flipCard('supermarket-flipcard-01')">
+                <div
+                  class="flipcard-front d-flex flex-column align-items-center justify-content-between pt-l pr-l pl-l">
+                  <div class="flipcard-content d-flex flex-column justify-content-center">
+                    <div class="manifest-animation">
+                      <div lottie [options]="supermarketAnimation1"></div>
+                    </div>
+                    <h4 class="t-l-bold t-black-H t-a-center mt-m">
+                      {{ textSrv.getText('What happens when you buy directly') }}
+                    </h4>
+                  </div>
+                  <div class="pa-s">
+                    <i class="eva eva-plus-outline t-green-primary t-h4-regular pointer" aria-hidden="true"></i>
+                  </div>
+                </div>
+
+                <div class="flipcard-back pt-m pr-m pl-m d-flex flex-column align-items-center justify-content-between">
+                  <div class="flipcard-content d-flex flex-column justify-content-center">
+                    <h4 class="t-l-bold t-black-H t-a-center">
+                      {{ textSrv.getText('What happens when you buy directly') }}
+                    </h4>
+                    <p class="t-m-regular t-black-T t-a-center pt-s">
+                      {{ textSrv.getText('You are empowering them') }}
+                    </p>
+                  </div>
+                  <div class="pa-s">
+                    <i class="eva eva-close-outline t-green-primary t-h4-regular pointer" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6 pt-s" id="card2">
+            <div class="manifest-flipcard" id="supermarket-flipcard-02">
+              <div class="flipcard-wrapper" (click)="flipCard('supermarket-flipcard-02')">
+                <div
+                  class="flipcard-front d-flex flex-column align-items-center justify-content-between pt-l pr-l pl-l">
+                  <div class="flipcard-content d-flex flex-column justify-content-center">
+                    <div class="manifest-animation">
+                      <div lottie [options]="supermarketAnimation2"></div>
+                    </div>
+                    <h4 class="t-l-bold t-black-H t-a-center mt-m">
+                      {{ textSrv.getText('Do you shop consciously') }}
+                    </h4>
+                  </div>
+                  <div class="pa-s">
+                    <i class="eva eva-plus-outline t-green-primary t-h4-regular pointer" aria-hidden="true"></i>
+                  </div>
+                </div>
+
+                <div class="flipcard-back pt-m pr-m pl-m d-flex flex-column align-items-center justify-content-between">
+                  <div class="flipcard-content d-flex flex-column justify-content-center">
+                    <h4 class="t-l-bold t-black-H t-a-center">
+                      {{ textSrv.getText('Do you shop consciously') }}
+                    </h4>
+                    <p class="t-m-regular t-black-T t-a-center pt-s">
+                      {{ textSrv.getText('Do you get the answer to these questions') }}
+                    </p>
+                  </div>
+                  <div class="pa-s">
+                    <i class="eva eva-close-outline t-green-primary t-h4-regular pointer" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-bottom w-100"></div>
+  </section>
+
+  <section class="manifest-section manifest-section_winner pt-xxl mob-pt-xl">
+    <div class="container pt-xl mob-pt-xs mt-m mob-mt-xs">
+      <div class="row">
+        <div class="col-12">
+          <h2 class=" t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-h4-blackW' : 't-h1-blackW'">
+            {{ textSrv.getText('Win-Win-Winner') }}
+          </h2>
+        </div>
+      </div>
+      <div class="row mt-s">
+        <div class="col-12 col-md-6">
+          <p class="t-l-regular t-black-T">
+            {{ textSrv.getText('Our economic model') }}
+          </p>
+        </div>
+        <div class="col-12 col-md-6">
+          <p class="t-l-regular t-black-T">
+            {{ textSrv.getText('This beautiful vision') }}
+          </p>
+        </div>
+      </div>
+      <div class="row manifest-animation">
+        <div lottie [options]="winnerAnimation"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifest-section manifest-section_lovers position-relative">
+    <div class="bg-top w-100 mb-xxl mob-mb-xl pb-m"></div>
+
+    <div class="container position-relative pb-xl">
+      <div class="row flex-sm-column-reverse flex-md-row pb-xxl mob-pb-xl">
+        <div class="col-12 col-md-5 flipcards-container">
+          <div>
+            <div class="manifest-flipcard mb-l mob-mr-xl" id="lovers-flipcard-01">
+              <div class="flipcard-wrapper" id="card3" (click)="flipCard('lovers-flipcard-01')">
+                <div
+                  class="flipcard-front d-flex flex-column align-items-center justify-content-between pt-l pr-l pl-l">
+                  <div class="flipcard-content d-flex flex-column justify-content-center">
+                    <div class="manifest-animation">
+                      <div lottie [options]="loversAnimation1"></div>
+                    </div>
+                    <h4 class="t-l-bold t-black-H t-a-center mt-m">
+                      {{ textSrv.getText('We banish commercial beauty stereotypes') }}
+                    </h4>
+                  </div>
+                  <div class="pa-s">
+                    <i class="eva eva-plus-outline t-green-primary t-h4-regular pointer" aria-hidden="true"></i>
+                  </div>
+                </div>
+
+                <div class="flipcard-back pt-m pr-m pl-m d-flex flex-column align-items-center justify-content-between">
+                  <div class="flipcard-content d-flex flex-column justify-content-center">
+                    <h4 class="t-l-bold t-black-H t-a-center">
+                      {{ textSrv.getText('We banish commercial beauty stereotypes') }}
+                    </h4>
+                    <p class="t-m-regular t-black-T t-a-center pt-s">
+                      {{ textSrv.getText('Why demand a shiny piece of fruit') }}
+                    </p>
+                  </div>
+                  <div class="pa-s">
+                    <i class="eva eva-close-outline t-green-primary t-h4-regular pointer" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="manifest-flipcard mob-mr-m" id="lovers-flipcard-02">
+              <div class="flipcard-wrapper" id="card4" (click)="flipCard('lovers-flipcard-02')">
+                <div
+                  class="flipcard-front d-flex flex-column align-items-center justify-content-between pt-l pr-l pl-l">
+                  <div class="flipcard-content d-flex flex-column justify-content-center">
+                    <div class="manifest-animation">
+                      <div lottie [options]="loversAnimation2"></div>
+                    </div>
+                    <h4 class="t-l-bold t-black-H t-a-center mt-m">
+                      {{ textSrv.getText('Food waste in figures') }}
+                    </h4>
+                  </div>
+                  <div class="pa-s">
+                    <i class="eva eva-plus-outline t-green-primary t-h4-regular pointer" aria-hidden="true"></i>
+                  </div>
+                </div>
+
+                <div class="flipcard-back pt-m pr-m pl-m d-flex flex-column align-items-center justify-content-between">
+                  <div class="flipcard-content d-flex flex-column justify-content-center">
+                    <h4 class="t-l-bold t-black-H t-a-center">
+                      {{ textSrv.getText('Food waste in figures') }}
+                    </h4>
+                    <p class="t-m-regular t-black-T t-a-center pt-s">
+                      {{ textSrv.getText('A lot of food waste happens before it reaches our homes') }}
+                    </p>
+                  </div>
+                  <div class="pa-s">
+                    <i class="eva eva-close-outline t-green-primary t-h4-regular pointer" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-12 col-md-7">
+          <h2 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-h4-blackW' : 't-h1-blackW'">
+            {{ textSrv.getText('Lovers of ugly fruit') }}
+          </h2>
+
+          <p class="'t-l-regular t-black-T pt-s"
+            [innerHTML]="textSrv.getText('Consumers are more and more aware of food waste')"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-bottom w-100"></div>
+  </section>
+
+  <section class="manifest-section manifest-section_politically-incorrect pt-l pb-xxl mob-pb-xl">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h2 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-h4-blackW' : 't-h1-blackW'">
+            {{ textSrv.getText('Politically incorrect') }}
+          </h2>
+
+          <p class="t-l-regular t-black-T pt-m" [innerHTML]="textSrv.getText('We believe that there is an approach')">
+          </p>
+        </div>
+
+        <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+          <div lottie [options]="politicallyIncorrectAnimation"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifest-section manifest-section_values" id="multilocalAnimationTrigger">
+    <div class="bg-top w-100"></div>
+
+    <div class="container pt-xl mob-pt-s pb-xl mob-pb-s">
+      <div class="row pt-m pb-s">
+        <div class="col-12 col-md-6">
+          <h2 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-h4-blackW' : 't-h1-blackW'">
+            {{ textSrv.getText('We are always faithful to our values') }}
+          </h2>
+
+          <div class="manifest-section_values-animations" *ngIf="!domSrv.getIsDeviceSize()">
+            <div lottie [options]="valuesBraveryAnimation" *ngIf="selectedTab === 'bravery'"></div>
+            <div lottie [options]="valuesHumanityAnimation" *ngIf="selectedTab === 'humanity'"></div>
+            <div lottie [options]="valuesInnovationAnimation" *ngIf="selectedTab === 'innovation'"></div>
+            <div lottie [options]="valuesSustainabilityAnimation" *ngIf="selectedTab === 'sustainability'"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 manifest-section_values-tabs">
+          <div class="manifest-section_values-tabs-header-container center-content-container mob-mt-m"
+            id="manifest-section_values">
+            <div class="manifest-section_values-tabs-header mob-pl-m mob-pr-m">
+              <button *ngFor="let value of values; let i = index;" [id]="value.id" role="tab"
+                [ngStyle]="{'background-image': 'url(' + (selectedTab === value.id ? value.backgroundActive : value.background) + ')'}"
+                (click)="selectedTab = value.id">
+                <span class="d-block t-a-center t-m-regular t-white">
+                  {{ textSrv.getText(value.name) }}
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <div class="manifest-section_values-animations mt-l" *ngIf="domSrv.getIsDeviceSize()">
+            <div lottie [options]="valuesBraveryAnimation" *ngIf="selectedTab === 'bravery'"></div>
+            <div lottie [options]="valuesHumanityAnimation" *ngIf="selectedTab === 'humanity'"></div>
+            <div lottie [options]="valuesInnovationAnimation" *ngIf="selectedTab === 'innovation'"></div>
+            <div lottie [options]="valuesSustainabilityAnimation" *ngIf="selectedTab === 'sustainability'"></div>
+          </div>
+
+          <div class="manifest-section_values-tabs-content mt-xxl mob-mt-s">
+            <div role="tabpanel" [ngClass]="{'hidden': selectedTab !== 'bravery'}">
+              <h3 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-l-bold' : 't-h4-bold'">
+                {{ textSrv.getText('Be Brave') }}
+              </h3>
+
+              <p class="t-l-regular t-black-T pt-m">
+                {{ textSrv.getText('Be brave:') }}
+              </p>
+            </div>
+
+            <div role="tabpanel" [ngClass]="{'hidden': selectedTab !== 'humanity'}">
+              <h3 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-l-bold' : 't-h4-bold'">
+                {{ textSrv.getText('Be Compassionate') }}
+              </h3>
+
+              <p class="t-l-regular t-black-T pt-m">
+                {{ textSrv.getText('Be compassionate:') }}
+              </p>
+            </div>
+
+            <div role="tabpanel" [ngClass]="{'hidden': selectedTab !== 'innovation'}">
+              <h3 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-l-bold' : 't-h4-bold'">
+                {{ textSrv.getText('Be Innovative') }}
+              </h3>
+
+              <p class="t-l-regular t-black-T pt-m">
+                {{ textSrv.getText('Be innovative:') }}
+              </p>
+            </div>
+
+            <div role="tabpanel" [ngClass]="{'hidden': selectedTab !== 'sustainability'}">
+              <h3 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-l-bold' : 't-h4-bold'">
+                {{ textSrv.getText('Be Sustainable') }}
+              </h3>
+
+              <p class="t-l-regular t-black-T pt-m">
+                {{ textSrv.getText('Be sustainable:') }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-bottom w-100"></div>
+  </section>
+
+  <section class="manifest-section manifest-section_multilocal pb-l">
+    <div class="container pt-m pb-xxl mob-pb-l">
+      <div class="row">
+        <div class="content col-12" [ngClass]="domSrv.getIsDeviceSize() ? '' : 'pl-xxl pr-xxl'">
+          <h2 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-h4-blackW' : 't-h1-blackW t-a-center'">
+            {{ textSrv.getText('Multi-local mindset versus globalisation') }}
+          </h2>
+
+          <p class="t-l-regular t-black-T pt-m" [ngClass]="domSrv.getIsDeviceSize() ? '' : 't-a-center'"
+            [innerHTML]="textSrv.getText('We foster an agricultural market')"></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 center-content-container" id="manifest-section_multilocal">
+          <div class="center-content manifest-animation d-flex justify-content-center">
+            <div lottie [options]="multilocalAnimation"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifest-section manifest-section_mistakes">
+    <div class="bg-top w-100"></div>
+
+    <div class="container pt-l pb-l">
+      <div class="row pt-s pb-s">
+        <div class="col-12 col-md-6">
+          <h2 class="t-black-H" [ngClass]="domSrv.getIsDeviceSize() ? 't-h4-blackW' : 't-h1-blackW'">
+            {{ textSrv.getText('We make mistakes') }}
+          </h2>
+
+          <p class="t-l-regular t-black-T pt-m"
+            [innerHTML]="textSrv.getText('We are human and everything we do can be improved.')"></p>
+        </div>
+        <div class="col-12 col-md-6 manifest-animation mob-mt-m mob-mb-m">
+          <div lottie [options]="mistakesAnimation"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-bottom w-100"></div>
+  </section>
+
+  <section class="manifest-section manifest-section_cta position-relative pt-xxl mob-pt-s">
+    <div class="container pt-s">
+      <div class="row">
+        <div class="col-6" *ngIf="!domSrv.getIsDeviceSize()">
+          <img
+            src="https://common.crowdfarming.com/uploaded-images/1613037943788-405b485d-a5c7-4585-9649-3fd7fac1701c.svg"
+            [alt]="textSrv.getText('Mercado de productores')" width="336" height="295">
+        </div>
+
+        <div class="col-12 col-md-6 d-flex flex-column justify-content-center">
+          <h2 class="t-black-H mb-xl" [ngClass]="domSrv.getIsDeviceSize() ? 't-h5-bold' : 't-h3-bold'">
+            {{ textSrv.getText('Do you want to try genuine food straight from the producer?') }}
+          </h2>
+
+          <cf-button *ngIf="!app" class="d-block" [width]="domSrv.getIsDeviceSize() ? 'auto' : 'fit'"
+            [ngClass]="domSrv.getIsDeviceSize() ? '' : 'mb-xl'" (click)="routerSrv.navigateToFarmersMarket('ADOPTION')">
+            {{textSrv.getText('Farmers market')}}
+          </cf-button>
+        </div>
+
+        <div class="col-12 t-a-center mt-xxl" *ngIf="domSrv.getIsDeviceSize()">
+          <img
+            src="https://common.crowdfarming.com/uploaded-images/1613037943788-405b485d-a5c7-4585-9649-3fd7fac1701c.svg"
+            [alt]="textSrv.getText('Mercado de productores')" width="215" height="188">
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-bottom position-absolute"></div>
+  </section>
+</div>

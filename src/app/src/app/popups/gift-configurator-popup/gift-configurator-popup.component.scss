@@ -1,0 +1,66 @@
+@import '../../../scss/commons.scss';
+
+.gift-configurator-popup-container {
+  max-width: 100%;
+  font-size: 12px;
+
+  @media (min-width: map_get($grid-breakpoints, 'sm')) {
+    width: 559px;
+    font-size: 16px;
+  }
+}
+
+.input-radio {
+  accent-color: $greenLink;
+  width: 20px;
+  height: 20px;
+
+  &.schedule {
+    margin-right: 7px;
+  }
+}
+
+textarea {
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.tooltip {
+  z-index: 9;
+  position: absolute;
+  bottom: 35px;
+  left: -25px;
+  width: 260px;
+  transition: opacity 0.125s ease-in-out;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 12px;
+  opacity: 0;
+  line-height: initial;
+  box-shadow: 0 0 4px rgb(4 37 34 / 12%), 0 8px 16px rgb(4 37 34 / 8%);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 14%;
+    width: 12px;
+    bottom: -6px;
+    height: 12px;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: #fff;
+    border-right: 1px solid rgba(4, 37, 34, 0.12);
+    border-bottom: 1px solid rgba(4, 37, 34, 0.12);
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+.gift-calendar {
+  width: 100%;
+
+  @media (min-width: map_get($grid-breakpoints, 'sm')) {
+    width: 60%;
+  }
+}

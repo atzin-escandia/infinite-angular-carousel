@@ -1,0 +1,23 @@
+<div class="accordion-row">
+  <div class="accordion-row__header" (click)="onRadioChange()">
+    <div class="row justify-content-between align-items-center">
+      <div class="col">
+        <div class="d-flex align-items-center">
+          <radio-button [isSelected]="isChecked"></radio-button>
+          <label class="accordion-row__label" [for]="option.key">{{ option.label }}</label>
+        </div>
+      </div>
+      <div class="col-auto">
+        <ng-content select="[icon]"></ng-content>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="canExpand"
+    class="accordion-row__body"
+    [ngClass]="{ expanded: isChecked, display: animationDone }"
+    [@collapse]="!isChecked"
+    (@collapse.done)="onAnimationEvent($event)">
+    <ng-content select="[body]"></ng-content>
+  </div>
+</div>

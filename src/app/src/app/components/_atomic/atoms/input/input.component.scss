@@ -1,0 +1,95 @@
+@import '../../../../../scss/commons.scss';
+
+.input-field {
+  &__label {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 4px;
+  }
+
+  .input-wrapper {
+    position: relative;
+
+    .input-icon {
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &.start {
+        left: 16px;
+      }
+
+      &.end {
+        right: 16px;
+      }
+    }
+
+    input {
+      width: 100%;
+      color: #111;
+      padding: 14px 6px 14px 16px;
+      font-size: 16px;
+      line-height: 20px;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      outline: none;
+
+      &:disabled {
+        opacity: 0.5;
+      }
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.38);
+        font-family: 'Montserrat', Helvetica, sans-serif;
+        font-size: 16px;
+      }
+
+      &:focus,
+      &:focus-visible {
+        outline: map_get($color, 'primary') auto 1px;
+      }
+
+      &.error {
+        border-color: map_get($color, 'supp-3');
+
+        &:focus,
+        &:focus-visible {
+          outline: map_get($color, 'supp-3') auto 1px;
+        }
+      }
+
+      &.with-icon {
+        &.icon-left {
+          padding-left: 54px;
+        }
+
+        &.icon-right {
+          padding-right: 54px;
+        }
+      }
+    }
+  }
+
+  &__error {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    color: map_get($color, 'supp-3');
+
+    i {
+      font-size: 16px;
+      margin-right: 6px;
+    }
+
+    span {
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+}

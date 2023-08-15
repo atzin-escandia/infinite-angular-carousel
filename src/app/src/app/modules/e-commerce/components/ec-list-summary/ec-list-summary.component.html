@@ -1,0 +1,10 @@
+<section class="ec-list-summary">
+  <div *ngFor="let item of itemList" class="ec-list-summary__item">
+    <ec-item-summary
+      [itemData]="item"
+      [quantity]="item.quantity"
+      [isOpened]="isOpened"
+      (quantityChange)="changeItem($event)"
+      (click)="goToDetail($event, item)"></ec-item-summary>
+  </div>
+</section>

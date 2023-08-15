@@ -1,0 +1,57 @@
+@import '../../../../../scss/commons.scss';
+
+.products-section {
+  display: grid;
+  grid-template-rows: repeat(3, auto);
+  row-gap: 40px;
+
+  &__header {
+    &-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__body {
+    &-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      margin-bottom: 16px;
+    }
+
+    .products-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      &__item {
+        & + .products-list__item {
+          margin-top: 16px;
+        }
+      }
+
+      .info-box {
+        padding: 6px 8px;
+        border: 1px solid #e26f50;
+        background-color: #fdf4f1;
+        border-radius: 8px;
+        margin-top: 16px;
+
+        &__icon {
+          margin-right: 6px;
+          color: #e26f50;
+        }
+
+        &__text {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 20px;
+          color: #81331f;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@import '../../../../../scss/colors.scss';
+
+.order-status-chip {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 6px;
+
+  & span {
+    white-space: nowrap;
+  }
+
+  &-text-wrapper {
+    border-radius: 5px;
+    display: inline-flex;
+  }
+
+  &-delivered,
+  &-closed-incident,
+  &-adopted,
+  &-completed {
+    color: map_get($color, 'supp-1');
+    background: rgba(93, 162, 13, 0.08);
+  }
+
+  &-planned,
+  &-sent,
+  &-in-preparation,
+  &-in-progress,
+  &-pending {
+    color: map_get($color, 'supp-4');
+    background: rgba(39, 167, 255, 0.08);
+  }
+
+  &-cancelled,
+  &-rejected,
+  &-declined {
+    color: map_get($color, 'supp-3');
+    background: rgba(222, 17, 39, 0.08);
+  }
+
+  &-possible-delay,
+  &-open-incident {
+    color: map_get($color, 'supp-2');
+    background: rgba(235, 191, 5, 0.08);
+  }
+}

@@ -1,0 +1,14 @@
+<ng-container *transloco="let t">
+  <div class="email-sent-popup">
+    <figure class="email-sent-popup__img-wrapper">
+      <img src="/assets/img/illustration/email-sent.svg" />
+    </figure>
+    <h3 class="email-sent-popup__title">{{t('notifications.email-sent.title')}}</h3>
+    <p class="email-sent-popup__description">{{t('notifications.email-sent-delete-account.body')}}</p>
+    <p class="email-sent-popup__email">{{email}}</p>
+    <p class="email-sent-popup__description">{{t('notifications.email-sent-spam-folder.body')}}</p>
+    <div class="email-sent-popup__button-area">
+      <cf-button [width]="'auto'" (click)="handleClickCloseButton()">{{t('global.understood.button')}}</cf-button>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,70 @@
+<ng-container *transloco="let t">
+  <div class="split-payment">
+    <div class="split-payment__card">
+      <div class="split-payment__card-row">
+        <h4 class="t-m-medium t-black-H mb-s">{{ t('page.share-group-order-expenses.label') }}</h4>
+        <p class="t-m-regular t-grey">{{ t('page.share-group-order-expenses.body') }}</p>
+      </div>
+      <div class="split-payment__card-row mt-3">
+        <div class="row align-items-end justify-content-between mb-3">
+          <div class="col-auto">
+            <h4 class="t-m-regular t-black-H nom">{{ t('global.total.body') }}</h4>
+          </div>
+          <div class="col-auto">
+            <p class="t-xs-regular t-grey nom mb-1">{{ t('global.vat-included.text-info') }}</p>
+            <p class="t-l-bold t-black-H text-right nom">{{ groupOrderTotal?.amount | currency }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="split-payment__card-divider"></div>
+      <div class="split-payment__card-row mt-3">
+        <div class="row align-items-end justify-content-between">
+          <div class="col-auto">
+            <h4 class="t-m-regular t-black-H mb-s">{{ t('page.people-invited.label') }}</h4>
+            <cf-quantity [min]="1" [max]="4" [quantity]="guestsNum" [size]="'s'" (step)="onQuantityChange($event)"></cf-quantity>
+          </div>
+          <div class="col-auto">
+            <div class="d-flex flex-column align-items-end">
+              <p class="t-xs-regular t-grey nom mb-1">{{ t('page.price-per-person.label') }}</p>
+              <custom-spinner *ngIf="loadingSplitPrice" [diameter]="28"></custom-spinner>
+              <ng-container *ngIf="!loadingSplitPrice">
+                <p class="t-l-bold t-green-primary nom">
+                  {{ groupOrderTotal?.groupOrderAmount?.guests | currency }}
+                </p>
+                <div
+                  *ngIf="groupOrderTotal?.groupOrderAmount?.promoter !== groupOrderTotal?.groupOrderAmount?.guests"
+                  class="promoter-payment-info mt-1">
+                  <custom-tooltip>
+                    <ng-container target>
+                      <p class="t-xs-regular t-grey nom">
+                        (
+                        {{ t('page.your-part-paid.label') }}
+                        <span class="t-s-bold">{{ groupOrderTotal?.groupOrderAmount?.promoter | currency }}</span>
+                        )
+                      </p>
+                    </ng-container>
+                    <ng-container dialog>
+                      <span class="t-s-regular t-black-H text-left nom">
+                        {{ t('notifications.due-to-the-irregular-splitment.text-info') }}
+                      </span>
+                    </ng-container>
+                  </custom-tooltip>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="split-payment__checkbox mt-3">
+      <cf-check [checked]="promoterAssumesPayment" (checkedChange)="promoterFullPaymetCheckOnChange($event)" [colour]="'grey1BG'">
+        <span class="t-grey t-m-regular" [innerHTML]="t('global.promoter-assumes-payment-checkbox.text-info')"></span>
+      </cf-check>
+
+      <p class="pointer t-green-primary green-link more-info-link" (click)="moreInfoCheckboxClick()">
+        {{ t('global.more-information.text-link') }}
+      </p>
+    </div>
+  </div>
+</ng-container>

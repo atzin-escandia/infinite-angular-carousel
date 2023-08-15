@@ -1,0 +1,53 @@
+<div *ngIf="blogPosts?.length" class="blog-posts container my-5 py-5">
+  <h2 *transloco="let t" class="title t-black-T t-h2-blackW d-block t-a-center mb-5">
+    {{t('page.crowdfarming-blog.title')}}
+  </h2>
+
+  <div class="w-100 px-3 blog-posts-container">
+    <div class="d-flex blog-posts-container-overflow" *ngIf="loaded && blogPosts?.length">
+      <div *ngFor="let post of blogPosts; let i = index"
+        class="blog-post mr-m ml-m mob-mr-s mob-ml-s d-flex flex-column">
+        <a href="{{post.link}}" target="_blank">
+          <img src="{{post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}}"
+            alt="{{post.title?.rendered}}" class="img w-100 border-rs"/>
+        </a>
+
+        <div class="blog-post-content d-flex flex-column justify-content-between">
+          <div>
+            <h3 class="post-title t-black-T t-h4-bold mt-m mob-mt-s" [innerHTML]="post.title?.rendered | safeHtml">
+            </h3>
+            <p class="post-text t-grey t-l-regular mt-s mb-0" [innerHTML]="post.excerpt?.rendered | safeHtml">
+            </p>
+          </div>
+
+          <a *transloco="let t" href="{{post.link}}" target="_blank" class="d-block t-m-regular t-a-right mt-s">
+            {{t('page.learn-more.text-link')}}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loaders -->
+    <div *ngIf="!loaded" class="d-flex blog-posts-container-overflow">
+      <div *ngFor="let dummy of [1, 2, 3]; let i = index"
+        class="blog-posts-loader mr-m ml-m mob-mr-s mob-ml-s d-flex flex-column">
+        <div class="col-12 loading-post-container loading-post-image">
+        </div>
+        <div class="col-10 loading-post-container loading-post-title">
+        </div>
+        <ul class="col-12 loading-post-text">
+          <li class="loading-post-container mb-xs">
+          </li>
+          <li class="loading-post-container mb-xs">
+          </li>
+          <li class="loading-post-container mb-xs">
+          </li>
+          <li class="loading-post-container">
+          </li>
+        </ul>
+        <div class="col-10 loading-post-container loading-post-container-green loading-post-button">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

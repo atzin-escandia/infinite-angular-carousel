@@ -1,0 +1,70 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+@import '../../../../../scss/commons.scss';
+@import '../../../../../scss/variables.scss';
+
+.custom-order-card-content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: pxToRem(16);
+    width: 100%;
+  }
+
+  &__imgs {
+    position: relative;
+    width: pxToRem(88);
+    min-width: pxToRem(88);
+  }
+
+  &__data-status {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  &__data-price {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  &__data {
+    position: relative;
+    display: flex;
+    gap: pxToRem(2);
+    flex-direction: column;
+  }
+
+  &__price {
+    font-size: pxToRem(14);
+  }
+
+  @media (min-width: map_get($grid-breakpoints, 'md')) {
+    &__data-price {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding-right: pxToRem(24);
+    }
+
+    &__price {
+      font-size: pxToRem(16);
+    }
+  }
+
+  @media (min-width: map_get($grid-breakpoints, 'lg')) {
+    &__imgs {
+      width: pxToRem(128);
+      min-width: pxToRem(128);
+    }
+  }
+}

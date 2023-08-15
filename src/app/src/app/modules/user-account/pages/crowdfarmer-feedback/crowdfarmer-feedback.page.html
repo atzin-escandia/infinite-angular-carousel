@@ -1,0 +1,49 @@
+<ng-container *transloco="let t">
+  <div *ngIf="!finalScreen" class="form-container">
+    <ds-form-flow [title]="surveyTitle" [description]="descriptionForm" [buttonText]="buttonText"
+      (stepChange)="goBack()" [stepActive]="stepActive" (buttonClick)="nextStep()">
+      <article *ngIf="stepActive === 1" class="satisfaction-container">
+        <div (click)="setRating(orderFeedbackKey.LIKE)" class="img-container">
+          <img [src]="env.domain + '/assets/img/crowdfarmers-feedback/good.svg'" />
+        </div>
+        <div (click)="setRating(orderFeedbackKey.AVERAGE)" class="img-container">
+          <img [src]="env.domain + '/assets/img/crowdfarmers-feedback/regular.svg'"/>
+        </div>
+        <div (click)="setRating(orderFeedbackKey.DONTLIKE)" class="img-container">
+          <img [src]="env.domain + '/assets/img/crowdfarmers-feedback/bad.svg'" />
+        </div>
+        <p class="t-body-s light-content-secondary">{{t('page.select-option-identify.text-info')}}</p>
+      </article>
+      <div *ngIf="activeForm && stepActive === 2" class="wrapper-gap">
+        <div *ngFor="let checkbox of activeForm" class="checkbox-wrapper">
+          <ds-checkbox
+            (selectCheckboxEvent)="checkedChange($event, checkbox.responseID)"
+            [checked]="feedbackForm.value[checkbox.responseID]"
+            [labelText]="t(checkbox.label)">
+          </ds-checkbox>
+        </div>
+        <div *ngIf="validationError" class="ds-input-error-msg">
+          <div class="mr-s eva eva-alert-triangle-outline">
+          </div>
+          {{t('global.select-option.text-info')}}
+        </div>
+      </div>
+      <div *ngIf="stepActive === 3">
+        <ng-container>
+          <ds-textarea
+            (textEnter)="setTextAreaInfo($event)"
+            [label]="t('page.leave-comments.form')"
+            [maxlength]="maxCharacter">
+          </ds-textarea>
+          <span class="max-character">{{ t('page.Maximum-charactersbody', { num: maxCharacter }) }}</span>
+        </ng-container>
+      </div>
+    </ds-form-flow>
+  </div>
+  <div *ngIf="finalScreen" class="final-screen">
+    <img [src]="finalInfo.image" />
+    <h3 class="t-title-m light-content-primary">{{finalInfo.title}}</h3>
+    <p class="t-body-s light-content-secondary mb-xl">{{finalInfo.text}}</p>
+    <ds-button (buttonClick)="setTargetRoute()" [content]="setButtonRouteText()"></ds-button>
+  </div>
+</ng-container>

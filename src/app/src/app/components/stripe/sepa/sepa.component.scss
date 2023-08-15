@@ -1,0 +1,28 @@
+@import '../../../../scss/colors.scss';
+
+:host {
+  max-width: 400px;
+
+  .stripe-sepa- {
+    &form {
+      border-radius: 5px;
+    }
+
+    &container {
+      max-width: 100%;
+      margin: auto;
+    }
+
+    &element {
+      background: white;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      padding: 14px 6px 14px 16px;
+    }
+
+    &error {
+      font-size: 14px;
+      color: $red;
+    }
+  }
+}

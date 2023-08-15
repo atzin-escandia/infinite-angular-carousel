@@ -1,0 +1,55 @@
+<ng-container *transloco="let t">
+  <div class="gp-invitation-popup-container">
+    <div class="mb-m gp-invitation-popup__header">
+      <div class="row justify-content-between mb-2">
+        <div class="col">
+          <h4 class="t-black-H t-l-bold nom">{{ t('notifications.invitations-modal.title') }}</h4>
+        </div>
+        <div class="col-auto">
+          <i class="eva eva-close-outline t-xl-regular t-black-T pointer" aria-hidden="true" (click)="closePopup()"></i>
+        </div>
+      </div>
+      <p class="t-m-regular t-grey nom">{{ t('notifications.invitations-text.body') }}</p>
+    </div>
+    <div class="mb-l gp-invitation-popup__body">
+      <div class="body-row">
+        <app-copy-clipboard-input [copyText]="invitationUrlLink"></app-copy-clipboard-input>
+      </div>
+      <div class="body-row mt-m">
+        <div class="body-divider">
+          <p class="t-m-regular t-grey nom">
+            <span>{{ t('global.or.body') }}</span>
+          </p>
+        </div>
+      </div>
+      <div class="body-row mt-m">
+        <app-input-emails-chips
+          [emailsList]="invitationEmailsList"
+          [maxEmailsLength]="invitationsLimit"
+          (emailsListChange)="emailsListChangeHandler($event)"></app-input-emails-chips>
+      </div>
+      <div class="body-row mt-m">
+        <p class="t-grey t-s-regular mb-s">{{ t('notifications.customised-message.label') }} {{ t('global.optional-input.form') }}</p>
+        <textarea [ngClass]="{ error: isErrorTextarea }" [(ngModel)]="invitationMsg"></textarea>
+        <div class="d-flex justify-content-end mt-xs">
+          <span class="textarea-max-length t-s-regular" [ngClass]="{ error: isErrorTextarea, 't-grey': !isErrorTextarea }">
+            {{ invitationMsg.length }}/{{ maxInvitationMsgLength }}
+          </span>
+        </div>
+      </div>
+      <div class="body-row mt-s">
+        <cf-check [(checked)]="isPrivacyPolicyAccepted" [colour]="'grey1BG'">
+          <span class="t-grey t-m-regular">
+            {{ t('notifications.authorization-emails.text-link') }}
+            <span [innerHTML]="t('notifications.accept-policy-conditions.label')" (click)="privacyPolicyCheckboxLinkClick($event)"></span>
+          </span>
+        </cf-check>
+      </div>
+    </div>
+    <div class="gp-invitation-popup__action">
+      <cf-button [width]="domSrv.getIsDeviceSize() ? 'auto' : 'fit'" [disabled]="!canSubmit || isLoading" (click)="onSubmit()">
+        {{ t('notifications.send-invitations.button') }}
+      </cf-button>
+    </div>
+  </div>
+</ng-container>

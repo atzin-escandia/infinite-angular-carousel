@@ -1,0 +1,10 @@
+<ng-container *transloco="let t">
+  <cf-select
+  [placeholder]="t('global.contact-language.body')"
+  [optionsValue]="langSelect"
+  [optionsShow]="notificationLanguageSelect"
+  [(selected)]="dataToReturn"
+  [whiteSelect]="true"
+  (selectedChange)="saveLang()">
+  </cf-select>
+</ng-container>

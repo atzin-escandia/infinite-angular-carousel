@@ -1,0 +1,26 @@
+@import './colors.scss';
+@import './variables.scss';
+
+.separator {
+  height: 2px;
+  width: 100%;
+  margin: 32px 0;
+  background-color: map_get($color, 'grey-2');
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    width: calc(100% - 32px);
+    margin: 16px auto 16px auto;
+  }
+
+  &.inner {
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+  }
+}
+
+.user-account-container {
+  @media (min-width: map_get($grid-breakpoints, 'lg')) {
+    max-width: calc(100% - 300px);
+  }
+}

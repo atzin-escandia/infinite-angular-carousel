@@ -1,0 +1,19 @@
+@import '../../../../scss/commons.scss';
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.bullets-container {
+  background-color: $greenBG3;
+
+  p {
+    font-size: 14px;
+
+    @include bp(device-m) {
+      font-size: 16px;
+      margin-left: 1rem;
+    }
+  }
+
+  img {
+    height: 64px;
+  }
+}

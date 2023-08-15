@@ -1,0 +1,17 @@
+<div *transloco="let t" class="impact-message">
+  <ng-container *ngIf="isDevMode"><div [attr.impact-message]="impactMessage.name"></div></ng-container>
+  <div *ngIf="impactMessage; else dummyImpactMessage" class="container border-disabled-1x" [ngClass]="{'reverse' : reverse}">
+    <img class="image" [src]="impactMessage.imageUrl"/>
+    <div class="message">
+      <h3 class="mb-xs">{{t(impactMessage.title)}}</h3>
+      <p class="t-text-regular t-grey">{{t(impactMessage.message)}}</p>
+      <a *ngIf="link" class="mt-m d-block" target="_blank" [href]="link">{{t('page.learn-more.text-link')}}</a>
+    </div>
+  </div>
+  <ng-template #dummyImpactMessage class="container border-disabled-1x">
+    <div class="image dummy"></div>
+    <div class="message">
+      <div class="dummy-line" *ngFor="let item of [1,2,3]"></div>
+    </div>
+  </ng-template>
+</div>

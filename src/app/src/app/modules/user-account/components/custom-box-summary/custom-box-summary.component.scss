@@ -1,0 +1,22 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.custom-box-summary {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: pxToRem(16);
+  padding-top: pxToRem(16);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__imgs {
+    width: pxToRem(88);
+  }
+
+  @include bp(device-s) {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,102 @@
+<ng-container *transloco="let t">
+  <div *ngIf="giftData" class="gift-configurator-popup-container p-auto p-md-5" id="gift-configurator-popup-block">
+    <h4 class="t-h3-medium t-black-H mb-xl">{{ t('page.set-up-gift.title') }}</h4>
+
+    <cf-input class="mb-xl" [error]="errorIn.name">
+      <input
+        name="name"
+        type="text"
+        [(ngModel)]="giftData.name"
+        placeholder="{{t('page.recipient-name.form')}}"
+        maxlength="30"
+       (blur)="checkInput('name')"
+       (keyup)="checkInput('name')"/>
+      <div *ngIf="errorIn.name" class="cf-input-error-msg">
+        {{t('page.Must-be-between.text-info')}}
+      </div>
+    </cf-input>
+
+    <cf-input class="mb-l" [error]="errorIn.email">
+      <input
+        name="email"
+        type="email"
+        placeholder="{{ t('page.recipient-email.form') }}"
+        [(ngModel)]="giftData.email"
+        (blur)="checkInput('email')"
+        (keyup)="checkInput('email')"/>
+      <div *ngIf="errorIn.email" class="cf-input-error-msg">
+        {{isOwnGift ? t('page.recipient-email-error.form') : t('page.format-not-valid.text-info')}}
+      </div>
+    </cf-input>
+
+    <div class="mb-m">
+      <textarea
+        class="mb-s w-100 p-3"
+        maxlength="255"
+        name="message"
+        [(ngModel)]="giftData.message"
+        [placeholder]="t('page.personalized-email-message.form') + ' ' + t('global.optional-input.form')">
+      </textarea>
+      <small class="t-black-H">{{ t('page.Maximum-charactersbody', { num: 255 }) }}</small>
+    </div>
+
+    <!-- Schedule block -->
+    <div class="d-flex flex-column position-relative mb-m">
+      <p class="t-m-medium t-black-H d-flex mb-s">{{ t('page.when-send-email.text-info') }}</p>
+
+      <label class="t-m-regular t-grey" for="today">
+        <input class="mr-2 input-radio" type="radio"
+          [checked]="!giftData.isSchedule"
+          id="today"
+          name="date"
+          (change)="handleClickRadio(false)">
+          {{t('page.today.form')}}
+      </label>
+
+      <label class="d-flex t-m-regular t-grey align-items-center" for="isScheduled">
+        <input class="schedule input-radio" type="radio"
+          [checked]="giftData.isSchedule"
+          id="isScheduled"
+          name="date"
+          (change)="handleClickRadio(true)">
+          {{t('page.schedule-later-date.form')}}
+        <div class="eva eva-info-outline t-h4-medium ml-2"
+          (mouseover)="displayToolTip(true)"
+          (mouseleave)="displayToolTip()">
+          <div class="tooltip t-grey t-m-medium t-black-H no-pointer" [ngClass]="{ active: showTooltip }"
+            (mouseenter)="displayToolTip()">
+            {{ t('notifications.schedule-later-date.text-info') }}
+          </div>
+        </div>
+      </label>
+      <cf-selector class="gift-calendar"
+        *ngIf="giftData.isSchedule" id="date-selector"
+        [title]="utilsSrv.dateForFront(selectedDate)"
+        [size]="'l'"
+        [value]="selectedDate"
+        [isOpen]="isCalendarSelectorOpen"
+        (click)="shipmentPopover()">
+      </cf-selector>
+    </div>
+
+    <div class="d-flex align-items-start mb-l">
+      <ds-checkbox
+        [checked]="giftData.isPrivacy"
+        (selectCheckboxEvent)="onSelect($event)">
+      </ds-checkbox>
+      <p class=" t-m-regular t-grey"> {{ t('page-authorization-email-gift.text-link') }}
+        <span [innerHTML]="t('notifications.accept-policy-conditions.label') | safeHtml">
+        </span>
+      </p>
+    </div>
+
+    <cf-button
+      id="giftSaveConfiguratorBtn"
+      [width]="'auto'"
+      [size]="'l'"
+      [disabled]="!giftData.isPrivacy || !giftData.name || !giftData.email || errorIn.name || errorIn.email || isOwnGift"
+      (click)="save()">
+      {{ t('page.save.button') }}
+    </cf-button>
+  </div>
+</ng-container>

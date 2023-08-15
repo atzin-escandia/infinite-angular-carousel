@@ -1,0 +1,27 @@
+@import '../../../../scss/colors.scss';
+
+:host {
+  .stripe-paypal- {
+    &form {
+      border-radius: 5px;
+    }
+
+    &container {
+      max-width: 100%;
+      width: 450px;
+      margin: auto;
+    }
+
+    &element {
+      background: white;
+      border-radius: 5px;
+      //padding: 14px 6px 14px 16px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    &error {
+      font-size: 14px;
+      color: $red;
+    }
+  }
+}

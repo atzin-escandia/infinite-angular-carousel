@@ -1,0 +1,156 @@
+@import '../../../scss/variables.scss';
+@import '../../../scss/colors.scss';
+
+.address {
+  .name {
+    width: 50%;
+    margin-right: 16px !important;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+  }
+
+  .surname {
+    width: 50%;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+  }
+
+  .street {
+    width: 65%;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+  }
+
+  .number {
+    width: 35%;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+
+    &-before {
+      margin-right: 16px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        margin-right: 0;
+      }
+    }
+
+    &-after {
+      margin-left: 16px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    .cf-select-open .cf-select-options {
+      max-height: 130px;
+    }
+  }
+
+  .cf-input-error {
+    line-height: 100%;
+
+    .fa {
+      font-size: 16px;
+      color: red;
+    }
+  }
+
+  .city {
+    width: 65%;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+  }
+
+  .zip {
+    width: 35%;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+
+    &-before {
+      margin-right: 16px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        margin-right: 0;
+        width: 100%;
+      }
+    }
+
+    &-after {
+      margin-left: 16px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .prefix {
+    width: 35%;
+    margin-right: 16px !important;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 50%;
+    }
+
+    .eva {
+      position: absolute;
+      left: -18px;
+      top: 1px;
+      font-size: 14px;
+    }
+  }
+
+  .country {
+    .eva {
+      position: absolute;
+      left: -24px;
+      top: 1px;
+      font-size: 14px;
+    }
+  }
+
+  .phone {
+    width: 65%;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 50%;
+    }
+  }
+
+  .cf-input-error-shadow {
+    .cf-input-box {
+      border-color: red;
+      box-shadow: 0 0 5px 1px red;
+    }
+
+    .cf-input-box-focus {
+      border-color: $CF1;
+      box-shadow: 0 0 5px 2px $CF1;
+    }
+  }
+
+  .province {
+    width: 35%;
+    margin-right: 14px;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+      margin-right: 0;
+    }
+  }
+}

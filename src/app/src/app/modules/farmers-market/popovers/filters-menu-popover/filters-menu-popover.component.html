@@ -1,0 +1,31 @@
+<div *transloco="let t" class="filters-popover popover-container cf-shadow-m" stop-propagation>
+  <header *ngIf="filters && lang" class="filters-popover__header">
+    <i (click)="closePopover()" class="eva eva-close-outline" aria-hidden="true" stop-propagation></i>
+    <p class="f18 fw6 t-grey">{{ t('global.filter-by.title') }}</p>
+    <button type="button" class="t-m-regular t-grey text-underline pointer" (click)="clearFilters()">
+      {{ t('global.delete-filters.button') }}
+    </button>
+  </header>
+  <main *ngIf="filters && lang" class="filters-popover__filters-list">
+    <ds-accordion *ngFor="let menuFilter of menuFilters" [isCollapsed]="isMobile" [title]="t(menuFilter.title)">
+      <div body *ngFor="let item of filters?.[menuFilter.id];let a=index">
+        <ds-checkbox
+          class="my-3"
+          [id]="item?.['_m_name']?.[lang]"
+          [name]="item?.['_m_name']?.[lang]"
+          [labelText]="item?.['_m_name']?.[lang]"
+          [disabled]="!item?.available"
+          [checked]="item?.checked"
+          (selectCheckboxEvent)="checkItem(menuFilter.id, a)"></ds-checkbox>
+      </div>
+    </ds-accordion>
+  </main>
+  <footer class="filters-popover__footer">
+    <ds-button
+    content="{{ t('page.see-results.button') }}"
+    size="m"
+    variant="primary"
+    width="full"
+    (buttonClick)="search()"></ds-button>
+  </footer>
+</div>

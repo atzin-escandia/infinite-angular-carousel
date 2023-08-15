@@ -1,0 +1,67 @@
+<div *transloco="let t">
+  <header class="projects-agroupments__header">
+    <h2 *ngIf="title">
+      {{t(title)}}
+    </h2>
+    <p *ngIf="subtitle">{{t(subtitle)}}</p>
+  </header>
+
+  <!-- Agroupment list -->
+  <section *ngIf="!isLoading && agroupments?.length">
+    <div *ngFor="let agroupment of agroupments; let agroupmentIndex = index">
+      <div *ngIf="agroupment?.projects?.length >= 3" class="projects-agroupments__cards-slider">
+        <div class="projects-agroupments__cards-slider-controls d-flex mb-m">
+          <!-- Slider arrow -->
+          <cf-arrow (click)="handleClickCarouselArrow(agroupment._id, -1, agroupmentIndex)" [size]="'m'"
+            [ngClass]="{'arrow-hide': agroupmentsStepper[agroupmentIndex].counter === 0}"
+            class="align-items-center justify-content-center d-none d-xl-flex pr-2">
+          </cf-arrow>
+
+          <!-- Projects cards list of an agroupment -->
+          <div class="projects-agroupments__cards-container py-3 sm-nop">
+            <!-- Title of projects cards list -->
+            <h3 class="t-xl-bold t-black-T d-block nom my-4 pl-3">
+              {{agroupment | translation: '_m_title'}}
+            </h3>
+            <div [style.transform]="'translateX(-' + agroupmentsStepper[agroupmentIndex].counter * 100 + '%)'"
+              class="projects-agroupments__cards-slider--animate d-flex align-items-stretch flex-md-row flex-sm-wrap flex-md-nowrap justify-content-md-between">
+              <project-card
+                *ngFor="let project of agroupment.projects; let i = index"
+                [project]="project"
+                [index]="i"
+                [lang]="lang"
+                [home]="true"
+                [adoption]="agroupment.type[0] === 'adoption' ? true : null"
+                [startLazyAt]="0"
+                [countryName]="project?.farm?.country"
+                [agroupmentName]="agroupment._m_title?.en"
+                class="projects-agroupments__project-card pointer col-11 col-md-4">
+              </project-card>
+            </div>
+          </div>
+
+          <!-- Slider arrow -->
+          <cf-arrow (click)="handleClickCarouselArrow(agroupment._id, +1, agroupmentIndex)" [size]="'m'" [right]="true"
+            [ngClass]="{'arrow-hide': shouldHideArrow(agroupment.projects.length, agroupmentsStepper[agroupmentIndex].counter)}"
+            class="align-items-center d-none d-xl-flex pl-2">
+          </cf-arrow>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Skeleton project cards -->
+  <section *ngIf="isLoading" class="d-flex">
+    <project-card *ngFor="let dummy of [1, 2, 3]; let i = index" [lang]="lang"
+      [ngClass]="{'d-none d-md-block': i >= 1}" class="mtb mbm pointer col-12 col-md-6 col-lg-4"
+      id="project-card-skeleton-container">
+    </project-card>
+  </section>
+
+  <!-- No results -->
+  <figure *ngIf="!isLoading && !agroupments.length" class="projects-agroupments__no-results-wrapper">
+    <img src="{{env.domain}}/assets/img/home/ilustración_not_found.svg"
+      alt="{{t('page.no-result-see-suggestion.text-info')}}"/>
+  </figure>
+</div>

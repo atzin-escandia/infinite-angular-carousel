@@ -1,0 +1,15 @@
+<div *ngIf="extraInfo">
+  <div class="w-100 extra-info-row" *ngFor="let val of extraInfo" [ngClass]="{'container' : domSrv.getIsDeviceSize()}">
+    <div class="pl-l pr-l extra-info-icon-container">
+      <i class="t-h1-regular t-green-primary" [ngClass]="upSrv.getIconForExtraInfo(val.type)" aria-hidden="true"></i>
+    </div>
+    <div class="mt-l mb-l">
+      <div class="t-m-regular t-grey">
+        {{textSrv.getText(val.type)}}
+      </div>
+      <div class="t-l-regular t-black-T">
+        {{val | translation: 'value'}}
+      </div>
+    </div>
+  </div>
+</div>

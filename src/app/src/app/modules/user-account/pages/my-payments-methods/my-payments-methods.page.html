@@ -1,0 +1,158 @@
+<!-- Back mobile -->
+<div *transloco="let t">
+  <div *ngIf="!app" class="private-zone-back hide-tablet flex-center" >
+    <div class="private-zone-back-container border-bottom-grey-2-2x d-flex w-100">
+      <div class="flex-center" (click)="addingStatus(false)"
+        *ngIf="addPayment && paymentsMethod && paymentsMethod.length > 0">
+        <i class="eva eva-arrow-ios-back-outline f26 mr-s" aria-hidden="true"></i>
+        {{t('page.Payment-methods.title')}}
+      </div>
+      <div class="flex-center" (click)="openPrivateMobileMenu()" *ngIf="
+        (addPayment && (!paymentsMethod || paymentsMethod.length === 0)) || (!addPayment && paymentsMethod && paymentsMethod.length > 0)
+      ">
+        <i class="eva eva-arrow-ios-back-outline f26 mr-s" aria-hidden="true"></i>
+        {{t('global.my-account.drop')}}
+      </div>
+    </div>
+  </div>
+  <div class="private-zone-section user-account-container private-zone-method w-100">
+    <!-- Back desktop -->
+    <div class="mb-m d-flex t-s-regular hide-mobile" *ngIf="addPayment && paymentsMethod && paymentsMethod.length > 0">
+      <div class="text-grey pointer" (click)="addingStatus(false)">{{t('page.Payment-methods.title')}}</div>
+      <span class="t-black-T"> &nbsp;<i class="eva eva-arrow-ios-forward-outline f12" aria-hidden="true"></i>&nbsp;
+      </span>
+      <div>{{t('page.add-payment-method.drop')}}</div>
+    </div>
+
+    <!-- Title -->
+    <div class="private-zone-title t-h3-bold t-black-H">
+      {{addPayment ? t('page.add-payment-method.drop') : t('page.Payment-methods.title')}}
+    </div>
+    <div class="private-zone-subtitle t-s-regular t-black-T" *ngIf="!addPayment && paymentsMethod">
+      {{t('page.manage-payment-methods.text-info')}}
+    </div>
+
+    <div class="mt-s" *ngIf="credits > 0">
+      <status-box color="blue">
+        <p class="nop nom fw6">{{t('global.available-credit.text-info')}} <span class="t-supp-blue ml-s f18">{{ credits | currency }}</span></p>
+      </status-box>
+    </div>
+
+    <!-- Add method -->
+    <div class="private-zone-method-add w-100 mb-l mt-s"
+      *ngIf="(addPayment || !paymentsMethod || paymentsMethod.length === 0) && stripeLoaded">
+
+      <div class="tabs">
+        <div class="tab">
+          <input type="radio" [checked]="methodAdded === 'card'" id="card" name="card"
+            (change)="onCheckboxChange('card')">
+          <label class="tab-label f16 card" for="card"> {{t('page.credit-card.button')}}</label>
+          <div class="tab-content">
+            <stripe-card class="w-100 mt-4" (cardAdded)="paymentAdded($event, 'card')"
+              [cancel]="paymentsMethod.length > 0" [updateMethod]="updateMethod" [askDefault]="true"
+              [activateToken]="methodAdded === 'card'">
+            </stripe-card>
+          </div>
+        </div>
+        <div class="tab" *ngIf="idealAllowed">
+          <input type="radio" [checked]="methodAdded === 'ideal'" id="ideal" name="ideal"
+            (change)="onCheckboxChange('ideal')">
+          <label class="tab-label f16 ideal" for="ideal"> {{textSrv.getText('iDEAL')}}</label>
+          <div class="tab-content">
+            <stripe-ideal class="w-100 mt-4" (idealAdded)="paymentAdded($event, 'ideal')"
+              [cancel]="paymentsMethod.length > 0" [user]="user" [updateMethod]="updateMethod" [askDefault]="true"
+              [activateToken]="methodAdded === 'ideal'">
+            </stripe-ideal>
+          </div>
+        </div>
+        <div class="tab">
+          <input type="radio" [checked]="methodAdded === 'sepa'" id="sepa" name="sepa"
+            (change)="onCheckboxChange('sepa')">
+          <label class="tab-label f16 sepa" for="sepa"> {{t('global.bank-account.label')}}</label>
+          <div class="tab-content">
+            <stripe-sepa class="w-100 mt-4" (sepaAdded)="paymentAdded($event, 'sepa')"
+              [cancel]="paymentsMethod.length > 0" [askDefault]="true" [updateMethod]="updateMethod"
+              [activateToken]="methodAdded === 'sepa'">
+            </stripe-sepa>
+          </div>
+        </div>
+        <div class="tab" *ngIf="paypalAllowed">
+          <input type="radio" [checked]="methodAdded === 'paypal'" id="paypal" name="paypal"
+            (change)="onCheckboxChange('paypal')">
+          <label class="tab-label f16 paypal" for="paypal"> {{textSrv.getText('PayPal')}}</label>
+          <div class="tab-content">
+            <stripe-paypal class="w-100 mt-4" (paypalAdded)="paymentAdded($event, 'paypal')"
+              [cancel]="paymentsMethod.length > 0" [askDefault]="true" [updateMethod]="updateMethod"
+              [activateToken]="methodAdded === 'paypal'">
+            </stripe-paypal>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex mv-l ph-l flex-column flex-md-row w-100">
+        <cf-button *ngIf="paymentsMethod.length > 0" class="hide-mobile" [width]="'auto'" [flat]="true" (click)="addingStatus(false)">
+          {{t('page.return.button')}}
+        </cf-button>
+        <cf-button [width]="'auto'" (click)="savingPaymentMethod()">
+          {{t('global.add.form')}}
+        </cf-button>
+      </div>
+    </div>
+
+    <!-- Payment methods  -->
+    <div class="private-zone-method-list mt-l"
+      *ngIf="user && paymentsMethod && paymentsMethod.length > 0 && !addPayment">
+      <!-- Add -->
+      <div class="private-zone-method-list-add pa-s mb-l w-100">
+        <cf-button [width]="'auto'" [flat]="true" (click)="autoLoginValidation({funcName: 'addingStatus', data: true})">
+          {{t('page.add-payment-method.drop')}}
+        </cf-button>
+      </div>
+
+      <!-- List -->
+      <div class="w-100 private-zone-method-list-method">
+        <option-card class="mb-s" [favourite]="true" [favouriteSelected]="method.favourite"
+          *ngFor="let method of paymentsMethod; let i = index"
+          (triggerRadio)="autoLoginValidation({funcName: 'setAsDefault', data: method})" [activeDelete]="true"
+          (triggerDelete)="autoLoginValidation({funcName: 'remove', data: method})">
+          <div option-card-content>
+            <div class="t-m-medium">
+              {{
+              method.cardInfo
+              ? method.cardInfo.funding === 'credit'
+              ? t('page.credit-card.button')
+              : t('page.debit-card.title')
+              : method.sepaInfo ? t('global.sepa-account.form')
+              : method.paypalInfo ? t('global.paypal-account.label')
+              : textSrv.getText('iDeal account')
+              }}
+              {{method.cardInfo ? textSrv.getText(method.cardInfo.brand.toLowerCase()) : ''}}
+            </div>
+            <div class="text-grey t-m-regular" *ngIf="method.cardInfo">
+              {{textSrv.getText('XXXX XXXX XXXX {last4}', {'{last4}': method.cardInfo.last4})}}
+              <br />
+              {{
+              textSrv.getText('Card expires {month}/{year}', {'{month}': method.cardInfo.exp_month, '{year}':
+              method.cardInfo.exp_year})
+              }}
+            </div>
+            <div class="text-grey t-m-regular" *ngIf="method.sepaInfo">
+              {{textSrv.getText('XXXX XXXX XXXX {last4}', {'{last4}': method.sepaInfo.sepa_debit.last4})}}
+              <br />
+              {{method.sepaInfo.owner.name}}
+            </div>
+            <div class="text-grey t-m-regular" *ngIf="method.idealInfo">
+              {{textSrv.getText('{bankName}', {'{bankName}': method.idealInfo.ideal.bank.toUpperCase()})}}
+              <br />
+              {{textSrv.getText('XXXX XXXX XXXX {last4}', {'{last4}':
+              method.idealInfo.ideal.sepaInfo.sepa_debit.last4})}}
+            </div>
+            <div class="text-grey t-m-regular" *ngIf="method.paypalInfo">
+              {{method.paypalInfo.paypal.verified_email}}
+            </div>
+          </div>
+        </option-card>
+      </div>
+    </div>
+  </div>
+</div>

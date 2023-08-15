@@ -1,0 +1,1 @@
+export const DEFAULT_STORAGE_TIME = 86400;

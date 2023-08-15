@@ -1,0 +1,201 @@
+<ng-container *transloco="let t">
+  <nav role="navigation" class="navbar-container" id="navbar-container">
+    <div id="navbar-notification-container"></div>
+
+    <div *ngIf="$showGreenBanner | async" id="banner" class="green-banner f16 lh-24">
+      <a [routerLink]="t('notifications.header-homepage-link')">
+        <div class="green-banner__container">
+          <div class="d-flex align-items-center justify-content-center">
+            <span class="d-md-none green-banner__text">{{t('notifications.header-homepage-mobile.text-info')}}</span>
+            <span class="d-none d-md-block green-banner__text">{{t('notifications.header-homepage.text-info')}}</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div id="navbar" class="navbar bg-light w-100 cf-shadow-s solid-background t-black-T t-m-regular d-flex flex-column p-absolute"
+      [ngClass]="{ 'search-open': searchSrv?.searchOpen && searchSrv?.showSearchTool()}">
+
+      <!-- Navigation -->
+      <div id="navbar-container-top" class="container">
+        <div class="p-0 menu menu-font row justify-content-between">
+          <!-- Logo -->
+          <div class="navbar-logo flex-center pl-3 pl-md-2">
+            <a class="flex-center link-nav" routerLink="/{{langSrv.getCurrentLang()}}/" id="navbar-home-link"
+              (click)="closePopover()">
+              <span class="t-h4-regular t-green-primary cf-icon-crowdfarming-bold" aria-hidden="true"></span>
+              <span class="t-h3-regular t-green-primary cf-icon-text-light m-0 pt-2 hide-xxs"
+                aria-hidden="true"></span>
+            </a>
+          </div>
+          <div class="col flex-center justify-content-end p-0" *ngIf="$showNavigation | async">
+            <ul class="list-unstyled  m-0 p-0 d-flex hList">
+              <li class="d-none d-lg-flex">
+                <cf-dropdown [size]="'m'" (clickElsewhere)="handleDrop(false, 'farmerMaktOpen')" [height]="'auto'"
+                  [containerShadow]="false" id="navbar-farmers-market-btn" [width]="'auto'">
+                  <a (click)="handleDrop((!farmerMaktOpen), 'farmerMaktOpen')" dropdown-selected
+                    class="cf-dropdown-selected fw5 open-arrow"
+                    [ngClass]="{'activeDropdown': farmerMaktOpen, 'open-arrow': farmerMaktOpen}">
+                    {{ t('global.farmers-market.drop') }}
+                    <span class="eva eva-chevron-down-outline f20" aria-hidden="true"></span>
+                  </a>
+                  <div dropdown-item *ngIf="farmerMaktOpen" class="mx-2 dropdown-item">
+                    <a *ngFor="let link of linksFarmersMarket" class="cf-dropdown-item fw5" id="{{ link.id }}"
+                      (click)="handleDrop(false, 'farmerMaktOpen', link)"
+                      routerLink="/{{langSrv.getCurrentLang()}}/{{getRoute(link.route)}}/">
+                      {{ t(link.text) }}
+                    </a>
+                  </div>
+                </cf-dropdown>
+              </li>
+              <li class="d-none d-lg-flex">
+                <a class="mx-2 fw5 flex-center position-relative" routerLink="/{{langSrv.getCurrentLang()}}/manifesto">
+                  {{ t('global.Manifesto.button') }}
+                </a>
+              </li>
+              <li class="d-none d-lg-flex">
+                <a class="mx-2 fw5 flex-center position-relative" target="_blank"
+                  href="https://www.crowdfarming.com/blog/{{blogLang}}">{{
+                  t('global.blog.text-link') }} </a>
+              </li>
+              <li class="d-none d-lg-flex">
+                <cf-dropdown (clickElsewhere)="handleDrop(false, 'myAccountOpen')" [size]="'m'" [height]="'auto'"
+                  [containerShadow]="false" id="navbar-private-zone-btn" [width]="'auto'" *ngIf="authSrv.isLogged()">
+                  <a (click)="handleDrop((!myAccountOpen), 'myAccountOpen')" dropdown-selected
+                    class="cf-dropdown-selected fw5 open-arrow"
+                    [ngClass]="{'activeDropdown': myAccountOpen, 'open-arrow': myAccountOpen}">
+                    {{ t('global.my-account.drop') }}
+                    <span class="eva eva-chevron-down-outline f20" aria-hidden="true"></span>
+                  </a>
+                  <div dropdown-item *ngIf="myAccountOpen" class="mx-2 dropdown-item">
+                    <a (click)="handleDrop(false, 'myAccountOpen'); closePopover()"
+                      routerLink="/{{langSrv.getCurrentLang()}}/{{link.route}}" *ngFor="let link of linksPrivateZone"
+                      class="cf-dropdown-item fw5 dropdown-block" id="{{ link.id }}">
+                      {{ t(link.text) }}
+                    </a>
+                  </div>
+                  <div dropdown-item *ngIf="myAccountOpen">
+                    <a class="cf-dropdown-item logout-button fw5"
+                      (click)="handleDrop(false, 'myAccountOpen'); closePopover(); authSrv.logout()">
+                      {{ t('global.log-out.drop') }}
+                    </a>
+                  </div>
+                </cf-dropdown>
+              </li>
+              <li class="d-none d-lg-flex">
+                <a class="mx-2 menuLinkRight fw5 flex-center mr-3" id="navbar-login-link"
+                  routerLink="/{{langSrv.getCurrentLang()}}/login-register" *ngIf="!authSrv.isLogged()">
+                  <span>{{ t('global.login.button') }}</span>
+                </a>
+              </li>
+              <li class="d-lg-flex">
+                <a *ngIf="!utilsSrv.isMobileMenuOpen()" 
+                  class="mx-2 menuLinkLeft flex-center position-relative"
+                  [ngClass]="{'activeSearch': searchSrv.searchOpen}"
+                  (click)="triggerSearch()"
+                  (clickElsewhere)="closeSearch()"
+                  id="navbar-search">
+                  <span class="eva eva-search f24" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="d-lg-none">
+                <a class="flex-center mx-2 flex-center" (click)="openSettingsMenu()"
+                  id="navbar-pz-link" *ngIf="!utilsSrv.isMobileMenuOpen()">
+                  <span class="eva eva-person-outline f24" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="d-none d-lg-flex">
+                <!-- Location & Languages -->
+                <a id="location-language-selector" class="ml-2 menuLinkLeft navbar-location-language flex-center"
+                  (click)="locationAndLanguage()"
+                  [ngClass]="{'navbar-location-language-open open-arrow': locationLangOpen}">
+                  <!-- Flag - if deliveryCountry is available  -->
+                  <img *ngIf="!hasNotAvailableCountry; else notAvailableCountry"
+                    src="{{env.domain}}/assets/icon/flags-with-border/{{country}}.svg" alt="{{country}}" />
+                  <!-- Flag - if deliveryCountry is NOT available  -->
+                  <ng-template #notAvailableCountry>
+                    <img src="{{env.domain}}/assets/icon/flags-with-border/nullCountry.svg"
+                      alt="Not available country" />
+                  </ng-template>
+                  <span class="eva eva-chevron-down-outline f20" aria-hidden="true"></span>
+                </a>
+              </li>
+              <li class="d-flex">
+                <a class="mx-2 menuLinkLeft flex-center position-relative" *ngIf="!utilsSrv.isMobileMenuOpen()"
+                  (click)="goToCart()" id="navbar-cart-link">
+                  <span class="eva eva-shopping-bag-outline f24" aria-hidden="true"></span>
+                  <div class="cart-items flex-center font-weight-normal">
+                    {{ cartCounter }}
+                  </div>
+                </a>
+              </li>
+              <li class="d-lg-none d-flex">
+                <div class="flex-center mx-2">
+                  <a class="mx-2 flex-center" (click)="checkIfMobileOpen()" id="navbar-menu-link">
+                    <span class="eva eva-{{ utilsSrv.isMobileMenuOpen() ? 'close-outline' : 'menu-outline' }} f24"
+                      aria-hidden="true"></span>
+                  </a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filters for desktop -->
+      <div *ngIf="searchSrv?.showSearchTool() && !settingsMenuOpen"
+        class="navbar-search-container container d-flex align-items-center justify-content-center pb-3"
+        stop-propagation>
+        <div class="navbar-search position-relative w-100" (clickElsewhere)="closeSearch(true)">
+          <div class="navbar-search-input d-flex align-items-center justify-content-center pa-s">
+            <input id="navbar-search-input" #navbarSearchInput autocomplete="off" type="text" auto-focus
+              [value]="searchInput"
+              type = 'search'
+              enterkeyhint="search"
+              [placeholder]="t('global.find-a-project.form')"
+              (input)="typeSearch($event, navbarSearchInput.value)"
+              (keyup.enter)="searchSuggestion(navbarSearchInput.value)"/>
+            <button *ngIf="!searchEmpty"
+              class="navbar-search-input-empty d-flex align-items-center justify-content-center"
+              (click)="resetSearchBar()">
+              <span class="eva eva-close-outline f20" aria-hidden="true"></span>
+            </button>
+            <cf-button [id]="'search-icon'" class="navbar-search-input-button" [disabled]="searchEmpty"
+              (click)="searchSuggestion(navbarSearchInput.value)">
+              <span [ngClass]="{'t-green-primary': !searchEmpty}"
+                class="eva eva-search f20" aria-hidden="true"></span>
+            </cf-button>
+          </div>
+          <div class="navbar-search-suggestions cf-shadow-m position-absolute w-100" *ngIf="searchSuggestionsOpen">
+            <!-- Search results -->
+            <ul class="navbar-search-suggestions-list nom nop" *ngIf="!showSomeIdeas">
+              <li class="t-s-regular" *ngFor="let suggestion of suggestionsList">
+                <a [innerHTML]="suggestion" class="d-block" (click)="searchSuggestion(suggestion)"></a>
+              </li>
+            </ul>
+            <!-- Some ideas results -->
+            <ul class="navbar-search-suggestions-list nom nop pt-4" *ngIf="showSomeIdeas">
+              <span class="m-3 t-black-T t-h7-bold" *ngIf="showSomeIdeas"> {{ t('global.some-ideas.search-tool')
+                }}</span>
+              <li class="t-s-regular" *ngFor="let ideas of suggestionsIdeasList">
+                <a class="d-flex eva eva-bulb-outline mr-m t-h3-regular p-2 ml-2" (click)="searchSuggestion(ideas)">
+                  <span class="d-block t-black-T t-s-regular t-h3-regular ml-m d-flex align-self-center">{{
+                    ideas
+                    }}</span>
+                </a>
+              </li>
+            </ul>
+            <div class="pa-m d-flex justify-content-center">
+              <cf-button [id]="'show-more-btn-results'" [secondary]="true" [iconLeft]="true" (click)="showMore()">
+                <span class="eva eva-search f16" aria-hidden="true"></span>
+                {{ t('page.show-all.drop') }}
+              </cf-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar-location container" id="navbar-location"></div>
+    <div id="up-card-mobile-container"></div>
+  </nav>
+</ng-container>

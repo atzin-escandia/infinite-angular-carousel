@@ -1,0 +1,29 @@
+<section *transloco="let t" class="landing-steps-block mb-5 pt-5">
+  <div class="container">
+    <div class="col-10 m-auto">
+      <header class="landing-steps-block__header">
+        <h4 *ngIf="title" class="mb-5">
+          {{t(title)}}
+        </h4>
+        <p *ngIf="subtitle">{{t(subtitle)}}</p>
+      </header>
+      <div class="row justify-content-center mob-pt-s mt-md-5" id="landing-steps-block-icons">
+        <div *ngFor="let card of cards; let i=index" class="col-12 col-sm-6 col-xl-4 my-3 my-md-0">
+          <div class="col-12 text-center px-0">
+            <span *ngIf="hasEnumeration" class="landing-steps-block__index t-h1-bold t-primary-T t-a-center nom">{{i +
+              1}}</span>
+            <img [src]="card.img | cdn" alt="{{t(card.title)}}"/>
+            <div class="landing-steps-block__card-texts">
+              <h3 *ngIf="card.title">
+                {{t(card.title)}}
+              </h3>
+              <p *ngIf="card.subtitle">
+                {{t(card.subtitle)}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

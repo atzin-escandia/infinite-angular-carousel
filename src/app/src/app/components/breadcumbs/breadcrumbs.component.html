@@ -1,0 +1,15 @@
+<div class="breadcrumbs" *ngIf="items">
+  <ng-container *transloco="let t">
+    <div class="breadcrumbs__item" *ngFor="let item of items; let i = index">
+      <button *ngIf="item.onClick" type="button" class="breadcrumbs__item-text"
+        [ngClass]="{'breadcrumbs__item-text--selected': item.isSelected}" (click)="item.onClick()">
+        {{t(item.label)}} {{item.extraInfo}}
+      </button>
+      <p *ngIf="!item.onClick" class="breadcrumbs__item-text"
+        [ngClass]="{'breadcrumbs__item-text--selected': item.isSelected}">{{t(item.label)}} {{item.extraInfo}}</p>
+      <span *ngIf="i  < items.length - 1" class="t-black-T"> &nbsp;<i class="eva eva-arrow-ios-forward-outline f12"
+          aria-hidden="true"></i>&nbsp;
+      </span>
+    </div>
+  </ng-container>
+</div>

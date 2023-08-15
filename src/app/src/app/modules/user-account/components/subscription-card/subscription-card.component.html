@@ -1,0 +1,44 @@
+<ng-container *transloco="let t">
+  <div *ngIf="subscription" class="subscription-card mb- d-flex flex-column mob-pa-s" [ngClass]="minVersion ? 'min pa-s': 'pa-m'"
+  (click)="openSubscriptionDetail(subscription._id)">
+  <div class="d-flex align-items-center">
+    <div *ngIf="subscription.pictureURL" class="subscription-card-img mob-mr-s" [ngClass]="minVersion ? 'mr-s': 'mr-m'"
+      [ngStyle]="{'background-image': 'url('+ (subscription.pictureURL | cdn: 200) +')'}">
+    </div>
+    <div *ngIf="!subscription.pictureURL" class="subscription-card-img flex-center empty" [ngClass]="minVersion ? 'mr-s': 'mr-m'">
+      <img src="../../../../assets/icon/box_green.svg">
+    </div>
+    <div class="subscription-card-data d-flex justify-content-between w-100">
+      <div class="subscription-card-info d-flex flex-column justify-content-start">
+        <div *ngIf="!minVersion" class="t-xs-regular text-grey hide-small-screen">
+          {{subscription.subscriptionNumber}} · {{subscription.createdAt | date: 'dd/MM/yyyy'}}
+        </div>
+        <div class="subscription-card-name t-m-medium t-black-T hide-small-screen overflow-text">
+          <p class="nom">{{(subscription | translation:'_m_publicName')}}</p>
+        </div>
+
+        <div class="t-s-medium t-black-T hide-desktop mb-s">
+          {{(subscription | translation:'_m_publicName')}}
+        </div>
+          <ng-container *ngIf="subscription.subscriptionOptions.frequency === 'WEEK'">
+            <span *ngIf="subscription.subscriptionOptions.units === 1" class="t-m-regular t-black-T">{{t('global.weekly-frequency.text-info')}}</span>
+            <span *ngIf="subscription.subscriptionOptions.units !== 1" class="t-m-regular t-black-T">{{ t('global.every-week-frequency.text-info', { number: subscription.subscriptionOptions.units }) }}</span>
+          </ng-container>
+          <ng-container *ngIf="subscription.subscriptionOptions.frequency === 'DAY'">
+            <span *ngIf="subscription.subscriptionOptions.units === 1" class="t-m-regular t-black-T">{{t('global.daily-frequency.text-info')}}</span>
+            <span *ngIf="subscription.subscriptionOptions.units !== 1" class="t-m-regular t-black-T">{{ t('global.every-day-frequency.text-info', { number: subscription.subscriptionOptions.units }) }}</span>
+          </ng-container>
+          <div class="mt-m mb-2">
+            <order-status-chip [statusParams]="orderStatusParams"></order-status-chip>
+          </div>
+      </div>
+    </div>
+    <div class="order-card-price flex-center t-m-regular text-grey hide-small-screen">
+      <div class="w-100 pointer d-flex">
+        <i aria-hidden="true" class="eva eva-chevron-right-outline f22"></i>
+      </div>
+    </div>
+  </div>
+</div>
+</ng-container>
+

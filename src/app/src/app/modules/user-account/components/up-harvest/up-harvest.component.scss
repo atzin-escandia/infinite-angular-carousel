@@ -1,0 +1,66 @@
+@import '../../../../../scss/commons.scss';
+
+.my-up-harvest {
+  min-height: 460px;
+}
+
+.reserved-boxes {
+  flex: 1;
+}
+
+.reserved-progress {
+  & > div {
+    height: 12px;
+    flex: 1;
+    background-color: map_get($color, 'grey-2');
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    &.box-used {
+      background-color: map_get($color, 'primary');
+    }
+
+    &.box-left {
+      background-color: map_get($color, 'grey-2');
+    }
+  }
+}
+
+.order-cards div:last-child {
+  margin-bottom: 0 !important;
+}
+
+.country-selector-trigger-fix {
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    position: relative;
+  }
+}
+
+.fs-md {
+  font-size: 16px;
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    font-size: 14px;
+  }
+}
+
+.fs-sm {
+  font-size: 14px;
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    font-size: 12px;
+  }
+}
+
+.documentation-text {
+  margin: 0;
+}
+
+button.download-btn,
+button.edit-btn {
+  color: #2e9e93;
+  background: none;
+  border: none;
+}

@@ -1,0 +1,104 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.form-container {
+  margin: 40px 0;
+
+  .satisfaction-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-flow: wrap;
+
+    .img-container {
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+
+      img {
+        width: 80px;
+        height: auto;
+      }
+
+      &:hover {
+        box-shadow: 0 2px 4px 0 rgba(4, 37, 34, 0.16);
+      }
+    }
+
+    p {
+      margin-top: 24px;
+    }
+  }
+
+  .max-character {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+    color: map_get($color, 'grey-11');
+    margin-top: 4px;
+    margin-bottom: 32px;
+  }
+
+  .wrapper-gap {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .checkbox-wrapper {
+    text-align: left;
+  }
+
+  .ds-input-error-msg {
+    align-items: flex-start;
+    color: #81331f;
+    display: flex;
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 8px;
+    max-width: 288px;
+    position: relative;
+    background: rgba(#e26f50, 0.1);
+    padding: 6px 8px;
+    border-radius: 8px;
+    border: 1px solid map-get($color, 'supp-3');
+
+    .eva {
+      font-size: 16px;
+      position: relative;
+      top: 2px;
+      color: map-get($color, 'supp-3');
+    }
+  }
+}
+
+.final-screen {
+  margin: 40px auto;
+  text-align: center;
+  width: 100%;
+  max-width: 320px;
+
+  @include bp(device-l) {
+    width: 100%;
+    width: 400px;
+  }
+
+  h3 {
+    margin-bottom: 8px;
+  }
+
+  img {
+    width: 192px;
+    height: 192px;
+  }
+}
+
+.light-content-primary {
+  color: map-get($globalColors, 'ds--color-primary-88');
+}
+
+.light-content-secondary {
+  color: map_get($globalColors, 'ds--color-grey-56');
+}

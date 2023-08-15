@@ -1,0 +1,27 @@
+<section class="e-commerce" *transloco="let t">
+  <ec-drawer-modal-wrapper [open]="isOpenModal" [items]="shoppingList" [restrictions]="restrictions" (closeDrawer)="onClickButton()"></ec-drawer-modal-wrapper>
+  <div class="e-commerce__content-header">
+    <ds-section>
+      <section class="e-commerce__header">
+        <h1 class="t-heading-s">{{t('page.create-your-own.box.title')}}</h1>
+        <div class="e-commerce__header-btn">
+          <ec-button [label]="totalPrice | currency" [initSvgIcon]="btnIcon" (clickEv)="onClickButton(true)">
+            <span class="ec-badge ec-badge-ds--color-orange-72">{{articlesBadge}}</span>
+          </ec-button>
+        </div>
+      </section>
+    </ds-section>
+  </div>
+  <section class="e-commerce__content" *ngIf="isAvailable">
+    <ds-section>
+      <router-outlet></router-outlet>
+    </ds-section>
+  </section>
+  <div class="e-commerce__footer-btn">
+    <ds-section>
+      <ec-button [label]="totalPrice | currency" [initSvgIcon]="btnIcon" className="w-100" (clickEv)="onClickButton(true)">
+        <span class="ec-badge ec-badge-ds--color-orange-72">{{articlesBadge}}</span>
+      </ec-button>
+    </ds-section>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+<div class="coloured-popup-container" id="coloured-popup">
+  <div *ngIf="config.data?.header && headerColour" [innerHTML]="config.data?.header"
+    class="coloured-popup-title t-m-bold" [ngStyle]="{'background-color': headerColour}">
+  </div>
+  <div [innerHTML]="config.data?.msg" class="popup-header-title text-center mt-m">{{config.data}}</div>
+</div>

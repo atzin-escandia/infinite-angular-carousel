@@ -1,0 +1,31 @@
+// Imported in general
+// @import '@crowdfarming/ds-library/src/styles/global';
+
+.ec-badge {
+  @extend .t-component-semibold-m;
+
+  display: inline-block;
+  min-height: map-get($sizes, 'ds--size-24');
+  min-width: auto !important;
+  width: auto !important;
+  max-width: fit-content;
+  border-radius: map-get($sizes, 'ds--size-4');
+  padding: 0 map-get($sizes, 'ds--size-8') !important;
+
+  /*
+  * Options: All global Colors options
+  */
+
+  @each $color, $value in $globalColors {
+    &-#{$color} {
+      background-color: $value;
+    }
+  }
+
+  &-xs {
+    @extend .t-component-semibold-xs;
+
+    padding: map-get($sizes, 'ds--size-4') !important;
+    min-height: auto;
+  }
+}

@@ -1,0 +1,77 @@
+<div *ngIf="dataLoaded" class="up-page">
+  <div [ngClass]="{'container': !domSrv.getIsDeviceSize()}">
+    <div [ngClass]="domSrv.getIsDeviceSize() ? 'row-no-margin' : 'row'">
+      <up-header
+        class="w-100"
+        [up]="up"
+        [farm]="farm"
+        [ss]="ss"
+        [headerBoxesInfo]="headerBoxesInfo"
+        [countriesByIso]="countriesByIso"
+        [availableCountriesByISO]="availableCountriesByISO"
+        [selectedCountry]="location"
+        [seals]="upSeals.detailHeader | translateSeals"
+        (showUpCardMobile)="triggerToggleUpCardMobile($event)"
+        (openCard)="upCardComponent ? upCardComponent.toggleCard(true) : null">
+      </up-header>
+    </div>
+  </div>
+  <div *ngIf="fixedMenu" class="helper"></div>
+  <div class="options-bar d-flex align-items-center" [ngClass]="{'fixed': fixedMenu}" id="options-bar">
+    <div class="container no-p">
+      <div class="w-100 d-flex flex-column-reverse flex-lg-row justify-content-between">
+        <div class="options d-flex col-12 col-md-9 col-no-padding align-items-center" id="options">
+          <div *ngFor="let item of menuOptions; index as i" (click)="changeOption(i)"
+            class="option d-flex align-items-center" [ngClass]="item.clicked ? 't-green-primary' : 't-black-H'"
+            id="{{'up-menu-option-' + i}}">
+            {{textSrv.getText(item.name)}}
+            <div *ngIf="i === 0" class="fa ml-s eva" [ngClass]="isOpenSectionsPopover? 'eva-chevron-up-outline' : 'eva-chevron-down-outline'">
+            </div>
+            <div *ngIf="item.clicked" class="highlight">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="up-content">
+    <div class="mt-xl mob-mt-m" [ngClass]="domSrv.getIsDeviceSize() ? 'row-no-margin' : 'row'">
+      <div class="col-12 col-xl-8 no-pl no-pr static" [ngClass]="{'pr-xl': !domSrv.getIsDeviceSize()}">
+        <up-information *ngIf="selectedOption === 'information'" [upInformationReplacements]="upInformationReplacements"
+          [up]="up" [seals]="upSeals" [availableDates]="availableDates" [categoryVideos]="up._m_adoptionVideo"
+          [availableCountriesByISO]="availableCountriesByISO" [selectedCountry]="location"
+          [price]="cardInfo ? cardInfo.price : null">
+        </up-information>
+        <up-history *ngIf="selectedOption === 'history'" [up]="up" [farmer]="farmer" [farm]="farm"
+          [lang]="langSrv.getCurrentLang()" [videoURL]="videoURL">
+        </up-history>
+      </div>
+      <div class="d-md-flex justify-content-end col-md-4 col-no-padding"
+        [ngClass]="{'pl-xl': !domSrv.getIsDeviceSize()}">
+        <div id="up-card-sticky" class="up-card-container-sticky"
+          [ngClass]="{
+            'show-mobile': showUpCardMobile,
+            'animate': animateUpCardMobile,
+            'up-card-container-sticky-video': (up && up._m_adoptionVideo && up._m_adoptionVideo[langSrv.getCurrentLang()])
+          }">
+          <div class="up-card-container">
+            <up-card id="up-card" class="w-100" [isCardOpen]="isCardOpen" [cardInfo]="cardInfo" [ss]="ss" [price]="price"
+              [countriesByIso]="countriesByIso" [availableCountriesByISO]="availableCountriesByISO" [location]="location"
+              [gift]="giftOptions?.available || false" (openLocationEvn)="openLocationSelector()"
+              (refreshPriceEvn)="setCalculatedPrice($event)" (closeCardEvt)="triggerToggleUpCardMobile($event)"
+              (click)="$event.stopPropagation()">
+            </up-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    *ngIf="domSrv.getIsDeviceSize('laptop') && (ss.upsAvailable && ss.inSeason || (ss.ohAvailable && !ss.upsAvailable && !ss.cantSendCountry && !ss.noDatesLeft))"
+    class="btn-sticky ph-s pb-m" [ngClass]="{'not-show': !domSrv.isElementVisible('#adopt-buy-btn', 70)}">
+    <cf-button (click)="triggerToggleUpCardMobile(true)" class="" [width]="'auto'">
+      {{textSrv.getText(ss.upsAvailable && ss.inSeason ? 'Adopt' : ss.ohAvailable ? 'Buy loose box' : 'see other projects')}}
+    </cf-button>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+// Imported in general
+// @import '@crowdfarming/ds-library/src/styles/global';
+
+.ec-btn {
+  @extend .t-component-semibold-m;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: map-get($sizes, 'ds--size-12') map-get($sizes, 'ds--size-32');
+  gap: map-get($sizes, 'ds--size-8');
+  border-radius: map-get($sizes, 'ds--size-8');
+  min-width: pxToRem(177);
+  border: 0;
+
+  &--s {
+    @extend .t-component-semibold-s;
+
+    min-width: 0;
+
+    .icon {
+      @extend .t-component-semibold-s;
+    }
+  }
+
+  .icon {
+    @extend .t-component-semibold-m;
+  }
+
+  .svgIcon {
+    width: map-get($sizes, 'ds--size-20');
+    height: map-get($sizes, 'ds--size-20');
+  }
+
+  &:focus,
+  &.focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &:focus-visible {
+    border: transparent;
+  }
+
+  &__custom-ds-button {
+    & .ds-button {
+      min-width: auto !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      height: auto !important;
+      padding-bottom: pxToRem(16);
+
+      & ds-icon {
+        width: pxToRem(24);
+      }
+    }
+  }
+
+  &__custom-ds-counter {
+    & .ds-button {
+      & ds-icon {
+        width: pxToRem(20);
+      }
+    }
+  }
+
+  &__custom-order-ds-button {
+    & .ds-button {
+      & ds-icon {
+        width: pxToRem(20);
+      }
+    }
+  }
+
+  &__outline-ds-button {
+    & .ds-button {
+      border: 0 !important;
+
+      &:hover {
+        border: 0 !important;
+      }
+    }
+  }
+}
+
+@each $color, $value in $semanticSecondaryColors {
+  .ec-btn-#{$color} {
+    background-color: $value;
+    color: map_get($layerBackgroundColors, 'background-1');
+
+    .icon {
+      color: map_get($layerBackgroundColors, 'background-1');
+    }
+
+    &.hover,
+    &:hover {
+      background-color: darken($value, 7.5%);
+    }
+
+    &.active,
+    &:active {
+      background-color: $ds--color-orange-64;
+    }
+
+    &:focus,
+    &.focus {
+      box-shadow: none;
+    }
+
+    &.disabled,
+    &:disabled,
+    &[disabled] {
+      background-color: $ds--color-orange-48-transparent;
+      cursor: inherit;
+    }
+  }
+
+  .ec-btn-outline-#{$color} {
+    background-color: transparent;
+    border: pxToRem(1) solid $value;
+    color: $value;
+
+    .icon {
+      color: $value;
+    }
+
+    &.hover,
+    &:hover {
+      background-color: darken(map_get($layerBackgroundColors, 'background-1'), 7.5%);
+    }
+
+    &.active,
+    &:active {
+      background-color: darken(map_get($layerBackgroundColors, 'background-1'), 9%);
+    }
+
+    &:focus,
+    &.focus {
+      box-shadow: none;
+    }
+
+    &.disabled,
+    &:disabled,
+    &[disabled] {
+      background-color: $ds--color-grey-24;
+      cursor: inherit;
+    }
+  }
+}

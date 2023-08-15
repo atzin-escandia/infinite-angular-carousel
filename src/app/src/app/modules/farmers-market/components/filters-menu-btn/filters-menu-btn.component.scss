@@ -1,0 +1,14 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.filters-btn {
+  span {
+    color: map_get($contentColors, 'content-2');
+  }
+
+  &:active,
+  &:hover {
+    span {
+      color: map-get($globalColors, 'ds--color-primary-88');
+    }
+  }
+}

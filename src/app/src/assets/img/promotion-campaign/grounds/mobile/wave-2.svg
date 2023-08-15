@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="16px" viewBox="0 0 320 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Wave 2</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing-app-promotion-mobile" transform="translate(0.000000, -5141.000000)" fill="#31353A">
+            <g id="Newsletter" transform="translate(0.000000, 4528.000000)">
+                <path d="M0,613.36157 L0,613 L320,613 L320,613.36 C299.902978,612.593231 250.575161,630.879724 223.777778,628.836116 C196.980395,626.792508 154.420529,615.951158 142.329421,615.951158 C119.662754,615.951158 108.707929,622.559513 78,622.559513 C57.5280474,622.559513 31.5280474,619.493532 0,613.36157 Z" id="Wave-2" transform="translate(160.000000, 620.997796) scale(-1, -1) translate(-160.000000, -620.997796) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,123 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.ds-button {
+  border-radius: map-get($borderRadius, 'border-radius-2');
+  min-width: 8.5rem;
+
+  // Sizes
+  &--s {
+    height: 2rem; // 32px
+  }
+
+  &--m {
+    height: 3rem; // 48px
+  }
+
+  // Variant primary
+  &--primary {
+    background-color: map-get($semanticPrimaryColors, 'semantic-primary-medium');
+    color: map-get($inverseColors, 'inverse-1');
+    border: none;
+
+    &.inverse {
+      background-color: map-get($inverseColors, 'inverse-1');
+      color: map-get($semanticPrimaryColors, 'semantic-primary-medium');
+      border: none;
+    }
+  }
+
+  // Variant secondary
+  &--secondary {
+    background-color: transparent;
+    color: map-get($semanticPrimaryColors, 'semantic-primary-medium');
+    box-sizing: border-box;
+    border: map-get($borderWidth, 'border-width-1') solid map-get($semanticPrimaryColors, 'semantic-primary-medium');
+
+    &.inverse {
+      color: map-get($inverseColors, 'inverse-1');
+      background-color: transparent;
+      border: map-get($borderWidth, 'border-width-1') solid map-get($inverseColors, 'inverse-1');
+    }
+  }
+
+  // Variant danger
+  &--danger {
+    background-color: map-get($semanticDangerColors, 'semantic-danger-medium');
+    color: map-get($inverseColors, 'inverse-1');
+    border: none;
+  }
+
+  // Variant ghost
+  &--ghost {
+    background-color: map_get($layerBackgroundColors, 'background-1');
+    border: map-get($borderWidth, 'border-width-1') solid map_get($layerBorderColors, 'border-2');
+    color: map-get($inverseColors, 'inverse-1');
+  }
+
+  // Hover and active states
+  &:active,
+  &:hover {
+    &.ds-button--primary {
+      background-color: map-get($semanticPrimaryStateColors, 'semantic-primary-pressed');
+
+      &.inverse {
+        background-color: map-get($inverseStateColors, 'pressed');
+        color: map-get($semanticPrimaryStateColors, 'semantic-primary-pressed');
+      }
+    }
+
+    &.ds-button--secondary {
+      color: map-get($semanticPrimaryStateColors, 'semantic-primary-pressed');
+      border: map-get($borderWidth, 'border-width-1') solid map-get($semanticPrimaryStateColors, 'semantic-primary-pressed');
+
+      &.inverse {
+        background-color: transparent;
+        color: map-get($inverseStateColors, 'pressed');
+        border: map-get($borderWidth, 'border-width-1') solid map-get($inverseStateColors, 'pressed');
+      }
+    }
+
+    &.ds-button--danger {
+      background-color: map-get($semanticDangerStateColors, 'semantic-danger-pressed');
+    }
+
+    &.ds-button--ghost {
+      border-color: map-get($globalColors, 'ds--color-primary-88');
+    }
+  }
+
+  // Disabled state
+  &:disabled {
+    &.ds-button--primary {
+      background-color: map-get($semanticPrimaryStateColors, 'semantic-primary-disabled');
+      pointer-events: none;
+    }
+
+    &.ds-button--secondary {
+      color: map-get($semanticPrimaryStateColors, 'semantic-primary-disabled');
+      border: map-get($borderWidth, 'border-width-1') solid map-get($semanticPrimaryStateColors, 'semantic-primary-disabled');
+      pointer-events: none;
+    }
+
+    &.ds-button--danger {
+      background-color: map-get($semanticDangerStateColors, 'semantic-danger-disabled');
+      pointer-events: none;
+    }
+  }
+
+  // Keyboard focus
+  &:focus-visible {
+    box-shadow: map-get($focus, 'focus-inner'), map-get($focus, 'focus-outer');
+    outline: none;
+  }
+
+  &:focus:not(:focus-visible) {
+    box-shadow: none;
+    outline: none;
+  }
+
+  // light
+  &.light {
+    background-color: map-get($layerBackgroundColors, 'background-1');
+  }
+}

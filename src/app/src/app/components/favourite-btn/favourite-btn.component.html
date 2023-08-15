@@ -1,0 +1,11 @@
+<div *ngIf="isFavouriteEnabled$ | async">
+  <ds-toggle-button
+    class="favourite"
+    [ngClass]="{'crosselling-bottom': isCrossellingBottom, 'crosselling-lateral': isCrossellingLateral}"
+    [size]="ICON_SIZE"
+    [type]="ICON_NAME"
+    [isChecked]="favouriteSrv.isFavourite(type, this.id)"
+    (click)="manageClick($event, index)"
+    >
+  </ds-toggle-button>
+</div>

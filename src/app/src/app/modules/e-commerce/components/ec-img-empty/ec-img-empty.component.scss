@@ -1,0 +1,12 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.ec-img-empty {
+  background-color: map-get($globalColors, 'ds--color-grey-8');
+  border-radius: pxToRem(8);
+  aspect-ratio: 3/2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

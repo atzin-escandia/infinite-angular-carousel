@@ -1,0 +1,20 @@
+@import '../../../../../../../scss/commons.scss';
+
+.checkout-payment {
+  &__footer {
+    padding-top: 16px;
+    border-top: 2px solid map_get($color, 'grey-2');
+  }
+}
+
+.payments-methods-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+
+  &__elem {
+    & + & {
+      margin-top: 16px;
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import '../../../../../src/scss/commons.scss';
+
+.image {
+  &-outstanding {
+    border-radius: 5px;
+    overflow: hidden;
+  }
+}
+
+.promo-image-mbl {
+  height: 16rem;
+}
+
+.promo-image-dkt {
+  height: 24rem;
+}
+
+// Loading...
+
+.loading {
+  min-height: 200px;
+
+  .loading-container {
+    background: linear-gradient(to right, #eee 8%, #ddd 18%, #eee 33%);
+    background-size: 200% 100% !important;
+    animation-name: loadAnimation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+
+    &-green {
+      background: linear-gradient(to right, #c3f5f2 8%, #b2e4e1 18%, #c3f5f2 33%);
+    }
+  }
+
+  @keyframes loadAnimation {
+    0% {
+      background-position: 100% 0;
+    }
+
+    20% {
+      background-position: 100% 0;
+    }
+
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  .promo-title-mbl {
+    height: 3.5rem;
+  }
+
+  .promo-title-dkt {
+    height: 3.5rem;
+  }
+
+  .promo-text-mbl {
+    height: 12rem;
+  }
+
+  .promo-text-dkt {
+    height: 8rem;
+  }
+
+  .promo-cta-mbl {
+    height: 3rem;
+    border-radius: 5px;
+  }
+
+  .promo-cta-dkt {
+    height: 3rem;
+    width: 8rem;
+    border-radius: 5px;
+  }
+}

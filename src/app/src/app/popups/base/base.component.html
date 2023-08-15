@@ -1,0 +1,19 @@
+<div class="overlay {{wrapperClass}}" [ngClass]="isOpen ? 'overlay-open' : 'overlay-close'"></div>
+<!-- Popup -->
+<div class="popup-wrapper d-flex justify-content-center align-items-end align-items-md-start {{wrapperClass}}"
+  (click)="onClose()">
+  <div class="popups out-popup" [ngClass]="{'h-100': isFullHeight}" [ngStyle]="{'margin-top.px': marginTop}" (click)="onDialogClicked($event)">
+    <div class="popup-body" [ngClass]="isOpen ? 'popup-body-open' : 'popup-body-close'"
+      [ngStyle]="{'max-height': isFullHeight ? '100%' : '80vh'}">
+      <!-- Content -->
+      <ng-template appInsertion></ng-template>
+
+      <!-- Close -->
+      <div class="popup-buttons">
+        <div *ngIf="showX" class="popup-buttons-close pointer" (click)="onClose()">
+          <i aria-hidden="true" class="eva eva-close-outline f24"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

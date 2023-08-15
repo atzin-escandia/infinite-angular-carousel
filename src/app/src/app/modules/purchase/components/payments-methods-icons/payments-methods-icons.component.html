@@ -1,0 +1,15 @@
+<div class="d-inline-flex payments-methods-icons">
+  <div class="payment-icons">
+    <div class="d-flex flex-wrap align-items-center" [ngClass]="{ 'justify-content-center': shouldBeCentered }">
+      <ng-container *ngFor="let item of allowedPaymentMethodsBadges">
+        <div class="icon-badge">
+          <img height="32" [src]="item.file" />
+        </div>
+      </ng-container>
+    </div>
+    <div *ngIf="showExtraBadges" class="mt-m d-flex align-items-start">
+      <img class="mr-s" width="96" height="21" [src]="files.stripePowered" />
+      <img class="mr-s" width="96" height="21" [src]="files.securePayment" />
+    </div>
+  </div>
+</div>

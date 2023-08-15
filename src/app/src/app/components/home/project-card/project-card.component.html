@@ -1,0 +1,131 @@
+<div *ngIf="project" class="promotion">
+  <div *transloco="let t" class="promotion-container greyBG d-flex flex-column justify-content-between text-center">
+    <favourite-btn [path]="homeKey" [isOH]="!adoption" [project]="project" [index]="index" [agroupmentName]="agroupmentName"></favourite-btn>
+    <!-- Images -->
+    <div (click)="clickPromotion($event, project)" class="d-flex flex-column h-100">
+      <div class="image-cont">
+        <div class="row">
+          <i *ngIf="isGiftAvailable" class="gift-icon eva-gift-outline position-absolute t-text-regular"></i>
+          <image-lazy class="promotion-image flex-center" [index]="i" [startLazyAt]="startLazyAt"
+            [imageId]="'id' + project.farmer.slug" [imageURL]="project.up.pictureURL"
+            [ngClass]="{'inactive-season': project.inactiveSeason}" [imageAlt]="project.altSeo?.promotionPictureURL">
+          </image-lazy>
+          <div *ngIf="adoption && project.currentBillingSeason.remainingUnits < 30 && !ohAvailable && isValidSeason"
+            class="country-promos t-primary-T t-xs-medium">
+            <img src="{{env.domain}}/assets/img/home/bell.svg" alt=""/>
+            {{project.currentBillingSeason.remainingUnits}} {{t('page.units-left.title')}}
+          </div>
+          <div *ngIf="!isValidSeason" [ngClass]="{black: project.inactiveSeason}"
+            class="country-promos yellow t-primary-T t-xs-medium">
+            <span *ngIf="project.emptySeason">
+              {{t('global.currently-not-available-text-info')}}
+            </span>
+            <span *ngIf="project.inactiveSeason">
+              {{t('global.out-of-season-text-info')}}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="promotion-header d-flex">
+        <div class="farm text-left t-grey-o t-s-regular d-flex flex-column col-11 nop">
+          <span>
+            {{project.farmer.name}}
+          </span>
+          <span>
+            {{project.farm | translation: 'name'}}
+          </span>
+        </div>
+        <div class="d-flex col-1 nop justify-content-end">
+          <div class="flag-icon flag-icon-{{countryName}}"></div>
+        </div>
+      </div>
+      <div class="promotion-body d-flex flex-column h-100">
+        <div class="d-flex flex-column align-items-start title justify-content-between h-100">
+          <div>
+            <div class="t-h6-bold t-black-H">
+              {{project.up | translation: 'title'}}
+            </div>
+            <!-- OH -->
+            <div *ngIf="!adoption" class="d-flex flex-column align-items-start t-a-left info">
+              <span class="t-m-regular">
+                {{project.masterBox.weight}}{{project.masterBox | translation: 'weightUnit'}}/{{t('global.box.body')}}
+              </span>
+            </div>
+
+            <!-- ADOPTION -->
+            <div *ngIf="adoption" class="d-flex flex-column align-items-start t-a-left info">
+              <span class="t-m-regular">
+                {{t('global.Adopt.text-info')}} {{project.up | translation: 'publicVariety'}}
+              </span>
+            </div>
+
+            <!-- SEALS -->
+            <ng-container *ngIf="project.upSeals">
+              <ds-seals-header [seals]="project.upSeals.header | translateSeals"></ds-seals-header>
+            </ng-container>
+          </div>
+
+          <div *ngIf="!adoption" class="d-flex align-items-start justify-content-between mt-l mb-s promotion-price">
+            <div *ngIf="isValidSeason">
+              <span *ngIf="project?.up?._mastersBoxes?.length >= 2"
+                class="t-m-regular t-black-T mr-1">
+                {{t('global.Adopt.From')}}
+              </span>
+              <span *ngIf="project?.filters?.ohPrice && project?.filters?.ohPrice?.amount"
+                class="t-m-regular t-black-T mr-s">
+                {{priceToShow | currency}}
+              </span>
+            </div>
+            <div class="d-flex justify-content-end">
+              <span class="eva eva-car-outline t-m-regular t-green-primary mr-1">
+              </span>
+              <span class="t-m-regular t-grey">
+                {{project?.filters?.ohDates && project?.filters?.ohDates?.first && isValidSeason ?
+                (project.filters.ohDates.first | date:'dd/MM/yyyy') : t('page.Not-available.text-info')}}
+              </span>
+            </div>
+          </div>
+          <div *ngIf="adoption" class="d-flex align-items-end mt-l mb-s justify-content-between promotion-price">
+            <div *ngIf="isValidSeason">
+              <span *ngIf="project?.up?._mastersBoxes?.length >= 2 && priceToShow"
+                class="t-m-regular t-black-T mr-1">
+                {{t('global.Adopt.From')}}
+              </span>
+              <span *ngIf="project?.filters?.price?.amount && priceToShow"
+                class="t-m-regular t-black-T mr-s">
+                {{priceToShow | currency}}
+              </span>
+            </div>
+            <div class="d-flex justify-content-end">
+              <span class="eva eva-car-outline t-m-regular t-green-primary mr-1">
+              </span>
+              <span class="t-m-regular t-grey">
+                {{project?.filters?.adoptionDates?.first && isValidSeason && priceToShow ?
+                (project.filters.adoptionDates.first | date: 'dd/MM/yyyy') : t('page.Not-available.text-info')}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="promotion-button-wrapper mbs"
+      *ngIf="!adoption" (click)="addToCart(project)">
+      <div class="promotion-button flex-center">
+        <cf-button [width]="'auto'"
+          [disabled]="!isValidSeason">
+          {{t('page.cart.buttom')}}
+        </cf-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- loading -->
+<div class="promotion">
+  <div *ngIf="!project" class="promotion-container promotion-container-loading" [ngClass]="{'adoption': adoptionSkeleton, 'boxes': boxSkeleton}">
+    <div class="col-12 loading-container promotion-image"></div>
+    <div class="col-10 loading-container promotion-title"></div>
+    <div class="col-10 loading-container loading-container-green promotion-button"></div>
+  </div>
+</div>

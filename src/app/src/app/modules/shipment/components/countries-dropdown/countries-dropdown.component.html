@@ -1,0 +1,27 @@
+<div class="select-field">
+  <label class="t-black-T t-s-medium select-field__label">{{ label }}</label>
+  <div class="pointer select-field__container" [ngClass]="{ focus: isFocused, disabled: isDisabled }" (click)="onSelectClick()">
+    <div class="flag-icon flag-icon-{{ displayValue?.iso }}"></div>
+    <div class="fake-select" [ngClass]="{ grey: !value }">{{ displayValue?.label || placeholder }}</div>
+    <div class="arrow-icon">
+      <i class="eva eva-chevron-down-outline" [@rotateState]="arrowState"></i>
+    </div>
+  </div>
+
+  <div class="options-list" *ngIf="isFocused">
+    <div class="options-list__searchbar">
+      <div class="input-wrapper">
+        <input type="text" [placeholder]="searchbarPlaceholder" [formControl]="searchCountryFC" />
+        <i class="eva eva-search f24 t-grey" aria-hidden="true"></i>
+      </div>
+    </div>
+    <ul class="options-list__list">
+      <ng-container *ngFor="let item of filteredOpts$ | async">
+        <li class="options-list__list elem" [ngClass]="{ selected: value === item.label }" (click)="onOptionSelected(item)">
+          <div class="img flag-icon flag-icon-{{ item.iso }}"></div>
+          <span class="t-black-T t-s-medium">{{ item.label }}</span>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>

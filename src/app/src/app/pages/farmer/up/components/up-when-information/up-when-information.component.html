@@ -1,0 +1,28 @@
+<div *transloco="let t" class="mt-xl mb-l t-black-T">
+  <p class="t-h1-blackW t-black-H mob-pl-s mob-pr-s">
+    <span>
+      {{textSrv.getText(blockName)}}
+    </span>
+  </p>
+  <div *ngIf="availableDates && availableDates.length > 0" class="t-h6-regular mob-pl-s mob-pr-s mb-m">
+    <span>
+      {{textSrv.getText('You may select the delivery date of your box as suggested by the Farmer at check-out.')}}
+    </span>
+    &nbsp;
+    <span *ngIf="sellingMethod === 'MULTI_SHOTS'" (click)="openMsInfoPopup()" class="t-supp-blue pointer">
+      <span class="text-underline">
+        {{ t('page.calculate-shipping-costs.text.link') }}
+      </span>
+      &nbsp;
+      <span class="eva eva-info">
+      </span>
+    </span>
+  </div>
+  <div>
+    <calendar-delivery-info *ngIf="availableDates && availableDates.length > 0" [availableDates]="availableDates">
+    </calendar-delivery-info>
+    <p class="t-h6-regular mob-pl-s mob-pr-s"
+      [innerHTML]="textSrv.markdown(textSrv.replaceAll(infoBlock, upInformationReplacements))">
+    </p>
+  </div>
+</div>

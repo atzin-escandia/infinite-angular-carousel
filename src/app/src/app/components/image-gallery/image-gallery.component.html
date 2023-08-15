@@ -1,0 +1,21 @@
+<div [class]="{'fixed-height-actived': fixedHeight}" class="fixed-height-container">
+  <div class="image-gallery-circle image-gallery-left" (click)="changeImage(-1)" *ngIf="arrows && currentImage > 0">
+    <cf-arrow [left]="true">
+    </cf-arrow>
+  </div>
+  <div class="image-gallery-container" id="{{id}}">
+    <div class="image-gallery-effect" [style.width.%]="(100 * images.length) + images.length"
+      [style.transform]="'translateX(-' + (currentImage * (100 / images.length)) +'%)'">
+      <div class="image-gallery-background" *ngFor="let imageURL of images; let i = index"
+        [style.width.%]="100 / images.length">
+        <img *ngIf="isLazyImage(i)" id="image-gallery-{{id}}-{{i}}"
+          src="{{(imageURL.url ? imageURL.url : imageURL) | cdn: 800}}" alt="{{imagesAlts[i] ? imagesAlts[i] : null}}">
+      </div>
+    </div>
+  </div>
+  <div class="image-gallery-circle image-gallery-right" (click)="changeImage(1)"
+    *ngIf="arrows && currentImage < images.length - 1">
+    <cf-arrow [right]="true">
+    </cf-arrow>
+  </div>
+</div>

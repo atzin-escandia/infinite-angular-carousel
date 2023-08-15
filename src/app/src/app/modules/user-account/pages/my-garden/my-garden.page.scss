@@ -1,0 +1,23 @@
+@import '../../../../../scss/commons.scss';
+
+:host {
+  min-height: 60vh;
+}
+
+@media (max-width: map_get($grid-breakpoints, 'sm')) {
+  :host ::ng-deep cf-tabs .cf-tabs-box {
+    justify-content: start;
+  }
+
+  .cf-tabs-wrapper {
+    margin: 0 -16px;
+  }
+
+  ::ng-deep cf-tabs .cf-tabs .cf-tabs-tab {
+    font-size: 18px;
+  }
+}
+
+.adoption-cards-container {
+  margin: 24px -16px 0 -16px;
+}

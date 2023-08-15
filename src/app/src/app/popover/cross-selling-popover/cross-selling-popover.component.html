@@ -1,0 +1,64 @@
+<!-- Cross Selling OH Container -->
+<div class="cross-selling-popover popover-container cf-shadow-m" stop-propagation>
+  <!-- CLOSE -->
+  <div class="cross-selling-close flex-center">
+    <i class="cross-selling-close-icon eva eva-close-outline" aria-hidden="true" (click)="closeWithAnimation()"
+      stop-propagation></i>
+  </div>
+
+  <!-- Product added to the basket -->
+  <div class="cross-selling-cart">
+    <div class="cross-selling-info pa-m">
+      <!-- IMG -->
+      <div class="cross-selling-image mr-m" [style.backgroundImage]="'url(' + (imageURL | cdn) + ')'"></div>
+
+      <!-- INFO -->
+      <div class="cross-selling-container">
+        <!-- NAME -->
+        <div class="cross-selling-text pr-l">
+          <div class="cross-selling-title t-s-medium overflow-text f16">
+            {{textSrv.getText(productSrv.productTypeText(product))}}
+            <span *ngIf="!product.multiShotBox && !product.overharvest" class="text-capitalize">
+              {{product.up | translation: 'variety'}}
+            </span>
+            <span *ngIf="product.multiShotBox || product.overharvest">
+              {{product.up | translation: 'production'}}
+            </span>
+          </div>
+          <div class="cross-selling-name t-s-regular overflow-text">
+            {{product.name}}
+          </div>
+        </div>
+
+        <!-- BOXES / PRICE | CART BUTTON -->
+        <div>
+          <div class="cross-selling-number">
+            <div class="cross-selling-number-boxes t-xs-regular">
+              <!-- Box | boxes -->
+              {{boxesInfo}}
+            </div>
+            <div class="t-l-medium">{{product.price | currency}}</div>
+          </div>
+
+          <cf-button [width]="'auto'" (click)="goToCart()" class="hide-mobile">
+            {{textSrv.getText('Go to cart')}}
+          </cf-button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CART BUTTON -->
+    <div class="hide-desktop ph-m">
+      <cf-button [width]="'auto'" (click)="goToCart()">
+        {{textSrv.getText('Go to cart')}}
+      </cf-button>
+    </div>
+  </div>
+
+  <!-- Cross Selling Products -->
+  <div *ngIf="isCsActive" class="lateral-cs-container">
+    <cross-selling-block-component [params]="csParams" [activeCS]="'ohProjects'" [specifications]="csSpecifications"
+      [isLateralCs]="true">
+    </cross-selling-block-component>
+  </div>
+</div>

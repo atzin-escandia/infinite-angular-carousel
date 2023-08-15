@@ -1,0 +1,1 @@
+export * from './gifts.resource';

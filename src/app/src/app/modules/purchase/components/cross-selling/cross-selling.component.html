@@ -1,0 +1,16 @@
+<div class="cross-selling">
+  <ng-container *ngFor="let item of products | keyvalue: originalOrder; let i = index">
+    <div class="d-flex flex-column mb-l cross-selling__block" *ngIf="showBlock(item)">
+      <h4 class="t-h4-bold t-black-T mb-m">{{ textSrv.getText(specifications[item.key].header) }}</h4>
+      <ul class="products-list">
+        <li class="products-list__elem" *ngFor="let product of item.value | slice: 0:4; let j = index">
+          <cross-selling-product
+            [product]="product"
+            [lang]="lang"
+            [index]="j"
+            (addProduct)="addProductToCart($event)"></cross-selling-product>
+        </li>
+      </ul>
+    </div>
+  </ng-container>
+</div>

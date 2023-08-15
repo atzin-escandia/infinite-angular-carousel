@@ -1,0 +1,60 @@
+<div class="location-lang-container pl" [ngClass]="{'right-transition': isTransitionRightActive, 'left-transition': isTransitionLeftActive}">
+  <!-- Header: Go Back and Close buttons -->
+  <div class="header">
+    <img class="" src="../../../assets/icon/common/go-back-arrow.svg" alt="Go back" (click)="closeModal()">
+    <div *ngIf="showCloseButton" class="close-img-container">
+      <i class="eva eva-close-outline f24" aria-hidden="true" (click)="closeModal(true)"></i>
+    </div>
+  </div>
+  <!-- Searcher - only for delivery country case -->
+  <div *ngIf="isDeliveryCountry" class="country-searcher d-flex align-items-center pa-s mb-24">
+    <input #countrySearchInput autocomplete="off" type="text" [value]="inputSearch"
+      [placeholder]="textSrv.getText('Deliver to')" (input)="typeSearch(countrySearchInput.value)">
+    <i class="eva eva-search f20 mgr-4" aria-hidden="true"></i>
+  </div>
+  <!-- Selected Country/Language - only if the selected country is available -->
+  <div>
+    <!-- Selected Title -->
+    <span class="country-lang-selected-title f13">{{textSrv.getText(isDeliveryCountry ? 'Selected country' :
+      'Selected language')}}</span>
+    <!-- Selected Item (Country or Language) -->
+    <div class="country-lang-selected-item d-flex align-items-center mt-8">
+      <div class="d-flex align-items-center">
+        <div class="flag-container">
+          <!-- Flag - only for delivery country case & if the deliveryCountry is available -->
+          <ng-container *ngIf="isDeliveryCountry">
+            <img *ngIf="!hasNotAvailableCountry; else notAvailableCountry" src="{{env.domain}}/assets/icon/flags-with-border/{{selectedItem?.iso}}.svg" alt="{{selectedItem?.iso}}">
+            <!-- Flag - if deliveryCountry is NOT available  -->
+            <ng-template #notAvailableCountry>
+              <img src="{{env.domain}}/assets/icon/flags-with-border/nullCountry.svg" alt="Not available country" />
+            </ng-template>
+          </ng-container>
+        </div>
+        <!-- Country/Lang Text -->
+        <span class="country-lang-text country-lang-text-selected fw6 f16 lh-24"
+          [ngClass]="{'country-not-available-text': isDeliveryCountry && hasNotAvailableCountry}">
+          {{isDeliveryCountry ? (hasNotAvailableCountry ? textSrv.getText('Country not available') : (selectedItem |
+          translation: 'name')) : selectedItem?.longName}}</span>
+      </div>
+      <!-- Check Icon -->
+      <img *ngIf="!hasNotAvailableCountry"
+        class="country-lang-selected-check mgr-4"
+        src="https://common.crowdfarming.com/uploaded-images/1640277717993-34ce03eb-3e06-4769-8f4d-35c496ac2424.svg"
+        alt="Check">
+    </div>
+    <!-- Divider -->
+    <hr class="mobile-line mt-8 mb-16">
+  </div>
+  <!-- Countries/Languages List -->
+  <div class="country-lang-list">
+    <div class="country-lang-list-container pointer"
+      *ngFor="let item of countriesOrLanguagesToShow | deliveryCountry:selectedItem:isDeliveryCountry:inputSearch"
+      (click)="changeSelectedCountryLang(item)">
+      <!-- Flag - only for delivery country case -->
+      <div *ngIf="isDeliveryCountry" class="country-flag flag-icon flag-icon-{{item?.iso}}"></div>
+      <!-- Title -->
+      <span class="country-lang-text fw6 f16 lh-24">{{isDeliveryCountry ? (item | translation: 'name') :
+        item?.longName}}</span>
+    </div>
+  </div>
+</div>

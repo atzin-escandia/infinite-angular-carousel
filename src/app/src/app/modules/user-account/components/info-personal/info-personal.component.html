@@ -1,0 +1,47 @@
+<div class="row-no-margin justify-content-center" *ngIf="clonedUser">
+  <div class="col-12 nop" *transloco="let t">
+    <div class="row">
+      <cf-input class="col-12 col-md-6">
+        <input [(ngModel)]="clonedUser.email" [placeholder]="textSrv.getText('email')" name="email" />
+      </cf-input>
+    </div>
+    <div class="row">
+      <cf-input class="col-12 col-md-6">
+        <input id="change-info-name-input" [(ngModel)]="clonedUser.name" [placeholder]="textSrv.getText('name')"
+          name="name" (keyup)="minLengthIsValid('name')" />
+      </cf-input>
+      <cf-input class="col-12 col-md-6">
+        <input id="change-info-surnames-input" [(ngModel)]="clonedUser.surnames"
+          [placeholder]="textSrv.getText('surnames')" name="surnames" (keyup)="minLengthIsValid('surnames')" />
+      </cf-input>
+    </div>
+    <div class="row" *ngIf="clonedUser.phone && countries">
+      <countries-prefix class="col-5 col-md-6 cf-input-container" [data]="countries"
+        [selected]="clonedUser.phone.prefix" (returnData)="getCountryInfo($event)"></countries-prefix>
+      <cf-input class="col-7 col-md-6">
+        <input [(ngModel)]="clonedUser.phone.number" [placeholder]="textSrv.getText('phone')" name="phoneNumber"
+          [mask]="['XXXXXXXXXXXX']" />
+      </cf-input>
+    </div>
+    <div class="error-line capi-error text-left mbs" *ngIf="publicMessage" [innerHTML]="publicMessage"></div>
+
+    <div class="rowNoMargin d-flex mt-xl mb-xl">
+      <cf-button id="change-user-info-btn" class="mr-m" [disabled]="!formValid(formErrors)" [width]="'fit'"
+        (click)="autoLoginValidation('changeUserInfo')">
+        {{textSrv.getText('Save')}}
+      </cf-button>
+      <cf-button id="change-user-pass-btn" [secondary]="true" (click)="changePassword()">
+        {{textSrv.getText('Change password')}}
+      </cf-button>
+    </div>
+
+    <hr />
+
+    <div class="delete-account">
+      <p class="delete-account__text-info">{{t('page.delete-account.text-info')}}</p>
+      <button type="button" class="delete-account__btn-delete" (click)="handleClickDeleteAccount()">
+        {{t('global.delete-account.text-info')}}
+      </button>
+    </div>
+  </div>
+</div>

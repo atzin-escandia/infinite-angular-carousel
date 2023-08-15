@@ -1,0 +1,181 @@
+<div class="adoption-card d-inline-block" *transloco="let t">
+  <!-- Alert bullet -->
+  <!-- Presi has no more boxes but there is overharvest and he cant renew
+    -- multishot + on season + no mopre boxes left to plan + overharvest available + no renewal period open -->
+  <div *ngIf="upType !== 3 && status?.onSeason && upCf.reserved - upCf.used === 0 && upCf.availableOverHarvest > 0 && !status.renewOpen"
+    class="alert-circle">
+    <i class="eva eva-bell t-white" aria-hidden="true"></i>
+  </div>
+  <!-- Presi has boxes to plan but farmer cannot send -- multishot + on season + boxes left to plan + farmer cannot send -->
+  <div *ngIf="upType !== 3 && status?.onSeason && upCf.reserved - upCf.used > 0 && upCf.harvestBreak"
+    class="alert-circle">
+    <i class="eva eva-alert-circle t-white" aria-hidden="true"></i>
+  </div>
+  <!-- Multishot or oneshot renewal period open -- multishot or one shot + out of season + renewal period open -->
+  <!-- Multishot or oneshot renewal period open - MS o OS + in season + no boxes left + renovation open -->
+  <div
+    *ngIf="status
+      && (status.outOfSeason && status.renewOpen || (status.onSeason && status.renewOpen && upCf.reserved - upCf.used === 0))"
+    class="alert-circle">
+    <i class="eva eva-bell t-white" aria-hidden="true"></i>
+  </div>
+
+  <!-- Image -->
+  <div *ngIf="upCf" class="image-container pointer" (click)="routerSrv.navigate('private-zone/my-up/' + upCf._id)">
+    <span *ngIf="isGift" class="eva-gift-outline"></span>
+    <img [src]="upCf.pictureURL | cdn" alt="{{upCf.name}} - {{upCf | translation:'variety'}}" height="100%" width="100%" />
+  </div>
+
+  <!-- Info white card -->
+  <div class="info-container d-flex flex-column justify-content-between pa-m">
+    <div class="info-container-clickable" (click)="routerSrv.navigate('private-zone/my-up/' + upCf._id)"></div>
+
+    <div *ngIf="upCf">
+      <p class="t-grey t-xs-regular nop nom">{{upCf | translation: 'variety' | titlecase}}</p>
+      <h5 class="adoption-card-title text-black t-h5-bold nop nom">{{upCf.name}}</h5>
+    </div>
+
+    <div *ngIf="upCf && status" class="middle-block mt-m">
+      <div class="two-line-clamp" [ngClass]="{'mb-2': status.onSeason}">
+        <!-- Renew open - MS o OS + out of season + renovation open -->
+        <!-- Renew open - MS o OS + in season + no boxes left + renovation open -->
+        <p
+          *ngIf="(status.outOfSeason && status.renewOpen)
+            || (status.onSeason && status.renewOpen && upCf.reserved - upCf.used === 0)"
+          class="t-grey nom">
+          {{textSrv.getText('This up is available to renew')}}
+        </p>
+        <!-- Renew has not begun - MS o OS + out of season + renovation not open -->
+        <p *ngIf="!status.adoptionLiberated && status.outOfSeason && status.renewNotOpen"
+          class="t-grey nom">
+          {{textSrv.getText('Renewal period has not begun')}}
+        </p>
+        <!-- Renewal period ended -->
+        <p *ngIf="!status.adoptionLiberated && status.outOfSeason && status.renovationClosed"
+          class="t-grey nom">
+          {{textSrv.getText('Renewal period has ended')}}
+        </p>
+        <!-- Adoption has been liberated -->
+        <p *ngIf="status.adoptionLiberated && !orderRefunded"
+          class="t-grey nom">
+          {{textSrv.getText('This adoption is canceled')}}
+        </p>
+        <p *ngIf="status.adoptionLiberated && orderRefunded"
+          class="t-grey nom">
+          {{textSrv.getText('This adoption is refunded')}}
+        </p>
+      </div>
+
+      <!-- Reserved boxes progress -->
+      <div *ngIf="upType !== 3 && status.onSeason && !upCf.isDead && !orderRefunded"
+        class="reserved-progress d-flex justify-content-between align-items-center mb-m">
+        <div *ngFor="let box of boxesReserved" class="border-rs box-used"
+          [ngClass]="{'box-used': box === 'used', 'box-left': box === 'left'}">
+        </div>
+      </div>
+
+      <!-- Arrival Estimated Delivery (ONE_SHOT) -->
+      <p *ngIf="isOneShotAdoptionActive()" class="t-grey t-s-medium mb-m">
+        <span *ngIf="status.adoptionsPurchaseClosed && upCf.availableOverHarvest > 0">
+          {{t('page.last-shipment.title')}}
+        </span>
+        <span *ngIf="!status.adoptionsPurchaseClosed || (status.adoptionsPurchaseClosed && upCf.availableOverHarvest <= 0)">
+          {{t('page.Estimated-delivery.body')}}
+        </span>
+        <span class="t-green-primary">
+          {{textSrv.getText('{date}', {'{date}': utilsSrv.dateForFront(upCf?.order?.shipment?.arrivalEstimateDate)})}}
+        </span>
+      </p>
+
+      <!-- Days to End of season (MULTI_SHOTS) -->
+      <p *ngIf="isMultiShotsAdoptionActive()" class="t-grey t-s-medium mb-m">
+        <span *ngIf="status.adoptionsPurchaseClosed && upCf.availableOverHarvest > 0">
+          {{t('page.last-shipment.title')}}
+        </span>
+        <span *ngIf="!status.adoptionsPurchaseClosed || (status.adoptionsPurchaseClosed && upCf.availableOverHarvest <= 0)">
+          {{t('global.end-season.text-info')}}
+        </span>
+        <span class="t-green-primary">
+          {{textSrv.getText('{date}', {'{date}': utilsSrv.dateForFront(upCf.shippingEndDate)})}}
+        </span>
+      </p>
+
+      <!-- Box already delivered -->
+      <p *ngIf="upCf.areDeliveredAllBoxes" class="t-grey t-s-medium mb-m">
+        <span>{{t('global.delivered.label')}}</span>
+      </p>
+
+      <!-- Presi has boxes to plan but farmer cannot send - multishot + on season + boxes left to plan + farmer cannot send -->
+      <div *ngIf="upType !== 3 && status.onSeason && upCf.reserved - upCf.used > 0 && upCf.harvestBreak"
+        class="two-line-clamp">
+        <p class="t-grey nomb">
+          {{textSrv.getText('Farmer cannot send you more orders')}}
+        </p>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div *ngIf="upCf" class="buttons-block">
+      <!-- renovation open - MS o OS + out of season + renovation open -->
+      <!-- renovation open - MS o OS + in season + no boxes left + renovation open -->
+      <cf-button
+        *ngIf="(status.outOfSeason && status.renewOpen)
+          || (status.onSeason && status.renewOpen && upCf.reserved - upCf.used === 0)"
+        [iconLeft]="true"
+        [id]="'renewal-btn-garden'"
+        [size]="'s'"
+        [width]="'auto'"
+        (click)="renew()">
+        <i class="eva eva-flip-2-outline" aria-hidden="true"></i>
+        <span>{{textSrv.getText('Renew season')}}</span>
+      </cf-button>
+
+      <!-- Presi has boxes to plan - multishot + on season + boxes left to plan -->
+      <cf-button
+        *ngIf="upType !== 3
+          && status.onSeason
+          && upCf.reserved - upCf.used > 0
+          && !upCf.harvestBreak
+          && !upCf.isDead
+          && !orderRefunded
+          && upCf.up.sellingMethod === 'MULTI_SHOTS'"
+        [disabled]="upCf.ticketOpened || productNotificationOpen"
+        [iconLeft]="true"
+        [id]="'plandelivery-garden'"
+        [size]="'s'"
+        [width]="'auto'"
+        (click)="planShipment()">
+        <i class="eva eva-archive-outline" aria-hidden="true"></i>
+        <span>{{t('global.plan-delivery.button')}}</span>
+      </cf-button>
+
+      <!-- Presi has no more boxes but there is overharvest - multishot + on season + no mopre boxes left to plan + overharvest available -->
+      <cf-button
+        *ngIf="upType !== 3
+          && status.onSeason
+          && upCf.reserved - upCf.used === 0
+          && upCf.availableOverHarvest > 0
+          && !status.renewOpen"
+        [id]="'oh-garden'"
+        [width]="'auto'"
+        [size]="'s'"
+        [secondary]="true"
+        [iconLeft]="true"
+        [disabled]="productNotificationOpen"
+        (click)="routerSrv.navigate('/farmer/' + upCf.farmerSlug + '/up/' + upCf.up.slug + '/overharvest')">
+        <i class="eva eva-archive-outline" aria-hidden="true"></i>
+        <span>{{textSrv.getText('Buy more boxes')}}</span>
+      </cf-button>
+
+      <div class="d-block mb-s"></div>
+
+      <cf-button
+        [flat]="true"
+        [size]="'s'"
+        [width]="'auto'"
+        (click)="routerSrv.navigate('private-zone/my-up/' + upCf._id)">
+        {{t('page.see-details.text-link')}}
+      </cf-button>
+    </div>
+  </div>
+</div>

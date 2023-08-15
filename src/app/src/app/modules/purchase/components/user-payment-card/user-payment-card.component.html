@@ -1,0 +1,49 @@
+<card [selectable]="true" [selected]="isOptionSelected" [hasFooter]="true" [withInputBtn]="true" (selectTrigger)="selectPaymentHandler()">
+  <ng-container body>
+    <div class="row">
+      <div class="col">
+        <p class="t-black-T t-m-medium nom">
+          {{ cardTitle }}
+          {{ paymentMethod?.type === 'card' ? textSrv.getText(paymentMethod?.source?.brand?.toLowerCase()) : '' }}
+        </p>
+        <ng-container *ngIf="paymentMethod?.type === 'card'">
+          <p class="t-grey t-m-regular nom mb-xs">
+            {{ textSrv.getText('XXXX XXXX XXXX {last4}', { '{last4}': paymentMethod?.source?.last4 }) }}
+          </p>
+          <p class="t-grey t-m-regular nom" *ngIf="paymentMethod?.type === 'card'">
+            {{
+              textSrv.getText('Card expires {month}/{year}', {
+                '{month}': paymentMethod?.source?.exp_month,
+                '{year}': paymentMethod?.source?.exp_year
+              })
+            }}
+          </p>
+        </ng-container>
+        <ng-container *ngIf="paymentMethod?.type === 'sepa'">
+          <p class="t-grey t-m-regular nom mb-xs">
+            {{ textSrv.getText('XXXX XXXX XXXX {last4}', { '{last4}': paymentMethod?.source?.sepa_debit?.last4 }) }}
+          </p>
+          <p class="t-grey t-m-regular nom">
+            {{ paymentMethod?.source?.owner?.name }}
+          </p>
+        </ng-container>
+        <p class="t-grey t-m-regular nom mb-xs" *ngIf="paymentMethod?.type === 'ideal'">
+          {{
+            textSrv.getText('XXXX XXXX XXXX {last4}', {
+              '{last4}': paymentMethod?.source?.ideal?.sepaInfo[paymentMethod?.source?.ideal?.sepaInfo?.type]?.last4
+            })
+          }}
+        </p>
+        <p class="t-grey t-m-regular nom mb-xs" *ngIf="paymentMethod?.type === 'paypal'">
+          {{ paymentMethod?.source?.paypal?.verified_email }}
+        </p>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container footer>
+    <cf-button [flat]="true" [size]="'s'" [icon]="true" (click)="removePaymentHandler()">
+      <i aria-hidden="true" class="eva eva-trash-outline t-l-regular mr-1"></i>
+      {{ textSrv.getText('Delete') }}
+    </cf-button>
+  </ng-container>
+</card>

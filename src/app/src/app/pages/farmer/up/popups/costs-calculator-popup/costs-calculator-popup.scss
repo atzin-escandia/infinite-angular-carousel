@@ -1,0 +1,318 @@
+@import '../../../../../../scss/commons';
+@import '@crowdfarming/ds-library/src/styles/global';
+
+ds-quantity {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+::ng-deep .cost-calculator-popups {
+  transition: height 0s;
+
+  b {
+    font-weight: 600;
+  }
+
+  &.out-popup {
+    @include bp(device-l) {
+      background: transparent;
+    }
+  }
+
+  .popup-body {
+    &-open {
+      @include bp(device-xs) {
+        background: $white;
+        border-radius: 0.5rem;
+      }
+    }
+
+    @include bp(device-l) {
+      max-height: 80vh !important;
+      min-height: 36rem;
+    }
+  }
+
+  .popup-buttons {
+    right: 1em;
+    top: 1em;
+
+    @include bp(device-l) {
+      right: 2em;
+      top: 2em;
+      margin-top: -0.5em;
+    }
+  }
+}
+
+.costs-calculator-popup-container {
+  padding: 0;
+  margin: 0;
+  border-radius: 0.5rem;
+  box-shadow: none;
+
+  .costs-calculator-info {
+    display: none;
+
+    &-mobile {
+      padding: 1rem;
+
+      h3 {
+        font-size: 20px;
+        line-height: 32px;
+        margin-right: 1em;
+        padding-right: 1em;
+
+        span {
+          margin-right: -1em;
+        }
+      }
+
+      ol > li {
+        padding-bottom: 0.25em;
+      }
+
+      .collapsible {
+        display: flex;
+        margin-right: 1rem;
+      }
+
+      .eva-chevron-down {
+        font-size: 2.5rem;
+        color: map_get($color, 'black-4');
+        transition: transform 0.2s ease-in-out;
+
+        &.expanded {
+          transform: rotate(180deg);
+        }
+      }
+
+      .modal-calculator-step-text {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+        white-space: pre-wrap;
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  .costs-calculator-details {
+    padding: 1rem;
+
+    @include bp(device-l) {
+      padding: 0;
+    }
+  }
+
+  @include bp(device-s) {
+    max-width: unset;
+    min-width: 95vw;
+    width: auto;
+  }
+
+  @include bp(device-l) {
+    margin: 2em;
+
+    .costs-calculator-info {
+      display: block;
+
+      &-mobile {
+        display: none;
+      }
+    }
+  }
+
+  @include bp(device-l) {
+    min-width: 945px;
+
+    .costs-calculator-info {
+      width: 34rem;
+      float: left;
+    }
+
+    .costs-calculator-details {
+      width: 20rem;
+      float: right;
+    }
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.4px;
+    color: map_get($color, 'black-4');
+  }
+
+  ol {
+    padding-inline-start: 0;
+
+    li {
+      display: flex;
+      padding-bottom: 1em;
+
+      .number-marker {
+        width: 2rem;
+        margin-right: 1rem;
+        background-repeat: no-repeat;
+      }
+
+      &:first-child .number-marker {
+        background-image: url('/assets/icon/common/order-list/1.svg');
+      }
+
+      &:nth-child(2) .number-marker {
+        background-image: url('/assets/icon/common/order-list/2.svg');
+      }
+
+      > span {
+        flex: 1;
+
+        &.modal-calculator-step-text {
+          font-style: normal;
+          font-weight: 400;
+          color: map_get($color, 'black-4');
+          font-size: 16px;
+          line-height: 24px;
+          letter-spacing: -0.2px;
+
+          @include bp(device-l) {
+            font-size: 18px;
+            line-height: 28px;
+            letter-spacing: -0.4px;
+          }
+        }
+      }
+    }
+  }
+
+  .group-info {
+    background: map-get($color, 'grey-14');
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+
+    &-summary {
+      background-color: inherit;
+      border: 1px solid #728482;
+      margin-bottom: 1rem;
+
+      .price,
+      .shipment-cost-all-boxes {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+      }
+    }
+  }
+
+  .price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .quantity-price-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    min-width: 100%;
+
+    .quantity {
+      width: 100%;
+    }
+  }
+
+  .one-box-contains-x {
+    font-size: 12px;
+    line-height: 16px;
+    color: map_get($color, 'grey-11');
+  }
+
+  .price,
+  .shipment-cost-all-boxes {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    color: map_get($color, 'black-4');
+    width: 100%;
+  }
+
+  country-selector {
+    width: 100%;
+  }
+
+  .shipment-cost-per-box,
+  .price-per-kilo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: map_get($color, 'grey-11');
+  }
+
+  .total {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px dashed map_get($color, 'grey-12');
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.4px;
+    color: map_get($color, 'black-4');
+  }
+
+  .eva {
+    line-height: 20px;
+    font-size: 14px;
+    color: #5794d9;
+    margin-left: 0.25rem;
+  }
+
+  .tooltip {
+    font-family: Montserrat, Helvetica, sans-serif;
+    z-index: 9;
+    position: absolute;
+    bottom: 25px;
+    left: -70px;
+    width: 220px;
+    transition: opacity 0.125s ease-in-out;
+    background-color: $white;
+    border-radius: 5px;
+    padding: 12px;
+    opacity: 0;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: map_get($color, 'grey-11');
+    box-shadow: 0 0 4px rgb(4 37 34 / 12%), 0 8px 16px rgb(4 37 34 / 8%);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 35%;
+      width: 12px;
+      bottom: -6px;
+      height: 12px;
+      transform: translateX(-50%) rotate(45deg);
+      background-color: $white;
+      border-right: 1px solid rgba(4, 37, 34, 0.12);
+      border-bottom: 1px solid rgba(4, 37, 34, 0.12);
+    }
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}

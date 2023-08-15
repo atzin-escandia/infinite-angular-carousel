@@ -1,0 +1,44 @@
+<ng-container *transloco="let t">
+  <ds-hero
+    *ngIf="hero"
+    [background]="hero.background"
+    [description]="t(hero.description)"
+    [imageSrc]="hero.imageSrc"
+    [size]="hero.size"
+    [title]="t(hero.title)">
+    <ds-search
+      class="w-100"
+      [placeholder]="t('global.find-a-project.form')"
+      (searchValue)="search($event)"
+      (searchSuggestion)="search($event)">
+    </ds-search>
+  </ds-hero>
+
+  <div class="agroupments-container">
+    <agroupments [agroupments]="agroupments" [type]="type"></agroupments>
+  </div>
+
+  <ds-banner
+    *ngIf="topBanner"
+    [button]="t(topBanner?.button)"
+    [description]="t(topBanner?.description)"
+    [imageSrc]="topBanner?.imageSrc"
+    [isImageCover]="topBanner?.isImageCover"
+    [themeColor]="topBanner?.themeColor"
+    [title]="t(topBanner?.title)"
+    (clickButton)="routerSrv.navigate(topBanner?.url)">
+  </ds-banner>
+
+  <ng-content></ng-content>
+
+  <ds-banner
+    *ngIf="bottomBanner"
+    [button]="t(bottomBanner?.button)"
+    [description]="t(bottomBanner?.description)"
+    [imageSrc]="bottomBanner?.imageSrc"
+    [isImageCover]="bottomBanner?.isImageCover"
+    [themeColor]="bottomBanner?.themeColor"
+    [title]="t(bottomBanner?.title)"
+    (clickButton)="routerSrv.navigate(bottomBanner?.url)">
+  </ds-banner>
+</ng-container>

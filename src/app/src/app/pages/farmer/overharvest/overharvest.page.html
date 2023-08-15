@@ -1,0 +1,158 @@
+<ng-container *transloco="let t">
+  <!-- wrapper -->
+  <div class="oh-page" id="oh-page">
+    <!-- header -->
+    <div class="container mb-m">
+      <oh-header *ngIf="up && countriesByIso && availableCountriesByISO && country && season"
+        [up]="up"
+        [countriesByIso]="countriesByIso"
+        [availableDates]="availableDates"
+        [location]="country"
+        [farmer]="farmer"
+        [availableCountriesByISO]="availableCountriesByISO"
+        [price]="price"
+        [subscriptionAvailability]="subscriptionAvailability"
+        [maxUnits]="season.availableOverHarvest"
+        [seals]="upSeals.detailHeader | translateSeals"
+        (addToCart)="addOverHarvest($event)"
+        (addSubstract)="addSubstract($event)"
+        (selectMasterBox)="selectMasterBox($event)">
+      </oh-header>
+    </div>
+
+    <!-- crossSelling -->
+    <div *ngIf="isCsActive" class="container">
+      <cross-selling-block-component
+        *ngIf="showCs"
+        [params]="csParams"
+        [activeCS]="'ohProjects'"
+        [specifications]="csSpecifications"
+        (crossSellingProductAdded)="addedCrossSelling()">
+      </cross-selling-block-component>
+    </div>
+
+    <!-- Specifications -->
+    <div class="specifications-container">
+      <div class="container t-grey t-m-medium pt-xl pb-xl mob-pt-l mob-pb-m">
+        <div class="t-h2-bold t-black-H mb-s">
+          {{t('global.specifications.title')}}
+        </div>
+        <div class="characteristic-list">
+          <div class="characteristic-list-item pl-xl t-m-medium">
+            <div class="bullet-list">
+            </div>
+            {{t('page.Contents-of-box.body')}}:
+            {{textSrv.getText('1 box contains {weight} of {variety}', {'{weight}': up?.selectedMasterBox?.weight +
+            up?.selectedMasterBox?.weightUnit , '{variety}': up | translation:'production' })}}
+          </div>
+
+          <div class="characteristic-list-item pl-xl t-m-medium">
+          <div class="bullet-list">
+          </div>
+          <ng-container *ngIf="isAnimalOrHive; else isTreeOrTerrain">
+            {{textSrv.getText('Race: {variety}', {'{variety}': up?._m_subvariety[langSrv.getCurrentLang()]})}}
+          </ng-container>
+          <ng-template #isTreeOrTerrain>
+            {{textSrv.getText('Variety: {variety}', {'{variety}': up?._m_subvariety[langSrv.getCurrentLang()]})}}
+          </ng-template>
+        </div>
+
+          <div *ngFor="let characteristic of up?.overharvest.characteristics; let i = index"
+            class="characteristic-list-item pl-xl t-m-medium inline-element">
+            <div class="bullet-list"></div> {{ {c: characteristic} | translation:'c' }}
+          </div>
+        </div>
+        <!-- Alcohol sales information (Legal Requirements) -->
+        <ng-container *ngIf="up && up.masterBoxes">
+        <div *ngIf="upSrv.checkOver18(up.masterBoxes)" class="over18">
+          <alcohol-information></alcohol-information>
+        </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- Unofficial seals -->
+    <div *ngIf="upSeals.unOfficial.length" class="d-flex flex-wrap container pt-xl pb-xl mob-pb-m">
+      <seal-element id="oh-seal-{{seal.code}}"
+        class="col-6 col-lg-2 d-flex justify-content-start align-items-center flex-column mb-m ph-m pointer"
+        *ngFor="let seal of upSeals.unOfficial; let indSeal = index"
+        [ngClass]="(indSeal === 0 || indSeal === 1) && domSrv.getIsDeviceSize() ? 'no-mt' : 'mt-m'" [seal]="seal"
+        [sealIndex]="indSeal">
+      </seal-element>
+    </div>
+
+    <!-- Official seals -->
+    <div *ngIf="upSeals.official.length" class="container pb-xl">
+      <div class="t-title-m t-black-H">
+        {{t('global.certifications.title')}}
+      </div>
+      <div class="d-flex flex-wrap mob-pb-m">
+        <seal-element id="oh-seal-{{seal.code}}"
+          class="col-6 col-lg-2 d-flex justify-content-start align-items-center flex-column mb-m ph-m pointer"
+          *ngFor="let seal of upSeals.official; let indSeal = index"
+          [ngClass]="(indSeal === 0 || indSeal === 1) && domSrv.getIsDeviceSize() ? 'no-mt' : 'mt-m'" [seal]="seal"
+          [sealIndex]="indSeal">
+        </seal-element>
+      </div>
+    </div>
+
+    <!-- information -->
+    <oh-info *ngFor="let block of infoBlocks" [info]="block"></oh-info>
+
+    <!-- Video -->
+    <div *ngIf="videoURL" class="d-flex flex-wrap container pt-xl pb-xl mob-pb-m pr-0 pl-0">
+      <video-player class="col-12 resizable-video" [id]="videoURL" [noLazyStart]="true" platform="youtube">
+      </video-player>
+    </div>
+
+    <!-- extra info and map -->
+    <div class="d-flex flex-column-reverse flex-lg-row pt-s pb-l mob-pb-s mob-mt-xl"
+      [ngClass]="{'container' : !domSrv.getIsDeviceSize()}">
+      <div class="farm-map mob-ph-s mob-mt-l">
+        <iframe class="map-frame" src="" title="farm map location" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="technical-info ml-l mob-no-ml">
+        <div class="title t-h2-bold t-black-T lh-100" [ngClass]="{'container' : domSrv.getIsDeviceSize()}">
+          {{t('page.technical-information.title')}}
+        </div>
+        <technical-info [extraInfo]="extraInfo"></technical-info>
+      </div>
+    </div>
+
+    <!-- faqs -->
+    <div class="faqs-block pt-xl pb-xxl mob-pt-l mt-xl mob-mt-m">
+      <div class="container d-flex align-items-center">
+        <div class="row" [ngClass]="{'w-100': !domSrv.getIsDeviceSize()}">
+          <div class="col-4" [ngClass]="{'d-none': domSrv.getIsDeviceSize()}">
+            <img class="faqs-block-image" src="{{env.domain}}/assets/img/oh/faq-illustration.svg" alt="">
+          </div>
+
+          <div [ngClass]="domSrv.getIsDeviceSize() ? 'col-12' : 'col-8'">
+            <div class="d-flex flex-column ml-xl mob-no-ml">
+              <div class="t-h2-bold t-black-T">
+                {{ t('page.frequently-asked-questions.title') }}
+              </div>
+              <div class="mt-xl mob-mt-m" *ngFor="let faq of faqs; index as id">
+                <cf-faq class="pointer" id="Q{{id + 1}}" [content]="faq"></cf-faq>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- fixed cta -->
+
+  <div id="oh-cta" class="cta d-flex" [ngClass]="{'fixed': fixedCta}" *ngIf="up?.overharvestAllowed && availableDates?.length > 0">
+    <div class="container d-flex flex-row align-items-center justify-content-between">
+      <div class="d-none d-md-flex t-h5-bold t-black-H">
+        {{t('page.limited-seasonal.body')}}
+      </div>
+      <cf-button [id]="'overharvest-float'" [width]="domSrv.getIsDeviceSize()? 'auto' : 'fit'" (click)="handleClickBuyNow()">
+        {{t('global.buy-now.button')}}
+      </cf-button>
+    </div>
+  </div>
+
+</ng-container>

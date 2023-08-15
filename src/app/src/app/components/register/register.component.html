@@ -1,0 +1,87 @@
+<div *transloco="let t" class="d-flex flex-column mob-ph-m">
+  <!-- Title -->
+  <div class="t-h3-bold t-black-H">
+    {{t('global.new-crowdfarmer.text-link')}}
+  </div>
+
+  <!-- cf Register -->
+  <!-- TODO: Change mob-ph-none -->
+  <div class="t-m-regular text-grey mb-s mt-m mob-mt-s">
+    {{t('page.Register-with-email.text-info')}}
+  </div>
+
+  <div class="w-100 mob-ph-s">
+    <div class="d-flex mb-s flex-column flex-md-row">
+      <!-- TODO: Change mob-mr-none -->
+      <cf-input class="w-100 mr-m mob-mr-none" [error]="errorIn.name">
+        <input class="" id="register-name-input" name="name" placeholder="{{t('page.name.form')}}"
+          [(ngModel)]="user.name" (blur)="checkInput('name', true)" (keyup)="checkInput('name')"/>
+        <div *ngIf="errorIn.name" class="cf-input-error-msg">
+          {{ t('page.Must-be-between.text-info')}}
+        </div>
+      </cf-input>
+      <cf-input class="w-100" [error]="errorIn.surnames">
+        <input class="" id="register-surname-input" name="surnames" [placeholder]="t('page.surname.form')"
+          [(ngModel)]="user.surnames" (blur)="checkInput('surnames', true)" (keyup)="checkInput('surnames')"/>
+        <div *ngIf="errorIn.surnames" class="cf-input-error-msg">
+          {{t('page.Must-be-between.text-info')}}
+        </div>
+      </cf-input>
+    </div>
+
+    <div class="d-flex mb-s">
+      <cf-input class="w-100" [error]="errorIn.email">
+        <input id="register-email-input" type="email" class="" name="email" placeholder="{{t('page-email-address.form')}}"
+          [(ngModel)]="user.email" (blur)="checkInput('email', true)" (keyup)="checkInput('email')"/>
+        <div *ngIf="errorIn.email" class="cf-input-error-msg">
+          {{user.email.length > 64 ? textSrv.getText('Must be between 1 and 64 characters') : t('page.format-not-valid.text-info')}}
+        </div>
+      </cf-input>
+    </div>
+    <div class="d-flex">
+      <cf-input class="w-100" [error]="errorIn.passSpace || errorIn.passLetter || errorIn.passNumber || errorIn.passLength">
+        <input id="register-password-input" [type]="typeInput" class="" name="password"
+          placeholder="{{t('global.password.form')}}" [(ngModel)]="user.password" (blur)="passwordIsValid(true)"
+          (keyup)="passwordIsValid()"/>
+          <div class="cf-input-error-msg">
+          <span *ngIf="errorIn.passLength">
+            {{t('page.6-and-64-characters.body')}}
+          </span>
+          <span *ngIf="errorIn.passNumber">
+            {{t('page.minimum-one-number.text-info')}}
+          </span>
+          <span *ngIf="errorIn.passLetter">
+            {{t('page.Minimum-capital-small.text-info')}}
+          </span>
+          <span *ngIf="errorIn.passSpace">
+            {{t('page.blank-spaces.title')}}
+          </span>
+        </div>
+        <toggle-password-component (typeInputE)="changeVisible($event)"></toggle-password-component>
+      </cf-input>
+    </div>
+  </div>
+
+  <!-- Privacy Text -->
+  <div class="d-flex mt-m mb-l t-m-regular text-grey">
+    <cf-check id="register-privacy-check" [(checked)]="privacy" (checkedChange)="privacyIsValid()"
+      [colour]="errorIn.privacy ? 'red' : ''">
+    </cf-check>
+    <div class="privacy-text w-100 pt-s" [innerHTML]="utilsSrv.getPrivacyText()"
+      [ngClass]="errorIn.privacy ? 'red' : ''"></div>
+  </div>
+
+  <!-- Button -->
+  <cf-button class="w-100" id="register-button" [width]="'auto'" (click)="register()">
+    {{t('page.Sign-Up.title')}}
+  </cf-button>
+
+  <!-- Social Media -->
+  <div *ngIf="fb || google" class="t-m-regular text-grey mt-xl mob-mt-l">
+    {{t('page.express-registration-through-social.text-info')}}
+  </div>
+
+  <div *ngIf="fb || google" class="mt-m mob-mt-s">
+    <app-social-buttons type="register" [fb]="fb" [google]="google" (buttonSelect)="buttonSelectHandler()"></app-social-buttons>
+  </div>
+</div>

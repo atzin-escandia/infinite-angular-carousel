@@ -1,0 +1,19 @@
+<ng-container *transloco="let t">
+  <grid
+    [agroupments]="agroupments"
+    [bottomBanner]="farmersMarketSrv.getBanners()?.adoptions?.bottom"
+    [hero]="hero"
+    [topBanner]="farmersMarketSrv.getBanners()?.adoptions?.top"
+    [type]="'adoptions'">
+    <infography
+      [lang]="currentLang">
+    </infography>
+    <ds-section>
+      <adoptions-catalogue
+        [projects]="farmersMarketSrv.getProjectsByPage()?.adoptions"
+        [title]="t('global.adoptions.title')"
+        [showFiltersButtons]="true">
+      </adoptions-catalogue>
+    </ds-section>
+  </grid>
+</ng-container>

@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import './scss/commons.scss';
+@import './scss/helpers.scss';
+@import './scss/fonts.scss';
+@import './assets/icon/scss/_eva-icons-font.scss';
+@import './scss/general.scss';
+@import './scss/flags.scss';
+@import './scss/green-banner.scss';
+@import './scss/bootstrap/bootstrap-reboot.scss';
+@import './scss/bootstrap/bootstrap-grid.scss';
+@import './scss/bootstrap/utilities/_position.scss';
+@import './scss/bootstrap/utilities/_sizing.scss';
+
+// Add ecommerce classes and styles
+@import './app/modules/e-commerce/scss/index.scss';
+
+body {
+  font-family: 'Montserrat', Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  font-weight: 400;
+  color: $CF1;
+  background-color: $white;
+  min-height: calc(100vh - 70px);
+
+  &.no-scroll {
+    overflow-y: hidden;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

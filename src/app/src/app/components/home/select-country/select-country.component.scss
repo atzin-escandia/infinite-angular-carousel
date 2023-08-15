@@ -1,0 +1,115 @@
+@import '../../../../../src/scss/commons.scss';
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header-options {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+
+  .title {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  width: 100%;
+  height: 46px;
+  border-bottom: 1px solid $greyBorder;
+}
+
+.select-countries {
+  &-container {
+    color: black;
+    z-index: 20;
+    width: 90vw;
+    height: 250px;
+    position: absolute;
+    left: calc(34% + 8px);
+    top: 66px;
+    min-width: 400px;
+
+    @media (min-width: map_get($grid-breakpoints, 'lg')) {
+      width: 40vw;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      width: fit-content;
+    }
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 94%;
+      width: 100%;
+      left: 0;
+      top: 125px;
+      min-width: auto;
+    }
+
+    background: white;
+    padding: 0 0 5px 0;
+    border-radius: 8px;
+    box-shadow: 1px 1px 6px -1px rgba(0, 0, 0, 0.5), 1px 1px 6px -1px rgba(217, 217, 217, 0.5);
+  }
+
+  &-close-button {
+    position: absolute;
+    top: 4px;
+    right: 25px;
+    cursor: pointer;
+    font-size: 20px;
+    color: $black;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    overflow: auto;
+  }
+
+  &-option {
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+
+    &.selected {
+      color: $CF2;
+    }
+
+    transition: color 0.4s ease;
+
+    &:hover {
+      color: $CF2;
+    }
+  }
+
+  &-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15px;
+
+    &-button {
+      color: $CF1;
+      text-decoration: underline;
+      font-size: 16px;
+
+      &.reset {
+        font-size: 14px;
+        color: #004590;
+      }
+
+      cursor: pointer;
+    }
+  }
+}

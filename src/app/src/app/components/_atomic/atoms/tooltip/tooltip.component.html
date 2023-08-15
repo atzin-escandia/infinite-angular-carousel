@@ -1,0 +1,8 @@
+<div class="tooltip">
+  <div class="tooltip__target" [ngClass]="{'bbotom': borderBottom}" (mouseover)="onMouseover()" (mouseleave)="onMouseleave()">
+    <ng-content select="[target]"></ng-content>
+  </div>
+  <div class="tooltip__dialog {{ dialogPosition }}" [ngClass]="{ active: showTooltip }">
+    <ng-content select="[dialog]"></ng-content>
+  </div>
+</div>

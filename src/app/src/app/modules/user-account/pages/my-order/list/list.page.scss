@@ -1,0 +1,85 @@
+@import '../../../../../../scss/commons.scss';
+
+list-page {
+  min-height: 60vh;
+  width: 100%;
+
+  .cf-tabs {
+    @media (min-width: map_get($grid-breakpoints, 'lg')) {
+      overflow-x: hidden;
+    }
+  }
+
+  .cf-tabs-box {
+    justify-content: center;
+    width: 100%;
+    margin-left: 20px;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      min-height: unset;
+      width: 130%;
+      margin: 30px 0;
+      justify-content: start;
+    }
+  }
+
+  .two-tabs {
+    max-width: 350px;
+  }
+
+  .no-tabs {
+    display: none;
+  }
+
+  @media (min-width: map_get($grid-breakpoints, 'lg')) {
+    max-width: calc(100% - 300px);
+  }
+
+  .private-zone-orders {
+    &-filter {
+      flex-grow: 1;
+
+      @media (min-width: map_get($grid-breakpoints, 'md')) {
+        max-width: 304px;
+      }
+    }
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      .cf-dropdown-selected {
+        padding: 0 0 8px 0 !important;
+      }
+    }
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      .cf-dropdown-list {
+        right: 16px;
+        min-width: calc(100% - 32px);
+      }
+    }
+  }
+
+  .empty-text {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.4px;
+    color: map_get($color, grey-11);
+    margin-bottom: 32px;
+    margin-left: 16px;
+  }
+
+  .group-orders {
+    display: grid;
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+  }
+
+  .buttons-link {
+    display: grid;
+  }
+}
+
+.banner {
+  @media (max-width: map_get($grid-breakpoints, 'lg')) {
+    display: none;
+  }
+}

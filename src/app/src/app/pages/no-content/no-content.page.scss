@@ -1,0 +1,64 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.img404 {
+  max-width: 100%;
+  display: inline-block;
+
+  @media (min-width: 600px) {
+    & {
+      max-width: 408px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      max-width: 464px;
+    }
+  }
+}
+
+.mobileCenter {
+  text-align: center;
+
+  @media (min-width: 960px) {
+    & {
+      text-align: left;
+    }
+  }
+}
+
+.divImg404 {
+  @media (min-width: 960px) {
+    & {
+      max-width: calc(408px + 32px);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    & {
+      max-width: calc(464px + 32px);
+    }
+  }
+}
+
+@media (min-width: 960px) {
+  [class^=ds--col] {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
+
+:host ::ng-deep ds-button {
+  .ds-button {
+    padding: 0 !important;
+    height: 2rem;
+
+    div {
+      @include bp(device-s) {
+        justify-content: start !important;
+      }
+
+      justify-content: center !important;
+    }
+  }
+}

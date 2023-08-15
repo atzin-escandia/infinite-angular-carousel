@@ -1,0 +1,26 @@
+.summary {
+  &__header {
+    margin-bottom: 24px;
+
+    &-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__body {
+    .selected-ngo {
+      margin-bottom: 24px;
+    }
+
+    .selected-products {
+      &__item {
+        & + .selected-products__item {
+          margin-top: 16px;
+        }
+      }
+    }
+  }
+}

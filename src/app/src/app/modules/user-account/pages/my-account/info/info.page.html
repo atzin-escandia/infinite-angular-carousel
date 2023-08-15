@@ -1,0 +1,44 @@
+<!-- Back mobile -->
+<ng-container *transloco="let t">
+  <div class="private-zone-back hide-tablet flex-center" *ngIf="!app">
+    <div class="private-zone-back-container border-bottom-grey-2-2x d-flex w-100">
+      <div class="flex-center" (click)="openPrivateMobileMenu()">
+        <i class="eva eva-arrow-ios-back-outline f26 mr-s" aria-hidden="true"></i>
+        {{t('global.my-account.drop')}}
+      </div>
+    </div>
+  </div>
+
+  <div class="private-zone justify-content-start d-flex flex-column user-account-container">
+    <div class="col-12 col-md-10 mbm mts col-no-padding">
+      <div id="change-info-block">
+        <!-- Title -->
+        <div class="col-12 mtm mbm">
+          <div class="private-zone-title t-h3-bold t-black-H">{{t('page.account-details.title')}}</div>
+          <div class="private-zone-subtitle t-s-regular">{{t('page.Manage-CrowdFarmer-information.title')}}</div>
+        </div>
+        <div class="cf-tabs-wrapper justify-content-md-start justify-content-center">
+          <cf-tabs
+            [tabs]="[t('page.personal-info.body'), t('page.communication-preferences-products.tab')]"
+            [currentTab]="currentSection === 'Personal info' ? 0 : 1"
+            (currentTabChange)="toggleInfoPage
+          ($event)"
+            [size]="'m'"
+            class="w-100 mb-xl"></cf-tabs>
+        </div>
+        <info-personal
+          class="col-12 col-md-10"
+          [user]="user"
+          [countries]="countriesPrefix"
+          *ngIf="currentSection === 'Personal info'"></info-personal>
+        <info-newsletter
+          *ngIf="currentSection === 'Manage your info'"
+          class="col-12 col-md-10"
+          [user]="user"
+          [categories]="categories"
+          (returnUserCategories)="updateCategories($event)"
+          (returnUserSubscription)="updateSubscription($event)"></info-newsletter>
+      </div>
+    </div>
+  </div>
+</ng-container>

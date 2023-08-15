@@ -1,0 +1,38 @@
+[
+  {
+      "label": "page.defective.form",
+      "responseID": "packaging",
+      "surveyName": "crowdfarmersFeedbackAverage",
+      "order": 1
+  },
+  {
+      "label": "page.dont-like-flavour.form",
+      "responseID": "taste",
+      "surveyName": "crowdfarmersFeedbackAverage",
+      "order": 2
+  },
+  {
+      "label": "page.less-quantity.form",
+      "responseID": "quantity",
+      "surveyName": "crowdfarmersFeedbackAverage",
+      "order": 3
+  },
+  {
+      "label": "page.experience-carrier-bad.form",
+      "responseID": "transport",
+      "surveyName": "crowdfarmersFeedbackAverage",
+      "order": 4
+  },
+  {
+      "label": "page.product-ripeness-bad.form",
+      "responseID": "ripeness",
+      "surveyName": "crowdfarmersFeedbackAverage",
+      "order": 5
+  },
+  {
+      "label": "page.other.form",
+      "responseID": "other",
+      "surveyName": "crowdfarmersFeedbackAverage",
+      "order": 6
+  }
+]

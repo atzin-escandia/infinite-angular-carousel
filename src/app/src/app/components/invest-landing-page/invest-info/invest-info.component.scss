@@ -1,0 +1,326 @@
+@import '../../../../../src/scss/commons.scss';
+
+.invest-info {
+  position: relative;
+  overflow: hidden;
+
+  .illustration {
+    max-width: 544px;
+
+    .text {
+      .header {
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 1.25;
+        color: map_get($color, 'grey-7');
+      }
+
+      .subheader {
+        font-size: 20px;
+        line-height: 1.4;
+        color: map_get($color, 'grey-7');
+      }
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+      min-height: 575px;
+      background-position: bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        min-height: 300px;
+        bottom: 0;
+      }
+    }
+  }
+
+  .content {
+    padding: 120px 160px 0 120px;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      padding: 40px 16px 0 16px;
+    }
+
+    .fa {
+      font-family: Noah, sans-serif;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: normal;
+      color: map_get($color, 'primary');
+
+      &.cf-icon-crowdfarming-bold {
+        font-size: 57px;
+        font-weight: 300;
+      }
+
+      &.cf-icon-text-light {
+        margin-left: 5px;
+        font-family: Noah, sans-serif;
+        font-size: 27px;
+        font-weight: 500 !important;
+        line-height: 1.56;
+        color: map_get($color, 'primary');
+      }
+    }
+
+    .header {
+      color: map_get($color, 'black-1');
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 16px;
+      }
+
+      &-point {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 1.2;
+        color: map_get($color, 'black-1');
+      }
+    }
+
+    .subheader {
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 16px;
+      }
+
+      &-flag {
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          font-size: 14px;
+          line-height: 20px;
+          margin-bottom: 16px;
+        }
+      }
+    }
+
+    &.first-block,
+    &.block-img-right {
+      .text {
+        max-width: 600px;
+        padding-bottom: 110px;
+
+        @media (min-width: map_get($grid-breakpoints, 'xxl')) {
+          padding-bottom: 200px;
+        }
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          padding-bottom: 40px;
+        }
+      }
+
+      background-color: map_get($color, 'grey-1');
+      position: relative;
+
+      .invest-btn {
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          margin-left: 0;
+          margin-top: 16px;
+
+          cf-button {
+            div {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      cf-input {
+        margin-right: 16px;
+        margin-top: 0;
+        max-width: 144px;
+        background-color: map_get($color, 'grey-1');
+
+        .cf-input-box {
+          margin: 0;
+          background-color: map_get($color, 'white-1');
+        }
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          max-width: 100%;
+        }
+
+        input {
+          text-align: end;
+          padding-right: 23px;
+
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+
+        i {
+          color: map_get($color, 'black-1');
+          position: absolute;
+          top: 30%;
+          right: 10px;
+          font-size: 14px;
+          font-style: normal;
+        }
+      }
+    }
+
+    &.second-block {
+      .text {
+        max-width: 600px;
+        padding-bottom: 60px;
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          padding-bottom: 40px;
+        }
+
+        @media (min-width: map_get($grid-breakpoints, 'xxl')) {
+          padding-bottom: 155px;
+        }
+      }
+    }
+
+    &.third-block {
+      background-color: map_get($color, 'grey-1');
+
+      .text {
+        max-width: 600px;
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          padding-bottom: 40px;
+          text-align: center;
+        }
+
+        @media (min-width: map_get($grid-breakpoints, 'xl')) {
+          padding-bottom: 200px;
+        }
+
+        .header {
+          font-size: 32px;
+          font-weight: bold;
+          line-height: 1.25;
+          color: map_get($color, 'grey-7');
+
+          @media (max-width: map_get($grid-breakpoints, 'md')) {
+            font-size: 28px;
+            line-height: 36px;
+          }
+        }
+
+        .subheader {
+          font-size: 20px;
+          line-height: 1.4;
+          color: map_get($color, 'grey-7');
+
+          @media (max-width: map_get($grid-breakpoints, 'md')) {
+            font-size: 18px;
+            line-height: 24px;
+          }
+        }
+      }
+
+      .picture {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-right: 32px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          margin-right: 0;
+          margin-bottom: 8px;
+        }
+      }
+
+      .flags {
+        .country {
+          img {
+            width: 16px;
+          }
+
+          .name {
+            font-size: 16px;
+            color: map_get($color, 'black-1');
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            @media (max-width: map_get($grid-breakpoints, 'md')) {
+              font-size: 14px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+
+      .show-more {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+        text-align: center;
+
+        .eva {
+          width: 24px;
+          height: 24px;
+          border: 2px solid map_get($color, 'primary');
+          border-radius: 50%;
+          font-size: 14px;
+          font-weight: 900;
+        }
+      }
+    }
+
+    &.fourth-block {
+      .text {
+        .header {
+          @media (max-width: map_get($grid-breakpoints, 'md')) {
+            font-size: 28px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.29;
+          }
+        }
+
+        max-width: 600px;
+        padding-bottom: 100px;
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          padding-bottom: 40px;
+        }
+
+        @media (min-width: map_get($grid-breakpoints, 'xl')) {
+          padding-bottom: 200px;
+        }
+      }
+
+      padding: 120px 160px 0 160px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        padding: 40px 16px 0 16px;
+      }
+
+      background-color: map_get($color, 'grey-1');
+    }
+
+    cf-faq {
+      .eva {
+        cursor: pointer;
+      }
+    }
+  }
+
+  cf-wave {
+    position: absolute;
+    bottom: -1%;
+    left: 0;
+    width: 100%;
+  }
+
+  .preheaderImg {
+    height: 40px;
+  }
+}

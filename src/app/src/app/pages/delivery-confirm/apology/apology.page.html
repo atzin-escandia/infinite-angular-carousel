@@ -1,0 +1,28 @@
+<div class="apology-page">
+  <div class="d-flex flex-column-reverse flex-md-row">
+    <img *ngIf="!domSrv.getIsDeviceSize()" class="" src="{{env.domain + '/assets/img/deliveryconfirm/apology.svg'}}"
+      alt="">
+    <div class="t-black-H info">
+      <div class="d-flex t-green-brand t-h2-blackW brand">
+        <i class="logo cf-icon-crowdfarming-bold" aria-hidden="true"></i>
+        <i class="cf-icon-text-light d-flex align-items-center" aria-hidden="true"></i>
+      </div>
+      <div class="t-h1-bold header mb-m mob-mb-xl">
+        {{textSrv.getText('apology delivery landing title')}}
+      </div>
+      <img *ngIf="domSrv.getIsDeviceSize()" class="" src="{{env.domain + '/assets/img/deliveryconfirm/apology.svg'}}"
+        alt="">
+      <div class="t-l-medium text mt-s mob-mt-xl">
+        {{textSrv.getText('apology delivery landing body')}}
+      </div>
+      <div class="t-l-regular t-grey text mt-m">
+        {{textSrv.getText('apology delivery landing subtext')}}
+      </div>
+      <div class="mt-xl mob-mb-xl">
+        <cf-button (click)="goToOrder()" [width]="domSrv.getIsDeviceSize() ? 'auto' : 'fit'">
+          {{textSrv.getText('Go to private zone')}}
+        </cf-button>
+      </div>
+    </div>
+  </div>
+</div>

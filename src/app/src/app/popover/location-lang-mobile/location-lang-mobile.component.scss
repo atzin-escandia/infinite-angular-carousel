@@ -1,0 +1,166 @@
+@import '../../../scss/commons.scss';
+
+.location-lang-container {
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -100vw;
+  z-index: 500;
+  background-color: map_get($color, 'white-1');
+
+  @media (min-width: map_get($grid-breakpoints, 'md')) {
+    padding: 20px 24px;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    color: map_get($color, 'grey-11');
+
+    .close-img-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .country-searcher {
+    width: 100%;
+    height: 56px;
+    justify-content: space-between;
+    color: map_get($color, 'grey-11');
+    border: 1px solid map_get($color, 'grey-12');
+    border-radius: 8px;
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      height: 64px;
+      font-size: 16px;
+    }
+
+    & input {
+      border: none;
+      outline: none;
+    }
+
+    & i {
+      @media (min-width: map_get($grid-breakpoints, 'md')) {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .country-lang-selected-title {
+    color: map_get($color, 'grey-11');
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      font-size: 14px;
+    }
+  }
+
+  .country-lang-selected-item {
+    justify-content: space-between;
+    padding: 8px;
+
+    .flag-container {
+      margin-right: 2px;
+    }
+
+    .country-lang-selected-check {
+      width: 24px;
+      height: 24px;
+      margin-left: 4px;
+      color: map_get($color, 'primary');
+
+      @media (min-width: map_get($grid-breakpoints, 'md')) {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  .country-flag {
+    width: 30px;
+    height: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background-size: auto;
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      width: 35px;
+      height: 23px;
+      background-size: 115%;
+    }
+
+    &-nullCountry {
+      background-image: url('../../../assets/icon/flags/nullCountry.svg');
+    }
+  }
+
+  .country-lang-text {
+    letter-spacing: -0.2px;
+    color: map_get($color, 'grey-11');
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.4px;
+    }
+
+    &-selected {
+      color: map_get($color, 'primary');
+    }
+  }
+
+  .country-not-available-text {
+    color: map_get($color, 'grey-10');
+  }
+
+  .mobile-line {
+    border-top: 1px solid map_get($color, 'grey-12');
+  }
+
+  .country-lang-list {
+    overflow-y: scroll;
+    height: calc(100% - 13.5rem);
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      height: calc(100% - 14rem);
+    }
+
+    &-container {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      margin-bottom: 8px;
+
+      @media (min-width: map_get($grid-breakpoints, 'md')) {
+        padding: 10px 8px;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}
+
+.right-transition {
+  -webkit-transition: right 0.5s ease;
+  -moz-transition: right 0.5s ease;
+  -ms-transition: right 0.5s ease;
+  -o-transition: right 0.5s ease;
+  transition: right 0.5s ease;
+  right: 0;
+}
+
+.left-transition {
+  -webkit-transition: right 0.5s ease;
+  -moz-transition: right 0.5s ease;
+  -ms-transition: right 0.5s ease;
+  -o-transition: right 0.5s ease;
+  transition: right 0.5s ease;
+  right: -100vw;
+}

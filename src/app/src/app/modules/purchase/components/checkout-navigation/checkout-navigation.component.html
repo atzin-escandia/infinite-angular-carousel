@@ -1,0 +1,34 @@
+<div *transloco="let t" id="checkout-navigation" class="checkout-navigation">
+  <div class="container">
+    <div class="row align-items-center justify-content-between">
+      <div class="col-md-auto">
+        <div class="row">
+          <div class="col-auto" *ngFor="let item of sections; let i = index">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <div class="checkout-navigation__section pv-m" [ngClass]="{ active: isActiveSection(i), forward: isForwardSection(i) }">
+                  <i class="{{ buildIconClass(item.icon) }}" aria-hidden="true"></i>
+                  <h6 class="nop nom t-h6-medium ml-xs w-100 overflow-hidden">{{ t(item.label) }}</h6>
+                </div>
+              </div>
+              <div class="col-auto" *ngIf="i < sections.length - 1">
+                <i class="eva eva-chevron-right-outline t-black-T t-h5-regular" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-auto country-selector-col" *ngIf="isCartSection">
+        <div class="d-flex align-items-center pv-m">
+          <p class="t-black-T t-m-medium pr-m nom">{{ t('page.delivery-country.title') }}:</p>
+          <p class="d-flex align-items-center nom">
+            <i aria-hidden="true" class="flag-icon flag-icon-{{ countriesByIso[country]?.iso }}"></i>
+            <span class="t-l-regular t-green-primary pointer" (click)="onCountryClick()">
+              {{ countriesByIso[country] | translation: 'name' }}
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

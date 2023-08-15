@@ -1,0 +1,183 @@
+<!-- Back mobile -->
+<div *ngIf="!app" class="private-zone-back hide-tablet flex-center">
+  <div class="private-zone-back-container border-bottom-grey-2-2x d-flex w-100">
+    <div class="flex-center" (click)="openPrivateMobileMenu()">
+      <i class="eva eva-arrow-ios-back-outline f26 mr-s" aria-hidden="true"></i>
+      {{textSrv.getText('My Account')}}
+    </div>
+  </div>
+</div>
+
+<div class="private-zone-section private-zone-orders w-100" *transloco="let t">
+  <!-- Title -->
+  <div [ngClass]="{'flex-md-row': ordersSection.length === 1}" class="w-100 d-flex justify-content-between flex-column">
+    <div>
+      <div class="t-h3-bold t-black-H">{{textSrv.getText('Your orders')}}</div>
+      <div class="t-s-regular t-black-T mt-s mob-mb-m">{{textSrv.getText('See your orders information')}}</div>
+    </div>
+    <cf-tabs
+      [ngClass]="{'two-tabs': ordersSection.length === 2, 'no-tabs': ordersSection.length === 1}"
+      [tabs]="ordersSectionTranslate"
+      [currentTab]="indexCurrentTab"
+      (currentTabChange)="toggleOrderPage($event)"
+      [size]="'m'"></cf-tabs>
+    <div *ngIf="currentSection === 'individualOrders'" class="private-zone-orders-filter">
+      <cf-dropdown
+        *ngIf="typeOfOrder.individualOrders.areThereOrders || typeOfOrder.individualOrders.showNoOrderMsg"
+        [width]="'auto'"
+        [containerShadow]="false">
+        <cf-selector
+          dropdown-selected
+          class="cf-dropdown-selected"
+          [title]="typeOfOrder.individualOrders.currentFilter ? t(typeOfOrder.individualOrders.currentFilter) : t('page.show-all.drop')"
+          [value]="typeOfOrder.individualOrders.currentFilter"
+          [size]="'m'"
+          [icon]="''"></cf-selector>
+        <div
+          dropdown-item
+          *ngFor="let state of stateOptions"
+          class="cf-dropdown-item"
+          (click)="filterState(state)"
+          [ngClass]="{'cf-dropdown-current': state === typeOfOrder.individualOrders.currentFilter}">
+          <div class="cf-dropdown-content flex-center">{{t(state)}}</div>
+        </div>
+      </cf-dropdown>
+    </div>
+    <div *ngIf="currentSection === 'groupOrders'" class="private-zone-orders-filter">
+      <cf-dropdown
+        *ngIf="typeOfOrder.groupOrders.areThereOrders || typeOfOrder.groupOrders.showNoOrderMsg"
+        [width]="'auto'"
+        [containerShadow]="false">
+        <cf-selector
+          dropdown-selected
+          class="cf-dropdown-selected"
+          [title]="typeOfOrder.groupOrders.currentFilter ? t(typeOfOrder.groupOrders.currentFilter) : t('page.show-all.drop')"
+          [value]="typeOfOrder.groupOrders.currentFilter"
+          [size]="'m'"
+          [icon]="''"></cf-selector>
+        <div
+          dropdown-item
+          *ngFor="let state of stateOptionsGroup"
+          class="cf-dropdown-item"
+          (click)="filterState(state)"
+          [ngClass]="{'cf-dropdown-current': state === typeOfOrder.groupOrders.currentFilter}">
+          <div class="cf-dropdown-content flex-center">{{t(state)}}</div>
+        </div>
+      </cf-dropdown>
+    </div>
+    <div *ngIf="currentSection === 'subscriptionOrders'" class="private-zone-orders-filter">
+      <cf-dropdown
+        *ngIf="typeOfOrder.subscriptionOrders.areThereOrders || typeOfOrder.subscriptionOrders.showNoOrderMsg"
+        [width]="'auto'"
+        [containerShadow]="false">
+        <cf-selector
+          dropdown-selected
+          class="cf-dropdown-selected"
+          [title]="typeOfOrder.subscriptionOrders.currentFilter ? t(typeOfOrder.subscriptionOrders.currentFilter) : t('page.show-all.drop')"
+          [value]="typeOfOrder.subscriptionOrders.currentFilter"
+          [size]="'m'"
+          [icon]="''"></cf-selector>
+        <div
+          dropdown-item
+          *ngFor="let state of stateOptionsSubscription"
+          class="cf-dropdown-item"
+          (click)="filterState(state)"
+          [ngClass]="{'cf-dropdown-current': state === typeOfOrder.subscriptionOrders.currentFilter}">
+          <div class="cf-dropdown-content flex-center">{{t(state)}}</div>
+        </div>
+      </cf-dropdown>
+    </div>
+  </div>
+
+  <!-- List -->
+  <div *ngIf="ordersFiltered && currentSection === 'individualOrders'" class="private-zone-orders-list w-100 mob-mt-m">
+    <order-card
+      *ngFor="let order of ordersFiltered.slice(0, 2); index as id"
+      [order]="order"
+      [app]="app"
+      id="order-number-{{id}}"></order-card>
+
+    <order-card *ngFor="let order of ordersFiltered.slice(2, ordersFiltered.length); index as id" [order]="order"
+      [app]="app" id="order-number-{{id}}">
+    </order-card>
+
+    <!-- Pagination -->
+    <div
+      *ngIf="currentSection === 'individualOrders' && typeOfOrder.individualOrders.orderLength > typeOfOrder.individualOrders.limit"
+      class="w-100 mt-l mb-xxl flex-center">
+      <cf-navigation
+        [start]="1"
+        [pages]="typeOfOrder.individualOrders.totalPages"
+        [currentPage]="typeOfOrder.individualOrders.currentPage"
+        (navigationChange)="paginate($event)"></cf-navigation>
+    </div>
+  </div>
+
+  <span *ngIf="checkIfFilterEmpty()" class="empty-text">{{t('page.empty-orders-selection.text-info')}}</span>
+
+  <div *ngIf="!checkIfTabEmpty() && !checkIfFilterEmpty()" class="no-order d-flex flex-column flex-center">
+    <img src="../../../../../../assets/img/orders/orders-empty.svg" />
+    <p class="empty-text">{{t('page.pantry-sad-empty.body')}}</p>
+    <div *ngIf="currentSection === orderSectionType.INDIVIDUAL_ORDERS" class="d-md-flex buttons-link">
+      <ds-button
+        *ngFor="let link of links"
+        [variant]="link?.secondaryStyle"
+        [content]="t(link.key)"
+        (buttonClick)="routerSrv.navigateToFarmersMarket(link.link)"
+        class="mb-3 mb-md-0 mx-1"
+        width="full"></ds-button>
+    </div>
+
+    <ds-button
+      *ngIf="currentSection === orderSectionType.GROUP_ORDER || 
+      currentSection === orderSectionType.SUBSCRIPTION_ORDERS"
+      [content]="t('page.user-account-cta-buy-a-box.button')"
+      (buttonClick)="navigateToFarmersMarket(currentSection)">
+    </ds-button>
+  </div>
+
+  <div
+    *ngIf="currentSection === 'groupOrders' && typeOfOrder.groupOrders.orderLength"
+    class="private-zone-orders-list w-100 mt-l mob-mt-m group-orders">
+    <!-- we have to add the promoter in amountPeople -->
+    <order-group-card
+      *ngFor="let order of typeOfOrder.groupOrders.list"
+      [amountPeople]="order.guests.length + 1"
+      [createdAt]="order.createdAt"
+      [status]="order.status"
+      [images]="order.images"
+      [orderId]="order.id"
+      [orderNumber]="order.purchaseNumber"
+      [pricePaid]="order.currentPaid"
+      [tag]="order.tag"
+      [totalOrders]="order.orders.length"
+      [totalPrice]="order.totalToPay.amount"></order-group-card>
+  </div>
+  <!-- Pagination -->
+  <div
+    *ngIf="currentSection === 'groupOrders' && typeOfOrder.groupOrders.orderLength > typeOfOrder.groupOrders.limit"
+    class="w-100 mt-l mb-xxl flex-center">
+    <cf-navigation
+      [start]="1"
+      [pages]="typeOfOrder.groupOrders.totalPages"
+      [currentPage]="typeOfOrder.groupOrders.currentPage"
+      (navigationChange)="paginate($event)"></cf-navigation>
+  </div>
+  <div *ngIf="currentSection === 'subscriptionOrders'">
+    <subscription-card
+      *ngFor="let order of typeOfOrder.subscriptionOrders.list"
+      [subscription]="order"
+      [app]="app"
+      id="order-number-{{order.id}}"></subscription-card>
+  </div>
+  <!-- Pagination -->
+  <div
+    *ngIf="typeOfOrder.subscriptionOrders.areThereOrders && currentSection === 'subscriptionOrders' && typeOfOrder.subscriptionOrders.orderLength > typeOfOrder.subscriptionOrders.limit"
+    class="w-100 mt-l mb-xxl flex-center">
+    <cf-navigation
+      [start]="1"
+      [pages]="typeOfOrder.subscriptionOrders.totalPages"
+      [currentPage]="typeOfOrder.subscriptionOrders.currentPage"
+      (navigationChange)="paginate($event)"></cf-navigation>
+  </div>
+</div>

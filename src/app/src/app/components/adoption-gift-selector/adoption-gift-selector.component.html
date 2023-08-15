@@ -1,0 +1,43 @@
+<ng-container *transloco="let t">
+  <div class="d-flex flex-wrap align-items-center pb-0 pt-s" id="giftSelectorBlock">
+    <cf-check *ngIf="showCheckbox"
+      class="mt-1 adoption-check"
+      [(checked)]="itemCart?.gift.isActiveGift"
+      id="giftChk"
+      (checkedChange)="handleGiftSelected($event)">
+    </cf-check>
+    <span class="t-grey d-flex align-items-center">
+      <i class="eva eva-gift-outline t-h4-medium mr-1"></i>
+      {{ t('global.it-is-a-gift.text-info') | noFinalPeriod:doNotShowFinalPeriod }}
+    </span>
+
+    <a *ngIf="enableConfiguration && !itemCart?.gift?.info?.name"
+      (click)="openModalInfoGift()"
+      [ngClass]="{'d-none': !itemCart?.gift?.isActiveGift}"
+      id="giftSetUpPopopBtn"
+      class="ml-2 text-underline fw6">
+      {{t('page.set-up.text-link')}}
+    </a>
+
+    <span *ngIf="itemCart?.gift?.info?.name"
+      class="t-m-regular t-grey d-flex align-items-center ml-1 mr-2">
+      {{ t('page.recipient-name.text-info', { name: itemCart?.gift?.info?.name }) | truncate:[20] }}
+      <i *ngIf="enableConfiguration"
+        class="eva eva-edit-outline t-h4-medium ml-1 t-green-primary"
+        (click)="openModalInfoGift()">
+      </i>
+    </span>
+
+    <span *ngIf="isUserOwnGifter && itemCart?.gift?.info?.email" class="mt-1 error-copy"> 
+      {{ t('page.recipient-email-error.form') }}
+    </span>
+
+    <i *ngIf="!enableConfiguration && !itemCart?.gift?.info?.name" class="eva eva-info-outline t-h4-medium ml-2"
+      (click)="openGiftInfo()" id="giftInfoPopopBtn"></i>
+  </div>
+
+  <small *ngIf="!isValidForm && currentSection === 'cart'"
+      class="pt-2 error-copy d-block">
+    {{t('notifications.required-set-up-gift.text-info')}}
+  </small>
+</ng-container>

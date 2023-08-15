@@ -1,0 +1,57 @@
+<div *transloco="let t" class="payment-method-selector">
+  <ul class="payment-method-selector__list">
+    <li class="payment-method-selector__list-elem" *ngFor="let opt of options; let i = index">
+      <accordion-row [option]="opt" [isChecked]="opt.key === selectedOptKey" (radioChange)="onRadioChange($event)">
+        <img icon [src]="getOptIcon(opt.key)" height="32px" />
+        <ng-container body *ngIf="selectedOptKeyIdx === i">
+          <ng-container [ngSwitch]="selectedOptKey">
+            <ng-container *ngSwitchCase="'card'">
+              <ng-container *ngTemplateOutlet="cardTpl"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'sepa'">
+              <ng-container *ngTemplateOutlet="sepaTpl"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'ideal'">
+              <ng-container *ngTemplateOutlet="iDealTpl"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'paypal'">
+              <ng-container *ngTemplateOutlet="payPalTpl"></ng-container>
+            </ng-container>
+            <ng-container *ngSwitchCase="'klarna'">
+              <ng-container *ngTemplateOutlet="klarnaTpl"></ng-container>
+            </ng-container>
+          </ng-container>
+          <ng-content></ng-content>
+        </ng-container>
+      </accordion-row>
+    </li>
+  </ul>
+</div>
+
+<ng-template #cardTpl>
+  <card-payment [stripeRef]="stripeRef" (pay)="onCardPay($event)"></card-payment>
+</ng-template>
+
+<ng-template #sepaTpl>
+  <sepa-payment [stripeRef]="stripeRef" (afterSepaAdded)="onAddPaymentMethod($event, 'sepa')"></sepa-payment>
+</ng-template>
+
+<ng-template #iDealTpl>
+  <ideal-payment [stripeRef]="stripeRef"></ideal-payment>
+</ng-template>
+
+<ng-template #payPalTpl>
+  <ng-container *transloco="let t">
+    <cf-button [width]="'auto'" (click)="onPayWithPaypal()">{{ t('page.pay.button') }}</cf-button>
+  </ng-container>
+</ng-template>
+
+<ng-template #klarnaTpl>
+  <ng-container *transloco="let t">
+    <div *ngIf="displayKlarnaAdvertising" class="klarna-placement-wrapper mb-s">
+      <app-klarna-placement></app-klarna-placement>
+    </div>
+
+    <cf-button [width]="'auto'" (click)="onPayWithKlarna()">{{ t('page.pay.button') }}</cf-button>
+  </ng-container>
+</ng-template>

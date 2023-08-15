@@ -1,0 +1,21 @@
+<div *transloco="let t" class="container-fluid info-cards-section py-5">
+  <div class="container nop mb-3">
+    <h4 class="title t-h2-blackW t-a-center t-black-T d-block nom my-4">
+      {{t('page.what-can-you-buy.title')}}
+    </h4>
+    <div class="scroll-overlay">
+      <div class="nom row market-cards-icons justify-content-center" id="market-cards-icons">
+        <div *ngFor="let category of categories; index as i" class="category-item" (click)="redirectFilters(category._m_name)">
+          <div class="info-cards-section-content justify-content-center flex-column d-flex p-0">
+            <img class="imgs d-block" src="{{category.imageUrl | cdn}}"
+              alt="{{category | translation:'description'}}"/>
+            <p class="d-lg-block t-s-medium t-primary-T t-a-center nom">
+              {{(category | translation:'name')}}
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

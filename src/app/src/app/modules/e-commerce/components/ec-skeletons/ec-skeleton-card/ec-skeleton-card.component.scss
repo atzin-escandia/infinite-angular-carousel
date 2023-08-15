@@ -1,0 +1,34 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.ec-skeleton-card {
+  padding: pxToRem(24) pxToRem(16);
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    margin-bottom: map-get($sizes, 'ds--size-8');
+  }
+
+  &__title {
+    width: 100%;
+    height: map-get($sizes, 'ds--size-24');
+    margin-bottom: map-get($sizes, 'ds--size-8');
+  }
+
+  &__desc {
+    width: pxToRem(80);
+    height: map-get($sizes, 'ds--size-16');
+    margin-bottom: pxToRem(84);
+  }
+
+  &__price {
+    width: pxToRem(88);
+    height: map-get($sizes, 'ds--size-24');
+    margin-bottom: map-get($sizes, 'ds--size-16');
+  }
+
+  &__btn {
+    width: map-get($sizes, 'ds--size-40');
+    height: map-get($sizes, 'ds--size-40');
+  }
+}

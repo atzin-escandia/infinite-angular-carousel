@@ -1,0 +1,101 @@
+<ng-container *transloco="let t">
+  <div class="container open-issue-container t-black-T" *ngIf="loaded">
+    <div class="open-issue-header mb-xxl flex-center" *ngIf="currentStep === 0 || pathSelected.length === currentStep">
+      <i class="cf-icon-crowdfarming-bold mr-s" aria-hidden="true"></i>
+      <i class="cf-icon-text-light mt-s" aria-hidden="true"></i>
+    </div>
+
+    <div *ngIf="currentStep === 0" class="w-100 mb-l"
+      [innerHTML]="textSrv.getText('Hi crowdfarmer, its a new experience. Send us some info.')"></div>
+
+    <div *ngIf="currentStep === 1 && pathSelected.length > 4" class="w-100 text-grey mb-l"
+      [innerHTML]="textSrv.getText('We will find a solution')"></div>
+
+    <div class="open-issue-input w-100">
+      <div class="open-issue-effect" [style.width.%]="100 * userInput.length + userInput.length"
+        [style.transform]="'translateX(-' + currentStep * (100 / userInput.length) + '%)'">
+        <div class="open-issue-effect-box" *ngFor="let input of userInput; let i = index"
+          [style.width.%]="100 / userInput.length">
+          <!-- Title -->
+          <div class="mb-s t-h6-bold" *ngIf="input.title">{{textSrv.getText(input.title)}}</div>
+
+          <!-- Subtitle -->
+          <div class="t-m-regular mb-m" *ngIf="input.subtitle" [innerHTML]="textSrv.getText(input.subtitle)"></div>
+
+          <!-- Radios -->
+          <div class="d-flex flex-column" *ngIf="input.type === 'radio'">
+            <cf-radio class="radio-boxes" [radios]="input.radios" (checkedChange)="this[input.click]($event)"
+              [currentChecked]="this[input.radioVariable]" [width]="'auto'">
+              <ng-template let-radio="radio"> {{textSrv.getText(radio.text)}} </ng-template>
+            </cf-radio>
+          </div>
+
+          <!-- Checks -->
+          <div class="d-flex flex-column" *ngIf="input.type === 'check'">
+            <cf-check (checkedChange)="this[input.click](check.arg)" *ngFor="let check of input.checks">
+              {{textSrv.getText(check.text)}}
+            </cf-check>
+          </div>
+
+          <!-- Photo -->
+          <div class="mt-xl" *ngIf="input.type === 'photo'">
+            <div class="open-issue-upload d-flex flex-column flex-md-row mb-l align-items-center align-items-md-start"
+              *ngFor="let uploadPhoto of input.inputs; let i = index"
+              [ngClass]="{'open-issue-upload-disabled': i > input.currentAdding && !uploadPhoto.optional}">
+              <div class="open-issue-upload-number flex-center mr-m t-h1-bold">{{i + 1}}</div>
+
+              <div class="open-issue-upload-photo d-flex flex-column w-100 mob-mt-s">
+                <div class="t-h6-bold mb-s">{{textSrv.getText(uploadPhoto.title)}}</div>
+                <div class="t-m-regular">{{textSrv.getText(uploadPhoto.subtitle)}}</div>
+                <cf-input class="w-100 mr-m" [width]="'auto'" [error]="uploadPhoto.error">
+                  <input class="open-issue-upload-button" (click)="this[input.click]($event, uploadPhoto.id, i, true)"
+                    (change)="this[input.click]($event, uploadPhoto.id, i)" type="file" id="{{uploadPhoto.id}}" />
+                  <label class="open-issue-upload-label d-flex justify-content-between align-items-center"
+                    for="{{uploadPhoto.id}}">
+                    <span class="overflow-text mr-m">
+                      {{uploadPhoto.name ? uploadPhoto.name : textSrv.getText(uploadPhoto.placeholder)}}
+                    </span>
+                    <div class="open-issue-upload-icon flex-center">
+                      <i class="eva eva-upload-outline" aria-hidden="true"></i>
+                    </div>
+                  </label>
+                </cf-input>
+                <div *ngIf="uploadPhoto.error" class="custom-input-error">{{t(uploadPhoto.error)}}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Comment -->
+          <div *ngIf="input.type === 'comment'">
+            <cf-textarea [(value)]="ticketData[input.commentVariable]" [size]="'s'"
+              [placeholder]="textSrv.getText(input.placeholder)">
+            </cf-textarea>
+            <div class="open-issue-comment-extra-block d-flex flex-column pa-m" *ngIf="refundPreferenceSelectable">
+              <div class="t-m-bold">{{textSrv.getText(input.extraSubtitle)}}</div>
+              <div>
+                <cf-radio [radios]="input.radios" (checkedChange)="this[input.click]($event)"
+                  [currentChecked]="this[input.radioVariable]" [width]="'auto'">
+                  <ng-template let-radio="radio"> {{textSrv.getText(radio.text)}} </ng-template>
+                </cf-radio>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Nav -->
+          <div class="open-issue-nav-container d-flex flex-column mob-ph-s mt-m">
+            <cf-button class="open-issue-nav-forwrds" [disabled]="!checkDataValid() || !pathSelected"
+              (click)="changeSection(1)" [width]="'auto'">
+              {{textSrv.getText('Next step')}}
+            </cf-button>
+            <cf-button class="open-issue-nav-back mt-s" (click)="changeSection(-1)" [flat]="true" *ngIf="currentStep > 0"
+              [width]="'auto'">
+              {{textSrv.getText('Back')}}
+            </cf-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+

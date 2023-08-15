@@ -1,0 +1,21 @@
+<ds-global-styles></ds-global-styles>
+<global-styles></global-styles>
+
+<div
+  id="app-block"
+  *transloco="let t"
+  [ngStyle]="{ 'paddingTop.px': domSrv.isNavbarActive() ? navbarElemHeight : 0 }"
+  [ngClass]="{ 'grey-page': routerSrv.getPath().includes('open-issue'), 'green-banner-activated': stateSrv.showGreenBanner }">
+  {{ textSrv.setT(t) }}
+
+  <div class="main-container">
+    <navbar-component *ngIf="domSrv.isNavbarActive()"></navbar-component>
+    <mobile-menu *ngIf="isSmallScreen"></mobile-menu>
+    <router-outlet></router-outlet>
+  </div>
+
+  <footer-component *ngIf="domSrv.isFooterActive()"></footer-component>
+</div>
+<loader-component></loader-component>
+<banner-store-component *ngIf="bannerStoreSrv.isVisible()"></banner-store-component>
+<ds-toast></ds-toast>

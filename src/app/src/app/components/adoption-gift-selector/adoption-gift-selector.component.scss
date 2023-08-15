@@ -1,0 +1,8 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+
+.error-copy {
+  color: $btn-warning-bg;
+  margin-top: -7px;
+  margin-left: 25px;
+}

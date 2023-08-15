@@ -1,0 +1,73 @@
+<ng-container *transloco="let t">
+  <section class="custom-order-info">
+    <breadcrumbs *ngIf="breadcrumbs.length" [items]="breadcrumbs"></breadcrumbs>
+    <!-- Header -->
+    <section class="custom-order-info__content custom-order-info__content--header">
+      <cf-custom-box-summary [orderData]="orderData"></cf-custom-box-summary>
+      <!-- Order status detail -->
+      <status-box *ngIf="showNotification && orderStatusDetailMsg" [color]="orderStatusDetailColor">
+        <span class="nop nom">
+          {{ orderStatusDetailMsg?.id ? t(orderStatusDetailMsg.id) : t('notifications.guest.parent-order.text-info') }}
+        </span>
+      </status-box>
+      <!-- Tracking Info -->
+      <div class="custom-order-info__content" *ngIf="orderData.shipment.arrivalEstimateDate">
+        <span class="t-title-s text-primary-88">{{ t('page.information.order.title') }}</span>
+        <span class="t-body-s text-primary-88">
+          {{ t('global.estimated-delivery-date.text-info') }}
+          <span *ngIf="!orderData.shipment.delayed; else delayed" class="text-grey-56 m">
+            {{utilsSrv.dateForFront(orderData.shipment.arrivalEstimateDate)}}
+          </span>
+          <ng-template #delayed>
+            <span class="text-grey-56 m">
+              {{ t('page.order-delayed.text-info') }}
+            </span>
+          </ng-template>
+        </span>
+      </div>
+      <cf-check-delivered-order
+        *ngIf="showDeliveryBlock"
+        [orderData]="orderData"
+        [dayAfterEstimatedDelivery]="dayAfterEstimatedDelivery"
+        [showDeliveryBlock]="showDeliveryBlock"
+        (refreshOrderInfo)="refreshOrderInfo.emit()">
+      </cf-check-delivered-order>
+      <cf-tracking-info *ngIf="orderData.lapiInfo && userData" [orderData]="orderData" [userData]="userData"></cf-tracking-info>
+    </section>
+    <div class="custom-order-info__separator"></div>
+    <!-- Summary -->
+    <section class="custom-order-info__content mb-24">
+      <div class="custom-order-info__content">
+        <span class="t-title-s text-primary-88">{{ t('page.order-overwiew.label') }}</span>
+        <span *ngIf="orderData.amount.totalToCollect" class="t-component-semibold-m text-primary-88">
+          {{ t('global.price.tab') }}
+          <span class="t-body-s text-grey-56">
+            {{ orderData.amount.totalToCollect | currency : orderData.currency?.crowdfarmer?.currency }}
+          </span>
+        </span>
+      </div>
+    </section>
+    <cf-products-list *ngIf="allSeals" [products]="articles" [allSeals]="allSeals"></cf-products-list>
+    <div class="custom-order-info__separator"></div>
+    <!-- User data -->
+    <div class="custom-order-info__user-data">
+      <div *ngIf="orderData.shipment?.address" class="custom-order-info__user-data--block">
+        <cf-order-user-info
+          [addressTitle]="t('global-shipment-address')"
+          [btnText]="t('page.Change-shipping-address.body')"
+          [address]="orderData.shipment.address"
+          [orderDeliveryStatus]="orderData.orderDeliveryStatus"
+          [orderPaymentStatus]="orderData.orderPaymentStatus"
+          (changeDirection)="autoLoginValidation('changeAddressInfo')"></cf-order-user-info>
+      </div>
+      <div class="custom-order-info__user-data--block">
+        <cf-order-payment-info [paymentTitle]="t('page.payment.title')" [order]="orderData" [app]="app"></cf-order-payment-info>
+      </div>
+    </div>
+    <div *ngIf="isCancellable" class="custom-order-info__separator"></div>
+    <!-- Cancelar -->
+    <a *ngIf="isCancellable" class="t-body-s text-underline text-primary-88" (click)="autoLoginValidation('cancelOrder')">
+      {{ t('page.cancel-order.button') }}
+    </a>
+  </section>
+</ng-container>

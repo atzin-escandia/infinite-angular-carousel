@@ -1,0 +1,24 @@
+<div *transloco="let t" class="row app-store-container"
+  [ngClass]="{'app-store-container': deviceInfo === 'iOS', 'google-play-container': deviceInfo === 'Android'}">
+  <div class="col-1 d-flex">
+    <button (click)="closeBanner()" class="icon-close m-auto" id="login-button">
+      ✕
+    </button>
+  </div>
+  <div class="col-2">
+    <img src="../../../assets/img/home/logo-app-store.png" alt="logo-app-store">
+  </div>
+  <div class="col-6 text-app">
+    <div class="title" id="recover-btn">
+      {{t('CrowdFarming')}}
+    </div>
+    <div class="" id="recover-btn">
+      {{t('page.new-app.title')}}
+    </div>
+  </div>
+  <div class="col-2 d-flex">
+    <button (click)="redirectStore()" class="view-link m-auto" id="login-button">
+      {{t('global.view.button')}}
+    </button>
+  </div>
+</div>

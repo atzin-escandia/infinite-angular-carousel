@@ -1,0 +1,31 @@
+<div *ngIf="isAgroupmentShow()">
+  <ng-container>
+    <h4 *ngIf="title" class="text-center super-title mt-5 mb-3">{{ agroupment._m_title[currentLang] }}</h4>
+  </ng-container>
+
+  <agroupment-component
+    *ngIf="!isMobile && this.option === 1"
+    [isLoading]="isLoading"
+    [agroupment]="agroupment"
+    [type]="type"
+    [path]="landingKey">
+  </agroupment-component>
+
+  <section *ngIf="isMobile || this.option === 2" class="row container mx-auto">
+    <table-grid-component
+      class="row"
+      *ngIf="data.length === cardsToShow"
+      [data]="data"
+      (eventDataEmitter)="handleEventData($event)"
+      [styles]="styles"
+      [component]="component">
+    </table-grid-component>
+  </section>
+
+  <cta-btn-component
+    *ngIf="info?.button?.text"
+    class="mx-auto d-flex justify-content-center py-3"
+    (outputScrollEmitter)="handleScrollEvent()"
+    [info]="info">
+  </cta-btn-component>
+</div>

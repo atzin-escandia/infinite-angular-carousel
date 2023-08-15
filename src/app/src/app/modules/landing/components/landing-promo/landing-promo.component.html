@@ -1,0 +1,45 @@
+<a class="promotion" (click)="clickPromotion($event, project)" *ngIf="project">
+  <div *transloco="let t" class="promotion-container greyBG mbm justify-content-center text-center pb-l">
+    <!-- Images -->
+    <div class="col-12 image-cont">
+      <div class="row">
+        <image-lazy class="promotion-image flex-center" [index]="i" [startLazyAt]="startLazyAt"
+          [imageId]="'id' + project.farmerSlug" [imageURL]="project.pictureURL.url || project.pictureURL">
+        </image-lazy>
+      </div>
+    </div>
+    <div class="promotion-name text-black text-left w-100 t-s-medium">
+      <span>{{project.farmerName}}</span> <span class="font-italic">{{project.farmName}}</span>
+    </div>
+    <div class="col-12 d-flex flex-column promotion-title">
+      <div class="t-h5-bold lh-120">
+        {{(project | translation: 'title').toUpperCase()}}
+      </div>
+      <div class="f12 text-grey" [innerHTML]="project | translation: 'description'">
+      </div>
+    </div>
+    <div class="col-12 align-self-end ph-xl mob-ph-l">
+      <div class="promotion-button flex-center">
+        <cf-button [width]="'auto'" [disabled]="!project.availableBoxes">
+          {{project | translation: 'buttonText'}}
+        </cf-button>
+      </div>
+      <div class="col-12 align-self-end btn-sub mt-s mb-s">
+        <p *ngIf="!project.availableBoxes">
+          {{t('notification.no-units-left.text-info')}}
+        </p>
+      </div>
+    </div>
+  </div>
+</a>
+
+<!-- loading -->
+<div class="promotion" *ngIf="!project">
+  <div class="promotion-container promotion-container-loading">
+    <div class="col-12 loading-container promotion-image"></div>
+
+    <div class="col-10 loading-container promotion-title"></div>
+
+    <div class="col-10 loading-container loading-container-green promotion-button"></div>
+  </div>
+</div>

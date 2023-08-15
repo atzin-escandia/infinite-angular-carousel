@@ -1,0 +1,137 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+
+.plan-shipment-popup-container {
+  margin: 0 -4px;
+  padding: 16px;
+}
+
+@media (min-width: map_get($grid-breakpoints, 'md')) {
+  .plan-shipment-popup-container {
+    min-width: 544px;
+    height: 520px;
+    padding: 24px;
+  }
+}
+
+.image-container {
+  width: 64px;
+  height: 64px;
+}
+
+.image-container + .info-container { flex-grow: 1; }
+
+.reserved-progress {
+  & > div {
+    height: 12px;
+    flex: 1;
+    background-size: 200% 100%;
+    background-image: linear-gradient(to right, map_get($color, 'grey-2') 50%, map_get($color, 'grey-2') 50%);
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    &.box-left {
+      background-image: linear-gradient(to right, map_get($color, 'grey-2') 50%, map_get($color, 'grey-2') 50%);
+      animation: fill 300ms ease;
+      animation-fill-mode: backwards;
+    }
+
+    &.box-used {
+      background-image: linear-gradient(to right, map_get($color, 'primary') 50%, map_get($color, 'grey-2') 50%);
+    }
+
+    &.box-selected {
+      background-image: linear-gradient(to right, map_get($color, 'secondary') 50%, map_get($color, 'grey-2') 50%);
+      animation: fill 300ms ease;
+    }
+  }
+}
+
+@keyframes fill {
+  0% {
+    background-position: right bottom;
+  }
+
+  100% {
+    background-position: left bottom;
+  }
+}
+
+.plan-shipment-body {
+  margin: 16px -24px 0 -24px;
+} //get rid of default popup paddings
+
+@media (max-width: map_get($grid-breakpoints, 'md')) {
+  .plan-shipment-body {
+    min-height: 300px;
+    margin: 16px -16px 0 -16px;//get rid of default popup paddings
+  }
+}
+
+.plan-shipment-body-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.plan-shipment-body-container-scroll {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.plan-shipment-body-item {
+  border-bottom: 1px dashed map_get($color, 'grey-2');
+  height: 101px; // We need to set height also here for the js to know it
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    height: 82px;
+  }
+
+  & > div {
+    overflow: hidden;
+    height: 100px;
+    background-color: white;
+    transition: height 0.3s ease, background-color 0.3s ease;
+    position: relative;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      height: 81px;
+    }
+
+    & > div {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
+
+  &.closed {
+    & > div {
+      height: 0;
+      background-color: map_get($color, 'primary');
+    }
+  }
+
+  & .plan-shipment-date {
+    flex: 1;
+    margin-right: 32px;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      margin-right: 16px;
+    }
+  }
+}
+
+::ng-deep calendar-shipment .calendar-shipment-popover {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-50%) !important;
+  max-width: 320px !important;
+  width: 320px !important;
+  min-width: auto !important;
+  color: map_get($color, 'grey-7');
+  bottom: auto !important;
+}

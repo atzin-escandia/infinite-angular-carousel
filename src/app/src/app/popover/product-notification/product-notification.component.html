@@ -1,0 +1,65 @@
+<div id="product-notification-popover" class="product-notification-popover popover-container cf-shadow-m"
+  stop-propagation>
+  <!-- CLOSE -->
+  <div class="product-notification-close flex-center" (click)="closeWithAnimation()" stop-propagation>
+    <i class="eva eva-close-outline" aria-hidden="true"></i>
+  </div>
+
+  <div class="product-notification-info pa-m">
+    <!-- IMG -->
+    <div class="product-notification-image mr-m" [style.backgroundImage]="'url(' + (imageURL | cdn) + ')'"></div>
+
+    <!-- INFO -->
+    <div class="product-notification-container">
+      <!-- NAME -->
+      <div class="product-notification-text pr-l">
+        <div class="product-notification-title t-s-medium overflow-text">
+          {{textSrv.getText(productSrv.productTypeText(product))}}
+          <span class="text-capitalize" *ngIf="!product.multiShotBox && !product.overharvest">
+            {{product.up | translation: 'variety'}}
+          </span>
+          <span class="" *ngIf="product.multiShotBox || product.overharvest">
+            {{product.up | translation: 'production'}}
+          </span>
+        </div>
+        <div class="product-notification-name t-s-regular overflow-text">
+          {{product.name}}
+        </div>
+      </div>
+
+      <!-- BOXES / PRICE | CART BUTTON -->
+      <div>
+        <div class="product-notification-number">
+          <div class="t-xs-regular product-notification-number-boxes">
+            <!-- TODO: Text check -->
+            <!-- Box | boxes -->
+            {{
+            !product.oneShotRenew && !product.oneShot
+            ? product.boxes +
+            ' ' +
+            textSrv.getText('boxes') +
+            ' (' +
+            utilsSrv.numberForFront(product.up.masterBox?.weight * product.boxes) +
+            ' ' +
+            getUnit +
+            ')'
+            : ''
+            }}
+          </div>
+          <div class="t-l-medium">{{product.price | currency}}</div>
+        </div>
+
+        <cf-button class="hide-mobile" [width]="'auto'" (click)="goToCart()">
+          {{textSrv.getText('Go to cart')}}
+        </cf-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART BUTTON -->
+  <div class="product-notification-cart hide-desktop ph-m mb-m">
+    <cf-button [width]="'auto'" (click)="goToCart()">
+      {{textSrv.getText('Go to cart')}}
+    </cf-button>
+  </div>
+</div>

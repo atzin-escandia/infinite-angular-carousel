@@ -1,0 +1,67 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.info-banner {
+  position: relative;
+  display: grid;
+  background-color: $ds--color-orange-4;
+  padding: pxToRem(24) pxToRem(40) pxToRem(24) pxToRem(24);
+  grid-auto-columns: 1fr;
+  grid-auto-flow: row;
+  gap: pxToRem(24);
+  border-radius: pxToRem(8);
+
+  &--detail-sep {
+    margin-bottom: pxToRem(40);
+  }
+
+  &__btn-close {
+    z-index: 20;
+    position: absolute;
+    top: pxToRem(14);
+    right: pxToRem(14);
+    color: $ds--color-grey-56;
+    font-size: pxToRem(23);
+  }
+
+  &__item-content {
+    display: flex;
+    flex-direction: row;
+    gap: pxToRem(24);
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__img {
+    display: none;
+    width: pxToRem(80);
+    height: pxToRem(80);
+  }
+
+  &__title {
+    @extend .t-component-semibold-s;
+
+    color: $ds--color-primary-88;
+  }
+
+  &__description {
+    @extend .t-component-regular-s;
+
+    color: $ds--color-grey-56;
+  }
+
+  @include bp(device-m) {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+  }
+
+  @include bp(device-s) {
+    &__img {
+      display: block;
+    }
+  }
+}

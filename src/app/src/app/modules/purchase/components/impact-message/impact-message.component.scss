@@ -1,0 +1,71 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+
+.impact-message {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px;
+    margin: 40px 0;
+    border-radius: 12px;
+
+    &.reverse {
+      flex-direction: column;
+
+      @media (min-width: map_get($grid-breakpoints, 'md')) {
+        flex-direction: row-reverse;
+
+        .image {
+          margin-left: 24px;
+          margin-right: 0;
+        }
+      }
+    }
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .image {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 24px;
+
+      @media (min-width: map_get($grid-breakpoints, 'md')) {
+        margin-bottom: 0;
+        margin-right: 24px;
+      }
+
+      &.dummy {
+        border-radius: 10%;
+        background-color: map-get($color, 'disabled');
+      }
+    }
+
+    .message {
+      width: 100%;
+
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+        letter-spacing: -0.4px;
+        line-height: 28px;
+        color: map-get($color, 'black-4');
+      }
+
+      a {
+        font-weight: 600;
+      }
+
+      .dummy-line {
+        height: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+        background-color: map-get($color, 'disabled');
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+<ng-container *transloco="let t" id="subscription-block-cart">
+  <div *ngIf="canEdit && currentSubscription" class="subscription-toogle">
+    <div class="row justify-content-between">
+      <div class="col">
+        <div class="d-flex align-items-center">
+          <i class="eva eva-calendar-outline t-h4-medium t-green-primary mr-s align-self-start"></i>
+          <p class="t-grey t-m-medium nom">{{ t('page.recurrent-order.text-info') }}</p>
+        </div>
+      </div>
+
+      <div class="col-auto">
+        <cf-toggle
+          [value]="currentSubscription?.active"
+          [id]="'subscription-toogle-cart'"
+          (valueChange)="activateSubscription($event)">
+        </cf-toggle>
+      </div>
+    </div>
+
+    <ng-container *ngIf="currentSubscription?.active">
+      <subscription-selector
+        [index]="index"
+        [subscriptionAvailability]="subscriptionAvailability"
+        [currentSubscription]="currentSubscription"
+        (selectOption)="handleChangeSubscription($event)">
+      </subscription-selector>
+
+      <div class="t-grey t-s-regular d-none d-md-flex">
+        {{ '*' + t('page.recurrent-order-modal.text-info') }}
+      </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="!canEdit && activeCartInfo?.subscription?.isActive">
+    <div class="t-black-T t-s-medium mb-s nom nop"> {{ t('global.recurrent-order.title') }}</div>
+
+    <div class="t-black-H t-s-regular">
+      <ng-container *ngIf="activeCartInfo?.subscription?.frequency === 'DAY'; else weeklyFrequency">
+        {{ activeCartInfo?.subscription?.units <= 1 ? t('global.daily-frequency.text-info') :
+        t('global.every-day-frequency.text-info', {number: activeCartInfo?.subscription?.units}) }}
+      </ng-container>
+
+      <ng-template #weeklyFrequency>
+        {{ activeCartInfo?.subscription?.units <= 1 ? t('global.weekly-frequency.text-info') :
+        t('global.every-week-frequency.text-info', {number: activeCartInfo?.subscription?.units}) }}
+      </ng-template>
+    </div>
+  </div>
+</ng-container>

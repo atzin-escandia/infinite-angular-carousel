@@ -1,0 +1,18 @@
+<ng-container *transloco="let t">
+  <div class="subscription-box mb-l phxl" [ngClass]="{'mr-s pvl':contentList.length, 'mr-m w-auto pvm': !contentList.length}">
+    <div class="d-flex align-items-center">
+      <h3 class="t-l-medium mr-s">{{t(title)}}</h3>
+      <order-status-chip *ngIf="!contentList.length" [statusParams]="orderStatusParams"></order-status-chip>
+    </div>
+    <ul>
+      <li *ngFor="let item of contentList" class="mb-s">
+        <ng-container *ngIf="item.data">
+          <span class="icon" [ngClass]="item.icon"></span>
+          <span>{{t(item.title)}}: </span>
+          <span class="info">{{item.data}}</span>
+        </ng-container>
+      </li>
+    </ul>
+  </div>
+</ng-container>
+

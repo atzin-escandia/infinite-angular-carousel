@@ -1,0 +1,39 @@
+<section class="ec-btn__custom-ds-button">
+  <ds-button
+    [inverse]="true"
+    [hasIcon]="true"
+    icon="back"
+    content="{{'page.return.button' | transloco}}"
+    width="auto"
+    size="m"
+    (buttonClick)="backCatalog()"></ds-button>
+</section>
+<ec-info-banner id="e-commerce-info-banner"></ec-info-banner>
+<section *ngIf="detailData && !isLoading; else skeletonTmp" class="ec-detail">
+  <div class="ec-detail__main-data">
+    <div
+      *ngIf="detailData.imgUrl; else emptyImg;"
+      class="ec-detail__left"
+      [ngStyle]="{ 'background-image': 'url(' + detailData.imgUrl + ')' }"></div>
+    <ec-detail-summary
+      [article]="detailData"
+      [seals]="detailSeals"
+      [quantity]="detailData.quantity"
+      (changeQuantity)="refreshBoxShoppingCart($event)"></ec-detail-summary>
+  </div>
+  <div class="ec-detail__main-data ec-detail__main-data--info-sep">
+    <div class="ec-detail__left">
+      <ec-detail-info [articleData]="detailData" [farmerSeals]="farmerSeals" [upSeals]="upSeals"></ec-detail-info>
+    </div>
+  </div>
+</section>
+
+<ng-template #skeletonTmp>
+  <ec-detail-skeleton></ec-detail-skeleton>
+</ng-template>
+
+<ng-template #emptyImg>
+  <div class="ec-detail__left">
+    <ec-img-empty></ec-img-empty>
+  </div>
+</ng-template>

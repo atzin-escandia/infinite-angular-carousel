@@ -1,0 +1,50 @@
+<div class="validator order-address-popup-container order-address-popup-l-container" [ngClass]="{setHeight : isFromPopUp}" *transloco="let t">
+  <div class="t-m-medium w-100">
+    <h3>{{t('page.verify-address.text-info')}}</h3>
+  </div>
+  <p *ngIf="suggestionAddress">{{t('page.adddress-validation-error-suggestion.body')}}</p>
+  <p *ngIf="!suggestionAddress">{{t('page.adddress-validation-error.body')}}</p>
+  <div class="validator-box active" [ngClass]="{'active': activeAddress}">
+    <div class="wrapper">
+      <label class="radio-button">
+        <input checked name="address" type="radio" class="validator-input" (click)="onAddress()" />
+        <span class="custom-radio"></span>
+      </label>
+      <div class="info">
+        <h5>{{saveAddress.name}} {{saveAddress.surnames}}</h5>
+        <div class="text-grey t-m-regular">
+          {{saveAddress.street}}, {{saveAddress.number}} {{saveAddress.details}} <br />
+          {{saveAddress.zip}} {{saveAddress.province && saveAddress.country === 'us' ? saveAddress.province + ',' : ''}} {{saveAddress.city}}, {{countriesByIso[saveAddress.country] | translation: 'name'}} <br />
+          {{saveAddress.phone.prefix}}{{saveAddress.phone.number}} <br />
+        </div>
+      </div>
+    </div>
+    <div class="edit w-100 d-flex justify-content-end bg-white align-items-center">
+      <i class="eva eva-edit-outline t-l-regular"></i>
+      <span (click)="onEdit()">Edit</span>
+    </div>
+  </div>
+  <div class="suggestion" *ngIf="suggestionAddress">
+    <h3>{{t('page.suggested-address.title')}}</h3>
+    <div class="suggestion-box" [ngClass]="{'active': activeSugg}">
+      <div class="wrapper">
+        <label class="radio-button">
+          <input name="address" type="radio" class="validator-input" (click)="onSuggestion()" />
+          <span class="custom-radio"></span>
+        </label>
+        <div class="info">
+          <h5>{{saveAddress.name}} {{saveAddress.surnames}}</h5>
+          <div class="text-grey t-m-regular">
+            <span [ngClass]="{'suggestion-field': streetChange}">{{suggestionAddress.street}}, {{suggestionAddress.number}} {{saveAddress.details}}</span><br />
+            <span [ngClass]="{'suggestion-field': zipChange}"> {{suggestionAddress.zip}} </span>{{suggestionAddress.province && suggestionAddress.country === 'us' ? suggestionAddress.province + ',' : ''}}<span [ngClass]="{'suggestion-field': cityChange}">{{suggestionAddress.city}}</span>, <span [ngClass]="{'suggestion-field': countryChange}">{{countriesByIso[suggestionAddress.country] | translation: 'name'}}</span> <br />
+            {{saveAddress.phone.prefix}} {{saveAddress.phone.number}} <br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div (click)="onSubmit()" class="cf-button w-100 cf-button-size-m" [ngClass]="{'noSuggestion': !suggestionAddress}">
+    <span *ngIf="!suggestionAddress">{{t('page.continue-with-address.button')}}</span>
+    <span *ngIf="suggestionAddress">{{t('global.continue.body')}}</span>
+  </div>
+</div>

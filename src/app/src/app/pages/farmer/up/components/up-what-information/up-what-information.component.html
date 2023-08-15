@@ -1,0 +1,76 @@
+<div *ngIf="infoBlock || blockName === 'whyAdopt'" class="block">
+  <div class="header d-flex align-items-center mb-l mob-pl-s">
+    <img *ngIf="blockName === 'theProject'" src="{{categoryPicture | cdn}}" alt="" class="category mob-mr-s mr-m">
+    <div class="t-h1-blackW t-black-H">
+      <span>
+        {{textSrv.getText(blockName)}}
+      </span>
+    </div>
+  </div>
+  <div *ngIf="blockName !== 'whyAdopt'">
+    <div *ngIf="picturesURLs && picturesURLs.length > 0" class="gallery">
+      <image-gallery class="" [id]="" [images]="picturesURLs" [currentImage]="0" [imagesAlts]="" [arrows]="true"
+        [autoplay]="false">
+      </image-gallery>
+    </div>
+    <div class=" mt-m mob-pr-s"
+      [ngClass]="{'what-text': blockName === 'theProject' || blockName === 'whatAdopt','unfold': unfold}"
+      id="{{blockName + '-text'}}">
+      <p class="t-h6-regular text-black"
+        [innerHTML]="textSrv.markdown(textSrv.replaceAll((infoBlock | translation: 'text'), upInformationReplacements))">
+      </p>
+    </div>
+    <div
+      *ngIf="(domSrv.getElementHeight('#' + blockName + '-text') === 560 || unfold) && (blockName === 'theProject' || blockName === 'whatAdopt')"
+      (click)="unfoldText()" class="read-more t-l-regular mt-l pointer mob-pl-s">
+      {{textSrv.getText(unfold ? 'Read less' : 'Read more')}}
+    </div>
+    <!-- Seals -->
+    <div *ngIf="blockName === 'theProject'" class="d-flex flex-wrap">
+      <!--  Unofficial seals -->
+      <div *ngIf="seals.unOfficial.length" class="d-flex flex-wrap container pt-xl pb-xl mob-pb-m">
+        <seal-element id="oh-seal-{{seal.code}}"
+          class="col-6 col-lg-2 d-flex justify-content-start align-items-center flex-column mb-m ph-m pointer"
+          *ngFor="let seal of seals.unOfficial; let indSeal = index"
+          [ngClass]="(indSeal === 0 || indSeal === 1) && domSrv.getIsDeviceSize() ? 'no-mt' : 'mt-m'" [seal]="seal"
+          [sealIndex]="indSeal">
+        </seal-element>
+      </div>
+
+      <!-- Official seals -->
+      <div *ngIf="seals.official.length" class="container">
+        <div class="t-title-m t-black-H">
+          {{textSrv.getText('global.certifications.title')}}
+        </div>
+        <div class="d-flex flex-wrap">
+          <seal-element id="oh-seal-{{seal.code}}"
+            class="col-6 col-lg-2 d-flex justify-content-start align-items-center flex-column mb-m ph-m pointer"
+            *ngFor="let seal of seals.official; let indSeal = index"
+            [ngClass]="(indSeal === 0 || indSeal === 1) && domSrv.getIsDeviceSize() ? 'no-mt' : 'mt-m'" [seal]="seal"
+            [sealIndex]="indSeal">
+          </seal-element>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="blockName === 'whatReceive' && faqsBlock.length > 0" class="d-flex flex-wrap">
+      <div *ngFor="let faq of faqsBlock; index as id" class="mb-s mt-s mob-mr-s mob-ml-s w-100">
+        <cf-faq [content]="faq" [id]="'ID' + (id + 1)">
+        </cf-faq>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="blockName === 'whyAdopt'" class="why-adopt">
+    <div class="image d-flex justify-content-center mob-mh-s">
+      <img src="{{env.domain}}/assets/img/ups/world.svg" alt="">
+    </div>
+    <div>
+      <div *ngFor="let reason of whyAdoptTexts; let i = index" class="d-flex reason align-items-center">
+        <i input-icon class="{{'t-h1-regular mr-l ' + reason.icon}}" aria-hidden="true">
+        </i>
+        <span class="t-l-regular text-black">
+          {{textSrv.getText(reason.text)}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

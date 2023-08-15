@@ -1,0 +1,14 @@
+<ng-container *ngIf="isVisibleBanner">
+  <section class="info-banner" [ngClass]="{'info-banner--detail-sep': isDetail}" *transloco="let t">
+    <div class="info-banner__btn-close pointer" (click)="hideBanner()">
+      <i class="eva eva-close-outline" aria-hidden="true"></i>
+    </div>
+    <div *ngFor="let item of items" class="info-banner__item-content">
+      <img [src]="item.img" class="info-banner__img" />
+      <div class="info-banner__text">
+        <span class="info-banner__title">{{ t(item.label) }}</span>
+        <span class="info-banner__description">{{ t(item.desc) }}</span>
+      </div>
+    </div>
+  </section>
+</ng-container>

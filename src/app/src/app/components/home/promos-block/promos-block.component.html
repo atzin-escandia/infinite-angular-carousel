@@ -1,0 +1,16 @@
+<div id="promos">
+  <div *ngIf="loaded">
+    <div *ngFor="let promo of promos; let i = index"
+      [ngClass] = "domSrv.getIsDeviceSize() ? 'promo-mbl': 'promo-dkt'">
+      <home-promo-card [promo] = "promo">
+      </home-promo-card>
+    </div>
+  </div>
+  <div *ngIf="!loaded">
+    <div *ngFor="let dummy of [1]; let i = index"
+      [ngClass] = "domSrv.getIsDeviceSize() ? 'promo-mbl': 'promo-dkt'">
+      <home-promo-card>
+      </home-promo-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="input-field">
+  <label class="t-black-T t-s-medium input-field__label">{{ label }}</label>
+  <div class="input-wrapper">
+    <input
+      type="text"
+      [placeholder]="placeholder"
+      [ngClass]="{
+        'with-icon': icon,
+        'icon-left': icon && icon.position === 'start',
+        'icon-right': icon && icon.position === 'end',
+        error: customError || (ngControl?.control?.dirty && errors)
+      }"
+      [value]="value"
+      [disabled]="isDisabled"
+      [mask]="masks"
+      (input)="onInput($event.target.value)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)" />
+    <div class="input-icon {{ icon.position }}" *ngIf="icon">
+      <div class="flag-icon {{ icon.code }}" *ngIf="icon.type === 'flag'"></div>
+    </div>
+  </div>
+  <div class="input-field__error" *ngIf="customError || (ngControl?.control?.dirty && errors)">
+    <i class="eva eva-alert-triangle-outline"></i>
+    <span class="nom nop">{{ customError ? customErrorText : getError() }}</span>
+  </div>
+</div>

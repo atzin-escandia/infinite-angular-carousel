@@ -1,0 +1,61 @@
+<div id="calendar-shipment-popover" class="calendar-shipment-popover popover-container ph-m cf-shadow-m {{customClass}}"
+  [ngClass]="{'calendar-shipment-popover-open': isOpen}" stop-propagation>
+  <div class="calendar-shipment-container">
+    <div class="calendar-shipment-arrow hide-desktop w-100 mt-m pointer" (click)="customClose()">
+      <i class="eva eva-chevron-down-outline f24" aria-hidden="true"></i>
+    </div>
+    <div *ngIf="showX" class="calendar-shipment-arrow hide-mobile w-100 mt-m pointer" (click)="customClose()">
+      <i aria-hidden="true" class="eva eva-close-outline f24"></i>
+    </div>
+
+    <!-- Title -->
+    <div class="calendar-shipment-title">
+      <div class="w-100">
+        <span class="t-h6-bold">
+          {{textSrv.getText(currentDate.format('MMMM'))}}
+        </span>
+        <br />
+        <span class="t-xs-regular">
+          {{currentDate.format('YYYY')}}
+        </span>
+      </div>
+
+      <div class="calendar-shipment-change d-flex justify-content-end align-items-start">
+        <div class="calendar-shipment-change-left flex-center mt-m" (click)="changeMonth(-1)">
+          <cf-arrow [left]="true" [disabled]="!currentDate.startOf('month').isAfter(firstDay, 'month')">
+          </cf-arrow>
+        </div>
+        <div class="calendar-shipment-change-right flex-center mt-m mr-s" (click)="changeMonth(1)">
+          <cf-arrow [right]="true" [disabled]="!currentDate.endOf('month').isBefore(lastDay, 'month')">
+          </cf-arrow>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week -->
+    <div class="calendar-shipment-week">
+      <div *ngFor="let dayName of week; let i = index" class="calendar-shipment-name">
+        {{textSrv.getText(dayName)}}
+      </div>
+    </div>
+
+    <!-- Days -->
+    <div class="calendar-shipment-days" *ngFor="let week of month; let i = index"
+      [ngClass]="{'calendar-shipment-days-space': month.length === 5 && i === 4}">
+      <div class="calendar-shipment-day" *ngFor="let day of week" (click)="selectDate(day)"
+        [ngClass]="{'calendar-shipment-available': day.available, 'calendar-shipment-selected': selectedNumber === day.date}">
+        <span class="calendar-shipment-date">{{
+          day.date !== 0 ? day.date : ''}}</span>
+      </div>
+    </div>
+
+    <!-- Copy delivery -->
+    <div [ngClass]="{'d-none': isDeliveryCopyHidden}" 
+      class="calendar-shipment-advise t-xs-regular mt-s">
+      <div class="calendar-shipment-advise-available flex-center justify-content-start pv-m">
+        <div class="calendar-shipment-advise-example"></div>
+        {{textSrv.getText('Available dates of shipment')}}
+      </div>
+    </div>
+  </div>
+</div>

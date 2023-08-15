@@ -1,0 +1,92 @@
+@import './commons.scss';
+
+/* Accordion styles */
+.tabs {
+  overflow: hidden;
+}
+
+.tab {
+  width: 100%;
+  color: gray;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-top: 19px;
+
+  input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    float: left;
+    background-clip: content-box;
+    border: 2px solid gray;
+    margin-bottom: 15px;
+    border-radius: 50%;
+  }
+
+  input[type='radio']:checked {
+    background-color: $text-green-primary;
+    border: 2px solid $text-green-primary;
+
+    ~ .tab-content {
+      max-height: 100vh;
+    }
+  }
+
+  &-label {
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 0 0 1em 1em;
+    font-weight: bold;
+    cursor: pointer;
+    width: 90%;
+    margin: 0;
+
+    &::after {
+      content: '';
+      height: 32px;
+      width: 42px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      text-align: center;
+      transition: all 0.35s;
+    }
+  }
+
+  &-content {
+    max-height: 0;
+    color: gray;
+    background: white;
+    transition: all 0.35s;
+  }
+
+  &-close {
+    display: flex;
+    justify-content: flex-end;
+    padding: 1em;
+    font-size: 0.75em;
+    cursor: pointer;
+  }
+}
+
+label {
+  &.card::after {
+    background-image: url('../assets/img/payments/Default.svg');
+  }
+
+  &.ideal::after {
+    background-image: url('../assets/img/payments/iDeal.svg');
+  }
+
+  &.sepa::after {
+    background-image: url('../assets/img/payments/Sepa.svg');
+  }
+
+  &.paypal::after {
+    background-image: url('../assets/img/payments/PayPal.svg');
+  }
+}

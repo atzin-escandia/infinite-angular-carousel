@@ -1,0 +1,235 @@
+@import '@crowdfarming/ds-library/src/styles/global.scss';
+
+:host {
+  display: inline-block;
+  width: 100%;
+
+  .ds-select {
+    position: relative;
+
+    & .ds-select-box {
+      position: relative;
+      border: map-get($borderWidth, 'border-width-1') solid map-get($layerBorderColors, 'border-2');
+      border-radius: map-get($borderRadius, 'border-radius-2');
+      background-color: map-get($layerBackgroundColors, 'background-1');
+      display: flex;
+      align-items: center;
+
+      &--s {
+        height: 2rem;
+      }
+
+      &--m {
+        height: 3rem;
+      }
+
+      &--justify-center {
+        justify-content: center;
+      }
+
+      &--justify-start {
+        justify-content: flex-start;
+      }
+
+      &--justify-end {
+        justify-content: flex-end;
+      }
+
+      &--space-between {
+        justify-content: space-between;
+      }
+
+      & label,
+      &-placeholder {
+        font-weight: $ds--font-weight-regular;
+        font-size: $ds--font-size-16;
+        color: map-get($contentColors, 'content-2');
+      }
+
+      &-optional {
+        font-size: $ds--font-size-14;
+        line-height: map-get($sizes, 'ds--size-20');
+      }
+
+      &-selected-option {
+        color: map-get($contentColors, 'content-2');
+
+        &-details {
+          color: map-get($contentColors, 'content-2');
+        }
+
+        &--disabled {
+          color: map-get($contentStateColors, 'content-disabled');
+        }
+      }
+
+      ds-icon {
+        & ::ng-deep ds-icon:not([ng-reflect-method]):not([method]):not([ng-reflect-country]):not([country]) svg path {
+          fill: map-get($contentColors, 'content-1');
+        }
+      }
+
+      @include bp(device-m) {
+        span {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          max-width: 14rem;
+        }
+      }
+    }
+
+    & .ds-select-options {
+      border-radius: map-get($borderRadius, 'border-radius-2');
+      box-shadow: map-get($shadowOutside, 'shadow-outside-2');
+      position: absolute;
+      z-index: 10;
+      background-color: map-get($layerBackgroundColors, 'background-1');
+      top: calc(100% + 0.5rem);
+      max-height: 20rem; //320px
+      overflow: auto;
+
+      &.upwards {
+        top: unset;
+        bottom: calc(100% + 0.5rem);
+      }
+
+      &-option {
+        height: 3rem; // 48px
+
+        &-content-right {
+          & ::ng-deep ds-icon svg path {
+            fill: map-get($semanticPrimaryColors, 'semantic-primary-medium');
+          }
+        }
+
+        &-text {
+          color: map-get($contentColors, 'content-1');
+        }
+
+        &-details {
+          color: map-get($contentColors, 'content-2');
+        }
+
+        // Selected option states
+        &--selected,
+        &:active {
+          .ds-select-options-option-text {
+            font-weight: $ds--font-weight-semibold;
+          }
+        }
+
+        &:focus,
+        &:hover {
+          background: map-get($semanticNeutralColors, 'semantic-neutral-lightest');
+        }
+
+        // Disabled
+        &--disabled {
+          pointer-events: none;
+
+          & .ds-select-options-option-text {
+            color: map-get($contentStateColors, 'content-disabled');
+          }
+
+          & .ds-select-options-option-details {
+            color: map-get($contentStateColors, 'content-disabled');
+          }
+        }
+      }
+    }
+
+    // Filled
+    &--filled {
+      & .ds-select-box {
+        & label {
+          top: 1rem; // 12px
+          font-size: $ds--font-size-14;
+          color: map-get($contentColors, 'content-2');
+        }
+      }
+    }
+
+    // Open (active - focused) state
+    &--open {
+      outline: none;
+
+      & .ds-select-box {
+        border: map-get($borderWidth, 'border-width-2') solid map-get($semanticPrimaryColors, 'semantic-primary-medium');
+        // box-shadow: map-get($shadowInside, 'shadow-inside-1');
+
+        label {
+          color: map-get($semanticPrimaryColors, 'semantic-primary-medium');
+        }
+
+        &-icons {
+          &-chevron {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    &:focus {
+      outline: none;
+
+      & .ds-select-box {
+        border: map-get($borderWidth, 'border-width-2') solid map-get($semanticPrimaryColors, 'semantic-primary-medium');
+
+        label {
+          color: map-get($semanticPrimaryColors, 'semantic-primary-medium');
+        }
+      }
+    }
+
+    // Disabled state
+    &--disabled {
+      pointer-events: none;
+
+      .ds-select-box {
+        border: map-get($borderWidth, 'border-width-1') solid map-get($semanticNeutralStateColors, 'semantic-neutral-disabled');
+
+        &-selected-option {
+          color: map-get($contentStateColors, 'content-disabled');
+
+          &-details {
+            color: map-get($contentStateColors, 'content-disabled');
+          }
+        }
+
+        ::ng-deep ds-icon:not([ng-reflect-method]):not([method]):not([ng-reflect-country]):not([country]) {
+          svg path {
+            fill: map-get($contentStateColors, 'content-disabled');
+          }
+        }
+
+        label {
+          color: map-get($contentStateColors, 'content-disabled');
+        }
+      }
+    }
+
+    // Required state
+    &--required {
+      & .ds-select-box {
+        border: map-get($borderWidth, 'border-width-2') solid map-get($semanticDangerColors, 'semantic-danger-medium');
+
+        & label {
+          color: map-get($semanticDangerColors, 'semantic-danger-medium');
+        }
+      }
+    }
+  }
+
+  .ds-select-required-msg {
+    ::ng-deep ds-icon {
+      svg path {
+        fill: map-get($semanticDangerColors, 'semantic-danger-medium');
+      }
+    }
+
+    &-text {
+      color: map-get($semanticDangerColors, 'semantic-danger-dark');
+    }
+  }
+}

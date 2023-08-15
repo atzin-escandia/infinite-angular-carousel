@@ -1,0 +1,45 @@
+@import '../../../../scss/variables.scss';
+@import '../../../../scss/colors.scss';
+
+.newsletter {
+  .title {
+    width: 80%;
+
+    @media (max-width: map_get($grid-breakpoints, 'sm')) {
+      width: 100%;
+    }
+  }
+
+  & .img {
+    width: 85%;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  .privacy-text {
+    line-height: 35px;
+
+    &.t-supp-red {
+      color: map_get($color, 'supp-3');
+
+      .privacy-button-link {
+        color: map_get($color, 'supp-3') !important;
+
+        :visited {
+          color: map_get($color, 'supp-3') !important;
+        }
+      }
+    }
+  }
+
+  .cf-input-box {
+    margin-top: 0;
+  }
+}
+
+.spacing {
+  margin: 70px auto;
+}

@@ -1,0 +1,36 @@
+<div *transloco="let t" class="thanks-page">
+  <div class="d-flex flex-column-reverse flex-md-row mb-m">
+    <img *ngIf="!domSrv.getIsDeviceSize()" class="" src="{{env.domain + '/assets/img/deliveryconfirm/thanks.svg'}}"
+      alt="">
+    <div class="t-black-H info">
+      <div class="d-flex t-green-brand t-h2-blackW brand">
+        <i class="logo cf-icon-crowdfarming-bold" aria-hidden="true"></i>
+        <i class="cf-icon-text-light d-flex align-items-center" aria-hidden="true"></i>
+      </div>
+      <div class="t-h1-bold header mb-m mob-mb-xl">
+        {{t('page.order-received.text-info')}}
+      </div>
+      <img *ngIf="domSrv.getIsDeviceSize()" class="" src="{{env.domain + '/assets/img/deliveryconfirm/thanks.svg'}}"
+        alt="">
+      <div class="t-l-medium text mt-s mob-mt-xl">
+        {{t('page.thanks-order-inform-us.body')}}
+      </div>
+      <div class="mt-xl mob-mb-xl">
+        <cf-button (click)="goToOrder()" [width]="domSrv.getIsDeviceSize() ? 'auto' : 'fit'">
+          {{t('page.go-to-account.body')}}
+        </cf-button>
+      </div>
+    </div>
+  </div>
+  <!-- CROSS-SELLING -->
+  <div *ngIf="isCsActive">
+    <cross-selling-block-component [params]="csParams" [specifications]="csSpecifications" [buyNowText]="true"
+      (crossSellingProductAdded)="addedCrossSelling()" (crossSellingProductReceived)="hideSkeletonLoader()">
+    </cross-selling-block-component>
+    <div *ngIf="loadingProjects" class="rowNoMargin d-flex">
+      <project-card id="project-card-cont" *ngFor="let dummy of [1, 2, 3]; let i = index"
+        class="project-card-cont mtb mbm pointer col-12 col-md-6 col-lg-4" [lang]="currentLang">
+      </project-card>
+    </div>
+  </div>
+</div>

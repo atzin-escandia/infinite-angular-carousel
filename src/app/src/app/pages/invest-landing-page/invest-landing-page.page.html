@@ -1,0 +1,148 @@
+<div class="invest-page" *ngIf="!thanks">
+  <invest-info [block]="'first-block'" [info]="firstBlockInfo" *ngIf="firstBlockInfo" [user]="user"
+    (investment)="invest($event)"></invest-info>
+  <div class="quotes-block" id="first-quotes">
+    <div class="container d-flex flex-column flex-md-row">
+      <img class="quote" src="../../../../assets/img/invest/quotes/quoteimg.png" alt="" />
+      <div class="text col-12 col-lg-8 d-flex flex-column align-items-center align-items-lg-start nop">
+        <div class="info">{{textSrv.getText('funding jul text')}}</div>
+        <div class="picture d-lg-none mt-l mb-m cf-shadow-m"
+          [ngStyle]="{'background-image': 'url(' + '/assets/img/invest/photos/juliette.png' + ')'}"></div>
+        <div class="author d-flex flex-column flex-lg-row mt-m">
+          <span class="name">{{textSrv.getText('funding jul name')}}</span>
+          <div class="d-none d-lg-flex">&nbsp;</div>
+          <span class="rol">{{textSrv.getText('funding jul position')}}</span>
+        </div>
+      </div>
+      <div class="col-4 justify-content-start d-none d-lg-flex nop">
+        <div class="picture cf-shadow-m"
+          [ngStyle]="{'background-image': 'url(' + '/assets/img/invest/photos/juliette.png' + ')'}"></div>
+      </div>
+    </div>
+  </div>
+
+  <invest-info [block]="'second-block'" [info]="secondBlockInfo" *ngIf="secondBlockInfo"></invest-info>
+
+  <div class="gallery d-flex flex-column">
+    <div class="header">#WINNERS</div>
+    <div class="scrolling d-flex justify-content-lg-center">
+      <div class="content d-flex row justify-content-md-center flex-nowrap">
+        <gallery-card class="card ml-s mr-s" *ngFor="let item of galleryItems" [info]="item"></gallery-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex flex-column supply-block align-items-center">
+    <div class="text d-flex flex-column text-center align-items-center">
+      <span class="header mb-s mob-mb-m">{{textSrv.getText('funding benefits title')}}</span>
+      <span class="body mb-xl">{{textSrv.getText('funding benefits subtitle')}}</span>
+    </div>
+    <div class="wave">
+      <div class="d-flex points justify-content-md-center" id="oranges">
+        <div class="col-6 col-md-3 col-xl-2 d-flex flex-column align-items-center" *ngFor="let item of supplyItems">
+          <div class="supply-img mb-m" [ngStyle]="{'background-image': 'url(' + (item.image | cdn) + ')'}"></div>
+          <div class="supply-text">{{textSrv.getText(item.text)}}</div>
+        </div>
+      </div>
+      <img src="../../../../assets/img/invest/waves/waveLwhite.svg" alt="" />
+    </div>
+  </div>
+
+  <div class="direct-purchase d-flex flex-center">
+    <div class="content d-flex flex-column flex-md-row justify-content-center">
+      <div class="header col-12 col-md-6 mt-xxl">{{textSrv.getText('funding channel title')}}</div>
+      <div class="col-12 col-md-6">
+        <div class="d-flex flex-column flex-md-row mt-xxl mb-xxl align-items-center align-items-md-start"
+          *ngFor="let item of directPurchaseItems">
+          <div class="picture mob-mb-s" [ngStyle]="{'background-image': 'url(' + (item.image | cdn) + ')'}"></div>
+          <div class="text">
+            <div class="sub-header mb-s">{{textSrv.getText(item.subHeader)}}</div>
+            <div class="sub-body mob-mb-s">{{textSrv.getText(item.subBody)}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quotes-block" id="second-quotes">
+    <div class="container d-flex flex-column flex-md-row">
+      <img class="quote" src="../../../../assets/img/invest/quotes/quoteimg.png" alt="" />
+      <div class="text col-12 col-lg-8 d-flex flex-column align-items-center align-items-lg-start nop">
+        <div class="info">{{textSrv.getText('funding gon text')}}</div>
+        <div class="picture d-lg-none mt-l mb-m cf-shadow-m"
+          [ngStyle]="{'background-image': 'url(' + '/assets/img/invest/photos/gonzalo.png' + ')'}"></div>
+        <div class="author d-flex flex-column flex-lg-row mt-m">
+          <span class="name">{{textSrv.getText('funding gon name')}}</span>
+          <div class="d-none d-lg-flex">&nbsp;</div>
+          <span class="rol">{{textSrv.getText('funding gon position')}}</span>
+        </div>
+      </div>
+      <div class="col-4 justify-content-start d-none d-lg-flex nop">
+        <div class="picture cf-shadow-m"
+          [ngStyle]="{'background-image': 'url(' + '/assets/img/invest/photos/gonzalo.png' + ')'}"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex flex-column data-block">
+    <div class="container d-flex flex-column justify-content-center nop">
+      <div class="data-row" *ngFor="let row of data">
+        <div class="row-header">{{textSrv.getText(row.rowHeader).toUpperCase()}}</div>
+        <div></div>
+        <div class="d-flex flex-column flex-md-row row-data">
+          <div *ngFor="let item of row.rowData" class="col-12 col-md-4 d-flex flex-row flex-md-column mb-m mt-m">
+            <div class="data">{{textSrv.getText(item.itemData)}}</div>
+            <div class="info">
+              <div class="text">{{textSrv.getText(item.itemText)}}</div>
+              <div class="date">{{textSrv.getText(item.itemDate)}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img class="wave" src="../../../../assets/img/invest/waves/waveSgrey.svg" alt="" />
+  </div>
+
+  <invest-info *ngIf="thirdBlockInfo" [block]="'third-block'" [info]="thirdBlockInfo" id="third-block"></invest-info>
+
+  <div class="green-block" id="green-block">
+    <div class="text">
+      <div class="header">{{textSrv.getText('funding cta title')}}</div>
+      <div class="body" [innerHTML]="textSrv.getText('funding cta text')"></div>
+      <div class="d-flex flex-column flex-lg-row">
+        <cf-input class="w-100 mb-m" [error]="inputError">
+          <input input [value]="amount" (input)="amount = $event.target.value" type="number" [mask]="mask" />
+          <i>€</i>
+          <div class="cf-input-error-msg" *ngIf="inputError">{{textSrv.getText('Error text missing')}}</div>
+        </cf-input>
+        <div class="button">
+          <cf-button [secondary]="true" [width]="'auto'" (click)="invest()"> {{textSrv.getText(btnText)}} </cf-button>
+        </div>
+      </div>
+    </div>
+    <div class="wave-and-team"
+      [ngStyle]="{'background-image': 'url(' + '/assets/img/invest/waves/waveLgrey.svg' + ')'}"></div>
+    <div class="image">
+      <div class="watermark">#CrowdFarming</div>
+      <div class="team cf-shadow-m"
+        [ngStyle]="{'background-image': 'url(' + '/assets/img/invest/photos/crowdfarming.png' + ')'}"></div>
+    </div>
+  </div>
+
+  <invest-info [block]="'fourth-block'" [info]="fourthBlockInfo" *ngIf="fourthBlockInfo"></invest-info>
+</div>
+
+<div *ngIf="thanks" class="thanks d-flex justify-content-center">
+  <div class="msg col-12 col-md-4 d-flex flex-column align-items-center">
+    <div class="d-flex">
+      <i class="logo cf-icon-crowdfarming-bold" aria-hidden="true"></i>
+      <i class="cf-icon-text-light d-flex align-items-center" aria-hidden="true"></i>
+    </div>
+    <div class="header t-h1-bold t-black-H">{{textSrv.getText('thanks-header')}}</div>
+    <div class="sub-header t-l-regular t-grey">{{textSrv.getText('thanks-subheader')}}</div>
+    <cf-button [width]="'auto'" (click)="backToHome()"> {{textSrv.getText('go-crowdfarming')}}
+    </cf-button>
+  </div>
+  <img src="{{env.domain}}/assets/img/invest/waves/waveSwhite.svg" alt="" />
+  <div class="wave-base"></div>
+</div>

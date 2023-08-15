@@ -1,0 +1,26 @@
+<div class="stripe-card-container row-no-margin flex-center pt-2">
+  <div class="stripe-card-form w-100">
+    <cf-input *ngIf="stripeRef">
+      <input name="name" placeholder="{{'page.name-surname.form'| transloco }}" [(ngModel)]="stripeRef.name" (keyup)="checkName()">
+        <div *ngIf="errorName" class="cf-input-error-msg">
+          {{'notofication.Mandatory-field.body' | transloco}}
+        </div>
+    </cf-input>
+    <cf-input *ngIf="!stripeRef">
+      <input name="name" placeholder="{{'page.name-surname.form' | transloco}}" [(ngModel)]="cardName" (keyup)="checkName()">
+        <div *ngIf="errorName" class="cf-input-error-msg">
+          {{'notofication.Mandatory-field.body' | transloco}}
+        </div>
+    </cf-input>
+    <div class="stripe-card-element mt-l" #cardElement></div>
+  </div>
+  <div  *ngIf="cardErrors" class="stripe-card-error w-100 mt-s ph-l">
+    {{cardErrors}}
+  </div>
+  <ng-content></ng-content>
+  <div *ngIf="askDefault" class="w-100 mt-m mb-m">
+    <cf-check [(checked)]="cardAsDefault">
+      {{'page.choose-default-payment-method.button' | transloco}}
+    </cf-check>
+  </div>
+</div>

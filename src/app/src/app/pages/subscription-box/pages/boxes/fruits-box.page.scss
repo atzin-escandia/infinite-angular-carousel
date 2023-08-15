@@ -1,0 +1,258 @@
+@import '../../../../../scss/commons.scss';
+@import '../../../../../scss/general.scss';
+@import '../../../../../scss/colors.scss';
+
+.title {
+  font-weight: 800;
+  color: map_get($color, 'black-4');
+
+  @media (max-width: map_get($grid-breakpoints, 'sm')) {
+    font-size: 20px;
+  }
+}
+
+.bullets-container {
+  border-bottom: 1px solid map_get($color, 'grey-2');
+  background: map_get($color, 'white-1');
+
+  .row {
+    .col-4 {
+      padding: 0 0.5rem;
+    }
+
+    .row {
+      margin: 0;
+      justify-content: center;
+
+      img {
+        height: 4rem;
+      }
+
+      p {
+        font-weight: 700;
+        color: map_get($color, 'black-4');
+
+        @media (max-width: map_get($grid-breakpoints, 'lg')) {
+          margin: 0 !important;
+        }
+      }
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        font-size: 12px;
+      }
+
+      @media (max-width: map_get($grid-breakpoints, 'lg')) {
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: map_get($grid-breakpoints, 'lg')) {
+      justify-content: center;
+    }
+  }
+}
+
+.next-box {
+  &--title {
+    color: map_get($color, 'black-4');
+
+    @media (max-width: map_get($grid-breakpoints, 'sm')) {
+      margin: 0 1rem;
+    }
+  }
+
+  &--wrapper {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--light-border-3, #c9d0d0);
+    background: var(--light-background-1, #fff);
+
+    @media (max-width: map_get($grid-breakpoints, 'sm')) {
+      margin: 0 1rem;
+    }
+
+    img {
+      height: 88px;
+    }
+
+    .content,
+    .title {
+      color: map_get($color, 'black-4');
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        font-size: 14px;
+        line-height: 1.2rem;
+      }
+    }
+
+    .title {
+      font-weight: 600;
+    }
+  }
+}
+
+.subscription-detail {
+  &-container {
+    color: map_get($contentColors, content-2);
+  }
+
+  &--price {
+    color: map_get($contentColors, content-1);
+    padding: 1.5rem;
+    background: map_get($layerBackgroundColors, background-1);
+    border: 1px solid map_get($layerBorderColors, border-3);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    .button {
+      width: 100%;
+    }
+
+    p span {
+      font-weight: 600;
+    }
+
+    @include bp(device-m) {
+      margin-right: 32px;
+      width: 336px;
+    }
+
+    @include bp(device-l) {
+      width: 352px;
+    }
+
+    @include bp(device-xl) {
+      width: 384px;
+    }
+
+    img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 0.5rem;
+    }
+
+    ds-button {
+      margin-top: 1rem;
+    }
+
+    .title {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &--section {
+    margin: 64px 0;
+  }
+
+  &--title {
+    color: map_get($color, 'black-4');
+    font-weight: 800;
+    margin-bottom: 16px;
+
+    @media (max-width: map_get($grid-breakpoints, 'sm')) {
+      font-size: 18px;
+    }
+  }
+
+  &--include {
+    text-align: left;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: map_get($grid-breakpoints, 'sm')) {
+      margin: 0 1rem;
+    }
+
+    @include bp(device-m) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    ds-icon {
+      margin-right: 4px;
+    }
+  }
+
+  &--include-items {
+    width: 100%;
+    margin-top: 24px;
+
+    @include bp(device-m) {
+      width: auto;
+      margin-top: 0;
+    }
+  }
+
+  &--include-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    span {
+      color: map_get($color, 'black-4');
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+.months-grid-container {
+  .months-grid {
+    text-align: center;
+
+    &--description {
+      color: map_get($color, 'grey-11');
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        font-size: 14px;
+        line-height: 1.2rem;
+        padding: 0 1rem;
+      }
+    }
+
+    &--grid {
+      display: flex;
+      flex-flow: wrap;
+
+      &--month-card {
+        img {
+          width: inherit;
+        }
+
+        .month {
+          color: map_get($color, 'black-4');
+          font-weight: 600;
+
+          @media (max-width: map_get($grid-breakpoints, 'sm')) {
+            font-size: 16px;
+          }
+        }
+
+        .description {
+          color: map_get($color, 'grey-10');
+        }
+      }
+    }
+
+    &--cta .button {
+      margin-top: 3rem;
+    }
+  }
+}
+
+ds-accordion {
+  @media (max-width: map_get($grid-breakpoints, 'sm')) {
+    padding: 0 1rem;
+  }
+}

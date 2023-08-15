@@ -1,0 +1,368 @@
+<ng-container *transloco="let t">
+  <div class="checkout-product-container">
+    <div class="row">
+      <div [ngClass]="{ 'col-md-3': isCartSection, 'col-md-4': !isCartSection }">
+        <ng-container *ngIf="isEcommerce; else defaultImgTpl">
+          <div *ngIf="product.invalidDeliveryCountry; else ecImgMosaicTpl" class="ec-invalid-delivery-counttry-placeholder">
+            <img src="./assets/img/e-commerce/product-placeholder.png">
+          </div>
+
+          <ng-template #ecImgMosaicTpl>
+            <images-mosaic [imagesList]="ecImagesProduct"></images-mosaic>
+          </ng-template>
+        </ng-container>
+
+        <ng-template #defaultImgTpl>
+          <div
+            #square
+            class="product-img overflow-hidden"
+            [ngClass]="{ cart: isCartSection, filter: product.cantSend || product.datesNoAvailable }"
+            [ngStyle]="{ 'height.px': square.offsetWidth }">
+            <img class="w-100 h-100" [src]="imgSrc | cdn" [alt]="imgAlt" />
+          </div>
+        </ng-template>
+      </div>
+
+      <div [ngClass]="{ 'col-md-9': isCartSection, 'col-md-8': !isCartSection }">
+        <ng-container *ngIf="isEcommerce; else defaultMainTpl">
+          <div *ngIf="isEcommerceInvalidDeliveryCountry; else defaultEcProductMainTpl" class="product-main">
+            <div class="product-main__header">
+              <div class="row align-items-center">
+                <div class="col">
+                  <h4 class="t-black-T t-m-medium nom">{{ t('global.personalised-box.text-info') }}</h4>
+                  <ng-container *ngTemplateOutlet="productWarnBoxTpl"></ng-container>
+                </div>
+
+                <div class="col-auto d-none d-md-block">
+                  <img src="./assets/img/purchase/product_not_available.svg" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ng-template #defaultEcProductMainTpl>
+            <div class="product-main mb-0 mb-md-m">
+              <div class="product-main__header">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h4 class="t-black-T t-m-medium nom">{{ t('global.personalised-box.text-info') }}</h4>
+                    <div class="d-flex align-item-center mt-xs pointer" (click)="toggleDetail()">
+                      <span class="t-s-medium t-green-primary nom">{{ textSrv.getText('Box content') }}</span>
+                      <i class="eva eva-chevron-down-outline t-grey t-s-medium ml-1" [ngClass]="{ rotate: showDetail }"></i>
+                    </div>
+                  </div>
+        
+                  <div class="col-auto" *ngIf="isCartSection">
+                    <div *ngIf="isCartSection" class="pointer" (click)="deleteProduct()">
+                      <i aria-hidden="true" class="eva eva-trash-2-outline t-h4-regular t-grey"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+              <div
+                class="product-main__detail"
+                [@collapse]="!showDetail"
+                (@collapse.start)="onAnimationEvent($event)"
+                (@collapse.done)="onAnimationEvent($event)">
+                <div class="product-main__detail-container" *ngIf="detailAnimationDone">
+                  <div *ngIf="ecProductItemsWarnError || isCartSection" class="row mb-s" [ngClass]="{'justify-content-between': ecProductItemsWarnError, 'justify-content-end': !ecProductItemsWarnError}">
+                    <div *ngIf="ecProductItemsWarnError" class="col">
+                      <span class="t-body-s text-red-48" [innerHTML]="t(ecProductItemsWarnError.lokaliseKey, {amount: ecProductItemsWarnError.amount | currency, 'number-items': ecProductItemsWarnError.numItems}) | safeHtml"></span>
+                    </div>
+                    <div *ngIf="isCartSection" class="col-auto">
+                      <span class="t-component-semibold-m t-green-primary pointer" [ngClass]="{'d-flex justify-content-end': !ecProductItemsWarnError}" (click)="navToEcCatalog()">{{t('global.change.button')}}</span>
+                    </div>
+                  </div>
+
+                  <div class="ec-products-list__content">
+                    <ul class="ec-products-list">
+                      <li *ngFor="let item of product.ecommerceProducts; let i = index" class="ec-products-list__item">
+                        <div class="d-flex align-items">
+                          <p class="t-grey-o nop nom" [ngClass]="{'line-through': !item.available}">
+                            {{item.quantity}}x {{ item | translation: '_m_name' }}
+                            ({{ item.weight }}{{ item | translation: 'unitOfMeasure' }})
+                            <ng-container *ngIf="ecProductSeals[i]"> - {{ ecProductSeals[i].includes('converting-to-organic') ? t(ecProductSeals[i]) : ecProductSeals[i] }}</ng-container>
+                          </p>
+                          <div *ngIf="!item.available" class="ml-s">
+                            <custom-tooltip  [borderBottom]="false">
+                              <ng-container target>
+                                <i class="eva eva-info-outline info-icon"></i>
+                              </ng-container>
+                              <ng-container dialog>
+                                <span class="t-s-regular t-black-H text-left nom">
+                                  {{ t(getAvailabilityError(item.id)) }}
+                                </span>
+                              </ng-container>
+                            </custom-tooltip>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="ec-product-delivery mt-3 ml-3">
+                <div class="row align-items-center justify-content-between">
+                  <div class="col-auto">
+                    <h6 class="t-black-T t-s-medium mb-s nom nop">{{ textSrv.getText('Estimated delivery date:') }}</h6>
+                    <p class="d-flex align-items-center col-12 pl-0 mb-0">
+                      <i aria-hidden="true" class="eva eva-calendar-outline t-h5-regular t-black-H mr-8"></i>
+                      <span class="t-black-H t-s-regular">{{ utilsSrv.dateForFront(deliveryDate) }}</span>
+                    </p>
+                  </div>
+  
+                  <div class="col-auto">
+                    <span class="t-black-T t-l-medium">{{ product.price | currency }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+
+        <ng-template #defaultMainTpl>
+          <ng-container *ngIf="product.cantSend || product.datesNoAvailable || !product.masterBox?.active; else defaultProductBodyTpl">
+            <div class="product-main">
+              <div class="product-main__header">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h4 class="t-black-T t-m-medium mb-xs">
+                      {{ textSrv.getText(productSrv.productTypeText(product)) }}
+                      {{ product.up | translation: 'production' }}
+                    </h4>
+                    <ng-container *ngIf="!product.cantSend && !product.datesNoAvailable && product.masterBox?.active; else productWarnBoxTpl">
+                      <p class="t-grey t-m-medium nom" *ngIf="!product.multiShotBox && !product.overharvest">
+                        {{ product ? product.name : product.upCf ? product.upCf.name : textSrv.getText('name it') }}
+                      </p>
+                      <p class="t-grey t-m-medium nom" *ngIf="product.multiShotBox || product.overharvest">
+                        {{ product.farm | translation: 'name' }}
+                      </p>
+                    </ng-container>
+                  </div>
+  
+                  <div *ngIf="product.cantSend || product.datesNoAvailable || !product.masterBox?.active" class="col-auto d-none d-md-block">
+                    <img src="../../../../../assets/img/purchase/product_not_available.svg" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-template>
+      </div>
+
+      <div *ngIf="isSubscriptionAvailableOnCartSection" class="col-12 mt-m">
+        <product-subscription
+          [isInCheckout]="isInCheckout"
+          [canEdit]="sectionQuery === 'cart'"
+          [product]="product"
+          [index]="index"
+          (subscriptionOnChange)="subscriptionOnChangeHanlder($event)">
+        </product-subscription>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #defaultProductBodyTpl>
+    <div class="product-main mb-0 mb-md-m">
+      <div class="product-main__header">
+        <div class="row align-items-center">
+          <div class="col">
+            <h4 class="t-black-T t-m-medium nom">
+              {{ textSrv.getText(productSrv.productTypeText(product)) }} {{ product.up | translation: 'production' }}
+            </h4>
+
+            <div class="d-flex align-items-center mt-xs">
+              <ng-container *ngIf="!product.multiShotBox && !product.overharvest">
+                <span class="t-grey t-m-medium nom">
+                  {{ product ? product.name : product.upCf ? product.upCf.name : textSrv.getText('name it') }}
+                </span>
+
+                <i
+                  *ngIf="isCartSection && !product.uberUp"
+                  class="eva eva-edit-2-outline t-h4-regular pointer ml-s"
+                  (click)="editProductName()"></i>
+              </ng-container>
+
+              <span class="t-grey t-m-medium nom" *ngIf="product.multiShotBox || product.overharvest">
+                {{ product.farm | translation: 'name' }}
+              </span>
+            </div>
+            <div
+              *ngIf="!product.multiShot && !product.multiShotRenew"
+              class="d-flex align-item-center mt-xs pointer"
+              (click)="toggleDetail()">
+              <span class="t-s-medium t-green-primary nom">{{ textSrv.getText('Box content') }}</span>
+              <i class="eva eva-chevron-down-outline t-grey t-s-medium ml-1" [ngClass]="{ rotate: showDetail }"></i>
+            </div>
+          </div>
+
+          <div class="col-auto" *ngIf="isCartSection">
+            <div *ngIf="isCartSection" class="pointer" (click)="deleteProduct()">
+              <i aria-hidden="true" class="eva eva-trash-2-outline t-h4-regular t-grey"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="product-main__detail"
+        [@collapse]="!showDetail"
+        (@collapse.start)="onAnimationEvent($event)"
+        (@collapse.done)="onAnimationEvent($event)">
+        <div class="product-main__detail-container" *ngIf="detailAnimationDone">
+          <div class="dropdown-container d-flex flex-column">
+            <ng-container *ngIf="!product.multiShot && !product.multiShotRenew">
+              <p
+                class="t-grey-o nop nom"
+                [ngClass]="{ 'mb-1': i < product.products.length - 1 }"
+                *ngFor="let mbProduct of product.products; let i = index">
+                {{ mbProduct.quantity }} x {{ mbProduct | translation: 'name' }}
+              </p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isSubscriptionAvailableWhenIsNotCartSection" class="product-subscription mb-l mt-3 ml-3">
+      <product-subscription [canEdit]="false" [product]="product" [index]="index" [cart]="cart"></product-subscription>
+    </div>
+
+    <div class="product-amount mb-l mt-3 ml-3" *ngIf="showQuantitySelector">
+      <ng-container *ngTemplateOutlet="quantitySelectorTpl"></ng-container>
+    </div>
+
+    <div *ngIf="(product.oneShot || product.oneShotRenew || product.overharvest) && showBoxesSelector" class="product-boxes mb-m ml-3">
+      <div class="boxes-selector-wrapper">
+        <ng-container *ngTemplateOutlet="boxesSelectorTpl"></ng-container>
+      </div>
+    </div>
+
+    <div *ngIf="!product.multiShot && !product.multiShotRenew && canUpdate" class="product-delivery mb-m ml-3">
+      <div class="delivery-selector-wrapper">
+        <ng-container *ngTemplateOutlet="deliverySelectorTpl"></ng-container>
+      </div>
+    </div>
+
+    <div *ngIf="canShowAdoptionGift" class="ml-3">
+      <adoption-gift-selector
+        [showCheckbox]="sectionQuery === 'cart'"
+        [enableConfiguration]="sectionQuery === 'cart'"
+        [product]="product"
+        [index]="index"
+        [isGiftFormCompleted]="isGiftFormCompleted"></adoption-gift-selector>
+    </div>
+
+    <div class="text-right d-md-flex product-price justify-content-end align-items-center mt-3">
+      <span class="t-black-T t-l-medium">{{ (product.price ? product.price : 0) | currency }}</span>
+    </div>
+  </ng-template>
+
+  <ng-template #deliverySelectorTpl>
+    <h6 class="t-black-T t-s-medium mb-s nom nop">{{ textSrv.getText('Estimated delivery date:') }}</h6>
+
+    <ng-container *ngIf="canUpdate && showDeliverySelector && !currentCartItem?.subscription?.isActive && sectionQuery === 'cart'">
+      <div id="product-delivery-selector-ref-{{ index }}"></div>
+      <cf-selector
+        [title]="utilsSrv.dateForFront(product.selectedDate)"
+        [size]="'s'"
+        [value]="product.selectedDate"
+        [isOpen]="calendarSelectorOpen"
+        (click)="shipmentPopup(product)"></cf-selector>
+    </ng-container>
+
+    <p *ngIf="sectionQuery !== 'cart' || currentCartItem?.subscription?.isActive" class="col-12 t-black-H t-s-regular pt-4 pl-0 mb-0">
+      {{ utilsSrv.dateForFront(product?.selectedDate) }}
+    </p>
+  </ng-template>
+
+  <ng-template #boxesSelectorTpl>
+    <h6 class="t-black-T t-s-medium mb-s nom nop">{{ textSrv.getText('type of box') }}</h6>
+
+    <p class="nop nom t-m-regular t-grey-o" *ngIf="!canUpdate">{{ product.masterBox?.weight }} {{ product.masterBox.weightUnit }}</p>
+
+    <ng-container *ngIf="canUpdate && !product.filteredMbs">
+      <custom-spinner [diameter]="28"></custom-spinner>
+    </ng-container>
+
+    <ng-container *ngIf="canUpdate && product.filteredMbs?.length > 1">
+      <div class="select-masterboxes-selector">
+        <cf-dropdown [width]="'auto'" [containerShadow]="false" (isOpenChange)="product.openDropdown = $event">
+          <cf-selector
+            dropdown-selected
+            [title]="getSelectedMasterBoxValue()"
+            [value]="getSelectedMasterBoxValue()"
+            [size]="'s'"
+            [isOpen]="product.openDropdown"
+            [icon]="''"></cf-selector>
+          <div dropdown-item *ngFor="let mb of product.filteredMbs; let i = index" (click)="setMasterBox(mb, i)">
+            <div class="cf-dropdown-item cf-dropdown-content" [ngClass]="{ 'mb-not-available': !isMbAvailable(mb) }">
+              {{ getOptionMasterBoxValue(mb) }}
+            </div>
+          </div>
+        </cf-dropdown>
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <ng-template #quantitySelectorTpl>
+    <h6 class="t-black-T t-s-medium mb-s nom nop">
+      {{ textSrv.getText(product.multiShotBox || product.overharvest ? 'Quantity' : 'Harvest reserve') }}
+    </h6>
+
+    <div *ngIf="isCartSection">
+      <div class="d-flex align-items-end">
+        <cf-quantity
+          [min]="product.multiShotBox || product.overharvest ? 1 : product.up.minStepMS"
+          [max]="maxQuantitySelector"
+          [quantity]="product.multiShotBox || product.overharvest ? product.numMasterBoxes : product.stepMS"
+          [size]="'s'"
+          (step)="addSubtractUms($event)"
+          (quantityChange)="quantityChangeHandler($event)">
+        </cf-quantity>
+
+        <p class="nop nom t-m-regular t-grey-o ml-s">
+          <ng-container *ngIf="product.multiShotBox || product.overharvest">
+            {{ '(' + utilsSrv.numberForFront(product.masterBox.weight * product.numMasterBoxes) + product.masterBox.weightUnit + ')' }}
+          </ng-container>
+
+          <ng-container *ngIf="product.multiShot || product.multiShotRenew">
+            {{ utilsSrv.numberForFront(product.masterBox.weight * (product.stepMS || product.ums / product.up.masterUnitsStep)) }}
+            {{ product.masterBox.weightUnit }}
+          </ng-container>
+        </p>
+      </div>
+    </div>
+
+    <p class="nop nom t-m-regular t-grey-o" *ngIf="!isCartSection">
+      <span *ngIf="product.multiShot || product.multiShotRenew">
+        {{ product.stepMS || product.ums / product.up.masterUnitsStep }} {{ textSrv.getText('box/es') }}
+      </span>
+
+      <span *ngIf="product.multiShotBox || product.overharvest">{{ product.numMasterBoxes }} {{ textSrv.getText('box/es') }}</span>
+    </p>
+  </ng-template>
+
+  <ng-template #productWarnBoxTpl>
+    <ng-container>
+      <p class="t-s-medium t-grey nom mt-xs mb-s">
+        {{
+          product.invalidDeliveryCountry ? t('page.not-ship-this-country.text-info') :
+          product.cantSend || !product.masterBox?.active
+            ? t('global.project-with-no-boxes.label')
+            : t('notifications.not-available-shipment-dates.text-info')
+        }}
+      </p>
+
+      <div class="row">
+        <div class="col-auto mt-s">
+          <cf-button [size]="'s'" (click)="deleteProduct()">
+            {{ textSrv.getText('Delete') }}
+          </cf-button>
+        </div>
+      </div>
+    </ng-container>
+  </ng-template>
+</ng-container>

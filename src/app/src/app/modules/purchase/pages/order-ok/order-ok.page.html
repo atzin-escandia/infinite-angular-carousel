@@ -1,0 +1,164 @@
+<ng-container *transloco="let t">
+  <div class="order-ok">
+    <div class="order-ok__header pv-m">
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <i class="eva eva-checkmark-circle-outline f28 mr-s t-white" aria-hidden="true"></i>
+          <h6 class="nop nom ml-xs w-100 overflow-hidden t-white">
+            <span class="t-l-bold">{{t('notifications.order-complete.label')}}</span>
+            &nbsp;
+            <span class="t-m-medium d-none d-md-inline-block">{{t('page.receive-order-confirmation.text-info')}}</span>
+          </h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-ok__body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 order-2 order-md-1 section-container">
+            <div *ngIf="!isLoading" class="section-row">
+              <app-order-summary
+                [isGroupOrder]="!!groupOrderData"
+                [totalToPay]="totalPrice"
+                [groupOrderAmount]="groupOrderData?.cart?.total?.groupOrderAmount"
+                [isGroupOrderPromoter]="isGroupOrderPromoter"
+                [guestsNum]="groupOrderData?.cart?.guestsLimit">
+              </app-order-summary>
+            </div>
+
+            <div *ngIf="!!groupOrderData && isGroupOrderPromoter" class="section-row mt-m">
+              <div class="invitation-box border-disabled-1x">
+                <div class="row align-items-center justify-content-between">
+                  <div class="col-6 col-md-auto">
+                    <p class="t-m-medium t-black-H nom">{{t('page.invite-group-order.text-link')}}</p>
+                  </div>
+                  <div class="col-6 col-md-auto">
+                    <cf-button [width]="'auto'" (click)="openGOInvitationPopup()">{{t('page.invite.button')}}</cf-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="section-row mt-m">
+              <farmers-carousel *ngIf="!showFarmersThanksPlaceholder; else farmersThanksPlaceholderTpl" [farmers]="farmersShowing"></farmers-carousel>
+            </div>
+
+            <div class="section-row mt-m" *ngIf="address">
+              <ng-container *ngTemplateOutlet="addressCardTpl"></ng-container>
+            </div>
+
+            <div class="section-row mt-m" *ngIf="payment">
+              <ng-container *ngTemplateOutlet="paymentCardTpl"></ng-container>
+            </div>
+
+            <div class="section-row mt-l">
+              <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <cf-button [width]="'auto'" [flat]="true" (click)="navToFarmersPage()">{{ textSrv.getText('farmers') }}</cf-button>
+                </div>
+                <div class="col-md-6 order-1 order-md-2">
+                  <cf-button [width]="'auto'" (click)="navToPrivateZonePage()">{{textSrv.getText('private zone')}}</cf-button>
+                </div>
+              </div>
+            </div>
+            <impact-message *ngIf="impactMessage" [impactMessage]="impactMessage" [reverse]="true"></impact-message>
+            <div class="section-row mt-xl">
+              <div class="t-h5-bold t-black-H">{{textSrv.getText('Crowdfarming news')}}</div>
+              <div class="t-m-regular t-grey-o mt-m">{{textSrv.getText('Crowdfarming news description')}}</div>
+            </div>
+
+            <div class="section-row mt-l">
+              <div class="row mb-l" *ngFor="let post of blogPosts; let i = index">
+                <div class="col-5">
+                  <div class="post-img-container">
+                    <a href="{{post.link}}" target="_blank">
+                      <img
+                        #squareImg
+                        src="{{post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url}}"
+                        alt="{{post.title?.rendered}}"
+                        class="order-ok-post-img mr-m pointer"
+                        [style.height.px]="squareImg?.offsetWidth" />
+                    </a>
+                  </div>
+                </div>
+                <div class="col-7">
+                  <div class="post-content">
+                    <a [href]="post.link">
+                      <div class="post-content__title t-l-bold t-black-H pointer mb-s" [innerHTML]="post.title?.rendered"></div>
+                    </a>
+                    <div class="post-content__excerpt t-m-regular t-grey-o" [innerHTML]="post.excerpt?.rendered"></div>
+                    <a
+                      class="post-content__read t-green-primary t-s-regular pointer mt-s text-right w-100 d-block"
+                      href="{{post.link}}"
+                      target="_blank">
+                      {{ textSrv.getText('Keep reading') }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 order-1 order-md-2 section-container summary">
+            <div class="section-row">
+              <checkout-summary
+                [products]="products"
+                [finalPrice]="totalPrice"
+                [summaryOpen]="summaryOpen"
+                [canUpdateProduct]="false"
+                [hideHeader]="true"
+                [isProductSubscriptionAvailable]="isProductSubscriptionAvailable"
+                [isProductGiftAvailable]="isProductGiftAvailable"
+                [cart]="cart"
+                (titleClick)="handleSummaryTitleClick()">
+              </checkout-summary>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #addressCardTpl>
+  <ng-container *transloco="let t">
+    <div class="order-ok-card border-disabled-1x pa-m w-100 t-grey-o">
+      <div class="t-m-medium t-black-H w-100 mb-xs">{{t('global-shipment-address')}}</div>
+      <div class="t-s-regular w-100 mb-xs">{{address.name}} {{address.surnames}}</div>
+      <div class="t-s-regular w-100 mb-xs">{{address.street}} {{address.details}}, {{address.number}}, {{address.zip}}</div>
+      <div class="t-s-regular w-100">
+        {{address.city}}
+        <span *ngIf="countriesByIso?.[address.country]">, {{countriesByIso[address.country] | translation:'name'}}</span>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #paymentCardTpl>
+  <div class="order-ok-card border-disabled-1x pa-m w-100 t-grey-o">
+    <div class="t-m-medium t-black-H mb-xs">{{textSrv.getText('payment method')}}</div>
+    <ng-container *ngIf="payment.last4">
+      <div class="t-s-regular w-100 mb-xs">{{textSrv.getText('Credit card')}} {{textSrv.getText(payment.brand)}}</div>
+      <div class="t-s-regular w-100 mb-xs">{{textSrv.getText('XXXX XXXX XXXX {last4}', {'{last4}' : payment.last4})}}</div>
+      <div class="t-s-regular w-100">
+        {{textSrv.getText('Card expires {month}/{year}', {'{month}' : payment.exp_month, '{year}' : payment.exp_year})}}
+      </div>
+    </ng-container>
+    <ng-container *ngIf="payment.sepa_debit">
+      <div class="t-s-regular w-100 mb-xs">{{textSrv.getText('Bank account')}}</div>
+      <div class="t-s-regular w-100">{{textSrv.getText('XXXX XXXX XXXX {last4}', {'{last4}' : payment.sepa_debit.last4})}}</div>
+    </ng-container>
+  </div>
+</ng-template>
+
+<ng-template #farmersThanksPlaceholderTpl>
+  <ng-container *transloco="let t">
+    <div class="order-ok-card border-disabled-1x pa-m w-100 t-grey-o">
+      <div class="farmers-thanks-placeholder">
+        <img src="./assets/img/purchase/farmers_thanks_placeholder.svg" />
+      </div>
+      <h5 class="t-m-medium t-black-H text-center mb-xs">{{t('page.thanks-from-farmers.title')}}</h5>
+      <p class="t-s-regular text-center">{{t('page.thanks-from-farmers.body')}}</p>
+    </div>
+  </ng-container>
+</ng-template>

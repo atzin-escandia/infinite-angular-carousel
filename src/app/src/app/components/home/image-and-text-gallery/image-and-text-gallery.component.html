@@ -1,0 +1,10 @@
+<div class="image-gallery-container" id="{{id}}">
+  <div class="image-gallery-effect {{effect}}"
+    [style.width.%]="effect === 'opacity' ? '100' : (100 * images.length) + images.length"
+    [style.transform]="effect !== 'opacity' ? 'translateX(-' + (currentImage * (100 / images.length)) +'%)' : 'none'">
+    <div class="image-gallery-background" *ngFor="let imageURL of images; let i = index" id="image-gallery-{{id}}-{{i}}"
+      [style.width.%]="effect !== 'opacity' ? 100 / images.length : '100'"
+      [ngStyle]="{'background-image': 'url(' + (imageURL | cdn:300) + ')'}"
+      [ngClass]="{'image-gallery-lazy': i > currentImage + lazyImage, 'opacity-show': i === currentImage, 'round': round}"></div>
+  </div>
+</div>

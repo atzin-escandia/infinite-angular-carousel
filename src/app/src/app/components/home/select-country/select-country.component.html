@@ -1,0 +1,13 @@
+<div class="backdrop" *ngIf="active" (click)="closeModal()"></div>
+
+<div class="select-countries-container" *ngIf="active">
+  <div class="select-countries-close-button" (click)="closeModal()">
+    <i class="eva eva-close-outline" aria-hidden="true"></i>
+  </div>
+  <div class="select-countries-list">
+    <div class="select-countries-option" (click)="closeModal(country)"
+      [class.selected]="country.iso === countrySelected?.iso" *ngFor="let country of countries">
+      {{country.name}}
+    </div>
+  </div>
+</div>

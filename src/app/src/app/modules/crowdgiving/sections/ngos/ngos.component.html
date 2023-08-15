@@ -1,0 +1,12 @@
+<div *transloco="let t" class="ngos-section">
+  <h4 class="t-black-T ngos-section__title">{{t('page.crowdgiving-select-ngo.form')}}</h4>
+  <ul class="ngos-list">
+    <li *ngFor="let item of ngosList" class="ngos-list__item">
+      <cg-card [selectable]="true" [selected]="selectedId === item._id" [withInputBtn]="true" [inputBtnPosition]="'left'" (selectTrigger)="onOptionSelect(item._id)">
+        <ng-container body>
+          <app-cg-ngo-card [ngo]="item"></app-cg-ngo-card>
+        </ng-container>
+      </cg-card>
+    </li>
+  </ul>
+</div>

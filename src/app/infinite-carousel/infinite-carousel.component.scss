@@ -1,0 +1,70 @@
+$small-screen: 768px;
+$medium-screen: 992px;
+$large-screen: 1200px;
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  color: white;
+
+  .container {
+    padding: 0 50px;
+    h2 {
+      font-size: 50px;
+    }
+  }
+
+  &-inner {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 50px);
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &-content {
+    width: 100vw;
+    background: linear-gradient(
+      90.12deg,
+      rgba(0, 0, 0, 0.3) 0.11%,
+      rgba(217, 217, 217, 0) 99.89%
+    );
+    height: 100%;
+    align-items: center;
+    display: flex;
+
+    button {
+      outline: transparent;
+      border: transparent;
+      padding: 15px 30px;
+      border-radius: 10px;
+    }
+  }
+
+  &-dots {
+    position: absolute;
+    display: flex;
+    bottom: 30px;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 8px;
+      background-color: white;
+      margin: 0 4px;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      width: 24px;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<ds-global-styles></ds-global-styles>
+<div class="ds--grid" *transloco="let t">
+  <div class="ds--row align-items-center">
+    <div class="ds--col mobileCenter mv-24">
+      <div class="t-heading-xl t-black-T mv-16">{{t('page.error404.title')}}</div>
+      <div class="t-body-l t-grey mb-16">{{t('page.error404.body')}}</div>
+      <ds-button
+        *ngFor="let link of links"
+        [content]="t(link.key)"
+        class="link fw6 d-block"
+        (buttonClick)="navigateTo(link.link)"
+        id="footer-crowdfunding-link"
+        target="_blank"
+        [inverse]="true"
+        >
+      </ds-button>
+    </div>
+    <div class="ds--col-12 divImg404 mobileCenter mv-24 dkt-mv-32">
+      <div lottie [options]="img" class="img404"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+@import '../../../../../scss/commons.scss';
+
+.tooltip {
+  position: relative;
+
+  &__target {
+    cursor: default;
+    display: flex;
+
+    &.bbotom {
+      border-bottom: 1px dashed map_get($color, 'grey-7');
+    }
+  }
+
+  &__dialog {
+    z-index: 9;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    width: 260px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 6px;
+    box-shadow: 0 0 4px rgba(4, 37, 34, 0.12), 0 8px 16px rgba(4, 37, 34, 0.08);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      transform: translateX(-50%) rotate(45deg);
+      background-color: #fff;
+    }
+
+    &.top {
+      bottom: calc(100% + 12px);
+
+      &::after {
+        bottom: -6px;
+        border-right: 1px solid rgba(4, 37, 34, 0.12);
+        border-bottom: 1px solid rgba(4, 37, 34, 0.12);
+      }
+    }
+
+    &.bottom {
+      top: calc(100% + 12px);
+
+      &::after {
+        top: -6px;
+        border-left: 1px solid rgba(4, 37, 34, 0.12);
+        border-top: 1px solid rgba(4, 37, 34, 0.12);
+      }
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+}

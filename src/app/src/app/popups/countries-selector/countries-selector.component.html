@@ -1,0 +1,30 @@
+<div class="sort-popup-container col-12" [ngClass]="{'up-card': source === 'up-card'}" id="sort-popup">
+  <div *ngIf="source === 'up-card'; else defaultTitle" class="t-h3-blackW t-black-H pa-xl">
+    {{textSrv.getText('The product can be sent to')}}
+  </div>
+  <ng-template #defaultTitle>
+    <div class="popup-header-title">
+      {{textSrv.getText( prefixes ? 'prefix' : 'country')}}
+    </div>
+  </ng-template>
+
+  <div *ngIf="prefixes" class="popup-options"
+    [ngStyle]="{'height': domSrv.getIsDeviceSize() ? (source === 'up-card' ? 'calc(100% - 148px)' : 'calc(100% - 80px)') : '300px'}">
+    <div *ngFor="let prefix of prefixes; index as id" class="option d-flex align-items-center"
+      (click)="selectOption(id)" [ngClass]="{'clicked': clicked === id}">
+      <div *ngIf="config.data.isos" [class]="'flag-icon flag-icon-' + isos[id]"></div>
+      <span>{{prefix}}</span>
+    </div>
+  </div>
+
+  <div *ngIf="countries" class="popup-options" [ngClass]="{'one-option': countries.length === 1}"
+    [ngStyle]="{'height': domSrv.getIsDeviceSize() ? (source === 'up-card' ? 'calc(100% - 148px)' : 'calc(100% - 80px)') : '300px'}">
+    <div *ngFor="let country of countries; index as id" class="option d-flex align-items-center"
+      (click)="selectOption(id)" [ngClass]="{'clicked': clicked === id}">
+      <div *ngIf="flag" [class]="'flag-icon flag-icon-' + country.iso"></div>
+      <span class="ml-s">
+        {{country | translation: '_m_name'}}
+      </span>
+    </div>
+  </div>
+</div>

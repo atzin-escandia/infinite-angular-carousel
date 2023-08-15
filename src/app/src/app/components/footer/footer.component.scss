@@ -1,0 +1,110 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+
+.footer {
+  color: map_get($color, 'white-1');
+
+  &-information {
+    background: map_get($color, 'black-1');
+    padding: 42px 0;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      padding: 42px 0 0 0;
+
+      .col-12 {
+        margin-bottom: 42px;
+      }
+    }
+  }
+
+  &-button {
+    margin-bottom: 42px;
+  }
+
+  &-title {
+    color: map_get($color, 'white-1');
+    margin-bottom: 12px;
+  }
+
+  &-link {
+    margin-bottom: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    word-wrap: break-word;
+    display: block;
+    width: fit-content;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    i {
+      margin-right: 10px;
+    }
+
+    &.certification-bcorp img {
+      width: 75px;
+    }
+  }
+
+  &-icons {
+    background: map_get($color, 'black-3');
+    padding: 26px;
+  }
+
+  &-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .cf-icon-crowdfarming-bold {
+      margin-right: 5px;
+      font-size: 40px;
+    }
+
+    .cf-icon-text-light {
+      font-size: 21px;
+      margin-top: 10px;
+      margin-right: 5px;
+    }
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &-icon {
+    margin-right: 8px;
+  }
+
+  &-social {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &-icon {
+      padding: 0 16px;
+      font-size: 20px;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      justify-content: center;
+    }
+  }
+
+  &-badge {
+    display: block;
+
+    &-icon {
+      display: block;
+      height: 40px;
+      margin-top: 16px;
+      max-width: 135px;
+      margin-right: 15px;
+    }
+  }
+}

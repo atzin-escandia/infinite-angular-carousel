@@ -1,0 +1,45 @@
+<button
+  class="ds-button"
+  [disabled]="inverse ? null : disabled"
+  [ngStyle]="{'width': width === 'full' ? '100%' : (width === 'auto' ? 'auto' : width + 'px')}"
+  (click)="click($event)"
+  (keyup.enter)="click($event)"
+  (mouseover)="active = true"
+  (mouseout)="active = false"
+  [ngClass]="{
+    'ds-button--primary': variant === 'primary',
+    'ds-button--secondary': variant === 'secondary',
+    'ds-button--danger': variant === 'danger',
+    'ds-button--ghost': variant === 'ghost',
+    'inverse': inverse,
+    'light': light,
+    'ds-button--s t-component-semibold-s ph-16': size === 's',
+    'ds-button--m t-component-semibold-m ph-32': size === 'm'
+  }">
+  <div class="d-flex justify-content-center align-items-center ds-button-wrapper">
+    <ds-icon 
+      *ngIf="hasIcon" 
+      [color]="keyColor"
+      class="ds-button-icon align-self-center" 
+      name="filter" 
+      size="ds--size-24"
+      [ngClass]="{
+        'inverse-one': variant === 'primary' || variant === 'danger' || (variant === 'secondary' && inverse && !active),
+        'semantic-primary-medium': (variant === 'secondary' && !inverse) || (variant === 'primary' && inverse),
+        'semantic-primary-pressed': variant === 'secondary' && active || variant === 'primary' && inverse && active,
+        'inverse-state-pressed': variant === 'secondary' && inverse && active,
+        'semantic-primary-disabled': variant === 'secondary' && disabled && !inverse
+      }">
+    </ds-icon>
+    <span
+      class="align-self-center"
+      [ngStyle]="{'margin-left': hasIcon ? '8px' : '0'}"
+      [ngClass]="{
+        'hidden': !hasContent,
+        't-component-semibold-m': size === 'm',
+        't-component-semibold-s': size === 's'
+      }">
+      {{ content }}
+    </span>
+  </div>
+</button>

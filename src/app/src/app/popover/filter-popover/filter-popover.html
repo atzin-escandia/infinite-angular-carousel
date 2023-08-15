@@ -1,0 +1,31 @@
+<div class="filter-popover" [ngClass]="{open: unfold}">
+  <div class="w-100">
+    <div *ngIf="domSrv.getIsDeviceSize()" class="d-flex align-items-center justify-content-between">
+      <div class="close-icon pt-s pb-s pl-m" (click)="closeWithAnimation()">
+        <i aria-hidden="true" class="eva eva-close-outline t-h1-regular"></i>
+      </div>
+      <div class="t-grey t-s-regular remove pt-s pb-s pr-m" (click)="removeSelection()">
+        {{textSrv.getText('remove selection')}}
+      </div>
+    </div>
+
+    <div *ngIf="domSrv.getIsDeviceSize()" class="filter-popover-title t-black-T t-h5-bold t-a-center pa-s">
+      {{textSrv.getText('filters')}}
+    </div>
+
+    <filters-directory (pickFilterEvt)="pickFilterEvt($event)" (removeSelectionEvt)="removeSelection($event)"
+      [selectedFilters]="selectedFilters">
+      <filters-container *ngIf="!domSrv.getIsDeviceSize() || filterLoaded" [filter]="filter"
+        [pickedFilter]="pickedFilter" (checkItemEvt)="checkItem($event)"></filters-container>
+    </filters-directory>
+  </div>
+
+  <div class="filter-apply d-flex justify-content-start" id="filter-apply">
+    <cf-button [size]="'s'" (click)="applyQuery()">
+      {{textSrv.getText('apply selection')}}
+    </cf-button>
+    <div *ngIf="!domSrv.getIsDeviceSize()" class="d-flex align-items-center remove t-s-regular t-grey ml-l" (click)="removeSelection()">
+      {{textSrv.getText('remove selection')}}
+    </div>
+  </div>
+</div>

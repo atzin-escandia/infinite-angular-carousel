@@ -1,0 +1,6 @@
+<div class="private-zone-page" [ngClass]="{'mob-pl-m mob-pr-m' : !routerSrv.getPath().includes('feedback')}">
+  <div class="private-zone-page-container container d-flex flex-column" [ngClass]="{'flex-lg-row' : !routerSrv.getPath().includes('feedback')}">
+    <private-desktop-menu *ngIf="!routerSrv.getPath().includes('open-issue') && !routerSrv.getPath().includes('feedback')" class="mr-5 mt-s"></private-desktop-menu>
+    <router-outlet></router-outlet>
+  </div>
+</div>

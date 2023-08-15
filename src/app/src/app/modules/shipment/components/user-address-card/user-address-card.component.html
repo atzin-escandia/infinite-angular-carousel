@@ -1,0 +1,29 @@
+<card
+  *transloco="let t"
+  [selectable]="selectable"
+  [selected]="isOptionSelected"
+  [hasFooter]="true"
+  [withInputBtn]="true"
+  (selectTrigger)="selectAddressHandler()">
+  <ng-container body>
+    <div class="row">
+      <div class="col">
+        <p class="t-black-T nom t-m-medium">{{ address?.name }} {{ address?.surnames }}</p>
+        <p class="t-grey t-m-regular mb-xs">{{ address?.street }} {{ address?.number }} {{ address?.details }}</p>
+        <p class="t-grey t-m-regular mb-s">
+          {{ address?.zip }} {{ address?.city }}
+          <span *ngIf="countriesByIso">
+            {{ countriesByIso[address?.country] | translation: 'name' }}
+          </span>
+        </p>
+        <p class="t-grey nom t-m-regular">{{ address?.phone?.prefix }} {{ address?.phone?.number }}</p>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="canEdit" footer>
+    <cf-button [flat]="true" [size]="'s'" [icon]="true" (click)="editAddressHandler()">
+      <i aria-hidden="true" class="eva eva-edit-outline t-l-regular mr-1"></i>
+      {{ t('global.Edit.body') }}
+    </cf-button>
+  </ng-container>
+</card>

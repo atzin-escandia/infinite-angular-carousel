@@ -1,0 +1,49 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+
+:host {
+  .banned-pay- {
+    &popup-container {
+      max-width: 1000px;
+      width: 100%;
+      padding: 20px;
+      color: $black;
+      font-size: 16px;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &title {
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &number {
+      text-decoration: underline;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    &order {
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      padding: 5px 15px;
+    }
+
+    &price {
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        border-top: 1px solid black;
+        margin-top: 5px;
+        padding-top: 8px;
+      }
+    }
+  }
+}
+
+.text {
+  padding: 20px;
+}

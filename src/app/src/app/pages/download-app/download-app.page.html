@@ -1,0 +1,83 @@
+<!-- Header -->
+<section *transloco="let t" class="header_block pb-xxl">
+  <div class="container">
+    <div class="row mb-xxl mob-mb-l">
+      <div class="col-md-6 d-flex flex-column justify-content-center">
+        <h2 class="title t-black-H t-h1-blackW pb-s" [ngClass]="isMobile ? 'text-center' : 'pr-xxl mr-xxl'">
+          {{t('page.die-app-crowdfarming.title')}}
+        </h2>
+        <h3 class="t-primary-T t-xl-bold mb-xl " [ngClass]=" isMobile ? 'text-center' : 'pr-xxl mr-xxl'">
+          {{t('global.join-community-farmer-projects.text-info')}}
+        </h3>
+        <div *ngIf="isMobile" class="mb-l">
+          <img class="w-100" src="{{env.domain}}/assets/img/promotion-campaign/header/app-header-{{lang}}.png" alt="">
+        </div>
+        <p class="t-grey t-xl-medium pb-s" [ngClass]="isMobile ? 'text-center' : 'pr-xxl mr-xxl'">
+          {{t('notifications.app.text-info')}}
+        </p>
+        <div [ngClass]="isMobile && 'd-flex justify-content-center'">
+          <store-buttons></store-buttons>
+        </div>
+      </div>
+      <div *ngIf="!isMobile" class="col-md-6 d-flex flex-column justify-content-center">
+        <img src="{{env.domain}}/assets/img/promotion-campaign/header/app-header-{{lang}}.png" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cards -->
+<section class="cards_block">
+  <div class="container pt-xl pb-xxl">
+    <div class="row mb-xxl mob-mb-l">
+      <div class="col-12">
+        <h2 class="t-xxl-bold t-black-H t-a-center pb-xl"
+          [ngClass]="isMobile ? 't-h4-blackW' : 't-h1-blackW t-a-center'">
+          {{ textSrv.getText('promo-app-meet-farmers') }}
+        </h2>
+      </div>
+      <div class="card_section text-center my-auto d-flex mb-md-xxl pb-m">
+        <div class="card col-md-3 t-a-center mx-3" *ngFor="let card of cards">
+          <img class="benefit_img mx-auto" [src]="card.img" [alt]="textSrv.getText('card.text')">
+          <p class="t-l-bold mt-m mb-l t-primary-T pb-m">
+            {{textSrv.getText(card.text)}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Benefits -->
+<section class="benefits_block">
+  <div class="container pt-xl pb-l">
+    <div class="row mb-xxl mob-mb-l position-relative">
+      <div class="col-md-8 d-flex flex-column justify-content-center" [ngClass]="isMobile && 'text-center'">
+        <h3 class="title t-black-T t-h1-blackW">
+          {{ textSrv.getText('promo-app-benefits') }}
+        </h3>
+        <ul class="py-4 px-0">
+          <li class="row d-flex mb-2 text-md-center" *ngFor="let benefit of benefits">
+            <div class="col-md-2 text-md-center">
+              <img class="mr-md-4 benefit_img" [src]="benefit.img" [alt]="textSrv.getText('benefit.img')">
+            </div>
+            <div class="col-md-10 d-flex align-items-center">
+              <p class="t-grey t-xl-bold mt-m mb-l">
+                {{textSrv.getText(benefit.text)}}
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="farmer_img col-md-4 d-flex flex-column justify-content-center position-relative p-0">
+        <img class="w-100" src="{{env.domain}}/assets/img/promotion-campaign/benefits/foto-farmer.svg">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="newsletter_block pt-xxl pb-xxl">
+  <home-newsletter-block id="newsletter-block"></home-newsletter-block>
+</section>

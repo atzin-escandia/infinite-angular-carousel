@@ -1,0 +1,11 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.title {
+  color: $ds--color-primary-88;
+}
+
+.no-results-container {
+  padding-top: 32px;
+}

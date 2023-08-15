@@ -1,0 +1,28 @@
+<section class="ec-detail-summary" *transloco="let t">
+  <h1 class="ec-detail-summary__title text-primary-88">{{ articleData._m_detailTitle | multiLangTranslation }}</h1>
+  <span class="ec-detail-summary__desc text-grey-56">{{ articleData._m_subtitle | multiLangTranslation }}</span>
+  <div class="mb-16">
+    <ds-seals-header *ngIf="seals" [seals]="seals | translateSeals"></ds-seals-header>
+  </div>
+  <ng-container *ngIf="!articleData.isUnavailable; else unAvailable">
+    <div class="t-component-semibold-xl text-primary-88">
+      {{ minPrice | currency: articleData.currency }}
+    </div>
+    <span class="t-component-regular-m text-grey-56 mb-16">
+      {{ articleData.pricePerUnit | currency: articleData.currency }} / {{ articleData._m_units | multiLangTranslation }}
+    </span>
+    <div class="ec-btn__custom-ds-counter">
+      <ds-counter
+        [(counter)]="counter"
+        [buttonText]="t('global.add.form')"
+        [hasDelete]="true"
+        [min]="0"
+        (counterChange)="selectQuantityArticle($event)"></ds-counter>
+    </div>
+  </ng-container>
+  <ng-template #unAvailable>
+    <span class="ec-badge ec-badge-ds--color-grey-16 ec-badge-xs text-color-grey-72">
+      {{ t('global.currently-not-available-text-info') }}
+    </span>
+  </ng-template>
+</section>

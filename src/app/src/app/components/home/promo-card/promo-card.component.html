@@ -1,0 +1,65 @@
+<div class="promo-section pb-4 pb-md-0">
+  <!-- Desktop -->
+  <div *ngIf="!domSrv.getIsDeviceSize()" class="d-md-block container">
+    <div *ngIf="promo" class="row">
+      <div class="col-6 d-flex flex-column justify-content-center">
+        <h2 class="t-black-T t-h2-blackW nom">
+          {{promo | translation: 'title'}}
+        </h2>
+        <p class="t-grey t-xl-regular mt-m mb-l">
+          {{promo | translation: 'description'}}
+        </p>
+        <cf-button [size]="'m'" (click)="navigate()">
+          {{promo | translation: 'buttonText'}}
+        </cf-button>
+      </div>
+      <div class="col-6 nopl promo-image-dkt">
+        <image-lazy class="flex-center" [fixWidth]="600" [index]="1" [startLazyAt]="0" [imageId]="'desktop-promo-first-image'"
+          [imageURL]="promo.pictureURL">
+        </image-lazy>
+      </div>
+    </div>
+    <div *ngIf="!promo" class="loading row">
+      <div class="col-6 d-flex flex-column justify-content-center">
+        <h3 class="loading-container promo-title-dkt">
+        </h3>
+        <p class="loading-container promo-text-dkt mt-m mb-l">
+        </p>
+        <div class="loading-container promo-cta-dkt">
+        </div>
+      </div>
+      <div class="loading-container col-6 nopl promo-image-dkt">
+      </div>
+    </div>
+  </div>
+  <!-- Mobile -->
+  <div *ngIf="domSrv.getIsDeviceSize()" class="container">
+    <div *ngIf="promo" class="pt-l">
+      <h2 class="t-black-T t-h3-blackW">
+        {{promo | translation: 'title'}}
+      </h2>
+      <div class="promo-image-mbl w-100 border-rs">
+        <image-lazy [index]="1" [startLazyAt]="0" [imageId]="'mobile-promo-first-image'" [imageURL]="promo.pictureURL">
+        </image-lazy>
+      </div>
+      <p class="t-grey t-m-medium mt-s mb-l">
+        {{ promo | translation: 'description' }}
+      </p>
+      <div (click)="navigate()">
+        <cf-button [width]="'auto'">
+          {{promo | translation: 'buttonText'}}
+        </cf-button>
+      </div>
+    </div>
+    <div *ngIf="!promo" class="loading">
+      <h3 class="loading-container promo-title-mbl">
+      </h3>
+      <div class="loading-container promo-image-mbl">
+      </div>
+      <p class="loading-container promo-text-mbl mb-l mt-s">
+      </p>
+      <div class="loading-container promo-cta-mbl">
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,108 @@
+@import '../../../scss/commons.scss';
+
+product-notification {
+  transition: top 0.7s ease, opacity 0.4s ease 0.2s;
+  position: fixed;
+  z-index: 200;
+  right: 0;
+  opacity: 0.3;
+  top: -180px;
+  cursor: pointer;
+
+  &.popover-is-open {
+    top: 70px;
+    opacity: 1;
+
+    .green-banner-activated & {
+      top: 100px;
+    }
+  }
+
+  .product-notification- {
+    &popover {
+      background: map_get($color, 'white-1');
+      border-radius: 5px;
+      width: 504px;
+      height: 200px;
+      overflow: hidden;
+      color: map_get($color, 'black-2');
+      margin-top: 4px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        width: 100vw;
+        height: 184px;
+        margin-top: 0;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    &info {
+      display: flex;
+    }
+
+    &image {
+      background-position: center;
+      background-size: cover;
+      border-radius: 5px;
+      height: 168px;
+      min-width: 168px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        height: 88px;
+        min-width: 88px;
+      }
+    }
+
+    &container {
+      text-align: left;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    &name {
+      color: map_get($color, 'primary');
+    }
+
+    &number {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &-boxes {
+        color: rgba(121, 131, 143, 0.9);
+      }
+
+      margin-bottom: 16px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        margin-bottom: 0;
+      }
+    }
+
+    &cart {
+      width: 100%;
+    }
+
+    &close {
+      z-index: 10;
+      position: absolute;
+      cursor: pointer;
+      color: map_get($color, 'black-1');
+      height: 32px;
+      font-size: 24px;
+      width: 32px;
+      top: 8px;
+      right: 8px;
+
+      .fa {
+        font-size: 14px;
+      }
+    }
+  }
+}

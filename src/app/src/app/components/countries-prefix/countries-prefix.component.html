@@ -1,0 +1,31 @@
+<div *ngIf="domSrv.getIsDeviceSize()" class="countries-prefix-mbl-trigger" (click)="openPrefixSelector()"></div>
+  <cf-select #countrySelector optionsId="prefix-option" [placeholder]="mandatory ? prefixPlaceholder : '*' + prefixPlaceholder"
+  [whiteSelect]="true" [selected]="dataToReturn" [error]="error">
+  <div selected *ngIf="dataToReturn" class="cf-select-selected overflow-text">
+    <div class="d-flex align-items-center">
+      <div class="flag-icon"
+        [ngClass]="data[prefixSelect.indexOf(dataToReturn)].iso ? 'flag-icon-' + data[prefixSelect.indexOf(dataToReturn)].iso : ''"></div>
+      <span class="country-name">
+        {{data[prefixSelect.indexOf(dataToReturn)]._m_name[this.langSrv.getCurrentLang()] || data[prefixSelect.indexOf(dataToReturn)]._m_name.en}}
+      </span>
+      <span class="country-prefix">
+        ({{data[prefixSelect.indexOf(dataToReturn)].prefix}})
+      </span>
+    </div>
+  </div>
+  <div *ngIf="!domSrv.getIsDeviceSize()" options class="cf-select-options">
+    <div class="cf-select-option overflow-text" *ngFor="let country of data; let i = index"
+      (click)="selectOption(prefixSelect[i])" [id]="optionsId + '-' + i">
+      <div class="d-flex align-items-center">
+        <div class="flag-icon" [ngClass]="country.iso ? 'flag-icon-' + country.iso : ''">
+        </div>
+        <span class="country-name">
+          {{country._m_name[langSrv.getCurrentLang()] || country._m_name.en}}
+        </span>
+        <span class="country-prefix">
+          ({{country.prefix}})
+        </span>
+      </div>
+    </div>
+  </div>
+</cf-select>

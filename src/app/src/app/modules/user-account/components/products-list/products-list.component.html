@@ -1,0 +1,8 @@
+<section class="cf-products-list" *transloco="let t">
+  <h5 class="t-component-semibold-m text-primary-88 mb-12">
+    {{ t('page.Contents-of-box.body') }}
+  </h5>
+  <div class="cf-products-list__item" *ngFor="let item of products, let last = last;">
+    <cf-product-item [product]="item" [last]="last"></cf-product-item>
+  </div>
+</section>

@@ -1,0 +1,237 @@
+<ng-container *transloco="let t">
+  <div *ngIf="cardInfo" class="up-card cf-shadow-s" [ngClass]="{'mb-xxl': !domSrv.getIsDeviceSize('laptop')}">
+    <div
+      *ngIf="((ss.upsAvailable && ss.inSeason) || (ss.ohAvailable && !ss.upsAvailable && !ss.cantSendCountry && !ss.noDatesLeft)) && cardInfo; else notAvailable"
+      class="up-card-wrapper">
+      <div class="up-card-img w-100 position-relative"
+        [ngStyle]="{'height': 'calc(336px + ' + (domSrv.getElementHeight('#card-header-title') + 32) + 'px)'}">
+
+        <!-- CLOSE FOR MOBILE -->
+        <div *ngIf="domSrv.getIsDeviceSize('laptop')" class="up-card-mobile-popover-close flex-center"
+          (click)="closeCardMobile()" stop-propagation>
+          <i class="eva eva-close-outline t-xl-regular t-black-T" aria-hidden="true"></i>
+        </div>
+        <image-gallery
+          *ngIf="ss.upsAvailable && selectedTab === 'adopt' && isUberUpProjectType() && uberImages?.length; else singleImage"
+          [id]="'up-info-image'"
+          [images]="uberImages"
+          [autoplay]="false"
+          [currentImage]="currentUber"
+          (changeEvt)="changeUberImg($event)"
+          [fixedHeight]="true"
+          class="up-card-img-gallery d-block position-relative"
+          [ngStyle]="{'height': isCardOpen && !domSrv.getIsDeviceSize() ? 'calc(100% - ' + domSrv.getElementHeight('#card-info') + 'px)' : '100%'}">
+        </image-gallery>
+        <ng-template #singleImage>
+          <img
+            [src]="(cardInfo && (isMixed && selectedTab === 'buy') ? cardInfo.up.cardOHImageURL : (cardInfo?.up?.pictureURL || '')) | cdn: 800"
+            [alt]="cardInfo && cardInfo.up._m_metaDescription ? (cardInfo.up | translation:'_m_metaDescription') : ''"
+            class="position-absolute"
+            [ngStyle]="{'height': isCardOpen && !domSrv.getIsDeviceSize() ? 'calc(100% - ' + domSrv.getElementHeight('#card-info') + 'px)' : '100%'}"/>
+        </ng-template>
+      </div>
+      <div *ngIf="domSrv.getIsDeviceSize()" [ngStyle]="{'background': 'white', 'height': '40px'}"></div>
+
+      <div class="up-card-info position-relative"
+        [ngClass]="{'min-height-gift-card ': gift, 'min-height-oneshot-1-up': isOneshot && masterBoxes.up.length === 1}">
+        <!-- Tabs to select between Adoption and Overharvest in case both available -->
+        <div class="up-card-info-unfolder" id="card-info" [ngStyle]="styleAdoptOhTabs()">
+          <div *ngIf="showAdoptOhTabs()"
+            class="up-card-info-unfolder-tab-selector position-absolute d-flex justify-content-between" id="card-tabs">
+            <div (click)="changeCardTab('adopt')" id="adopt-page-bottom-adopt-btn"
+              class="option h-100 d-flex align-items-center justify-content-center t-grey"
+              [ngClass]="{'selected': selectedTab === 'adopt', 'pointer': selectedTab === 'buy'}">
+              <span class="t-s-regular">
+                {{ t('global.adopt.text') }}
+              </span>
+            </div>
+            <div (click)="changeCardTab('buy')" id="adopt-page-bottom-oh-btn"
+              class="option h-100 d-flex align-items-center justify-content-center t-grey"
+              [ngClass]="{'selected': selectedTab === 'buy', 'pointer': selectedTab === 'adopt'}">
+              <span class="t-s-regular">
+                {{ t('global.buy-a-box.tab') }}
+              </span>
+            </div>
+          </div>
+          <div class="up-card-info-unfolder-header pa-m" [ngClass]="{'pt-xl': showAdoptOhTabs()}" id="card-header">
+            <h6 *ngIf="selectedTab === 'adopt'" class="t-h6-bold t-black-H nom"
+              [innerHTML]="textSrv.getText('Adopt a {variety}', {'{variety}': (cardInfo.up | translation:'publicVariety')})"
+              id="card-header-title">
+
+            </h6>
+            <h6 *ngIf="selectedTab === 'buy'" class="t-h6-bold t-black-H nom" id="card-header-title">
+              {{ (selectedMasterBox || masterBoxes.oh[0]) | translation: '_m_name' }}
+            </h6>
+            <!-- HIDDEN CONTENT -->
+            <div>
+              <!-- CHOOSE YOUR ADOPTION -->
+              <div *ngIf="isUber && (isAdoption || (isMixed && selectedTab === 'adopt'))" class="mt-m">
+                <p class="t-grey t-xs-regular no-mb">
+                  {{ textSrv.getText('choose {publicVariety}', {'{publicVariety}':
+                  (cardInfo.up | translation:'publicVariety')}) }}
+                </p>
+                <p class="t-black-T t-m-medium">
+                  {{ uberUpSelected.name }}
+                </p>
+              </div>
+
+              <!-- NAME YOUR ADOPTION INPUT -->
+              <cf-input *ngIf="!isUber && (isAdoption || (isMixed && selectedTab === 'adopt'))"
+                [error]="yourUpErr?.name || yourUpErr?.format" class="mt-m pt-s">
+                <input #upNam (keyup)="upNam.value.length ? validName() : null" [(ngModel)]="upName"
+                  type="text" maxlength="30" autocomplete="off" name="name" tabindex="0"
+                  [placeholder]="textSrv.getText('Add name to')"
+                  id="upNameInput">
+                <div *ngIf="yourUpErr?.name" class="cf-input-error-msg">
+                  {{ t('notifications.mandatory-field.text-info') }}
+                </div>
+                <div *ngIf="yourUpErr?.format" class="cf-input-error-msg">
+                  {{ textSrv.getText('The name of you {variety} is invalid.', {'{variety}': cardInfo.up.publicVariety}) }}
+                </div>
+              </cf-input>
+
+              <!-- SELECT TYPE OF BOX -->
+              <div *ngIf="(isOneshot && masterBoxes.up.length > 1 && (isAdoption || (isMixed && selectedTab === 'adopt'))) ||
+                  (isMixed && selectedTab === 'buy' && masterBoxes.oh.length > 1)" class="mt-m">
+                <label class="d-block t-grey t-xs-regular nom">
+                  {{ t('global.select-your-box.text-info') }}
+                </label>
+                <cf-select #masterBoxSelector [(selected)]="selectedMasterBox" [whiteSelect]="true">
+                  <!-- Selected master box -->
+                  <div selected *ngIf="selectedMasterBox" class="cf-select-selected overflow-text p-relative">
+                    <div>
+                      <span [ngClass]="{'mb-not-available-selector': !isMbAvailable(selectedMasterBox)}">
+                        {{ getOptionMasterBoxValue(selectedMasterBox) }}
+                      </span>
+                    </div>
+                  </div>
+                  <!-- Rest of master boxes -->
+                  <div options *ngIf="getMasterBoxes()" class="cf-select-options">
+                    <div *ngFor="let mb of getMasterBoxes(); let i = index" (click)="selectMasterBox(mb, i)">
+                      <div class="cf-select-option overflow-text" [ngClass]="{'mb-not-available': !isMbAvailable(mb)}">
+                        <span>{{ getOptionMasterBoxValue(mb) }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </cf-select>
+              </div>
+
+              <!-- QUANTITY SELECTOR -->
+              <div *ngIf="(isOneshot && (isMixed && selectedTab === 'buy')) || !isOneshot">
+                <p class="t-s-regular t-grey mt-m">
+                  {{ textSrv.getText('1 box contains {weight} of {variety}', {'{weight}':
+                  ((selectedMasterBox ? selectedMasterBox.weight : cardInfo.up.masterBoxes[0].weight) +
+                  (selectedMasterBox ? selectedMasterBox.weightUnit : cardInfo.up.masterBoxes[0].weightUnit)),
+                  '{variety}': cardInfo?.up?._m_production[langSrv.getCurrentLang()]}) }}
+                </p>
+                <div class="mt-s d-flex align-items-end">
+                  <cf-quantity
+                    [size]="'s'"
+                    [quantity]="numberOfBoxes ? numberOfBoxes : ((isMixed && selectedTab === 'buy') ? 1 : cardInfo.up.minStepMS)"
+                    [min]="(isMixed && selectedTab === 'buy') ? 1 : cardInfo.up.minStepMS"
+                    [max]="(isMixed && selectedTab === 'buy') ? cardInfo.shippingSeason.availableOverHarvest : cardInfo.up.maxStepMS"
+                    (step)="addSubsctractUms($event)">
+                  </cf-quantity>
+                  <p class="nop nom t-m-regular t-grey-o ml-s">
+                    {{ utilsSrv.numberForFront((selectedMasterBox ? selectedMasterBox.weight :
+                      cardInfo.up.masterBoxes[0].weight) * numberOfBoxes) }}
+                    {{ selectedMasterBox ? selectedMasterBox.weightUnit : cardInfo.up.masterBoxes[0].weightUnit }}
+                  </p>
+                </div>
+              </div>
+
+              <!-- COUNTRY SELECTOR -->
+              <p *ngIf="isOneshot || (isMixed && selectedTab === 'buy')"
+                class="mt-m no-mb t-a-left t-m-regular d-flex align-items-center">
+                <span class="t-grey">
+                  {{ t('page.delivery-country.title') }}
+                </span>
+                <span (click)="openLocationSelector()"
+                  class="t-green-primary pointer ml-xs d-flex align-items-center">
+                  {{ selectedLocation ? (countriesByIso[selectedLocation] | translation: 'name' ) : t('global.Change.body') }}
+                  <i class="eva eva-chevron-down-outline ml-xs t-l-regular" aria-hidden="true"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="up-card-info-divider border-bottom-grey-2-1x w-100 d-block position-relative"></div>
+        <div class="up-card-info-content pa-m"
+          [ngStyle]="{'z-index': isCardOpen ? 2 : 4, 'transition': isCardOpen ? 'z-index ease .6s' : 'z-index ease 0s'}">
+          <div class="d-flex justify-content-between">
+            <h6 *ngIf="isOneshot; else msTotalTitle" class="t-h6-bold t-black-H">
+              {{ t('page.Final-price.title') }}
+            </h6>
+            <ng-template #msTotalTitle>
+              <ng-container *ngIf="(!isMixed || selectedTab !== 'buy')">
+                <h6 class="t-black-H">
+                  <span class="f14 fw6 pr-xs">
+                    {{ t('global.Adopt.From') }}
+                  </span>
+                  <span class="t-h6 f18 fw6 lh-28 t-black-H">
+                    {{ price?.amount | currency }}
+                  </span>
+                  <span class="f14 t-grey">
+                    {{ t('page.only-harvest.text.info') }}
+                  </span>
+                </h6>
+              </ng-container>
+              <h6 *ngIf="(isMixed && selectedTab === 'buy')" class="t-h6-bold t-black-H">
+                {{ t('page.Final-price.title') }}
+              </h6>
+            </ng-template>
+            <h6 class="t-h6-bold t-black-H">
+              <span *ngIf="(isOneshot || (isMixed && selectedTab === 'buy'))">
+                {{ price?.amount | currency }}
+              </span>
+              <span
+                *ngIf="[9, 13].includes(cardInfo.projectType) || ([11, 15].includes(cardInfo.projectType) && selectedTab === 'adopt')">
+                <span class="ml-xs mr-xs">/</span>
+                {{ t('global.season.body') }}
+              </span>
+            </h6>
+          </div>
+
+          <!-- Add Weight Info: Only if the UP is ONE_SHOT and has one MasterBox  -->
+          <div *ngIf="isOneshot && masterBoxes.up.length === 1"
+            class="no-mt no-mb t-a-right lh-24">
+            <span class="t-grey f15 fw5">
+              {{ getWeightInfoForOS() }}
+            </span>
+          </div>
+
+          <p *ngIf="!isOneshot && (isAdoption || (isMixed && selectedTab === 'adopt')); else notIncluded"
+            class="t-s-regular t-grey nom">
+            <span (click)="openShippingCostsCalculatorPopUp()" class="calculate-shipping-cost-link text-underline d-inline-block mob-ml-xs pointer">
+              {{ t('page.calculate-shipping-costs.text.link') }}
+            </span>
+          </p>
+          <ng-template #notIncluded>
+            <p *ngIf="selectedTab === 'adopt'" class="t-s-regular t-grey nom">
+              {{t('page.preparation-shipment.body')}}
+            </p>
+            <p *ngIf="selectedTab === 'buy'" class="t-s-regular t-grey nom">
+              {{ t('global.taxes-shipping-costs-included.tab') }}
+            </p>
+          </ng-template>
+          <div class="up-card-bottom-wrapper">
+            <cf-button
+              class="mt-xs d-block"
+              [width]="'auto'"
+              [disabled]="productNotificationOpen"
+              (click)="isCardOpen ? addToCart($event) : toggleCard(true)">
+              {{ t(selectedTab === 'buy' ? 'global.buy-now.button' : 'global.adopt.button') }}
+            </cf-button>
+            <adoption-gift-selector
+              *ngIf="gift && ss.upsAvailable && ss.inSeason && !ss.cantSendCountry && !ss.noDatesLeft"
+              [product]="cardInfo"
+              [showCheckbox]="true"
+              (returnData)="selectGift($event)">
+            </adoption-gift-selector>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

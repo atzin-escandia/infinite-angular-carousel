@@ -1,0 +1,10 @@
+<div *ngIf="seals.length" class="header-seals-container">
+  <ng-container *ngFor="let seal of seals">
+    <ng-container *ngIf="seal.isTag">
+      <div class="t-component-semibold-xs header-seals-item-label">{{seal.label}}</div>
+    </ng-container>
+    <ng-container *ngIf="!seal.isTag">
+      <img class="header-seals-item-img" [src]="seal.src"/>
+    </ng-container>
+  </ng-container>
+</div>

@@ -1,0 +1,163 @@
+@import '../../../../../src/scss/commons.scss';
+
+.cs-promotion {
+  width: 100%;
+  border-radius: 5px;
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    padding: 8px 0 16px;
+  }
+
+  &-container {
+    border-radius: 5px;
+    width: 256px;
+    padding: 16px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 1.5s ease;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      padding: 0 12px;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, 'lg')) {
+      &:hover {
+        transform: translate(0, -5px);
+        box-shadow: 0 20px 20px -10px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &.lateral {
+      width: 100%;
+      padding: 16px 0;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
+
+    .text-box {
+      &.no-pointer {
+        cursor: auto;
+      }
+
+      width: 100%;
+
+      .title-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .farm-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: map_get($color, 'primary');
+      }
+
+      .data {
+        .box-info {
+          color: rgba(121, 131, 143, 0.9);
+
+          &-adoption {
+            color: #4bb0ff;
+          }
+        }
+
+        .question {
+          width: 14px;
+        }
+      }
+    }
+
+    .promotion-button {
+      width: 100%;
+      height: 48px;
+      border-radius: 5px;
+    }
+
+    .image-cont {
+      &.no-pointer {
+        cursor: auto;
+      }
+
+      &.pr-l-15 {
+        padding: 0 15px;
+      }
+
+      &-no-margin {
+        margin: 0;
+      }
+    }
+  }
+
+  .add-button {
+    width: 100%;
+    padding: 12px 24px;
+    font-weight: 500;
+    border: 1px solid map_get($color, 'primary');
+    border-radius: 5px;
+    background-color: map_get($color, 'primary');
+    color: map_get($color, 'white-1');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.35s ease-in-out, color 0.75s ease-in-out, transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-shadow: 0 0 1px rgb(0 0 0 / 50%);
+    box-sizing: border-box;
+    outline: none;
+  }
+
+  .hover-button:hover {
+    background-color: map_get($color, 'bt-hover');
+  }
+
+  .added-button {
+    background-color: map_get($color, 'white-1');
+    color: map_get($color, 'primary');
+    cursor: auto;
+  }
+
+  &-image {
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    height: 168px;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 900;
+
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      min-height: 168px;
+    }
+
+    &.lateral {
+      width: 168px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        height: 88px;
+        width: 88px;
+      }
+    }
+  }
+
+  image-lazy {
+    img {
+      border-radius: 5px;
+    }
+  }
+
+  .d-grid {
+    display: grid;
+  }
+
+  .ph-12 {
+    padding: 0 12px;
+  }
+
+  .pt-0 {
+    padding-top: 0;
+  }
+}

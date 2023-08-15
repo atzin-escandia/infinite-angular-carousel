@@ -1,0 +1,112 @@
+<ng-container *transloco="let t">
+  <div class="order-ok">
+    <div class="order-ok__header pv-m">
+      <div class="container">
+        <div class="d-flex align-items-center">
+          <i class="eva eva-checkmark-circle-outline f28 mr-s t-white" aria-hidden="true"></i>
+          <h6 class="nop nom ml-xs w-100 overflow-hidden t-white">
+            <span class="t-l-bold">{{t('notifications.order-complete.label')}}</span>
+            &nbsp;
+            <span class="t-m-medium d-none d-md-inline-block">{{t('page.receive-order-confirmation.text-info')}}</span>
+          </h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-ok__body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 order-2 order-md-1 section-container">
+            <!-- ORDER SUMMARY -->
+            <div class="section-row">
+              <app-order-summary [totalToPay]="totalPrice" [isGroupOrderPromoter]="false" [isGroupOrder]="false"></app-order-summary>
+            </div>
+
+            <!-- FARMER THANK YOU -->
+            <div class="section-row mt-m">
+              <div class="order-ok-card border-disabled-1x pa-m w-100 t-grey-o">
+                <div class="farmers-thanks-placeholder">
+                  <img src="./assets/img/purchase/farmers_thanks_placeholder.svg" />
+                </div>
+                <h5 class="t-m-medium t-black-H text-center mb-xs">{{t('page.thanks-from-farmers.title')}}</h5>
+                <p class="t-s-regular text-center">{{t('page.thanks-from-farmers.body')}}</p>
+              </div>
+            </div>
+
+            <!-- ADDRESS -->
+            <div class="section-row mt-m" *ngIf="address">
+              <ng-container *ngTemplateOutlet="addressCardTpl"></ng-container>
+            </div>
+
+            <!-- PAYMENT -->
+            <div class="section-row mt-m" *ngIf="payment">
+              <ng-container *ngTemplateOutlet="paymentCardTpl"></ng-container>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="section-row mt-l mb-l">
+              <div class="row">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <cf-button [width]="'auto'" [flat]="true" (click)="navToFarmersPage()">{{ textSrv.getText('farmers') }}</cf-button>
+                </div>
+                <div class="col-md-6 order-1 order-md-2">
+                  <cf-button [width]="'auto'" (click)="navToPrivateZonePage()">{{textSrv.getText('private zone')}}</cf-button>
+                </div>
+              </div>
+            </div>
+
+            <!-- IMPACT MESSAGE -->
+            <!-- <impact-message *ngIf="impactMessage" [impactMessage]="impactMessage" [reverse]="true"></impact-message> -->
+          </div>
+          <div class="col-md-6 order-1 order-md-2 section-container summary">
+            <!-- CHECKOUT SUMMARY -->
+            <div class="section-row">
+              <checkout-summary
+                [products]="products"
+                [finalPrice]="totalPrice"
+                [summaryOpen]="summaryOpen"
+                [canUpdateProduct]="false"
+                [hideHeader]="true"
+                [isProductSubscriptionAvailable]="false"
+                [isProductGiftAvailable]="false"
+                [cart]="cart"
+                [isDiscoveryBox]="true"
+                (titleClick)="handleSummaryTitleClick()"></checkout-summary>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #addressCardTpl>
+  <ng-container *transloco="let t">
+    <div class="order-ok-card border-disabled-1x pa-m w-100 t-grey-o">
+      <div class="t-m-medium t-black-H w-100 mb-xs">{{t('global-shipment-address')}}</div>
+      <div class="t-s-regular w-100 mb-xs">{{address.name}} {{address.surnames}}</div>
+      <div class="t-s-regular w-100 mb-xs">{{address.street}} {{address.details}}, {{address.number}}, {{address.zip}}</div>
+      <div class="t-s-regular w-100">
+        {{address.city}}
+        <span *ngIf="countriesByIso?.[address.country]">, {{countriesByIso[address.country] | translation:'name'}}</span>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #paymentCardTpl>
+  <div class="order-ok-card border-disabled-1x pa-m w-100 t-grey-o">
+    <div class="t-m-medium t-black-H mb-xs">{{textSrv.getText('payment method')}}</div>
+    <ng-container *ngIf="payment.last4">
+      <div class="t-s-regular w-100 mb-xs">{{textSrv.getText('Credit card')}} {{textSrv.getText(payment.brand)}}</div>
+      <div class="t-s-regular w-100 mb-xs">{{textSrv.getText('XXXX XXXX XXXX {last4}', {'{last4}' : payment.last4})}}</div>
+      <div class="t-s-regular w-100">
+        {{textSrv.getText('Card expires {month}/{year}', {'{month}' : payment.exp_month, '{year}' : payment.exp_year})}}
+      </div>
+    </ng-container>
+    <ng-container *ngIf="payment.sepa_debit">
+      <div class="t-s-regular w-100 mb-xs">{{textSrv.getText('Bank account')}}</div>
+      <div class="t-s-regular w-100">{{textSrv.getText('XXXX XXXX XXXX {last4}', {'{last4}' : payment.sepa_debit.last4})}}</div>
+    </ng-container>
+  </div>
+</ng-template>

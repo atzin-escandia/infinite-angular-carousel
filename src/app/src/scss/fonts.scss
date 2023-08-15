@@ -1,0 +1,60 @@
+$fontello-woff-font-path: '/assets/fonts/cf-v2/fontello.woff';
+
+@font-face {
+  font-family: 'fontcf';
+  src: url($fontello-woff-font-path);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+[class^='cf-']::before,
+[class*=' cf-']::before {
+  font-family: fontcf, serif !important;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.cf-icon-farmer::before {
+  content: '\e812';
+}
+
+.cf-icon-crowdfarming::before {
+  content: '\e818';
+}
+
+.cf-icon-text-light::before {
+  content: '\e83c';
+}
+
+.cf-icon-crowdfarming-bold::before {
+  content: '\e841';
+}
+
+.cf-icon-sheep::before {
+  content: '\e842';
+}
+
+.cf-icon-farm::before {
+  content: '\e843';
+}
+
+.cf-icon-height::before {
+  content: '\e844';
+}
+
+.cf-icon-youtube-play::before {
+  content: '\f16a';
+}
+
+.cf-icon-instagram::before {
+  content: '\f16d';
+}
+
+.icon {
+  &Big100 {
+    display: inline-block;
+    font-size: 100px;
+    line-height: 104px;
+  }
+}

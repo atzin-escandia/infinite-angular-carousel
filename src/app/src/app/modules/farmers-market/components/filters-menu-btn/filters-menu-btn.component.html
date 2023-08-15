@@ -1,0 +1,14 @@
+<div *transloco="let t">
+  <custom-button
+    (click)="openFiltersMenu()"
+    [content]="t('global.Filters.body')"
+    [hasIcon]="true"
+    class="filters-btn icon-fill"
+    variant="ghost"
+    size="m"
+    width="full"
+    iconColor="content-two"
+    [inverse]="true"
+    icon="filter">
+  </custom-button>
+</div>

@@ -1,0 +1,38 @@
+[
+  {
+      "label": "page.packaging-sustainable.form",
+      "responseID": "packaging",
+      "surveyName": "crowdfarmersFeedbackLike",
+      "order": 1
+  },
+  {
+      "label": "page.flavour-of-product.form",
+      "responseID": "taste",
+      "surveyName": "crowdfarmersFeedbackLike",
+      "order": 2
+  },
+  {
+      "label": "page.correct-quantity.form",
+      "responseID": "quantity",
+      "surveyName": "crowdfarmersFeedbackLike",
+      "order": 3
+  },
+  {
+      "label": "page.punctuality-shipping.form",
+      "responseID": "transport",
+      "surveyName": "crowdfarmersFeedbackLike",
+      "order": 4
+  },
+  {
+      "label": "page.product-ripeness.form",
+      "responseID": "ripeness",
+      "surveyName": "crowdfarmersFeedbackLike",
+      "order": 5
+  },
+  {
+      "label": "page.other.form",
+      "responseID": "other",
+      "surveyName": "crowdfarmersFeedbackLike",
+      "order": 6
+  }
+]

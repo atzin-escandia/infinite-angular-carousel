@@ -1,0 +1,132 @@
+<form *transloco="let t" class="form" [formGroup]="addressForm">
+  <div class="form__body mb-5">
+    <div class="row mb-3">
+      <div class="col">
+        <ng-container *ngIf="countriesOpts.length > 0">
+          <app-countries-dropdown
+            [label]="t('global.country.drop')"
+            [options]="countriesOpts"
+            [value]="addressForm.get('country').value"
+            [isDisabled]="!canEdit"
+            (selectChange)="setCountryValue($event)"></app-countries-dropdown>
+        </ng-container>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <custom-input formControlName="name" [label]="t('page.name.form')"></custom-input>
+      </div>
+      <div class="col-md-6">
+        <custom-input formControlName="surnames" [label]="t('page.surname.form')"></custom-input>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-8 col-lg-9" [ngClass]="{ 'order-2': isChangeAddressNumOrder }">
+        <custom-input formControlName="street" [label]="t('page.street-address.form')"></custom-input>
+      </div>
+      <div class="col-4 col-lg-3" [ngClass]="{ 'order-1': isChangeAddressNumOrder }">
+        <custom-input formControlName="number" [label]="t('page.House-number.form')"></custom-input>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <custom-input formControlName="details" [label]="t('page.details.bbody')"></custom-input>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <ng-container [ngSwitch]="specialCountries.showSelectorDisplayMode">
+        <ng-container *ngSwitchCase="'ca'">
+          <div class="col-4">
+            <custom-select
+              [label]="t('page.region-county.form')"
+              [value]="selectedCaProvince"
+              [options]="caProvinces"
+              (selectChange)="selectCaProvince($event)"></custom-select>
+          </div>
+          <div class="col-5">
+            <custom-input formControlName="city" [label]="t('global.City.text-info')"></custom-input>
+          </div>
+          <div class="col-3">
+            <custom-input
+              formControlName="zip"
+              [label]="t('page.zip-code.form')"
+              [masks]="selectedCountryZipMasks"
+              [customError]="addressForm.get('country')?.value && isInvalidZip"
+              [customErrorText]="t('global.not-ship-zip-code.text-info')"></custom-input>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="'us'">
+          <div class="col-3">
+            <custom-input
+              formControlName="zip"
+              [label]="t('page.zip-code.form')"
+              [masks]="selectedCountryZipMasks"
+              [customError]="addressForm.get('country')?.value && isInvalidZip"
+              [customErrorText]="t('global.not-ship-zip-code.text-info')"></custom-input>
+          </div>
+          <div class="col-4">
+            <custom-select
+              [label]="textSrv.getText('State')"
+              [value]="selectedUsState"
+              [options]="usStates"
+              (selectChange)="selectUsState($event)"></custom-select>
+          </div>
+          <div class="col-5">
+            <custom-input formControlName="city" [label]="t('global.City.text-info')"></custom-input>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <div class="col-6 col-lg-5">
+            <custom-input
+              formControlName="zip"
+              [label]="t('page.zip-code.form')"
+              [masks]="selectedCountryZipMasks"
+              [customError]="addressForm.get('country')?.value && isInvalidZip"
+              [customErrorText]="t('global.not-ship-zip-code.text-info')"></custom-input>
+          </div>
+          <div class="col-6 col-lg-7">
+            <custom-input formControlName="city" [label]="t('global.City.text-info')"></custom-input>
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+    <div class="row mb-3" formGroupName="phone">
+      <div class="col-6 col-lg-5">
+        <ng-container *ngIf="countriesPrefixOpts.length > 0">
+          <app-countries-dropdown
+            [label]="t('global.country-code.form')"
+            [options]="countriesPrefixOpts"
+            [value]="addressForm.get('phone')?.get('prefix')?.value"
+            [isDisabled]="!canEdit"
+            (selectChange)="setCountryPrefixValue($event)"></app-countries-dropdown>
+        </ng-container>
+      </div>
+      <div class="col-6 col-lg-7">
+        <custom-input formControlName="number" [label]="t('global.phone.text-info')"></custom-input>
+      </div>
+    </div>
+    <div class="check-wrapper">
+      <cf-check
+        *ngIf="!isFavouriteAddress && showFavCheckbox"
+        [checked]="addressForm.get('favourite')?.value"
+        (checkedChange)="onFavAddressCheckboxChange($event)">
+        {{ t('page.choose-default-address.button') }}
+      </cf-check>
+    </div>
+  </div>
+  <div class="form__footer">
+    <div class="row">
+      <div class="col-md-6 mb-3 mb-md-0" *ngIf="canGoBack">
+        <cf-button [width]="'auto'" [flat]="true" (click)="onGoBackClick()">
+          {{ t('global.cancel.button') }}
+        </cf-button>
+      </div>
+
+      <div [ngClass]="{ col: !canGoBack, 'col-md-6': canGoBack }">
+        <cf-button [width]="'auto'" [disabled]="!canSubmit" (click)="onSubmitClick()">
+          {{ t('page.save.button') }}
+        </cf-button>
+      </div>
+    </div>
+  </div>
+</form>

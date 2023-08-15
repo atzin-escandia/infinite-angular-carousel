@@ -1,0 +1,37 @@
+<div>
+  <p class="t-grey mt-m">{{textSrv.getText('seasonSimulator explanation. Calculate the total price of a season')}}</p>
+
+  <div class="pt-s">
+    <country-selector [data]="countriesByIso" [selected]="country" (returnData)="countryChanged($event)">
+    </country-selector>
+  </div>
+
+  <div class="nop mt-m border-black-2-1x border-rs t-a-center hide-desktop">
+    <p class="t-black-H pa-m nom">
+      {{(price.shippingPerBox * numberOfBoxes) | currency}}
+    </p>
+  </div>
+
+  <div class="mt-m d-flex align-items-end col-12 nop">
+    <div class="col-12 col-md-7 nopl d-flex align-items-end">
+      <div>
+        <label class="d-block t-grey t-xs-regular nomt mb-s">{{textSrv.getText('nº box')}}</label>
+        <cf-quantity [size]="'s'" (step)="addSubsctractUms($event)"
+          [quantity]="data.status.outOfSeason && data.status.renewOpen ? numberOfBoxes : maxNumOfBoxes" [min]="1"
+          [max]="maxNumOfBoxes">
+        </cf-quantity>
+      </div>
+      <p class="t-grey nomb ml-s">
+        ({{up.selectedMasterBox.weight * numberOfBoxes}} {{up.selectedMasterBox | translation: 'weightUnit'}})
+      </p>
+    </div>
+
+    <div class="col-5 nopr border-black-2-1x border-rs t-a-center hide-mobile">
+      <p class="t-black-H pa-m nom">
+        {{(price.shippingPerBox * numberOfBoxes) | currency}}
+      </p>
+    </div>
+  </div>
+
+  <p class="t-grey t-s-regular mt-m nomb" [innerHTML]="textSrv.getText('seasonSimulator advise')"></p>
+</div>

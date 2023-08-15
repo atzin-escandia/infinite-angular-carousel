@@ -1,0 +1,16 @@
+<ng-container *transloco="let t">
+  <div class="gp-info-popup-container">
+    <div class="d-flex justify-content-center mb-3">
+      <img class="gp-info-popup__placeholder" src="../../../../../../assets/img/group-order/info-popup.svg" />
+    </div>
+    <div class="t-black-T t-m-medium mb-l gp-info-popup__body">
+      <h4 class="t-black-H t-l-bold text-center nom mb-2">{{ t('notifications.split-expenses.title') }}</h4>
+      <div class="t-m-regular t-grey nom text-center" [innerHTML]="t('notifications.share-pay-invite.body') | safeHtml"></div>
+    </div>
+    <div class="d-flex justify-content-center gp-info-popup__action">
+      <cf-button [width]="domSrv.getIsDeviceSize() ? 'auto' : 'fit'" (click)="onClose(true)">
+        {{ textSrv.getText('Understood') }}
+      </cf-button>
+    </div>
+  </div>
+</ng-container>

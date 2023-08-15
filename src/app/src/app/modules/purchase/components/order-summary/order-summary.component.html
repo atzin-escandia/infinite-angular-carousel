@@ -1,0 +1,47 @@
+<ng-container *transloco="let t">
+  <div class="order-summary border-disabled-1x">
+    <div class="order-summary__row">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-auto">
+          <span class="t-black-H t-l-bold">{{ t('global.total.body') }}</span>
+        </div>
+        <div class="col-auto">
+          <div class="d-flex flex-column align-items-end">
+            <p class="t-m-regular t-grey nom">{{ t('page.VAT-included.body') }}</p>
+            <p class="t-l-bold t-green-primary nom">{{ totalToPay | currency }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="order-summary__row" *ngIf="isGroupOrder">
+      <div class="row align-items-center justify-content-between">
+        <div class="col-auto">
+          <span class="t-black-H t-l-bold">{{ t('global.group-order.text-info') }}</span>
+        </div>
+        <div class="col-auto">
+          <div class="d-flex flex-column align-items-end">
+            <p class="nom">
+              <span class="t-l-bold t-green-primary">{{ groupOrderAmount?.guests | currency }}</span>
+              &nbsp;
+              <span class="t-m-regular t-grey">X{{ guestsNum + 1 }}</span>
+            </p>
+            <div *ngIf="youPay !== groupOrderAmount?.guests" class="mt-s">
+              <custom-tooltip>
+                <ng-container target>
+                  <p class="t-xs-regular t-grey nom">
+                    ( {{ t('page.your-part-paid.label') }}
+                    <span class="t-s-bold">{{ youPay | currency }}</span>
+                    )
+                  </p>
+                </ng-container>
+                <ng-container dialog>
+                  <span class="t-s-regular t-black-H text-left nom">{{ t('notifications.due-to-the-irregular-splitment.text-info') }}</span>
+                </ng-container>
+              </custom-tooltip>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

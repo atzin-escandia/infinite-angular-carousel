@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="100px" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>waveSblack</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Sections" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02-copy-3" transform="translate(0.000000, -594.000000)" fill="#31353A">
+            <path d="M0,594 L1440,594 C1440,609.739236 1440,629.130807 1440,652.174714 C1274,725 963,643.48285 861,643.48285 C759,643.48285 583.357873,694 522,694 C388.49494,694 287.753852,548.697749 15.447643,646.437845 C10.3587907,648.264409 5.21002089,650.175854 0,652.174714 C0,634.058238 0,614.666667 0,594 Z" id="waveSblack" transform="translate(720.000000, 644.000000) scale(1, -1) translate(-720.000000, -644.000000) "></path>
+        </g>
+    </g>
+</svg>

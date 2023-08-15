@@ -1,0 +1,141 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+@import '../../../../../scss/commons.scss';
+
+.adoption-card {
+  position: relative;
+
+  & .alert-circle {
+    background-color: $CFinfo;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: -12px;
+    right: -12px;
+    z-index: 2;
+  }
+
+  & .image-container {
+    border-radius: 5px;
+    height: 256px;
+    overflow: hidden;
+    width: 256px;
+    position: relative;
+    z-index: 1;
+
+    & img {
+      object-fit: cover;
+      object-position: center;
+    }
+
+    span {
+      display: block;
+      font-family: 'Eva-Icons', sans-serif;
+      position: absolute;
+      top: 12px;
+      width: 24px;
+      font-size: 18px;
+      border-radius: 4px;
+      height: 24px;
+      line-height: 24px;
+      background-color: $giftIconBG;
+      color: $giftBlueIcon;
+      left: 12px;
+      text-align: center;
+    }
+  }
+
+  & .info-container {
+    background-color: $white;
+    box-shadow: 0 3px 10px -1px $pzMyGardenBoxShadow;
+    border-radius: 5px;
+    min-height: 270px;
+    margin: -68px auto 0;
+    overflow: hidden;
+    position: relative;
+    width: 224px;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    z-index: 3;
+
+    &-clickable {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    & .adoption-card-title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-height: 45px;
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        min-height: unset;
+      }
+    }
+
+    & .middle-block {
+      flex: 1;
+
+      & .two-line-clamp {
+        white-space: normal !important;
+        -webkit-line-clamp: 2;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+
+    & .reserved-progress {
+      & > div {
+        height: 12px;
+        flex: 1;
+        background-color: map_get($color, 'grey-2');
+
+        &:not(:last-child) {
+          margin-right: 8px;
+        }
+
+        &.box-used {
+          background-color: map_get($color, 'primary');
+        }
+
+        &.box-left {
+          background-color: map_get($color, 'grey-2');
+        }
+      }
+    }
+
+    & .buttons-block {
+      z-index: 2;
+    }
+  }
+
+  @media (max-width: map_get($grid-breakpoints, 'sm')) {
+    & .info-container {
+      margin: -76px auto 0;
+    }
+
+    & .image-container {
+      height: 232px;
+      width: 272px;
+    }
+  }
+
+  &:hover {
+    & .info-container {
+      box-shadow: 0 8px 16px 0 map_get($color, 'grey-7');
+      transform: translate(0, -5px);
+    }
+  }
+}

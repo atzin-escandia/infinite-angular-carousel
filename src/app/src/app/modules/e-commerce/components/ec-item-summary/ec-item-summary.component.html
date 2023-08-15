@@ -1,0 +1,30 @@
+<ng-container *transloco="let t">
+  <section *ngIf="item" class="ec-item-summary" [ngClass]="{ 'ec-item-summary--unavailable': item.isUnavailable, 'ec-item-summary--unavailable': item.isNotSharedDate }">
+    <div class="ec-item-summary__img">
+      <images-mosaic [imagesList]="images" [isRadiusFixed]="true"></images-mosaic>
+    </div>
+
+    <div class="ec-item-summary__content">
+      <h3 class="text-primary-88 t-component-semibold-m">{{ item._m_title | multiLangTranslation }}</h3>
+      <span class="text-grey-56 t-body-xs mb-4">{{ item._m_subtitle | multiLangTranslation }}</span>
+      <div class="ec-item-summary__price-quantity">
+        <ng-container *ngIf="!item.isUnavailable && !item.isNotSharedDate; else unavailable">
+          <h3 class="text-primary-88 t-component-semibold-l">{{ item.totalPrice | currency }}</h3>
+          <ds-counter
+            [(counter)]="counter"
+            [hasDelete]="true"
+            [min]="0"
+            (counterChange)="changeQuantity($event)"
+            stop-propagation></ds-counter>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+
+  <ng-template #unavailable>
+    <span class="t-component-regular-s text-red-48">
+      {{ t(item.isUnavailable ? 'page.Not-available.text-info' : 'page.not-available-same-shipping.text-info') }}
+    </span>
+    <ds-button-icon variant="secondary" icon="delete" (buttonClick)="resetQuantity()" stop-propagation></ds-button-icon>
+  </ng-template>
+</ng-container>

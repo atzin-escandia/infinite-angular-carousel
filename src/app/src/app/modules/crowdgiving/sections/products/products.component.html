@@ -1,0 +1,44 @@
+<div *transloco="let t" class="products-section">
+  <div class="products-section__header">
+    <h3 class="t-black-T products-section__header-title">{{t('page.crowdgiving-ngo-selected.form')}}</h3>
+    <cg-card>
+      <ng-container body>
+        <app-cg-ngo-card [ngo]="selectedNgo"></app-cg-ngo-card>
+      </ng-container>
+    </cg-card>
+  </div>
+
+  <div class="products-section__body">
+    <h4 class="t-black-T products-section__body-title">{{t('page.crowdgiving-select-products.form')}}</h4>
+    <ul class="products-list">
+      <li *ngFor="let item of productsList" class="products-list__item">
+        <cg-card
+          [selectable]="true"
+          [multi]="true"
+          [selected]="isSelected(item._masterBox)"
+          [withInputBtn]="true"
+          [inputBtnPosition]="'left'"
+          (selectTrigger)="onOptionSelect(item._masterBox)">
+          <ng-container body>
+            <app-cg-product-card
+              [product]="item"
+              [showQuantitySelector]="isSelected(item._masterBox)"
+              [quantity]="item.selectedQuantity"
+              (quantityChange)="quantityChangeHandler($event, item._masterBox)"></app-cg-product-card>
+          </ng-container>
+        </cg-card>
+      </li>
+
+      <li *ngIf="selectedItemsIds.length <= 0" class="info-box">
+        <div class="d-flex align-items-center">
+          <i class="eva eva-alert-triangle-outline t-h4-medium info-box__icon"></i>
+          <span class="info-box__text">{{t('global.select-option.text-info')}}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="products-section__footer">
+    <app-cg-price-summary [price]="totalPrice" [credits]="credits"></app-cg-price-summary>
+  </div>
+</div>

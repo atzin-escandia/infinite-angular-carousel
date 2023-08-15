@@ -1,0 +1,36 @@
+<div class="container landing" *ngIf="landing">
+  <div class="header">
+    <div class="col-12 t-h1-blackW t-black-H text-center" [innerHTML]="landing | translation: 'header'"></div>
+    <div class="col-12 t-xl-regular t-black-H ptm mbm" [innerHTML]="landing | translation: 'subheader'">
+    </div>
+  </div>
+
+  <div class="row promos mtm">
+    <div class="col-12 col-md-6 col-lg-4 mtb mbs d-flex justify-content-center"
+      *ngFor="let promo of landing.promos; let i = index">
+      <landing-promo [project]="promo" [index]="i" [lang]="currentLang"> </landing-promo>
+    </div>
+  </div>
+
+  <div class="feedback mtb ptb mbb">
+    <div class="col-12 f18 font-italic text-black text-center" [innerHTML]="landing | translation: 'quote'"></div>
+  </div>
+
+  <div class="d-none d-md-flex row social-screenshots mbm" *ngIf="deskScreenshots?.length > 0">
+    <div class="col-6" *ngFor="let screenShot of deskScreenshots">
+      <div class="screenshot mtb mbs" [ngStyle]="{'background-image':  'url(' + (screenShot.image | cdn) + ')'}">
+      </div>
+    </div>
+  </div>
+
+  <div class="row d-md-none row social-screenshots-mbl mbm" *ngIf="mobileScreenshots?.length > 0">
+    <div class="col-12" *ngFor="let screenShot of mobileScreenshots">
+      <img class="screenshot mts" src="{{screenShot.image | cdn}}" alt="">
+    </div>
+  </div>
+
+  <div class="container-fluid padding-h80 video-info-container" id="videoInfo" *ngIf="landing._m_videoURL[currentLang]">
+    <video-player [class]="'resizable-video'" [id]="landing._m_videoURL[currentLang]" platform="youtube">
+    </video-player>
+  </div>
+</div>

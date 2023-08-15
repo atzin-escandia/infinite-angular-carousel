@@ -1,0 +1,21 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+
+@media (min-width: map_get($grid-breakpoints, 'md')) {
+  .soft-register-popup-container {
+    min-width: 544px;
+  }
+}
+
+::ng-deep cf-input .cf-input-error-icon {
+  left: 17px;
+  top: 59px;
+}
+
+.cf-input-error-msg {
+  left: 12px;
+}
+
+.allowed-message {
+  background-color: rgba(map_get($color, 'primary'), 0.1);
+}

@@ -1,0 +1,60 @@
+<section class="ec-detail-info" *transloco="let t">
+  <ds-accordion [isCollapsed]="false" [title]="t('global.description.title')">
+    <div body class="d-flex flex-column t-component-regular-m text-grey-56">
+      <span class="mb-24" *ngFor="let subvariety of detailData.subvarieties">
+        {{ subvariety._m_name | multiLangTranslation }}: {{ subvariety._m_description | multiLangTranslation }}
+      </span>
+    </div>
+  </ds-accordion>
+  <ds-accordion [isCollapsed]="true" [title]="t('global.farmer.title')" (toggle)="buildMap($event)">
+    <div body class="d-flex flex-column t-component-regular-m text-grey-56">
+      <ds-avatar
+        [title]="detailData.farmer.name"
+        [description]="detailData.farmer.farmName | multiLangTranslation"
+        [photo]="detailData.farmer.pictureUrl"
+        color=""></ds-avatar>
+      <span class="mt-16 mb-16">
+        {{ detailData.farmer._m_slogan | multiLangTranslation }}
+      </span>
+      <div *ngIf="farmerSeals?.length" class="ec-detail-info__seals row">
+        <seal-element
+          class="col-6 col-sm-4 col-md-3 mb-32 pointer"
+          *ngFor="let seal of farmerSeals; let indSeal = index"
+          id="ec-un-official-seal-{{ indSeal }}"
+          [seal]="seal"
+          [sealIndex]="indSeal"></seal-element>
+      </div>
+      <div class="ec-detail-info__items">
+        <div *ngFor="let item of farmerItems; let indItem = index" class="ec-detail-info__item">
+          <ds-item
+            id="ec-detail-item-{{ indItem }}"
+            [title]="t(getItemTitle(item.type))"
+            [description]="item._m_value | multiLangTranslation"
+            [icon]="item.icon"
+            [border]="false"></ds-item>
+        </div>
+      </div>
+      <div class="farm-map">
+        <iframe class="map-frame" src="" title="farm map location" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </ds-accordion>
+  <ds-accordion *ngIf="upSeals?.length" [isCollapsed]="true" [title]="t('global.seals-and-certifications.title')">
+    <div body>
+      <div class="ec-detail-info__seals row">
+        <seal-element
+          class="col-6 col-sm-4 col-md-3 mb-24 pointer"
+          *ngFor="let seal of upSeals; let indSeal = index"
+          id="ec-official-seal-{{ indSeal }}"
+          [seal]="seal"
+          [sealIndex]="indSeal"></seal-element>
+      </div>
+    </div>
+  </ds-accordion>
+  <ds-accordion *ngIf="detailData.additionalInfo?.en" [isCollapsed]="true" [title]="t('global.additional-information.title')">
+    <div body class="d-flex flex-column t-component-regular-m text-grey-56">{{ detailData.additionalInfo | multiLangTranslation }}</div>
+  </ds-accordion>
+  <ds-accordion *ngIf="detailData.preservationInfo?.en" [isCollapsed]="true" [title]="t('global.preservation-method.title')">
+    <div body class="d-flex flex-column t-component-regular-m text-grey-56">{{ detailData.preservationInfo | multiLangTranslation }}</div>
+  </ds-accordion>
+</section>

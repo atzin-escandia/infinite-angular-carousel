@@ -1,0 +1,41 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.ec-detail-skeleton {
+  &__title {
+    width: 100%;
+    height: map-get($sizes, 'ds--size-24');
+    margin-bottom: map-get($sizes, 'ds--size-8');
+  }
+
+  &__sub {
+    width: pxToRem(80);
+    height: map-get($sizes, 'ds--size-16');
+    margin-bottom: map-get($sizes, 'ds--size-16');
+  }
+
+  &__btn {
+    width: pxToRem(160);
+    height: map-get($sizes, 'ds--size-40');
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: pxToRem(32);
+    padding-bottom: map-get($sizes, 'ds--size-8');
+    margin-bottom: map-get($sizes, 'ds--size-24');
+    border-bottom: pxToRem(1) solid map_get($semanticNeutralColors, 'semantic-neutral-light');
+  }
+
+  &__item-name {
+    max-width: pxToRem(480);
+    width: 100%;
+    height: map-get($sizes, 'ds--size-16');
+  }
+
+  &__item-arrow {
+    width: map-get($sizes, 'ds--size-32');
+    height: map-get($sizes, 'ds--size-32');
+  }
+}

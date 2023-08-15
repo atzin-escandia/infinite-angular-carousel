@@ -1,0 +1,17 @@
+<div *ngIf="!isMobile" class="ilustration"></div>
+<div *transloco="let t" class="container-fluid mob-pt-s mob-pb-s">
+  <div class="container nop">
+    <h4 class="title t-h2-blackW t-a-center t-black-T d-block nom mt-md-0">
+      {{t('page.favourite-products.title')}}
+    </h4>
+    <div class="row pt-xl mob-pt-s" id="media-logos-icons">
+      <div *ngFor="let card of homeMediaLogos; let i=index" class="card-container col-md col-12 my-3 align-items-center d-flex">
+        <div *ngIf="i < 5" class="content col-12 text-center">
+          <a href="{{card._m_link[langSrv.getCurrentLang()]}}" target="_blank">
+            <img class="pointer" [src]="card.pictureURL | cdn" alt="{{t(card.name)}}"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

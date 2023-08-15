@@ -1,0 +1,98 @@
+<ng-container *transloco="let t">
+  <div *ngIf="subscription" class="subscription w-100 d-flex flex-column t-black-T">
+    <!-- Back Desktop -->
+    <div *ngIf="!routerSrv.getPath().includes('my-up')" class="m-0 py-md-3 d-flex t-s-regular hide-mobile">
+      <breadcrumbs *ngIf="breadcrumbs.length" [items]="breadcrumbs"></breadcrumbs>
+    </div>
+
+    <!-- Titles -->
+    <div class="subscription-title d-flex flex-column flex-md-row pb-l">
+      <div *ngIf="subscription.pictureURL" class="subscription-img mr-m mob-mb-m cf-shadow-m"
+        [ngStyle]="{'background-image': 'url(' + (subscription.pictureURL | cdn) + ')'}">
+      </div>
+      <div *ngIf="!subscription.pictureURL" class="subscription-img mr-m mob-mb-m flex-center empty">
+        <order-dummy-image></order-dummy-image>
+      </div>
+      <div class="d-flex flex-column">
+        <!-- Title -->
+        <div class="t-h5-bold t-black-H mb-xs">
+          {{ subscription | translation: '_m_name' }}
+        </div>
+        <div class="t-m-regular text-grey">
+          {{subscription?.subscriptionNumber}} &middot; {{utilsSrv.dateForFront(subscription?.createdAt)}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Subscription Box -->
+    <subscription-box [title]="'global.recurrent-order.title'" [contentList]="deliveryInfo">
+    </subscription-box>
+
+    <!-- Title -->
+    <div class="w-100 t-l-medium mb-m">
+      {{t('global.Orders.body')}}
+    </div>
+    <div *ngIf="subscription.orders.list.length" class="orders">
+      <order-card *ngFor="let order of subscription.orders.list" [order]="order" [subscription]="subscription._id"></order-card>
+    </div>
+    <!-- Pagination -->
+    <div *ngIf="totalPages > 1" class="w-100 mt-l mb-xxl flex-center">
+      <cf-navigation [start]="1" [pages]="totalPages" [currentPage]="1" (navigationChange)="paginate($event)">
+      </cf-navigation>
+    </div>
+    <div class="subscription-separator"></div>
+    <!-- Product information -->
+    <div class="subscription-overview">
+      <h3 class="w-100 t-l-medium mt-m mb-l">{{t('page.order-overwiew.label')}}</h3>
+      <div *ngIf="subscription.farmerName" class="mb-m"><span class="text-bold">{{t('global.Farmer.title')}}:
+        </span><span class="text-grey">{{subscription.farmerName}}</span></div>
+      <div *ngIf="subscription._m_farmName" class="mb-m"><span class="text-bold">Farm: </span><span
+          class="text-grey">{{subscription._m_farmName[langSrv.getCurrentLang()] || subscription._m_farmName.en}}</span>
+      </div>
+      <div class="mr-s d-flex align-items-center mb-m">
+        <span class="text-bold mr-2">{{t('page.Country.title')}}:</span> <span class="text-grey">{{farmCountry |
+          translation: 'name'}}</span>
+        <div class="flag-icon flag-icon-{{subscription.farmCountry}} ml-2"></div>
+      </div>
+      <div class="subscription-overview-box-content mb-m">
+        <p class="text-bold mb-xs">{{t('global.content-box.text-link')}}</p>
+        <p class="text-grey">{{numOfBoxes}}x
+          {{ subscription | translation: '_m_name' }}
+          ({{subscription.weight}}{{subscription._m_weightUnit[countrySrv.getCurrentCountry().iso]}})</p>
+      </div>
+    </div>
+    <div class="subscription-separator"></div>
+    <div class="subscription-address">
+      <div class="d-flex justify-content-between flex-column mr-l">
+        <div class="d-flex flex-column">
+          <div class="t-l-medium mb-s">
+            <span>{{t('page.shipping-address.title')}}</span>
+          </div>
+          <div *ngIf="subscription.shipment" class="subscription-subinfo text-grey">
+            <p>{{subscription.shipment.name}} {{subscription.shipment.surnames}}</p>
+            <span class="d-block text-grey">{{subscription.shipment.street}} {{subscription.shipment.number}}
+              {{subscription.shipment.details}} </span>
+            {{subscription.shipment.zip}} {{subscription.shipment.province && subscription.shipment.country === 'us' ?
+            subscription.shipment.province + ',' : ''}} {{subscription.shipment.city}}
+            <span class="d-block text-grey">{{country | translation: 'name'}}
+              {{subscription.shipment.phone.prefix}} {{subscription.shipment.phone.number}}</span>
+          </div>
+        </div>
+        <div *ngIf="isInProgress" class="subscription-actions mt-m">
+          <cf-button (click)="autoLoginValidation('changeAddressInfo')" [icon]="true" [iconLeft]="true"
+            [secondary]="true" [size]="'s'">
+            <i class="eva eva-pin-outline f20"></i>
+            {{t('page.Change-shipping-address.body')}}
+          </cf-button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isInProgress" class="subscription-cancel">
+      <div class="subscription-separator"></div>
+      <div (click)="autoLoginValidation('cancelOrder')"
+        class="subscription-cancel text-link text-black">
+        {{t('page.cancel-recurrent-order.text-link')}}
+      </div>
+    </div>
+  </div>
+</ng-container>

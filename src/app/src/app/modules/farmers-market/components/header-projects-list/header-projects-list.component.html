@@ -1,0 +1,11 @@
+<header class="header-projects-list">
+  <section class="header-projects-list__title">
+    <h2 class="title t-heading-s">{{title}}</h2>
+    <p class="text-grey-subheader t-m-regular pt-s">{{subtitle}}</p>
+  </section>
+
+  <section *ngIf="showButtons" class="header-projects-list__buttons-wrapper">
+    <filters-menu-btn [idPage]="type"></filters-menu-btn>
+    <sorting-selector [idPage]="type"></sorting-selector>
+  </section>
+</header>

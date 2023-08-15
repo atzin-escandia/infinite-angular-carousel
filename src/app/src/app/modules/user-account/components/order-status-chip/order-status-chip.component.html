@@ -1,0 +1,10 @@
+<div class="order-status-chip">
+  <div *ngIf="label" class="pa-s mr-m t-xs-medium order-status-chip-text-wrapper order-status-chip-{{cssClass}}">
+    <span *ngIf="leftStatusLabel">{{leftStatusLabel + ' ' + textSrv.getText(label)}}</span>
+    <span *ngIf="!leftStatusLabel">{{textSrv.getText(label)}}</span>
+  </div>
+  <div *ngIf="ticketLabel" class="pa-s mr-m t-xs-medium order-status-chip order-status-chip-{{cssClassTicket}}">
+    <span *ngIf="leftTicketLabel">{{leftTicketLabel + ' ' + textSrv.getText(ticketLabel)}}</span>
+    <span *ngIf="!leftTicketLabel">{{textSrv.getText(ticketLabel)}}</span>
+  </div>
+</div>

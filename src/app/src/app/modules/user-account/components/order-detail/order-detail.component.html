@@ -1,0 +1,410 @@
+<ng-container *transloco="let t">
+  <div *ngIf="availableDates && order?.status && countriesByIso"
+    (click)="closeTooltip()"
+    class="order-detail-container w-100 d-flex flex-column t-black-T">
+    <!-- Back Desktop -->
+    <div *ngIf="!routerSrv.getPath().includes('my-up')" class="mb-s mt-m d-flex t-s-regular hide-mobile mb-xl">
+      <breadcrumbs *ngIf="breadcrumbs.length" [items]="breadcrumbs"></breadcrumbs>
+    </div>
+
+    <!-- Titles -->
+    <div class="order-detail-title d-flex flex-column flex-md-row pb-l">
+      <div *ngIf="pictureURL; else noPicture" class="order-detail-img mr-m mob-mb-m cf-shadow-m"
+        [ngStyle]="{'background-image': 'url(' + (pictureURL | cdn) + ')'}">
+      </div>
+      <ng-template #noPicture class="order-detail-img mr-m mob-mb-m flex-center empty">
+        <img src="../../../../../assets/icon/box_green.svg">
+      </ng-template>
+      <div class="d-flex flex-column">
+        <!-- Title -->
+        <div class="t-h5-bold t-black-H mb-xs">
+          {{name}}
+        </div>
+        <!-- State -->
+        <div class="d-flex flex-column position-relative">
+          <div class="t-m-regular text-grey">
+            <i *ngIf="order.relatedOrder" (click)="openNSTooltip($event)" class="eva eva-info-outline"></i>
+            {{order.orderNumber}} &middot; {{utilsSrv.dateForFront(order.registerDate)}}
+          </div>
+          <div *ngIf="showTooltip && order.relatedOrder" class="tooltip-ns-info cf-shadow-s border-rs">
+            {{t('notifications.parent-order.text-info')}}
+            <span class="link-order" (click)="navigateToParentOrder()">{{order.relatedOrder.orderNumber}}</span>
+          </div>
+          <div *ngIf="rolePermissions.logisticStatus">
+            <order-status-chip [statusParams]="orderStatusParams"></order-status-chip>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Order status detail -->
+    <!-- aqui -->
+    <status-box *ngIf="!order._ngo && orderStatusDetailMsg && textNotification" [color]="orderStatusDetailColor">
+      <span *ngIf="textNotification" class="nop nom"> {{textNotification}}</span>
+      <ng-container *ngIf="NSGeneratedOrders.length && rolePermissions.showNewShipmentOrders">
+        <span class="nop nom"> {{t('page.new-order-number.text-info')}} </span>
+        <span class="link-container">
+          <span *ngFor="let NSOrder of NSGeneratedOrders"
+            (click)="navigateToChildOrder(NSOrder.id)"
+            class="link-order mr-xs">
+            {{NSOrder.orderNumber}}
+          </span>
+        </span>
+      </ng-container>
+    </status-box>
+
+    <ng-container *ngIf="dataAccordion">
+      <accordion-gift [data]="dataAccordion"></accordion-gift>
+    </ng-container>
+
+    <!-- Shipping -->
+    <div *ngIf="!order.multiShot && !order.multiShotRenew" class="order-detail-shipping pt-s">
+      <!-- Title -->
+      <div class="w-100 t-l-medium mb-m">
+        {{t('page.information.order.title')}}
+      </div>
+
+      <!-- Shipping -->
+      <div class="d-flex mb-m justify-content-between flex-column">
+        <!-- Delivery Date -->
+        <div *ngIf="deliveryDate !== order.shipment.originalArrivalDate && !order.shipment.delayed; else defaultDate"
+          class="d-flex align-items-center">
+          <span class="order-detail-information t-m-regular mr-s d-flex align-items-center">
+            <i class="eva eva-bell-outline mr-xs" aria-hidden="true"></i>
+            {{t('page.New-delivery-date.text-info')}}
+          </span>
+          <span class="order-detail-subinfo">
+            {{utilsSrv.dateForFront(deliveryDate)}}
+          </span>
+        </div>
+        <ng-template #defaultDate
+          class="order-detail-subtitle">
+          {{t('page.Estimated-delivery.body')}}:
+          <span *ngIf="!order.shipment.delayed; else delayed" class="order-detail-subinfo">
+            {{utilsSrv.dateForFront(deliveryDate)}}
+          </span>
+          <ng-template #delayed>
+            <span class="order-detail-subinfo">
+              {{ t('page.order-delayed.text-info') }}
+            </span>
+          </ng-template>
+        </ng-template>
+
+        <div *ngIf="showDeliveryBlock" class="order-detail-gotten d-flex flex-column justify-content-between pa-m mt-m">
+          <div>
+            <div class="t-m-medium">
+              {{t('page.Have-received-order.title')}}
+            </div>
+            <div class="t-m-regular">
+              {{t(dayAfterEstimatedDelivery ? 'page.have-receive-order.body' : 'global.confirm-delivery-order.text-info')}}
+            </div>
+          </div>
+          <div class="d-flex flex-column flex-md-row justify-content-end mt-m">
+            <div *ngIf="dayAfterEstimatedDelivery && order.orderTicketStatus !== 'ORDER_TICKET_OPENED'"
+              [ngClass]="{'w-100' : domSrv.getIsDeviceSize()}"
+              (click)="gotBox(true)"
+              class="order-detail-gotten-not-yet mr-m d-flex flex-column justify-content-center"
+              id="not-yet-delivered">
+              {{t('page.order-not-received.text-info')}}
+            </div>
+            <cf-button
+              [width]="domSrv.getIsDeviceSize() ? 'auto' : 'fit'"
+              (click)="gotBox()"
+              id="confirm-delivery">
+              {{t('page.I-got-it.button')}}
+            </cf-button>
+          </div>
+        </div>
+
+        <!-- Change Date -->
+        <div *ngIf="!order._ngo && changeDeliveryAvailable" class="order-detail-actions mt-s">
+          <cf-button
+            (click)="autoLoginValidation('changeDeliveryDate')"
+            [icon]="true"
+            [iconLeft]="true"
+            [secondary]="true"
+            [size]="'s'"
+            [width]="'auto'"
+            id="order-overview-change">
+            <i class="eva eva-calendar-outline f20"></i>
+            {{t('page.Change-date.button')}}
+          </cf-button>
+        </div>
+
+        <div *ngIf="!order._ngo && ((openIssue && rolePermissions.openIncident) || order?.canGiveFeedback)" class="order-detail-feedback">
+          <ng-container *ngIf="order?.canGiveFeedback">
+            <cf-button
+              [size]="'s'"
+              [secondary]="true"
+              [width]="domSrv.getIsDeviceSize() ? 'auto' : 'fit'"
+              id="cf-feedback"
+              (click)="routerSrv.navigateToCfFeedback(order._id)">
+              {{t('global.rate-order.button')}}
+            </cf-button>
+          </ng-container>
+
+        <!-- Open Issue -->
+          <ng-container *ngIf="openIssue && rolePermissions.openIncident">
+            <span (click)="autoLoginValidation('openIncident')" class="report-issue-button">
+              {{t('page.Report-issue.title')}}
+            </span>
+          </ng-container>
+        </div>
+      </div>
+
+      <!-- Tracking -->
+      <div *ngIf="trackingToShow" class="d-flex justify-content-between flex-wrap w-100 mb-l">
+        <div class="order-detail-tracking border-grey-2-1x pa-m mb-m"
+          *ngFor="let box of order.lapiInfo.boxes; let i = index"
+          [ngClass]="{hidden: !showAllTrackings && limitTracking < i + 1}">
+          <div class="overflow-text t-m-medium mb-xs">
+            {{order.up.selectedMasterBox | translation: 'name'}}
+            ({{order.up.selectedMasterBox | translation: 'weight'}}{{order.up.selectedMasterBox | translation:
+            'weightUnit'}})
+          </div>
+          <div *ngIf="!box.tracking">
+            {{t('global.tracking-details.text-info')}}
+          </div>
+          <div *ngIf="box.tracking">
+            <div class="overflow-text">
+              {{t('global.Shipping.text-info')}}
+              <a class="ml-s" target="”_blank”"
+                [href]="box.trackingLandingURL">
+                {{textSrv.getText(order.lapiInfo.providerPublicName[0])}}
+                <i class="eva eva-external-link-outline" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="overflow-text">
+              {{t('global.tracking.title')}}
+              <span class="text-grey ml-m">{{box.tracking.trackId}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="order.lapiInfo.boxes.length > limitTracking && !showAllTrackings"
+          (click)="showAllTrackings = true"
+          class="flex-center w-100 t-green-primary mt-m">
+          <i class="eva eva-plus-circle-outline f20 mr-s pointer"></i>
+          <div class="t-m-medium pointer">
+            {{t('page.show-all.drop')}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!order.multiShot && !order.multiShotRenew" class="order-detail-separator"></div>
+
+    <!-- Common data -->
+    <div class="order-detail-info d-flex flex-column mob-pt-s">
+      <!-- Overview -->
+      <div class="pv-m d-flex flex-column">
+        <!-- Info -->
+        <div>
+          <div class="t-l-medium mb-s">
+            {{t('page.order-overwiew.label')}}
+          </div>
+          <div class="mb-xs d-flex">
+            <div class="order-detail-subtitle">
+              {{t('global.season.body')}}
+            </div>
+            <div class="order-detail-subinfo">
+              {{utilsSrv.dateForFront(order.season.purchaseEndDate, 'MM/YYYY')}} &middot;
+              {{utilsSrv.dateForFront(order.season.shippingEndDate, 'MM/YYYY')}}
+            </div>
+          </div>
+          <div class="mb-xs d-flex">
+            <div class="order-detail-subtitle">
+              {{t('global.Farmer.title')}}
+            </div>
+            <div class="order-detail-subinfo">
+              {{order | translation: 'farmerName'}}
+            </div>
+          </div>
+          <div class="mb-xs d-flex">
+            <div class="order-detail-subtitle">
+              {{t('global.farm.title')}}
+            </div>
+            <div class="order-detail-subinfo">
+              {{(order | translation:'_m_farmName')}}
+            </div>
+          </div>
+          <div class="mb-xs d-flex">
+            <div class="order-detail-subtitle">
+              {{t('page.Country.title')}}
+            </div>
+            <div *ngIf="order?.farmCountry" class="order-detail-subinfo flex-center">
+              <div class="mr-s">
+                {{countriesByIso[order.farmCountry] | translation: 'name'}}
+              </div>
+              <div class="flag-icon flag-icon-{{order.farmCountry}}"></div>
+            </div>
+          </div>
+          <div class="mb-xs d-flex">
+            <div class="order-detail-subtitle">
+              {{t('global.price.tab')}}
+            </div>
+            <div *ngIf="!isFreeDelivery && rolePermissions.nameOfRole !== 'RECIPIENT'" class="order-detail-subinfo">
+              {{order.amount.totalToCollect | currency:order.currency.crowdfarmer.currency}}
+            </div>
+            <div *ngIf="isFreeDelivery && rolePermissions.typeOfOrder !== 'ADOPTION_GIFT'" class="order-detail-subinfo">
+              {{t('global.free.text-info')}}
+            </div>
+            <div *ngIf="rolePermissions.nameOfRole === 'RECIPIENT'" class="order-detail-subinfo">
+              {{t('global.received-as-a-gift.text-info')}}
+            </div>
+          </div>
+        </div>
+
+        <!-- Box content -->
+        <div *ngIf="!order.multiShot && !order.multiShotRenew" class="mt-l">
+          <div class="order-detail-subtitle mb-xs">
+            {{t('global.content-box.text-link')}}
+          </div>
+          <div *ngFor="let product of products; let i = index"
+            class="order-detail-subinfo overflow-text w-100"
+            [ngClass]="{hidden: !showAllProducts && limitProducts < i + 1}">
+            {{product.amount * order.shipment.boxes.length}} x {{product | translation: 'name'}}
+          </div>
+          <div *ngIf="products?.length > limitProducts && !showAllProducts"
+            (click)="showAllProducts = true"
+            class="d-flex t-green-primary mt-m">
+            <i class="eva eva-plus-circle-outline f20 mr-s pointer"></i>
+            <div class="t-m-medium pointer">
+              {{t('page.show-all.drop')}}
+            </div>
+          </div>
+        </div>
+        <div *ngIf="(order.multiShot || order.multiShotRenew) && order.upCf && !order.upCf.deleted" class="mt-l">
+          <div class="mb-xs d-flex justify-content-between">
+            <div class="order-detail-subtitle">
+              {{t('page.Reserved-quantity.text-info')}}
+            </div>
+          </div>
+
+          <div *ngIf="order.upCf" class="order-detail-subinfo overflow-text w-100">
+            {{order.upCf.stepMSReserved || order.up.minStepMS}}
+            x
+            {{textSrv.getText('Box/es of')}}
+            {{order.up.masterBoxes[0] | translation: 'name'}}
+            <!-- TODO MB[0] -->
+          </div>
+
+          <div
+            *ngIf="availableShipment && !orderRefunded && rolePermissions.planShipment"
+            class="order-detail-actions w-100 mt-s mob-mt-l">
+            <cf-button
+              (click)="planShipment(ticketOpened)"
+              [id]="'plandelivery-btn-details2'"
+              [icon]="true"
+              [width]="'fit'"
+              [iconLeft]="true"
+              [size]="'s'"
+              [disabled]="ticketOpened">
+              <i class="eva eva-car-outline f20"></i>
+              {{t('global.Plan-shipment.button')}}
+            </cf-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment | Address -->
+    <div *ngIf="!order.multiShot && !order.multiShotRenew && address || payment">
+      <div class="order-detail-separator"></div>
+      <div class="order-detail-payment pv-m d-flex flex-column flex-md-row">
+        <div *ngIf="!order.multiShot && !order.multiShotRenew" class="w-100">
+          <!-- Address -->
+          <div class="d-flex justify-content-between flex-column mr-l">
+            <div class="d-flex flex-column">
+              <div class="t-l-medium mb-s">
+                {{t('page.shipping-address.title')}}
+              </div>
+              <div *ngIf="order._ngo; else addressInfo" class="order-detail-subinfo">
+                <strong>{{ngoName}}</strong><br />
+                {{address.zip}}
+                {{address.province && address.country === 'us' ? address.province + ',' : ''}}
+                {{address.city}}
+                <span *ngIf="rolePermissions.showFullAddress" class="d-block">{{countriesByIso[address.country] | translation: 'name'}}</span>
+              </div>
+              <ng-template #addressInfo>
+                <div *ngIf="address" class="order-detail-subinfo">
+                  {{address.name}} <span *ngIf="rolePermissions.showFullAddress">{{address.surnames}}</span> <br />
+                  <span *ngIf="rolePermissions.showFullAddress" class="d-block">{{address.street}} {{address.number}} {{address.details}} </span>
+                  {{address.zip}}
+                  {{address.province && address.country === 'us' ? address.province + ',' : ''}}
+                  {{address.city}}
+                  <span *ngIf="rolePermissions.showFullAddress" class="d-block">{{countriesByIso[address.country] | translation: 'name'}}
+                    {{address.phone?.prefix}} {{address.phone?.number}}</span>
+                </div>
+              </ng-template>
+            </div>
+            <div class="order-detail-actions mt-m">
+              <cf-button
+                *ngIf="!order._ngo && changeAddressAvailable"
+                (click)="autoLoginValidation('changeAddressInfo')"
+                [icon]="true"
+                [iconLeft]="true"
+                [secondary]="true"
+                [size]="'s'"
+                [width]="'auto'">
+                <i class="eva eva-pin-outline f20"></i>
+                {{t('page.Change-shipping-address.body')}}
+              </cf-button>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="payment && !isFreeDelivery && !isOrderPaymentPending && rolePermissions.showPaymentInfo || (rolePermissions.showReceipts && order.receipts?.length)">
+          <div class="t-l-medium mb-s">
+            {{ t('page.payment.title') }}
+          </div>
+          <div *ngIf="rolePermissions.showPaymentInfo" class="d-flex">
+            <app-order-payment-icon [env]="env" [isMastercard]="isMastercard" [isSepa]="isSepa" [isVisa]="isVisa" [order]="order"
+              [payment]="payment">
+            </app-order-payment-icon>
+            <div class="d-flex justify-content-between flex-column">
+              <div class="d-flex align-items-start flex-column">
+                <ng-container *ngIf="order?.amount?.totalToCollect !== order?.amount?.totalCrowdies">
+                  <div *ngIf="payment.card" class="order-detail-subtitle mr-m">
+                    {{t('page.last-four-numbers.form', { last4: payment.card.last4 })}}
+                  </div>
+                  <div *ngIf="payment.sepa" class="order-detail-subtitle mr-m">
+                    {{t('page.last-four-numbers.form', { last4: payment.sepa.sepa_debit.last4 })}}
+                  </div>
+                  <div *ngIf="payment.paypal || (payment.paymentRequest?.id.payment_method_types[0] === 'paypal')"
+                    class="order-detail-subtitle mr-m">
+                    {{textSrv.getText('Paid with PayPal')}}
+                  </div>
+                </ng-container>
+                <div class="order-detail-subinfo mr-m mt-s mob-mt-m d-flex">
+                  {{utilsSrv.dateForFront(order.createdAt)}}
+                  <span class="ml-m pa-s t-xs-medium order-detail-status order-detail-status-{{order.paymentStatusText}}">
+                    {{textSrv.getText('order status ' + order.paymentStatusText)}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="rolePermissions.showReceipts && order.receipts?.length"
+            [ngClass]="{'ml-5': rolePermissions.showPaymentInfo}" class="d-flex mt-m">
+            <div *ngFor="let receipt of order.receipts" (click)="getReceipt(receipt.url)"
+              class="t-green-primary flex-center pointer mr-m">
+              <i class="eva eva-download-outline f20 mr-s"></i>
+              {{getReceiptText(receipt.type)}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <!-- Cancel -->
+  <div *ngIf="cancelOrder" class="order-detail-separator"></div>
+  <div *ngIf="cancelOrder && order.orderType !== 'NEW_SHIPMENT_FARMER' && !isGuest"
+    class="order-detail-cancel pv-m d-flex justify-content-between flex-column">
+    <div *ngIf="!loadingUpOrders"
+      (click)="autoLoginValidation('cancelOrder')"
+      class="order-detail-actions text-link text-black">
+      <span *ngIf="rolePermissions.nameOfRole !== 'RECIPIENT' else notGifterCancel">
+        {{t(order._ngo ? 'page.crowdgiving-cancel-donation.text-link' : 'page.cancel-order.text-link')}}
+      </span>
+      <ng-template #notGifterCancel>{{t('global.cancel-gift.text-link')}}</ng-template>
+    </div>
+  </div>
+  </div>
+</ng-container>

@@ -1,0 +1,56 @@
+@import '../../../scss/commons.scss';
+
+.private-zone {
+  &-back {
+    position: relative;
+    background: map_get($color, 'white-1');
+    margin-left: -15px;
+    margin-right: -15px;
+
+    &-container {
+      max-width: 510px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: normal;
+      color: map_get($color, 'primary');
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        padding-left: 15px;
+      }
+
+      @media (max-width: map_get($grid-breakpoints, 'lg')) {
+        max-width: none;
+      }
+    }
+  }
+
+  &-page {
+    overflow-x: hidden;
+
+    &-container {
+      min-height: 70vh;
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        padding: 0 !important;
+      }
+    }
+  }
+
+  &-section {
+    // mt-l
+    margin-top: 32px;
+    // ml-m
+    margin-left: 16px;
+    // mb-xl
+    margin-bottom: 64px;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      margin-top: 24px;
+      margin-bottom: 32px;
+      margin-left: 0;
+    }
+  }
+}

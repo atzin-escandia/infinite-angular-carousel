@@ -1,0 +1,156 @@
+@import '../../../scss/commons.scss';
+
+.newsletter-popover {
+  height: fit-content;
+  width: 400px;
+  background-color: $white;
+  padding: 30px 25px 15px 25px;
+  position: fixed;
+  bottom: -270px;
+  right: 0;
+  transition: all 1s ease;
+  box-shadow: $popupShadow 0 0 15px;
+  z-index: 999;
+
+  @media (max-width: map_get($grid-breakpoints, 'sm')) {
+    width: 100%;
+    padding: 29px 20px 20px 20px;
+  }
+
+  &.init {
+    bottom: 0;
+  }
+
+  &.floating {
+    bottom: 0;
+  }
+
+  &.unfolded {
+    transition: all 1s ease;
+    bottom: 0;
+    animation: showContentSubscribe 0.7s ease-out forwards;
+  }
+
+  .header {
+    .logo-block {
+      font-size: 64px;
+      color: $greenBG2;
+      margin-bottom: 14px;
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        margin-bottom: 0;
+        font-size: 50px;
+      }
+    }
+
+    .title-block {
+      font-weight: 900;
+      color: $greenBG2;
+      font-size: 25px;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1;
+      letter-spacing: normal;
+
+      &.success {
+        font-size: 22px;
+      }
+    }
+  }
+
+  .form-block {
+    .subtitle-block {
+      font-weight: bold;
+      color: $CF3;
+      font-size: 16px;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+    }
+
+    .capi-error {
+      color: $errorForm;
+    }
+  }
+
+  .popover-close {
+    z-index: 100;
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    color: $black;
+    font-size: 23px;
+  }
+
+  .privacy-text {
+    &.red {
+      color: $errorForm;
+
+      a {
+        color: $errorForm !important;
+      }
+
+      .fa-check-square-o {
+        color: $errorForm;
+      }
+    }
+
+    color: $CF3;
+
+    a {
+      color: $CF3 !important;
+    }
+
+    .fa-check-square-o {
+      color: $CF3;
+    }
+  }
+
+  cf-input {
+    .cf-input {
+      padding: 3px;
+      margin-top: 0;
+    }
+  }
+
+  .farmers-block {
+    margin: auto;
+    width: 93%;
+
+    .farmer-point {
+      img {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        vertical-align: middle;
+        border: 2px solid $greenBG2;
+      }
+
+      .name-text {
+        color: $CF3;
+      }
+
+      .product-text {
+        color: $greenBG2;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@keyframes showContentSubscribe {
+  0% {
+    max-height: 200px;
+  }
+
+  99% {
+    max-height: 600px;
+  }
+
+  100% {
+    max-height: unset;
+  }
+}

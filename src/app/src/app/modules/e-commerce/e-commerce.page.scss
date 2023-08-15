@@ -1,0 +1,60 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.e-commerce {
+  position: relative;
+
+  &__content-header {
+    display: block;
+    overflow: hidden;
+    background-color: $ds--color-grey-4;
+    z-index: 30;
+    top: pxToRem(70);
+  }
+
+  &__header-btn {
+    display: none;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: pxToRem(12) 0;
+    color: $ds--color-grey-88;
+  }
+
+  &__footer-btn {
+    position: sticky;
+    bottom: 0;
+    display: block;
+    background-color: map-get($layerBackgroundColors, 'background-2');
+    width: 100%;
+    padding: pxToRem(12) 0;
+    z-index: 10;
+  }
+
+  &__content {
+    position: relative;
+    padding: pxToRem(16) 0 pxToRem(16) 0;
+    background-color: map_get($layerBackgroundColors, 'background-1');
+    overflow: auto;
+  }
+
+  @include bp(device-s) {
+    &__content-header {
+      position: sticky;
+    }
+
+    &__header-btn {
+      display: block;
+    }
+
+    &__footer-btn {
+      display: none;
+    }
+
+    &__content {
+      padding: pxToRem(16) 0 pxToRem(64) 0;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+<div *transloco="let t" class="costs-calculator-popup-container" id="costs-calculator-popup">
+  <div class="costs-calculator-info mt-xl">
+    <h3 class="mb-xl">{{ t('page.modal-calculator.title') }}</h3>
+    <ol>
+      <li>
+        <div class="number-marker"></div>
+        <span class="modal-calculator-step-text" [innerHTML]="textSrv.markdown( t('page.modal-calculator-step1.body') )"></span>
+      </li>
+      <li>
+        <div class="number-marker"></div>
+        <span class="modal-calculator-step-text" [innerHTML]="textSrv.markdown( t('page.modal-calculator-step2.body') )"></span>
+      </li>
+    </ol>
+  </div>
+  <div class="costs-calculator-details no-ml no-mr mt-xl">
+    <div class="group-info">
+      <div class="quantity-price-wrapper">
+        <div class="quantity">
+          <!-- QUANTITY SELECTOR -->
+          <div class="mt-m d-flex align-items-end">
+            <ds-quantity
+              (quantityChange)="quantityChangeHandler($event)"
+              (stepEvent)="addSubsctractUms($event)"
+              [quantity]="numberOfBoxes"
+              [min]="minStepMS"
+              [max]="maxStepMS"
+              [weight]="weight">
+            </ds-quantity>
+          </div>
+        </div>
+      </div>
+      <div class="one-box-contains-x">
+        {{ textSrv.getText('1 box contains {weight} of {variety}', {'{weight}': up?.selectedMasterBox?.weight +
+        up?.selectedMasterBox?.weightUnit , '{variety}': up | translation:'production' }) }}
+      </div>
+      <div class="price">
+        <span>{{ t('global.adoption.body') }}</span>
+        <span>{{ price.amount | currency: crowdfarmerCurrency.symbol }}</span>
+      </div>
+    </div>
+    <div class="group-info">
+      <div class="col-12 col-no-padding mt-m">
+        <!-- COUNTRY SELECTOR -->
+        <country-selector
+          [data]="availableCountriesByISO"
+          [selected]="location"
+          [label]="'global.delivery-country.title'"
+          (returnData)="countryChanged($event)">
+        </country-selector>
+      </div>
+      <div class="shipment-cost-per-box col-12 col-no-padding">
+        <span>{{ t('global.logistic-cost-box.tab') }}</span>
+        <span>{{ price.shippingPerBox | currency: crowdfarmerCurrency.symbol }}</span>
+      </div>
+      <div class="shipment-cost-all-boxes" *ngIf="numberOfBoxes === 1;else moreThanOneBox">
+        <span class="float-left">{{ t('page.shipping-number-boxes.text-info.one', { number: numberOfBoxes} ) }}</span>
+        <span class="float-right">{{ numberOfBoxes * price.shippingPerBox | currency: crowdfarmerCurrency.symbol }}</span>
+      </div>
+      <ng-template #moreThanOneBox>
+        <div class="shipment-cost-all-boxes">
+          <span class="float-left">{{ t('page.shipping-number-boxes.text-info.other', { number: numberOfBoxes} ) }}</span>
+          <span class="float-right">{{ numberOfBoxes * price.shippingPerBox | currency: crowdfarmerCurrency.symbol }}</span>
+        </div>
+      </ng-template>
+    </div>
+    <div class="group-info group-info-summary align-items-end pb-m">
+      <div class="price">
+        <span>{{ t('global.adoption.body') }}</span>
+        <span>{{ price.amount | currency: crowdfarmerCurrency.symbol }}</span>
+      </div>
+
+      <div class="shipment-cost-all-boxes">
+        <ng-container *ngIf="numberOfBoxes === 1;else moreThanOneBox">
+          <span class="float-left">{{ t('page.shipping-number-boxes.text-info.one', { number: numberOfBoxes} ) }}</span>
+          <span class="float-right">{{ numberOfBoxes * price.shippingPerBox | currency: crowdfarmerCurrency.symbol }}</span>
+        </ng-container>
+        <div class="eva eva-info-outline" (mouseover)="displayToolTip(true)" (mouseleave)="displayToolTip()">
+          <div class="tooltip t-grey t-m-medium t-black-H no-pointer" [ngClass]="{ active: showTooltip }" (mouseenter)="displayToolTip()">
+            {{ t('page.modal-calculator-tooltip.text-info') }}
+          </div>
+        </div>
+      </div>
+
+      <div class="total pt-s">
+        <span>{{ t('global.total.body') }}</span>
+        <span>{{ (price.amount + price.shippingPerBox * numberOfBoxes) | currency:crowdfarmerCurrency.symbol }}</span>
+      </div>
+
+      <div class="price-per-kilo">
+        <span>{{ t('global.price-per-kilo.text') }}</span>
+        <span *ngIf="pricePerKilo">
+          {{ ((price.amount + price.shippingPerBox * numberOfBoxes) / (weight * numberOfBoxes)) | currency: crowdfarmerCurrency.symbol }}/{{
+          weightUnit }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="costs-calculator-info-mobile pt-s">
+    <h3 class="mb-xl">
+      {{ t('page.modal-calculator.title') }}
+      <span
+        class="eva eva-chevron-down float-right"
+        [ngClass]="{'expanded': displayCollapsibleContent}"
+        (click)="toggleDisplayCollapsibleContent()">
+      </span>
+    </h3>
+    <div *ngIf="displayCollapsibleContent" class="collapsible">
+      <ol>
+        <li>
+          <div class="number-marker"></div>
+          <span class="modal-calculator-step-text" [innerHTML]="textSrv.markdown( t('page.modal-calculator-step1.body') )"></span>
+        </li>
+        <li>
+          <div class="number-marker"></div>
+          <span class="modal-calculator-step-text" [innerHTML]="textSrv.markdown( t('page.modal-calculator-step2.body') )"></span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>

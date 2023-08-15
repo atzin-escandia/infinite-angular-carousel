@@ -1,0 +1,74 @@
+@import '../../../../../src/scss/commons.scss';
+@import '../../../../../src/scss/carousel.scss';
+
+.projects {
+  .project-card {
+    @media (min-width: 576px) and (max-width: 767px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .cards-slider {
+    overflow: hidden;
+
+    &-controls {
+      & button {
+        border: none;
+        outline: none;
+        border-radius: 100%;
+        width: 48px;
+        height: 48px;
+        color: map_get($color, 'black-2');
+      }
+    }
+
+    cf-arrow {
+      background-color: transparent;
+
+      i {
+        font-size: 40px;
+      }
+
+      .cf-arrow-arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .cards-container {
+      overflow: hidden;
+    }
+
+    .arrow-hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &-animate {
+      transition: transform 0.5s linear;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        width: 100%;
+        padding-bottom: 20px;
+        overflow-x: scroll;
+      }
+
+      @media (max-width: map_get($grid-breakpoints, 'xl')) {
+        width: 100%;
+        padding-bottom: 20px;
+        overflow-x: scroll;
+      }
+    }
+  }
+
+  .no-results img {
+    max-width: 400px;
+  }
+
+  @keyframes moveSlideshow {
+    100% {
+      transform: translateX(-66.6666%);
+    }
+  }
+}

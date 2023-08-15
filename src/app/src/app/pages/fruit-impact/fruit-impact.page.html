@@ -1,0 +1,123 @@
+<div class="d-flex flex-column">
+  <invest-info [block]="'block-img-right'" [info]="firstBlockInfo" *ngIf="firstBlockInfo"></invest-info>
+
+  <div class="d-flex flex-column align-items-center mob-mv-m mt-xl">
+    <div class="d-flex col-12 col-lg-8 align-items-center mob-no-mt mt-s">
+      <video-player class="col-12 resizable-video" id="video-{{textSrv.getText('video landing fruitimpact')}}"
+        [id]="textSrv.getText('video landing fruitimpact')" [noLazyStart]="true" platform="youtube">
+      </video-player>
+    </div>
+  </div>
+
+  <div class="quotes-block d-flex flex-column mob-mv-l mv-xxl align-items-center" id="first-quotes">
+    <div class="col-11 col-lg-8">
+      <img class="quote" src="{{env.domain + '/assets/img/invest/quotes/quoteimg.png'}}" alt="" />
+      <div class="row">
+        <div class="text col-12 col-lg-9 d-flex flex-column align-items-center align-items-lg-start nop">
+          <div class="info t-s-regular t-grey">{{textSrv.getText('quotes fruitimpact pau')}}</div>
+          <div class="picture d-lg-none mt-l mb-m cf-shadow-m"
+            [ngStyle]="{'background-image': 'url(' + env.domain + '/assets/img/fruitimpact/illustration/quote-gasol-v2.png' + ')'}">
+          </div>
+          <div class="author d-flex flex-column flex-lg-row mt-m">
+            <span class="name t-m-bold t-black-T">{{textSrv.getText('landing pau name')}}</span>
+            <div class="d-none d-lg-flex">&nbsp;</div>
+            <span class="rol t-m-regular t-black-T">{{textSrv.getText('landing pau position')}}</span>
+          </div>
+        </div>
+        <div class="col-3 justify-content-center d-none d-lg-flex nop">
+          <div class="picture cf-shadow-m"
+            [ngStyle]="{'background-image': 'url(' + env.domain + '/assets/img/fruitimpact/illustration/quote-gasol-v2.png' + ')'}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <cf-wave [toColor]="'grey'" [domain]="env.domain"></cf-wave>
+
+  <div class="grey-block">
+    <div class="container mob-mb-m mb-xl">
+      <landing-block [block]="'block-doble-text'" [info]="howParticipateBlockInfo" *ngIf="howParticipateBlockInfo">
+        <div class="col-12" role="right">
+          <div class="row">
+            <div class="col-12 col-lg-6">
+              <div class="t-a-center">
+                <img class="mh-s" src="{{env.domain + '/assets/img/fruitimpact/how-to/true.svg'}}" />
+                <img class="mh-s" src="{{env.domain + '/assets/img/fruitimpact/how-to/false.svg'}}" />
+                <img class="mh-s" src="{{env.domain + '/assets/img/fruitimpact/how-to/false.svg'}}" />
+              </div>
+              <div class="t-m-regular t-black-H">{{textSrv.getText('text orange KO')}}</div>
+            </div>
+            <div class="col-12 col-lg-6 mob-mt-l">
+              <div class="t-a-center mob-mt-l">
+                <img class="mh-s" src="{{env.domain + '/assets/img/fruitimpact/how-to/true.svg'}}" />
+                <img class="mh-s" src="{{env.domain + '/assets/img/fruitimpact/how-to/true.svg'}}" />
+                <img class="mh-s" src="{{env.domain + '/assets/img/fruitimpact/how-to/true.svg'}}" />
+              </div>
+              <div class="t-m-regular t-black-H">{{textSrv.getText('text orange OK')}}</div>
+            </div>
+          </div>
+        </div>
+      </landing-block>
+    </div>
+  </div>
+
+  <cf-wave [fromColor]="'grey'" [toColor]="'white'" [domain]="env.domain"></cf-wave>
+
+  <div class="container mob-mb-m mb-xxl">
+    <landing-block [block]="'block-left-text'" [info]="buyClementinesInfo" *ngIf="buyClementinesInfo"
+      [inverseMob]="true">
+      <div role="left">
+        <cf-button (click)="openBuyClementines()"> {{textSrv.getText('buy clementines')}}</cf-button>
+      </div>
+    </landing-block>
+  </div>
+
+  <cf-wave [toColor]="'grey'" [inverse]="true" [domain]="env.domain"></cf-wave>
+
+  <div class="grey-block">
+    <div class="container objectives-block align-items-center mob-mb-m mb-xxl">
+      <div class="row text-center align-items-center mb-l">
+        <span class="col-12 t-h2-bold t-black-H">{{textSrv.getText('objectives')}}</span>
+      </div>
+      <div class="row justify-content-center objectives" id="objectives">
+        <div class="col-12 col-md-4 d-flex flex-column mb-l align-items-center" *ngFor="let item of objectives">
+          <div class="objectives-img mb-m" [ngStyle]="{'background-image': 'url(' + (item.image | cdn) + ')'}"></div>
+          <div class="objectives-text t-m-bold t-a-center t-black-T">{{textSrv.getText(item.text)}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mob-mb-m mb-xxl">
+      <div class="row">
+        <div class="col-12">
+          <div class="t-h1-bold t-a-center t-grey mv-l">{{textSrv.getText('they also participate')}}</div>
+        </div>
+        <div class="col-12 col-md-3" *ngFor="let item of instagramPostList; index as id"
+          [ngClass]="id >= 4 ? 'd-none d-md-block' : ''">
+          <instagram-post [idPost]="item"></instagram-post>
+        </div>
+      </div>
+    </div>
+    <div class="container mob-mb-m mb-xxl">
+      <landing-faq *ngIf="faqsBlock" [title]="faqsBlock.header" [image]="faqsBlock.image" [faqs]="faqsBlock.faqs">
+      </landing-faq>
+    </div>
+  </div>
+
+  <cf-wave [fromColor]="'grey'" [toColor]="'white'" [domain]="env.domain"></cf-wave>
+
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-8 col-md-3 pv-m t-h4-bold t-black-H t-a-center">{{textSrv.getText('powered by')}}</div>
+      <div class="col-8 col-md-3 pv-m t-a-center">
+        <img class="img-logo gasol-img" src="{{env.domain + '/assets/img/fruitimpact/logos/gasol.svg'}}" alt="" />
+      </div>
+      <div class="col-8 col-md-3 pv-m t-a-center">
+        <img class="img-logo" src="{{env.domain + '/assets/img/fruitimpact/logos/citrisol.jpg'}}" alt="" />
+      </div>
+    </div>
+  </div>
+
+  <cf-wave [toColor]="'black'" [inverse]="true" [domain]="env.domain"></cf-wave>
+</div>

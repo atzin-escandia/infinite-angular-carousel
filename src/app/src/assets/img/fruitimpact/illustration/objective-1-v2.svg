@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Objetivo 1</title>
+    <g id="Landing-15Nov" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-644.000000, -287.000000)">
+            <g id="Objetivo-1" transform="translate(644.000000, 287.000000)">
+                <circle id="Oval" fill="#E4E6E8" cx="64" cy="64" r="64"></circle>
+                <circle id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="64.3047619" cy="65.3206349" r="37.5873016"></circle>
+                <circle id="Oval" stroke="#5D9E9B" stroke-width="1.90394921" cx="62.984127" cy="64" r="38.8063492"></circle>
+                <circle id="Oval" stroke="#5D9E9B" stroke-width="1.90394921" cx="62.984127" cy="64" r="31.1873016"></circle>
+                <g id="Group" transform="translate(11.158730, 36.571429)" stroke="#5D9E9B" stroke-width="2.03174603">
+                    <line x1="5.0952381" y1="58.0063492" x2="5.0952381" y2="0.101587302" id="Path"></line>
+                    <path d="M0.0158730159,0.101587302 L0.0158730159,12.6984127 C0.0158730159,12.6984127 -0.492063492,17.6761905 4.48571429,17.4730159" id="Path"></path>
+                    <path d="M10.2761905,0.101587302 L10.2761905,12.6984127 C10.2761905,12.6984127 10.784127,17.6761905 5.80634921,17.4730159" id="Path"></path>
+                </g>
+                <path d="M115.707937,96.4063492 L115.707937,39.1111111 C115.707937,39.1111111 115.504762,31.0857143 112.050794,35.047619 C108.495238,39.1111111 107.073016,65.1174603 107.073016,65.1174603 L111.44127,65.1174603 L111.44127,96.3047619 L115.707937,96.3047619 L115.707937,96.4063492 Z" id="Path" stroke="#5D9E9B" stroke-width="1.99578413"></path>
+            </g>
+        </g>
+    </g>
+</svg>

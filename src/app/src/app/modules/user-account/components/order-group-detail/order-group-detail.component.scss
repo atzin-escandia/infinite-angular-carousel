@@ -1,0 +1,233 @@
+@import '../../../../../scss/commons.scss';
+@import '../../../../../scss/colors.scss';
+@import '../../../../../assets/icon/scss/eva-icons-font';
+
+:host {
+  min-height: 60vh;
+}
+
+.order-detail-group-container {
+  margin-bottom: 64px;
+
+  h4 {
+    color: $black;
+    font-size: 20px;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  p {
+    margin: 0;
+    color: $CF3;
+    line-height: 24px;
+    font-size: 16px;
+    letter-spacing: -0.2px;
+  }
+
+  span {
+    color: $CF3;
+    letter-spacing: -0.2px;
+    line-height: 24px;
+    font-size: 16px;
+
+    &.link {
+      text-decoration: underline;
+    }
+
+    &.highlight {
+      color: map_get($color, 'black-4');
+    }
+  }
+
+  .header {
+    display: flex;
+    margin-bottom: 32px;
+
+    .name-container {
+      margin-left: 12px;
+
+      p {
+        margin: 0;
+        color: $black;
+        font-weight: bold;
+        letter-spacing: -0.4px;
+        line-height: 32px;
+        font-size: 20px;
+      }
+
+      span {
+        &.order-number {
+          display: block;
+        }
+
+        &.date {
+          margin-left: 10px;
+          position: relative;
+
+          &::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            top: 8px;
+            border-radius: 50%;
+            left: -6px;
+            background: $CF3;
+          }
+        }
+
+        &.cancel {
+          display: block;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  }
+
+  .participants-block {
+    .participants-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        flex-direction: column-reverse;
+      }
+
+      .participants {
+        width: 60%;
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          width: 100%;
+        }
+
+        .members {
+          padding: 16px 0;
+          border-bottom: 2px dotted $greyLight;
+          display: flex;
+          justify-content: space-between;
+
+          .name {
+            color: $black;
+            display: block;
+            letter-spacing: -0.2px;
+            font-size: 16px;
+            align-self: center;
+            line-height: 24px;
+            max-width: 360px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            i {
+              font-size: 20px;
+              margin-right: 10px;
+              top: 5px;
+              position: relative;
+              color: map_get($color, 'primary');
+
+              &.eva-close-outline {
+                color: $red;
+              }
+            }
+          }
+
+          .amount {
+            align-self: center;
+            color: $black;
+          }
+        }
+
+        .invitation-block {
+          margin-top: 17px;
+
+          h5 {
+            color: map_get($color, 'primary');
+            letter-spacing: -0.2px;
+            line-height: 24px;
+            font-size: 16px;
+            font-weight: 600;
+          }
+
+          .toggle-container {
+            display: flex;
+            margin-top: 32px;
+
+            p {
+              span {
+                color: map_get($color, 'primary');
+                text-decoration: underline;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+
+      .payment-state {
+        background: $greyBG;
+        width: 35%;
+        height: 172px;
+        padding: 16px;
+        border-radius: 8px;
+
+        &.paid {
+          height: 100px;
+        }
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          width: 100%;
+        }
+
+        .amount {
+          margin-bottom: 16px;
+        }
+
+        p {
+          color: $black;
+          font-size: 20px;
+          line-height: 32px;
+          font-weight: 600;
+          margin: 0;
+          letter-spacing: -0.4px;
+        }
+
+        span {
+          color: $CF3;
+        }
+
+        .progress-bar {
+          width: 100%;
+          margin-bottom: 8px;
+          height: 4px;
+          background-color: $greyLight;
+          border-radius: 6px;
+
+          & > div {
+            border-radius: 6px;
+            height: 100%;
+            background-color: map_get($color, 'primary');
+          }
+        }
+      }
+    }
+  }
+
+  .order-block {
+    margin-top: 32px;
+  }
+
+  .address {
+    max-width: 245px;
+
+    .button-container {
+      margin-top: 24px;
+    }
+  }
+
+  .cancel {
+    span {
+      cursor: pointer;
+    }
+  }
+}

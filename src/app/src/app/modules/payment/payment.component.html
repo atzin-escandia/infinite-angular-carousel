@@ -1,0 +1,50 @@
+<ng-container *transloco="let t">
+  <ng-container *ngIf="!isPaymentMethodSelectorActive; else paymentMethodSelectorTpl">
+    <ul class="payments-methods-list" *ngIf="availablePaymentMethodsSort?.length">
+      <li class="payments-methods-list__elem" *ngFor="let item of maxAvailablePaymentMethods">
+        <user-payment-card
+          [paymentMethod]="item"
+          [isOptionSelected]="selectedPaymentMethod?.source?.id === item.source?.id"
+          (optionSelectedChange)="onSelectedPaymentChange(item)"
+          (removePaymentMethod)="removePaymentMethodHandler(item)">
+        </user-payment-card>
+      </li>
+    </ul>
+  
+    <div class="full-list-toggle-wrapper mb-l">
+      <full-list-toggle *ngIf="availablePaymentMethodsSort?.length > 2" [(displayFullList)]="fullListLength"></full-list-toggle>
+    </div>
+  
+    <div class="pointer d-flex align-items-center mb-l" (click)="togglePaymentMethodSelector()">
+      <i class="eva eva-plus-outline t-m-medium mr-2" aria-hidden="true"></i>
+      <span class="t-m-medium">{{ t('page.add-payment-method.drop') }}</span>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #paymentMethodSelectorTpl>
+  <div class="row">
+    <div class="col">
+      <payment-method-selector
+        [stripe]="stripe"
+        [options]="paymentMethodOpts"
+        [selectedPaymentMethod]="selectedPaymentMethod"
+        [(stripeRef)]="stripeRef"
+        (selectedPaymentMethodChange)="selectedPaymentMethodChangeHandler($event)"
+        (payWithCard)="payWithNewCardHandler($event)"
+        (payWithPaypal)="payWithPayPalHandler()">
+      </payment-method-selector>
+    </div>
+  </div>
+
+  <div *ngIf="availablePaymentMethodsSort?.length" class="row mt-l">
+    <div class="col-auto">
+      <span
+        *transloco="let t"
+        class="t-m-medium nom pointer"
+        (click)="togglePaymentMethodSelector()">
+        {{ t('page.return.button') }}
+      </span>
+    </div>
+  </div>
+</ng-template>

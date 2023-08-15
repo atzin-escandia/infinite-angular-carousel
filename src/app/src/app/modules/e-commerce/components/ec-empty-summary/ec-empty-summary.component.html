@@ -1,0 +1,9 @@
+<section class="ec-empty-summary" *transloco="let t">
+  <img class="ec-empty-summary__img" [src]="emptyImg" />
+  <span class="t-body-s text-primary-88 mb-8">{{ t('page.empty-box.text-info') }}</span>
+  <span
+    class="t-body-s text-red-48 text-center"
+    [innerHTML]="
+      t('page.ecommerce-minimum-order.text-info.other', { amount: minPrice | currency, 'number-items': minElements }) | safeHtml
+    "></span>
+</section>

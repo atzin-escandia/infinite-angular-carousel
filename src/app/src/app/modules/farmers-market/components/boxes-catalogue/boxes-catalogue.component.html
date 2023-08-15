@@ -1,0 +1,48 @@
+<ng-container *transloco="let t">
+  <div *ngIf="projects?.length" class="catalogue-wrapper">
+    <header-projects-list
+      [title]="title"
+      subtitle="{{farmersMarketSrv.getMetaDataBoxes()?.total + ' ' + t('page.Farmers-ship-to.text-info') + ' ' + currentCountry?._m_name?.[currentLang]}}"
+      [type]="type"
+      [showButtons]="showFiltersButtons">
+    </header-projects-list>
+    <div *transloco="let t" id="catalogue-container-boxes" class="catalogue-container catalogue-wrapper__grid--boxes">
+      <ds-oh-card *ngFor="let project of projects; let i = index"
+        id="project-card-{{i}}"
+        [isFavourite]="favouriteSrv.isFavourite(type, project.up.id)"
+        [hasFavourite]="favouriteSrv.favouriteFM$ | async"
+        [imageUrl]="project.up.cardOHImageURL"
+        [imgAlt]="'Picture'"
+        [title]="project.up | translation: 'title'"
+        [farmerName]="project.farmer.name"
+        [farmName]="project.farm.name"
+        [country]="project.farm.country"
+        [deliveryDate]="cardSrv.getMbOhFirstDate(project)"
+        [price]="cardSrv.getMbOhPrice(project) | currency"
+        [weight]="cardSrv.getMbOhWeight(project.filters.masterBoxes[0])"
+        [selectBoxSize]="cardSrv.isMBsSelectorVisibleForOh(project.filters.masterBoxes)"
+        [selectLabel]="t('page.box-size.drop')"
+        [options]="project?.options"
+        [selectedOption]="project.defaultMb"
+        [selectDisabled]="cardSrv.areAllMbsDisabled(project.filters.masterBoxes)"
+        [buttonContent]="t('page.cart.buttom')"
+        [seals]="project.upSeals?.header | translateSeals"
+        [buttonDisabled]="cardSrv.isButtonDisabled(project)"
+        [buttonHasIcon]="false"
+        (emitButtonClick)="addToCart(project, i); $event.preventDefault();"
+        (toggleChange)="setSelectedMb($event, project)"
+        (isFavouriteChange)="favouriteSrv.handleFavourite(project, {index: i, agroupmentName: null}, type)"
+        (click)="domSrv.setScrollPosition($event.pageY);"
+        (cardClick)="handleCardClick(project, i)">
+      </ds-oh-card>
+    </div>
+    <!-- Pagination -->
+    <ds-pagination
+      [activePage]="farmersMarketSrv.getCurrentPages()?.[type]"
+      [totalPages]="farmersMarketSrv.getMetaDataBoxes()?.total/farmersMarketSrv.getMetaDataBoxes()?.limit | ceil"
+      (pageChange)="changePage($event, type)">
+    </ds-pagination>
+  </div>
+</ng-container>
+
+

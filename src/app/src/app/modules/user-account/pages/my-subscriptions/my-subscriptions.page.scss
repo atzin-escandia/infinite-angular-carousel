@@ -1,0 +1,61 @@
+@import '../../../../../scss/colors.scss';
+
+:host {
+  width: 100%;
+}
+
+h3 {
+  color: map-get($color, 'black-4');
+}
+
+p {
+  color: map-get($color, 'grey-11');
+}
+
+.empty-subscriptions {
+  margin-top: 40px;
+
+  p {
+    text-align: center;
+  }
+}
+
+.subscription-box {
+  border: 1px solid map_get($color, 'grey-12');
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+
+  &-title {
+    font-weight: 600;
+  }
+
+  &.w-auto {
+    display: inline-block;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    span {
+      color: map_get($color, 'grey-11');
+
+      &.info {
+        font-weight: 600;
+      }
+
+      &.icon {
+        position: relative;
+        top: 6px;
+        margin-right: 0.7rem;
+        display: inline-block;
+      }
+    }
+  }
+}

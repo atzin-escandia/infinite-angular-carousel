@@ -1,0 +1,44 @@
+<div class="green-cancel">
+
+  <ng-container *transloco="let t">
+
+    <!-- Header -->
+    <div class="green-cancel__header">
+      <div class="green-cancel__logo">
+        <span class="fa cf-icon-crowdfarming-bold green-cancel__logo--icon" aria-hidden="true"></span>
+        <span class="fa cf-icon-text-light green-cancel__logo--text" aria-hidden="true"></span>
+      </div>
+      <figure class="green-cancel__img-confirmation-wrapper">
+        <img src="/assets/img/illustration/confirmation.svg" />
+      </figure>
+      <h4 class="green-cancel__header-title">{{t('page.account-deleted.title')}}</h4>
+      <p class="green-cancel__header-subtitle">{{t('page.account-deleted.body')}}</p>
+    </div>
+
+    <!-- Body -->
+    <div class="green-cancel__body" *ngIf="radioConfig">
+      <p class="green-cancel__body-title">{{t('page.feedback-account-deleted.text-info')}}</p>
+
+      <!-- Radio options -->
+      <div class="green-cancel__radios-wrapper" *ngIf="radios.length">
+        <cf-radio class="radio-container" [radios]="radios" (checkedChange)="this[radioConfig.click]($event)"
+          [width]="'auto'">
+          <ng-template let-radio="radio"> {{t(radio.label)}} </ng-template>
+        </cf-radio>
+      </div>
+
+      <!-- Textarea -->
+      <ng-container *ngIf="shouldShowTextarea">
+        <cf-textarea [size]="'s'" [limit]="150" (keyup)="handleKeyUpTextarea($event.target.value)" [placeholder]="t('page.reason.form')">
+        </cf-textarea>
+      </ng-container>
+
+      <!-- Button -->
+      <div class="green-cancel__body-button-wrapper">
+        <cf-button [disabled]="isDisabledButton || errorDeleteAccount" [width]="'auto'" (click)="handleClickSendSurvey()">
+          {{t('page.send.button')}}</cf-button>
+      </div>
+    </div>
+
+  </ng-container>
+</div>

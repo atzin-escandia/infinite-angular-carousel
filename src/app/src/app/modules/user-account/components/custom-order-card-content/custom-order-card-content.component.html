@@ -1,0 +1,44 @@
+<section class="custom-order-card-content" *transloco="let t">
+  <section *ngIf="orderData" class="custom-order-card-content__body">
+    <div class="custom-order-card-content__imgs">
+      <images-mosaic [imagesList]="images" [isOrder]="true" [isItemList]="true"></images-mosaic>
+    </div>
+    <div class="custom-order-card-content__data-status">
+      <div class="custom-order-card-content__data-price">
+        <div class="custom-order-card-content__data">
+          <span
+            class="custom-order-card-content__data--sep custom-order-card-content__date t-component-regular-xs text-grey-56 hide-mobile">
+            {{ orderData.orderNumber }}
+            <ng-container *ngIf="orderData.registerDate">· {{ utilsSrv.dateForFront(orderData.registerDate) }}</ng-container>
+          </span>
+          <span class="custom-order-card-content__data--sep t-component-semibold-m text-primary-88 mb-2">
+            {{ t('global.personalised-box.text-info') }}
+          </span>
+          <span class="t-component-semibold-s text-primary-88 hide-mobile mb-2">
+            {{ orderData.articles.length + ' ' + t('global.number-of-items.text-info') }}
+          </span>
+          <div class="custom-order-card-content__to-date t-component-regular-s">
+            <span class="hide-mobile text-primary-88">{{ t('global.Approximate-delivery.text-info') }}&nbsp;</span>
+            <span class="hide-desktop text-primary-88">{{ t('global.delivery.text-info') }}&nbsp;</span>
+            <span *ngIf="!orderData.shipment.delayed; else delayed" class="text-grey-56">
+              {{ utilsSrv.dateForFront(orderData.shipment.arrivalEstimateDate) }}
+            </span>
+            <ng-template #delayed>
+              <span class="text-grey-56">
+                {{ t('global.delayed.text-info') }}
+              </span>
+            </ng-template>
+          </div>
+          <span class="t-component-regular-m custom-order-card-content__price text-grey-56 hide-desktop">{{ price }}</span>
+          <div class="mt-8 mt-sm-3">
+            <order-status-chip *ngIf="orderStatusParams" [statusParams]="orderStatusParams"></order-status-chip>
+          </div>
+        </div>
+        <span class="t-component-regular-m custom-order-card-content__price text-grey-56 hide-mobile">{{ price }}</span>
+      </div>
+    </div>
+  </section>
+  <div class="hide-mobile">
+    <ds-icon name="next" size="ds--size-24" color="content-two"></ds-icon>
+  </div>
+</section>

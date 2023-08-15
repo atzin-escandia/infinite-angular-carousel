@@ -1,0 +1,37 @@
+<div class="container justify-content-center private-zone nop" *ngIf="orders && !order">
+  <div class="row container-fluid nop">
+    <div class="col-12 mbm">
+      <div class="row" infiniteScroll [infiniteScrollDistance]="2" (scrolled)="onScroll()">
+        <div class="col-12 nop">
+          <!-- Orders -->
+          <div id="order-number-{{id}}" class="col-12 nop mbm" *ngFor="let order of orders; index as id">
+            <order-card [order]="order" (detailInUp)="detailInUp(id)"></order-card>
+          </div>
+          <!-- Scroll to top button (only mobile) -->
+          <div class="d-md-none row d-flex justify-content-center to-top" *ngIf="orders && orders.count > 2"
+            (click)="domSrv.scrollToTop()">
+            <div class="d-flex flex-column align-items-center">
+              <i class="fa fa-angle-up" aria-hidden="true"></i>
+              {{textSrv.getText('Page start')}}
+            </div>
+          </div>
+          <!-- Pagination -->
+          <div class="d-none d-md-flex col-md-11 justify-content-center mt-l mb-xxl" *ngIf="orders.length > 10">
+            {{textSrv.getText('Page')}} {{currentPage}} {{textSrv.getText('of')}} {{totalPages}}
+            <cf-navigation [start]="1" [pages]="totalPages" [currentPage]="currentPage"
+              (navigationChange)="paginate(e)"></cf-navigation>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container justify-content-center private-zone nop d-flex flex-column align-items-start"
+  *ngIf="orders && order">
+  <div class="order-deatil-back t-green-primary flex-center mr-m mb-l t-s-medium pointer" (click)="order = null">
+    <i class="eva eva-arrow-ios-back-outline f22" aria-hidden="true"></i> {{textSrv.getText('Back')}}
+  </div>
+  <order-detail class="col-12 nop" [order]="order" [UpOrder]="true" (checkLoginEvn)="autoLoginValidation($event)">
+  </order-detail>
+</div>

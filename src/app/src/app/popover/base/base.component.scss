@@ -1,0 +1,9 @@
+@import '../../../scss/commons.scss';
+
+.popover-background {
+  position: fixed;
+  top: 100vh;
+  width: 100vw;
+  background: $black;
+  filter: blur(3px);
+}

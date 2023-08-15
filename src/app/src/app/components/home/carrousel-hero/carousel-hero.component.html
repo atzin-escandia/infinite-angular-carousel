@@ -1,0 +1,48 @@
+<ng-container *ngIf="isLoadingSlide; else content">
+  <div #loading class="loading"></div>
+</ng-container>
+
+<ng-template #content>
+  <ng-container *ngIf="slides">
+    <div
+      *transloco="let t"
+      class="carousel"
+      (mouseover)="stopAutoTransition()"
+      (mouseout)="startAutoTransition()"
+      (touchstart)="isMobile && onTouchStart($event)"
+      (touchmove)="isMobile && onTouchMove($event)"
+      (touchend)="isMobile && onTouchEnd()">
+      <div
+        class="carousel-inner"
+        [ngStyle]="{
+          transform: 'translateX(-' + currentSlideIndex * 100 + '%)',
+          width: 'calc(100% * copySlides.length)'
+        }">
+        <div
+          *ngFor="let slide of copySlides; let i = index"
+          class="carousel-item"
+          [ngStyle]="{ 'background-image': 'url(' + slide.image + ')' }">
+          <div class="carousel-content">
+            <div class="container">
+              <h2 class="t-heading-xl">{{ t(slide.titleKey) }}</h2>
+              <ds-button
+                content="{{ t(slide.button.textKey) }}"
+                size="m"
+                variant="primary"
+                (buttonClick)="handleButtonClick(slide.button)"></ds-button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div *ngIf="slides.length > 1" class="carousel-dots mt-5">
+          <span
+            *ngFor="let slide of slides; let i = index"
+            class="dot"
+            [class.active]="i === getActiveDotIndex()"
+            (click)="goToSlide(i)"></span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>

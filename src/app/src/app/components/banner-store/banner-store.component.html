@@ -1,0 +1,19 @@
+<div *ngIf="deviceInfo.os !== 'iOS' && deviceInfo.os !== 'Android' && !privateZonePath && !subscriptionBoxPath && false"
+  class="banner-store-container row-no-margin justify-content-between" id="banner-store-component-wraper">
+  <div *transloco="let t" class="d-flex m-auto ml-5">
+    <div class="banner-store-text-container flex-center  justify-content-end f20">
+      {{t('Download app')}}
+    </div>
+    <div class="banner-store-buttons-container flex-center ml-3">
+      <store-buttons></store-buttons>
+    </div>
+  </div>
+  <div class="banner-store-buttons-container flex-center">
+    <cf-button (click)="closeBanner()" [width]="'fit'" [size]="'s'" class="mr-5">
+      ✕
+    </cf-button>
+  </div>
+</div>
+<smart-app-banner-component [deviceInfo]="deviceInfo.os"
+  *ngIf="!fromApp && !subscriptionBoxPath && !privateZonePath && (deviceInfo.os === 'iOS' || deviceInfo.os === 'Android')">
+</smart-app-banner-component>

@@ -1,0 +1,86 @@
+<div class="col-12 noml nomr nopl nopr mb-xxl user-account-container" *transloco="let t">
+  <!-- ONLY MOBILE -->
+  <!-- Back -->
+  <div class="private-zone-back hide-tablet flex-center" *ngIf="!app">
+    <div class="private-zone-back-container border-bottom-grey-2-2x d-flex w-100">
+      <div class="flex-center" (click)="openPrivateMobileMenu()">
+        <i class="eva eva-arrow-ios-back-outline f26 mr-s" aria-hidden="true"></i>
+        {{textSrv.getText('My Account')}}
+      </div>
+    </div>
+  </div>
+
+  <div class="nopl nopr col-12 mob-pt-m pt-xl pb-s flex-column">
+    <h3 class="t-h3-bold t-black-T mt-sm-2">
+      {{textSrv.getText('Your garden')}}
+    </h3>
+    <p *ngIf="userUps" class="t-l-regular t-black-T nom">
+      {{textSrv.getText('See all your ups')}}
+    </p>
+  </div>
+
+  <!-- There are Ups, season types tabs -->
+  <div *ngIf="loaded" class="cf-tabs-wrapper justify-content-md-start justify-content-center">
+    <cf-tabs *ngIf="myGardenTabs"
+       [currentTab]="0"
+       [size]="'m'"
+       [tabs]="myGardenTabs"
+       [tabsIds]="tabsIds"
+       [translator]="t"
+       (currentTabChange)="changeTab($event)"
+       class="w-100 mb-s">
+    </cf-tabs>
+    <!--  On season tab -->
+    <div *ngIf="onSeasonTab && onSeasonUps" class="w-100">
+      <div *ngIf="onSeasonUps.length <= 0" class="w-100 row-no-margin justify-content-center">
+        <div class="col-12 col-md-8 d-flex flex-column align-items-center">
+          <img width="160" alt="{{textSrv.getText('No on-season adoptions')}}"
+            src="https://common.crowdfarming.com/uploaded-images/1594050718423-e39da756-1713-41f4-b3a8-4a0261eb286d.svg">
+          <p class="t-l-regular t-grey t-a-center">{{textSrv.getText('No on-season adoptions')}}</p>
+          <cf-button *ngIf="!app" [width]="'fit'" (click)="routerSrv.navigateToFarmersMarket('ADOPTION')">
+            {{t('page.user-account-cta-adopt-a-tree.button')}}
+          </cf-button>
+        </div>
+      </div>
+
+      <div *ngIf="onSeasonUps.length > 0" class="adoption-cards-container row nop nomr noml mt-l">
+        <div class="col-xl-4 col-md-6 col-12 d-flex justify-content-center pl-s pr-s mb-xl mob-pb-s pointer"
+          *ngFor="let up of onSeasonUps">
+          <adoption-card *ngIf="up" [upCf]="up"></adoption-card>
+        </div>
+      </div>
+    </div>
+
+    <!--  Out of season tab -->
+    <div *ngIf="outOfSeasonTab && outOfSeasonUps" class="w-100">
+      <div *ngIf="outOfSeasonUps.length <= 0" class="w-100">
+        <p class="t-l-regular t-grey t-a-center">
+          {{textSrv.getText('No off-season adoptions')}}
+        </p>
+      </div>
+
+      <div *ngIf="outOfSeasonUps.length > 0" class="adoption-cards-container row nop nomr noml mt-l">
+        <div class="col-xl-4 col-md-6 col-12 d-flex justify-content-center pl-s pr-s mb-xl mob-pb-s pointer"
+          *ngFor="let up of outOfSeasonUps">
+          <adoption-card *ngIf="up" [upCf]="up"></adoption-card>
+        </div>
+      </div>
+    </div>
+
+    <!--  Old garden tab -->
+    <div *ngIf="oldGardenTab && oldGardenUps" class="w-100">
+      <div *ngIf="oldGardenUps.length <= 0" class="w-100">
+        <p class="t-l-regular t-grey t-a-center">
+          {{textSrv.getText('No old-garden adoptions')}}
+        </p>
+      </div>
+
+      <div *ngIf="oldGardenUps.length > 0" class="adoption-cards-container row nop nomr noml mt-l">
+        <div class="col-xl-4 col-lg-6 col-12 d-flex justify-content-center pl-s pr-s mb-xl mob-pb-s pointer"
+          *ngFor="let up of oldGardenUps">
+          <adoption-card *ngIf="up" [upCf]="up"></adoption-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

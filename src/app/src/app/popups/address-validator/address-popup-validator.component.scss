@@ -1,0 +1,181 @@
+@import '../../../scss/commons.scss';
+@import '../../../scss/colors.scss';
+
+.validator {
+  width: 100%;
+  background: #fff;
+  max-width: 544px;
+  padding: 24px;
+
+  &.setHeight {
+    min-height: 80vh;
+  }
+
+  p {
+    color: $greyText;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &-box {
+    height: 160px;
+
+    .wrapper {
+      padding: 16px;
+      display: flex;
+    }
+
+    .edit {
+      display: none !important;
+
+      i {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 12px;
+        height: 16px;
+      }
+    }
+  }
+
+  .suggestion {
+    margin-bottom: 40px;
+    margin-top: 16px;
+
+    h2 {
+      font-size: 16px;
+      line-height: 24px;
+      color: $darkTexts;
+      margin-bottom: 24px;
+    }
+
+    &-box {
+      height: 136px;
+
+      .wrapper {
+        display: flex;
+        height: 136px;
+        padding: 16px;
+      }
+    }
+  }
+
+  .noSuggestion {
+    margin-top: 24px;
+  }
+}
+
+//general
+
+h3 {
+  color: $darkTexts;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.radio-button {
+  position: relative;
+  display: block;
+  padding-left: 16px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  .validator-input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  input:checked ~ .custom-radio {
+    border: solid 2px map_get($color, 'primary');
+
+    &::after {
+      display: block;
+    }
+  }
+
+  .custom-radio {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #fff;
+    border: solid 2px map_get($color, 'grey-7');
+    border-radius: 50%;
+    display: block;
+
+    &::after {
+      content: '';
+      left: 2px;
+      position: absolute;
+      top: 2px;
+      width: 8px;
+      height: 8px;
+      background: #2e9e93;
+      display: none;
+      border-radius: 50%;
+    }
+  }
+}
+
+.info {
+  margin-left: 8px;
+
+  h5 {
+    color: $darkTexts;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  p {
+    color: $greyText;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  .suggestion-field {
+    background-color: rgba(#27a7ff, 0.2);
+    border: 1px solid #27a7ff;
+    color: #27a7ff;
+    display: inline-block;
+    line-height: 24px;
+    border-radius: 5px;
+    padding: 0 3px;
+    margin: 0 2px 4px 2px;
+  }
+}
+
+//CLASS ACTIVE FOR SELECTED ADDRESSES
+
+.active {
+  border: solid 1px map_get($color, 'primary');
+  border-radius: 5px;
+
+  .wrapper {
+    background: rgba($greenBG, 0.2);
+    border-radius: 5px;
+    padding: 16px;
+  }
+
+  .edit {
+    padding-right: 10px;
+    display: flex !important;
+    cursor: pointer;
+  }
+}

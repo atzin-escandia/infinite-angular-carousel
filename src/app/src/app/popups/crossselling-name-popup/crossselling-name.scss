@@ -1,0 +1,54 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+
+.product-name {
+  max-width: none;
+  width: 500px;
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    width: 100vw;
+  }
+
+  cf-input {
+    width: 288px;
+
+    .cf-input-box {
+      margin-top: 0;
+    }
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+  }
+
+  .inputs {
+    position: relative;
+
+    .picture {
+      margin-top: 2px;
+      min-width: 50px;
+      height: 50px;
+      border-radius: 5px;
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        top: 15px;
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+
+  .change-button {
+    width: 87px;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      width: 100%;
+    }
+  }
+
+  .error-form {
+    color: $errorForm;
+  }
+}

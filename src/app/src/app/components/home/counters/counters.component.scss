@@ -1,0 +1,34 @@
+@import '../../../../scss/commons.scss';
+
+.info-how-section {
+  &-content {
+    .fw-lighter {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .count {
+      transition: transform 0.35s ease;
+    }
+
+    img {
+      max-width: 80px;
+      margin: 0 auto;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        max-width: 88px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.ilustration {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: -40px;
+  background-repeat: no-repeat;
+  left: 100px;
+  background-image: url(../../../../assets/icon/home/Illustrations-divider-2.svg);
+}

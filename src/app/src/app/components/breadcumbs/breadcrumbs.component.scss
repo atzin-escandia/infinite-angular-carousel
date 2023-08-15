@@ -1,0 +1,50 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+
+.breadcrumbs {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+
+  button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    outline: none;
+
+    &:hover {
+      color: map_get($color, 'primary');
+    }
+  }
+
+  a {
+    &:hover {
+      color: map_get($color, 'primary');
+    }
+  }
+
+  p {
+    padding: 0;
+    margin: 0;
+
+    &:hover {
+      color: map_get($color, 'primary');
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__item-text {
+    color: $CF3;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+
+    &--selected {
+      color: map_get($color, 'primary');
+    }
+  }
+}

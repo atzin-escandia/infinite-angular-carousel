@@ -1,0 +1,29 @@
+// @import '@crowdfarming/ds-library/src/styles/global';
+
+@mixin ec-create-grid($columns) {
+  grid-template-columns: repeat($columns, minmax(10px, 1fr));
+
+  &__container-item {
+    border-bottom: pxToRem(1) solid map_get($semanticNeutralColors, 'semantic-neutral-light');
+    border-right: pxToRem(1) solid map_get($semanticNeutralColors, 'semantic-neutral-light');
+
+    $first-child-in-any-row: ':nth-child(#{$columns}n + 1)';
+
+    $any-child-in-the-last-row: ':nth-last-child(-n + #{$columns})';
+
+    $first-child-in-last-row: '#{$first-child-in-any-row}#{$any-child-in-the-last-row}';
+
+    &#{$first-child-in-last-row},
+    &#{$first-child-in-last-row} ~ & {
+      border-bottom: none;
+    }
+
+    &:nth-child(#{$columns - 1}n) {
+      border-right: pxToRem(1) solid map_get($semanticNeutralColors, 'semantic-neutral-light');
+    }
+
+    &:nth-child(#{$columns}n) {
+      border-right: none;
+    }
+  }
+}

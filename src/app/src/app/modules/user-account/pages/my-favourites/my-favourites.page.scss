@@ -1,0 +1,21 @@
+@import '../../../../../scss/colors.scss';
+
+:host {
+  width: 100%;
+}
+
+h3 {
+  color: map-get($color, 'black-4');
+}
+
+p {
+  color: map-get($color, 'grey-11');
+}
+
+.mt-xxxl {
+  margin-top: 72px;
+}
+
+.empty-favourites {
+  margin-top: 40px;
+}

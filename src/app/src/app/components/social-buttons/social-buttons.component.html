@@ -1,0 +1,14 @@
+<div *transloco="let t" class="row">
+  <div *ngIf="fb" class="col-md-6 mb-3 mb-md-0">
+    <div class="social-btn social-btn-fb d-flex align-items-center justify-content-center" (click)="onButtonClick('fb')">
+      <i class="eva eva-facebook f30 mr-s" aria-hidden="true"></i>
+      <span class="t-xs-medium">{{t('global.continue-facebook.text-link')}}</span>
+    </div>
+  </div>
+  
+  <div *ngIf="google" class="col-md-6">
+    <div #gWrapper class="w-100">
+      <div [id]="'gbtn_' + type"></div>
+    </div>
+  </div>
+</div>

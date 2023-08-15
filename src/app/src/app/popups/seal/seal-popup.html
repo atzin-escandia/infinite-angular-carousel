@@ -1,0 +1,26 @@
+<div *ngIf="seal.code"
+  class="seal-popup-container text-black cf-modal cf-modal-seal cf-modal-size-l cf-shadow-m" id="seal-popup">
+  <div class="cf-modal-seal-icon">
+    <img src="{{seal.imageUrl | cdn}}">
+  </div>
+
+  <div class="cf-modal-title" [innerHTML]="seal | translation:'shortDescription'"></div>
+
+  <div class="cf-modal-container" [innerHTML]="seal | translation:'longDescription'"></div>
+
+  <div *ngIf="seal.files.length > 0">
+    <div *ngFor="let file of seal.files; let i = index" (click)="openFile(file)"
+      class="file d-flex justify-content-between t-green-primary">
+      <div class="d-flex">
+        <i class="eva eva-file-text-outline mr-s" aria-hidden="true"></i>
+        <div class="t-m-regular">
+          {{file.name}}
+        </div>
+      </div>
+      <div>
+        <i class="eva eva-diagonal-arrow-right-up-outline" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+</div>

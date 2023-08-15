@@ -1,0 +1,30 @@
+<div class="generic-popup-container product-name">
+  <div class="text">
+    <div class="t-black-T t-m-medium">
+      {{textSrv.getText('force name it title')}}</div>
+    <div class="t-grey t-m-regular mt-s">
+      {{textSrv.getText('force name it subtitle')}}
+    </div>
+  </div>
+
+  <div *ngFor="let product of products; let i = index" class="flex-column">
+    <div class="inputs d-flex flex-row align-items-center justify-content-between justify-content-md-start">
+      <cf-input class="mr-m">
+        <input class="name" name="name" maxlength="30" [(ngModel)]="product.name"/>
+      </cf-input>
+      <div class="picture" [style.backgroundImage]="'url(' + (product.picture | cdn) + ')'"></div>
+    </div>
+    <p *ngIf="product.errName" class="f14 error-form t-m-medium">
+      {{textSrv.getText('Add name to'}
+    </p>
+    <p *ngIf="product.errFormat" class="f14 error-form t-m-medium">
+      {{textSrv.getText('The name of you {variety} is invalid.', {'{variety}': product.publicVariety})}}
+    </p>
+  </div>
+
+  <div class="change-button mt-m">
+    <cf-button id="generic-pop up-accept-btn" (click)="save()" [width]="'auto'">
+      {{textSrv.getText('Save')}}
+    </cf-button>
+  </div>
+</div>

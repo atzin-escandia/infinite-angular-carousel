@@ -1,0 +1,82 @@
+<div *transloco="let t" class="container">
+  <header class="header">
+    <ds-tabs
+      [currentTab]="currentTab"
+      [tabs]="[t(tabs[0].key), t(tabs[1].key), t(tabs[2].key)]"
+      (currentTabChange)="changeTab($event)"></ds-tabs>
+    <div class="header__buttons-area">
+      <filters-menu-btn [idPage]="currentIdPage"></filters-menu-btn>
+      <sorting-selector [idPage]="currentIdPage"></sorting-selector>
+    </div>
+  </header>
+  <div class="divider"></div>
+
+<div *ngIf="isFiltersActive" class="chips-wrapper">
+  <ds-chip
+    *ngFor="let category of selectedFilters?.categories"
+    [label]="formatFilter(category, 'categories')"
+    (closeElement)="removeSelectedFilter('categories', category)">
+  </ds-chip>
+  <ds-chip
+    *ngFor="let country of selectedFilters?.countries"
+    [label]="formatFilter(country, 'countries')"
+    (closeElement)="removeSelectedFilter('countries', country)">
+  </ds-chip>
+  <ds-chip
+    *ngFor="let seal of selectedFilters?.seals"
+    [label]="formatFilter(seal, 'seals')"
+    (closeElement)="removeSelectedFilter('seals', seal)">
+  </ds-chip>
+  <ds-chip
+    *ngFor="let subcategory of selectedFilters?.subcategories"
+    [label]="formatFilter(subcategory, 'subcategories')"
+    (closeElement)="removeSelectedFilter('subcategories', subcategory)">
+  </ds-chip>
+</div>
+
+  <ng-container [ngSwitch]="currentTab">
+    <ng-container *ngSwitchCase="0">
+      <adoptions-catalogue
+        [projects]="farmersMarketSrv.getProjectsByPage()?.adoptions"
+        [title]="t('page.search-results-adoptions.title')"
+        [type]="'adoptions'"
+        [searchPath]="'adoptions'"
+        >
+      </adoptions-catalogue>
+      <no-results-page *ngIf="!farmersMarketSrv.getProjectsByPage()?.adoptions?.length">
+        [title]="t('page.search-results-adoptions.title')">
+      </no-results-page>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="1">
+      <boxes-catalogue
+        [projects]="farmersMarketSrv.getProjectsByPage()?.boxes"
+        [title]="t('page.search-results-boxes.title')"
+        [type]="'boxes'"
+        [searchPath]="'boxes'"
+        >
+      </boxes-catalogue>
+      <no-results-page *ngIf="!farmersMarketSrv.getProjectsByPage()?.boxes?.length">
+      </no-results-page>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="2">
+      <adoptions-catalogue
+        [projects]="farmersMarketSrv.getProjectsByPage()?.adoptions"
+        [title]="t('page.search-results-adoptions.title')"
+        [searchPath]="'all'"
+        >
+      </adoptions-catalogue>
+      <boxes-catalogue
+        [projects]="farmersMarketSrv.getProjectsByPage()?.boxes"
+        [title]="t('page.search-results-boxes.title')"
+        [searchPath]="'all'"
+        >
+      </boxes-catalogue>
+      <no-results-page
+        *ngIf="!farmersMarketSrv.getProjectsByPage()?.adoptions?.length &&
+        !farmersMarketSrv.getProjectsByPage()?.boxes?.length">
+      </no-results-page>
+    </ng-container>
+  </ng-container>
+</div>

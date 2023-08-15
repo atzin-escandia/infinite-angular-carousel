@@ -1,0 +1,49 @@
+@import '../../../scss/commons.scss';
+
+.popover-accordion {
+  width: 100vw;
+  position: absolute;
+  left: 0;
+  top: 81px;
+  z-index: 100;
+  background-color: white;
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    top: 129px;
+  }
+
+  .section {
+    position: relative;
+    padding: 26px 0;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      padding: 20px 0 20px 40px;
+    }
+
+    border-bottom: 1px solid map_get($color, 'grey-2');
+    z-index: 100;
+
+    &:hover {
+      cursor: pointer;
+      color: map_get($color, 'primary');
+    }
+
+    &:active {
+      font-weight: bold;
+    }
+
+    .container {
+      .fa {
+        font-size: 24px;
+        top: 28px;
+        left: -18px;
+        position: absolute;
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          top: 20px;
+          left: 24px;
+        }
+      }
+    }
+  }
+}

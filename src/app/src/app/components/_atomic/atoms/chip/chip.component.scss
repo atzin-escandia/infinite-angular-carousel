@@ -1,0 +1,12 @@
+@import '../../../../../scss/commons.scss';
+
+.chip {
+  padding: 4px 8px;
+  background-color: #f2f7f7;
+  border-radius: 8px;
+  border: 1px solid map_get($color, 'primary');
+
+  span {
+    color: map_get($color, 'primary');
+  }
+}

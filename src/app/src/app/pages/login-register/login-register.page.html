@@ -1,0 +1,43 @@
+<div *transloco="let t" class="login-register mt-l mb-xxl mob-mt-l">
+  <div class="d-flex justify-content-center" *ngIf="!domSrv.isNavbarActive()">
+    <i class="logo cf-icon-crowdfarming-bold" aria-hidden="true"></i>
+    <i class="cf-icon-text-light d-flex align-items-center" aria-hidden="true"></i>
+  </div>
+
+  <div *ngIf="companyLogo" class="d-flex justify-content-center">
+    <img class="company-logo" [src]="companyLogo">
+  </div>
+
+  <!-- Tabs -->
+  <div class="flex-center">
+    <cf-tabs
+      [size]="'m'"
+      class="w-100"
+      [tabsIds]="tabsIds"
+      [tabs]="[t('global.sign-up.tab'), t('global.login-register.form')]"
+      (currentTabChange)="tab = $event"
+      [currentTab]="tab"
+      [translator]="t"
+    >
+    </cf-tabs>
+  </div>
+
+  <div class="w-100 mt-m mob-mt-s">
+    <!-- Register -->
+    <register-component
+      *ngIf="tab === 0"
+      [user]="user"
+      [google]="socialAvailability?.gg"
+      [fb]="socialAvailability?.fb"
+      (returnUserData)="register($event)"
+    ></register-component>
+
+    <!-- Login -->
+    <login-component
+      *ngIf="tab === 1"
+      [google]="socialAvailability?.gg"
+      [fb]="socialAvailability?.fb"
+      (returnUserData)="login($event.type, $event.email, $event.password)"
+    ></login-component>
+  </div>
+</div>

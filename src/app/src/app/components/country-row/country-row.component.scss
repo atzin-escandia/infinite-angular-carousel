@@ -1,0 +1,21 @@
+@import '../../../scss/commons.scss';
+
+.country-row-container {
+  background-color: $greyLight;
+  height: 42px;
+  color: $blackHeavy;
+  display: flex;
+  align-items: center;
+}
+
+.country-row-spacer {
+  padding-left: 0.5vw;
+}
+
+.button-link {
+  color: $CF1;
+
+  &-underline {
+    text-decoration: underline;
+  }
+}

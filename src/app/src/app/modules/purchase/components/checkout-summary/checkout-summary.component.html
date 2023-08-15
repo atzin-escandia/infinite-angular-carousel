@@ -1,0 +1,50 @@
+<ng-container *transloco="let t">
+  <div class="checkout-summary" [ngClass]="{ open: summaryOpen, 'no-mobile-overflow': avoidContentOverflow }">
+    <div class="checkout-summary__title" *ngIf="!hideHeader || (hideHeader && domSrv.getIsDeviceSize())" (click)="onTitleClick()">
+      <div class="checkout-summary-price-wrapper mb-m">
+        <app-checkout-summary-price
+          [price]="price"
+          [finalPrice]="finalPrice"
+          [credits]="credits"
+          [creditsToSpend]="creditsToSpend"
+          [isGroupOrder]="isGroupOrder"></app-checkout-summary-price>
+      </div>
+
+      <div class="d-flex justify-content-center" *ngIf="domSrv.getIsDeviceSize()">
+        <i class="eva eva-chevron-down-outline t-h3-regular t-black-H" aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <div
+      class="checkout-summary__products"
+      [@collapse]="domSrv.getIsDeviceSize() ? !summaryOpen : false"
+      (@collapse.done)="onAnimationEvent($event)">
+      <div class="checkout-summary__products-elem" *ngFor="let product of products; let i = index">
+        <purchase-product
+          *ngIf="!isDiscoveryBox"
+          [product]="product"
+          [index]="i"
+          [canUpdate]="canUpdateProduct"
+          [currentIso]="currentIso"
+          [isSubscriptionAvailable]="isProductSubscriptionAvailable"
+          [isGiftAvailable]="isProductGiftAvailable"
+          [isInCheckout]="isInCheckout"
+          [cart]="cart"
+          (update)="updateProductHandler($event, i)"
+          (changeAddress)="changeAddressHandler()"
+          (delete)="deleteProductHandler(i)"></purchase-product>
+        <ng-container *ngIf="isDiscoveryBox">
+          <h2 class="t-component-semibold-l t-black-H mb-8">{{ t('discoverybox.page.checkout.title') }}</h2>
+          <div class="next-box--wrapper d-flex">
+            <img [src]="product.image" [alt]="t('discoverybox.global.' + product.monthText + '.month')" class="mr-16" />
+            <div class="content d-flex flex-column flex-grow-1">
+              <p class="t-component-semibold-s title mb-16">{{ product.multiLangTitle[currentLangIso$ | async] }}</p>
+              <p class="t-component-semibold-s">{{ t('page.Estimated-delivery.body') }}</p>
+              <p class="date">{{ product.deliveryDate | date : 'dd/MM/yyyy' }}</p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>

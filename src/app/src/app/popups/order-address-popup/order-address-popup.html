@@ -1,0 +1,51 @@
+<div class="order-address-popup-container order-address-popup-l-container">
+  <div class="popup-header-title" *ngIf="user">{{textSrv.getText('Shipment Address')}}</div>
+
+  <div class="w-100 t-supp-blue">{{textSrv.getText('Order address change warning')}}</div>
+
+  <div class="address-list">
+    <div class="show-addres-container" *ngIf="showAddress">
+      <div class="border-top-disabled-2x border-bottom-disabled-2x w-100 pa-m flex-center mv-m pointer"
+        (click)="toggleEditAdd({add: true, shipment: false})">
+        {{textSrv.getText('Add new address')}}
+      </div>
+
+      <option-card class="mb-s" *ngFor="let address of user.addresses; let i = index"
+        [optionSelected]="addressSelected === i" (triggerRadio)="newChosenAddress(address, i)" [option]="true">
+        <div option-card-content>
+          <div class="t-m-medium">{{address.name}} {{address.surnames}}</div>
+          <div class="text-grey t-m-regular">
+            {{address.street}}, {{address.number}} {{address.details}} <br />
+            {{address.zip}} {{address.province && address.country === 'us' ? address.province + ',' : ''}} {{address.city}}, {{countriesByIso[address.country] | translation: 'name'}} <br />
+            {{address.phone.prefix}} {{address.phone.number}} <br />
+          </div>
+        </div>
+      </option-card>
+
+      <div class="mt-m">
+        <cf-button *ngIf="order.shipment.address" [width]="'auto'" (click)="changeOrderAddress()"
+          [disabled]="order && addressChanged && addressChanged.country !== order.shipment.address.country">
+          {{textSrv.getText('select address')}}
+        </cf-button>
+        <!-- This button is for change the subscription address witch have a different format -->
+        <cf-button *ngIf="!order.shipment.address" [width]="'auto'" (click)="changeSubscriptionShipment()"
+        [disabled]="order && addressChanged && addressChanged.country !== order.shipment.country">
+        {{textSrv.getText('select address')}}
+      </cf-button>
+      </div>
+    </div>
+
+    <div *ngIf="addAddress">
+      <address-component class="address-form mb-m" [new]="true" [address]="address" [errorIn]="errorInAddress"
+        [currentAddress]="chosenAddress">
+      </address-component>
+
+      <password-tos class="mb-m" [newUser]="newUser" [errorIn]="errorInUser" *ngIf="!user"></password-tos>
+
+      <cf-button class="mt-m mb-s" (click)="saveAddress()" [width]="'auto'"> {{textSrv.getText('Add new address')}}
+      </cf-button>
+      <p (click)="dismissAdd()" class="text-button" *ngIf="user?.addresses?.length > 0">{{textSrv.getText('cancel')}}
+      </p>
+    </div>
+  </div>
+</div>

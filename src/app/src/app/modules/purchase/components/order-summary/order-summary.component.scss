@@ -1,0 +1,14 @@
+@import '../../../../../scss/commons.scss';
+
+.order-summary {
+  padding: 16px;
+  border-radius: 5px;
+
+  &__row {
+    &:not(:last-child) {
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px dashed map_get($color, 'disabled');
+    }
+  }
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Icon / Flag / x32 / Monaco </title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icon-/-Flag-/-x32-/-Monaco-" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Monaco" transform="translate(1.000000, 6.000000)" fill-rule="nonzero">
+            <path d="M27.2742857,-3.37412422e-06 L2.73,-3.37412422e-06 C2.00635336,-0.00116144431 1.31195574,0.291481025 0.799857861,0.813426772 C0.287759981,1.33537252 0,2.04377588 0,2.78249916 L0,10.4999966 L30,10.4999966 L30,2.78249916 C30,2.04453452 29.7128274,1.33679499 29.2016568,0.814975185 C28.6904862,0.293155383 27.9971901,-3.37412422e-06 27.2742857,-3.37412422e-06 Z" id="Shape" fill="#ED5565"></path>
+            <path d="M0,18.0965191 C0,18.8673608 0.287759981,19.6065643 0.799857861,20.1512033 C1.31195574,20.6958424 2.00635336,21.0012084 2.73,21 L27.2742857,21 C28.7796561,21 30,19.7000654 30,18.0965191 L30,10.5 L0,10.5 L0,18.0965191 Z" id="Shape" fill="#FFFFFF"></path>
+        </g>
+    </g>
+</svg>

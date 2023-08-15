@@ -1,0 +1,48 @@
+@import '../../../../../../scss/commons';
+@import '../../../../../../scss/general';
+
+.up-header {
+  .upper-block {
+    .image {
+      max-width: 736px;
+      height: 374px;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      position: relative;
+
+      @media (max-width: map_get($grid-breakpoints, 'xl')) {
+        max-width: 100%;
+        position: relative;
+        height: auto;
+        max-height: 380px;
+      }
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        border-radius: 0;
+      }
+
+      & img {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
+    .info {
+      max-width: 365px;
+      flex: 1;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        max-width: none;
+      }
+    }
+  }
+
+  .down-block {
+    .info-box {
+      border: 1px solid map_get($color, 'grey-3');
+      border-radius: 5px;
+      max-height: 56px;
+    }
+  }
+}

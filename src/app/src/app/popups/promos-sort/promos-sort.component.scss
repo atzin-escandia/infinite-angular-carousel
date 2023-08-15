@@ -1,0 +1,31 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+
+.sort-popup-container {
+  padding: 0;
+
+  .popup-header-title {
+    padding: 32px 40px 16px 40px;
+  }
+
+  .popup-options {
+    .option {
+      height: 56px;
+      font-size: 16px;
+      color: #858e9a;
+      border-top: 1px solid #858e9a;
+      padding: 16px 40px;
+      transition: all 0.35s ease;
+
+      &.clicked {
+        color: map_get($color, 'white-1');
+        background-color: map_get($color, 'primary');
+      }
+
+      &:hover {
+        color: map_get($color, 'primary');
+        background: rgba(46, 158, 147, 0.04);
+      }
+    }
+  }
+}

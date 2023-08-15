@@ -1,0 +1,48 @@
+<div class="login-popup-container login-popup-l-container" *ngIf="loaded">
+  <div class="popup-header-title" *ngIf="autoLoginMsg">{{autoLoginMsg}}</div>
+
+  <div class="d-flex flex-column mt-m">
+    <!-- Email -->
+    <cf-input [icon]="true" [disabled]="blockEmail">
+      <input id="email-input-popup" class="" name="email" placeholder="{{textSrv.getText('email')}}"
+        [(ngModel)]="user.email" />
+      <i input-icon class="fa fa-user" aria-hidden="true"></i>
+    </cf-input>
+
+    <!-- Password -->
+    <cf-input [icon]="true" class="mbs">
+      <input id="password-input-popup" type="password" class="" name="password"
+        placeholder="{{textSrv.getText('password')}}" [(ngModel)]="user.password" (keyup.enter)="login()" />
+      <i input-icon class="fa fa-lock" aria-hidden="true"></i>
+    </cf-input>
+
+    <!-- Forgot password -->
+    <div class="d-flex flex-row mb-l mt-s">
+      <div class="w-50" (click)="changeUser()" id="change-user-btn-autologin">
+        <span class="text-link text-link-green">{{textSrv.getText('Change user')}}</span>
+      </div>
+      <div class="w-50 text-right" (click)="onClose('recoverAccess')" id="recover-btn-autologin">
+        <span class="text-link text-link-green">{{textSrv.getText('Forgot password')}}</span>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <cf-button (click)="login(1)" [width]="'auto'" [disabled]="user.email.length < 4 || user.password.length < 6">
+      {{textSrv.getText('Log in')}}
+    </cf-button>
+  </div>
+
+  <!-- Err -->
+  <div id="recover-error-lbl" class="errorLine capi-error text-left mt-s mb-s" *ngIf="errorMsg" [innerHTML]="errorMsg">
+  </div>
+
+  <!-- Social login -->
+  <div *ngIf="socialAvailability" class="mt-m mob-mt-s">
+    <app-social-buttons
+      type="login-popup"
+      [fb]="socialAvailability?.fb"
+      [google]="socialAvailability?.gg"
+      (buttonSelect)="buttonSelectHandler($event)">
+    </app-social-buttons>
+  </div>
+</div>

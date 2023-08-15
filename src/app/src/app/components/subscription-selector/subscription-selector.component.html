@@ -1,0 +1,19 @@
+<section *transloco="let t" class="subscription-selector">
+  <ds-select
+    [required]="false"
+    [disabled]="false"
+    [label]="t('page.recurrent-order-modal-frequency.drop')"
+    [options]="options.frequencies"
+    [selectedOption]="optionsSelected.frequency"
+    (emitSelectOption)="handleOnChangeFrequency($event)">
+  </ds-select>
+
+  <cf-selector class="calendar-subscription"
+    [title]="utilsSrv.dateForFront(optionsSelected.date)"
+    [value]="options.dates"
+    [size]="'l'"
+    [icon]="'eva eva-calendar-outline f20 t-green-primary'"
+    [id]="calendarSelectorId"
+    (click)="handleOnChangeCalendarSelector()">
+  </cf-selector>
+</section>

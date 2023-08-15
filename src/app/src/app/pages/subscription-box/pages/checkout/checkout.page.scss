@@ -1,0 +1,51 @@
+@import '../../../../../scss/commons.scss';
+
+.subscription-box-checkout {
+  max-width: 710px;
+}
+
+.subscription-info-box {
+  background: map-get($color, 'grey-14');
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.next-box {
+  &--title {
+    color: map_get($color, 'black-4');
+
+    @media (max-width: map_get($grid-breakpoints, 'sm')) {
+      margin: 0 1rem;
+    }
+  }
+
+  &--wrapper {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--light-border-3, #c9d0d0);
+    background: var(--light-background-1, #fff);
+
+    @media (max-width: map_get($grid-breakpoints, 'sm')) {
+      margin: 0 1rem;
+    }
+
+    img {
+      height: 88px;
+    }
+
+    .content,
+    .title {
+      color: map_get($color, 'black-4');
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        font-size: 14px;
+        line-height: 1.2rem;
+      }
+    }
+
+    .title {
+      font-weight: 600;
+    }
+  }
+}

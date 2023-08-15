@@ -1,0 +1,40 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+@import '../../../../../scss/commons.scss';
+
+.accordion-gift {
+  background-color: map_get($color, 'grey-14');
+  height: 64px;
+  overflow: hidden;
+  border-radius: 8px;
+  flex-wrap: wrap;
+
+  &.open {
+    height: auto;
+    overflow: auto;
+  }
+
+  &-header {
+    cursor: pointer;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  &-body {
+    width: 100%;
+  }
+
+  span {
+    display: block;
+
+    &[class*='eva-'] {
+      font-family: 'Eva-Icons', serif;
+    }
+
+    &.arrow-open {
+      font-size: 25px;
+      align-self: center;
+      color: $black;
+    }
+  }
+}

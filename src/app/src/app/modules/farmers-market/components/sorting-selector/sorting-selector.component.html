@@ -1,0 +1,13 @@
+<div class="pointer">
+  <dropdown-select *ngIf="options" 
+    [required]="false" 
+    [options]="options"
+    [selectedOption]="selectedOption"
+    [justify]="isDesktop ? 'space-between' : 'center'"
+    (emitSelectOption)="sortCatalogue($event)"
+    icon="sort"
+    size="m"
+    class="dropdown-select"
+    >
+  </dropdown-select>
+</div>

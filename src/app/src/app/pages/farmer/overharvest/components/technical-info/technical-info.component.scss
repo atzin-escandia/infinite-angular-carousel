@@ -1,0 +1,21 @@
+@import '../../../../../../scss/colors';
+@import '../../../../../../scss/variables';
+
+.extra-info-row {
+  align-items: center;
+  display: flex;
+  height: 96px;
+  border-bottom: 1px dashed $greyHeavyBorder;
+
+  .extra-info-icon-container {
+    text-align: center;
+
+    i {
+      font-size: 32px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        margin-top: 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+<section class="cf-product-item" *transloco="let t">
+  <div class="cf-product-item__img">
+    <images-mosaic [imagesList]="images" [isItemList]="true"></images-mosaic>
+  </div>
+  <section class="cf-product-item__content" [ngClass]="{ 'cf-product-item__content--last': last }">
+    <div class="cf-product-item__summary">
+      <span class="t-body-s text-primary-88">
+        {{ productData._m_title | multiLangTranslation }} ({{ productData._m_subtitle | multiLangTranslation }})
+      </span>
+      <span *ngIf="productData.farmer" class="t-body-xs text-grey-56">
+        {{ productData.farm._m_name | multiLangTranslation }}, {{ productData.farmer.name }} {{ productData.farmer.surname }}
+      </span>
+    </div>
+    <div class="cf-product-item__right-data">
+      <ds-seals-header *ngIf="productData.headerSeals?.length" [seals]="productData.headerSeals | translateSeals"></ds-seals-header>
+      <div class="cf-product-item__unit-price">
+        <div class="cf-product-item__units t-body-s text-grey-56">
+          {{
+            productData.quantity === 1
+              ? t('global.number-units.text-info.one', { n: productData.quantity })
+              : t('global.number-units.text-info.other', { n: productData.quantity })
+          }}
+        </div>
+        <div class="cf-product-item__price t-body-s text-grey-56">
+          {{ productData.totalPrice | currency : productData.currency }}
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

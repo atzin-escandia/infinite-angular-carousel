@@ -1,0 +1,33 @@
+<div *transloco="let t" class="cross-selling-product">
+  <div class="promo-img-container">
+    <img class="promo-img" [src]="product.pictureURL | cdn" />
+  </div>
+  <div class="text-box d-flex flex-column mt-m">
+    <h5 class="t-m-medium t-black-H text-capitalize mb-xs product-title">{{ product | translation: 'title' }}</h5>
+    <span class="t-s-medium t-green-primary mb-xs">
+      {{ product.upCf ? product.upCf.name : product.brandName }}
+    </span>
+    <div class="data mt-s mb-s">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <span *ngIf="product.upCf || (!product.upCf && product.overharvest)" class="t-grey t-s-medium">
+            {{ product.weight }} {{ product | translation: 'weightUnit' }}/{{ t('global.box.text') }}
+          </span>
+          <div *ngIf="!product.upCf && !product.overharvest" class="d-flex align-items-center pointer" (click)="openInfoPopup()">
+            <span class="t-s-medium blue-text">{{ t('global.Info.title') }}</span>
+            <img class="question ml-s" src="{{ env.domain }}/assets/icon/common/question.svg" />
+          </div>
+        </div>
+        <div>
+          <span class="t-l-medium-regular t-black-T">
+            <span *ngIf="product._mastersBoxes?.length >= 2">{{ t('global.Adopt.From') }}</span>
+            {{ product.price?.amount | currency }}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="promotion-button flex-center" (click)="addProductHandler()">
+      <cf-button [width]="'auto'">{{ t(buyNowText ? 'global.buy-now.button' : 'global.add.form') }}</cf-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+@import '../../../../scss/commons.scss';
+
+.filter-categories {
+  &-item {
+    position: relative;
+    height: 64px;
+
+    & > div {
+      width: 90%;
+    }
+
+    &-selected {
+      & > div {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}
+
+.filters-directory-container {
+  &.is-mobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100vh - 82px);
+    overflow: auto;
+    background: #fff;
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+  }
+
+  &.filter-shown {
+    transform: translateX(0);
+  }
+}

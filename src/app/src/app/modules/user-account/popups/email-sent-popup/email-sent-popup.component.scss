@@ -1,0 +1,52 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+
+.email-sent-popup {
+  max-width: 540px;
+  width: 100%;
+  padding: 16px 24px;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  background: map_get($color, 'white-1');
+  box-shadow: #555 0 0 15px;
+  border-radius: 8px;
+  text-align: center;
+
+  &__title {
+    color: map_get($color, 'black-4');
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+  }
+
+  &__description {
+    color: map_get($color, 'grey-11');
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+  }
+
+  &__email {
+    color: map_get($color, 'black-4');
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    text-decoration: underline;
+  }
+
+  &__button-area {
+    margin-top: 1rem;
+  }
+
+  &__img-wrapper {
+    margin-bottom: 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > img {
+      width: 160px;
+      height: auto;
+    }
+  }
+}

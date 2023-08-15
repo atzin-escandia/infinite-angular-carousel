@@ -1,0 +1,7 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.order-payment-info {
+  &__payment-data {
+    margin-left: pxToRem(40);
+  }
+}

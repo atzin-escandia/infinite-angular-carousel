@@ -1,0 +1,106 @@
+@import '../../../../scss/colors.scss';
+@import '../../../../scss/variables.scss';
+
+.cta {
+  width: 100%;
+  height: 80px;
+  background-color: map_get($color, 'white-1');
+  z-index: 1;
+
+  @media (min-width: map_get($grid-breakpoints, 'md')) {
+    position: fixed;
+    top: -11px;
+    transition: top 1s ease;
+    border-bottom: 2px solid map_get($color, 'grey-1');
+
+    &.fixed {
+      top: 70px;
+    }
+  }
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    bottom: -70px;
+    transition: bottom 1s ease;
+    position: sticky;
+    border-top: 2px solid map_get($color, 'grey-1');
+
+    &.fixed {
+      width: 100%;
+      bottom: 0;
+    }
+  }
+}
+
+.oh-page {
+  .faqs-block {
+    background-color: map_get($color, 'grey-1');
+
+    &-image {
+      min-width: 352px;
+      height: 269px;
+    }
+  }
+
+  .farm-map {
+    iframe {
+      min-width: 352px;
+      height: 352px;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        min-width: 100%;
+        height: 152px;
+      }
+    }
+  }
+
+  .technical-info {
+    width: 100%;
+  }
+
+  .specifications-container {
+    background-color: map_get($color, 'grey-1');
+
+    .characteristic-list {
+      @media (min-width: map_get($grid-breakpoints, 'md')) {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+      }
+
+      &-item {
+        display: table;
+      }
+    }
+
+    .bullet-list {
+      position: relative;
+
+      &::before {
+        content: '';
+        background: $grey;
+        border-radius: 50%;
+        display: inline-block;
+        height: 6px;
+        left: -20px;
+        position: absolute;
+        top: 9px;
+        width: 6px;
+      }
+    }
+
+    .over18 {
+      margin-top: 32px;
+    }
+
+    .inline-element {
+      display: inline-block;
+    }
+  }
+
+  .oh-cs {
+    &-row {
+      height: 380px;
+      overflow-x: auto;
+    }
+  }
+}

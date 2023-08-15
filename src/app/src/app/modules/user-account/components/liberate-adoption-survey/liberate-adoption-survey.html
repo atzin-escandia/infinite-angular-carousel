@@ -1,0 +1,31 @@
+<div class="liberate-adoption-survey mt-xl mob-mt-l" *transloco="let t">
+  <div class="row" *ngIf="radios?.length">
+    <div class="col-12 pl-m pr-s mob-pr-m mob-mb-m d-flex flex-column">
+      <div class="box-border border-rs pa-xl mob-pa-m">
+        <h5 class="liberate-adoption-survey-title text-black t-h5-bold">{{t('page.cancel-adoption-survey.title')}}</h5>
+        <p class="liberate-adoption-survey-text t-grey mb-s t-m-regular">{{t('page.cancel-adoption-survey-question.body')}}</p>
+
+        <cf-radio class="radio-boxes liberate-adoption-survey-options t-grey t-m-regular mb-m" [radios]="radios"
+          (checkedChange)="this[radioConfig.click]($event)" [width]="'auto'">
+          <ng-template let-radio="radio"> {{t(radio.label)}} </ng-template>
+        </cf-radio>
+
+        <cf-textarea class="liberate-adoption-survey-text-area" *ngIf="showTextArea" name="message"
+          placeholder="{{t('page.reason.form')}}" (keyup)="messageIsEmpty(textInputMessage = $event.target.value)" [error]="error">
+        </cf-textarea>
+        <div class="cf-input-error-msg" *ngIf="error && radioSelected === liberationSurveyOptions.OTHER">
+          <div class="cf-input-error-icon eva eva-alert-triangle-outline">
+          </div>
+          {{t('page.Must-be-between.text-info')}}
+        </div>
+
+        <cf-button class="liberate-adoption-survey-btn hide-mobile mt-m" [disabled]="!radioConfig.checked" [width]="'auto'" (click)="register()">
+          {{t('page.cancel-adoption-survey.button')}}
+        </cf-button>
+        <cf-button class="liberate-adoption-survey-btn mt-m hide-desktop" [disabled]="!radioConfig.checked" [width]="'auto'" (click)="register()">
+          {{t('page.cancel-adoption-survey.button')}}
+        </cf-button>
+      </div>
+    </div>
+  </div>
+</div>

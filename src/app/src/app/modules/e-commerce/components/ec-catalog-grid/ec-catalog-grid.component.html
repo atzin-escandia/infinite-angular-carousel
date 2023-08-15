@@ -1,0 +1,10 @@
+<section class="ec-catalog-grid">
+  <ng-container *ngFor="let cardData of articlesList">
+    <div class="ec-catalog-grid__container-item">
+      <ng-container
+        *ngIf="cardTemplateRef"
+        [ngTemplateOutlet]="cardTemplateRef"
+        [ngTemplateOutletContext]="{ $implicit: cardData }"></ng-container>
+    </div>
+  </ng-container>
+</section>

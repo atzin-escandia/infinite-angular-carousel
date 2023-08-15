@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="100px" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>03.WaveSSecondary</title>
+    <g id="Landing-15Nov" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Waves" transform="translate(0.000000, -290.000000)" fill="#EAA42C">
+            <path d="M0,290 L1440,290 C1440,305.739236 1440,325.130807 1440,348.174714 C1274,421 963,339.48285 861,339.48285 C759,339.48285 583.357873,390 522,390 C388.49494,390 287.753852,244.697749 15.447643,342.437845 C10.3587907,344.264409 5.21002089,346.175854 0,348.174714 C0,330.058238 0,310.666667 0,290 Z" id="03.WaveSSecondary" transform="translate(720.000000, 340.000000) scale(-1, -1) translate(-720.000000, -340.000000) "></path>
+        </g>
+    </g>
+</svg>

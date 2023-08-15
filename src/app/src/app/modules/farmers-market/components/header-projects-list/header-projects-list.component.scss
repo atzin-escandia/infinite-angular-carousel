@@ -1,0 +1,38 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.header-projects-list {
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include bp(device-m) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__title {
+    width: 100%;
+
+    & h2 {
+      color: $ds--color-primary-88;
+    }
+  }
+
+  &__buttons-wrapper {
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    width: 100%;
+    gap: 8px;
+
+    @include bp(device-m) {
+      margin-bottom: 0;
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row;
+
+      & sorting-selector {
+        flex: 0.7;
+      }
+    }
+  }
+}

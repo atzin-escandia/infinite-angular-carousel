@@ -1,0 +1,23 @@
+@import '@crowdfarming/ds-library/src/styles/global.scss';
+
+.header-seals {
+  &-container {
+    display: flex;
+    gap: 4px;
+    margin: 4px 0;
+  }
+
+  &-item {
+    &-label {
+      height: 24px;
+      padding: 4px;
+      border-radius: 4px;
+      background-color: map-get($semanticPrimaryColors, 'semantic-primary-lightest');
+      color: map-get($semanticPrimaryColors, 'semantic-primary-medium');
+    }
+
+    &-img {
+      height: 32px;
+    }
+  }
+}

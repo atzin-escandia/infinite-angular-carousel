@@ -1,0 +1,11 @@
+<section class="custom-box-summary" *transloco="let t">
+  <div class="custom-box-summary__imgs">
+    <images-mosaic [imagesList]="images" [isItemList]="true"></images-mosaic>
+  </div>
+  <div class="custom-box-summary__content">
+    <span class="t-title-s text-primary-88">{{ t('global.personalised-box.text-info') }}</span>
+    <span class="t-body-s text-grey-56">{{ order.orderNumber }} · {{ utilsSrv.dateForFront(order.registerDate) }}</span>
+    <span class="t-body-s text-grey-56 mb-2">{{ t('global.number-of-items.text-info', { n: order.articles?.length }) }}</span>
+    <order-status-chip *ngIf="orderStatusParams" [statusParams]="orderStatusParams"></order-status-chip>
+  </div>
+</section>

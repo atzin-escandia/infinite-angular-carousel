@@ -1,0 +1,32 @@
+@import '../../../../../scss/commons.scss';
+
+.price-summary {
+  border-radius: 8px;
+  padding: 16px;
+  background: map_get($color, 'grey-14');
+
+  &__row {
+    & + .price-summary__row {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed map_get($color, 'grey-3');
+    }
+  }
+
+  .price-label {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 28px;
+  }
+
+  .credit-label {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #5794d9;
+  }
+}
+
+.info-icon {
+  color: #5794d9;
+}

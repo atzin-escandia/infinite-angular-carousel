@@ -1,0 +1,15 @@
+@import '../../../scss/commons.scss';
+
+.privacy-text {
+  &.red {
+    color: map_get($color, 'supp-3');
+
+    .privacy-button-link {
+      color: map_get($color, 'supp-3') !important;
+
+      :visited {
+        color: map_get($color, 'supp-3') !important;
+      }
+    }
+  }
+}

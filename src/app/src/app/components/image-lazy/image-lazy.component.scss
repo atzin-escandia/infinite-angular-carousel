@@ -1,0 +1,29 @@
+@import '../../../scss/colors.scss';
+
+:host {
+  .image-lazy- {
+    &container {
+      width: 100%;
+      height: 100%;
+    }
+
+    &img {
+      background-size: cover;
+      background-position: center;
+      height: 100%;
+      width: 100%;
+
+      img {
+        object-fit: cover;
+        max-height: 100%;
+        max-width: 100%;
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &hide {
+      background-image: none !important;
+    }
+  }
+}

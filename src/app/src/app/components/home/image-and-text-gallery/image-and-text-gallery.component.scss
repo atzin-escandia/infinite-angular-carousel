@@ -1,0 +1,52 @@
+@import '../../../../scss/colors.scss';
+
+:host {
+  .image-gallery- {
+    &container {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    &effect {
+      height: 100%;
+      display: flex;
+      transition: transform 0.75s ease-in-out;
+
+      &.opacity {
+        position: relative;
+        transition: transform 0s;
+
+        & .image-gallery-background {
+          position: absolute;
+          top: 0;
+          left: 0;
+          opacity: 0;
+          transition: opacity 0.25s ease;
+
+          &.opacity-show {
+            opacity: 1;
+          }
+
+          &.round {
+            border-radius: 100%;
+          }
+        }
+      }
+    }
+
+    &background {
+      height: 100%;
+      background-position: top;
+      background-size: cover;
+    }
+
+    &lazy {
+      background: unset !important;
+    }
+  }
+
+  #home-feeback-image {
+    box-shadow: 0 4px 6px 0 $blackShadow;
+  }
+}

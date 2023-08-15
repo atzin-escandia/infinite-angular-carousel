@@ -1,0 +1,201 @@
+@import '../../../../../../scss/commons';
+@import '../../../../../../scss/general';
+
+.up-history {
+  .farm,
+  .farmer {
+    .name {
+      padding: 0 8px;
+    }
+
+    .separator {
+      height: 2px;
+      width: 100%;
+      background-color: map_get($color, 'grey-2');
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        width: calc(100% - 32px);
+        margin: 0 auto 0 auto;
+      }
+    }
+
+    .img {
+      width: 100%;
+      height: 368px;
+      border-radius: 5px;
+      background-size: cover;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        height: 152px;
+        border-radius: 0;
+      }
+    }
+
+    .history {
+      max-height: 948px;
+      overflow-y: hidden;
+
+      &.unfold {
+        max-height: none;
+      }
+
+      .text {
+        padding: 24px 0;
+
+        p {
+          margin-bottom: 24px;
+        }
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          padding: 16px 0;
+          font-size: 16px;
+          line-height: 24px;
+
+          p {
+            padding: 0 8px;
+          }
+        }
+
+        img {
+          width: 100%;
+          height: 368px;
+          border-radius: 5px;
+          margin: 24px 0;
+          background-size: cover;
+
+          @media (max-width: map_get($grid-breakpoints, 'md')) {
+            height: 152px;
+            border-radius: 0;
+          }
+        }
+      }
+    }
+
+    .read-more {
+      padding-top: 24px;
+      text-decoration: underline;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        padding: 24px 8px 0 8px;
+        font-size: 16px;
+        line-height: 24px;
+      }
+    }
+
+    .quote-block {
+      position: relative;
+      margin: 56px 0 56px 0;
+
+      @media (max-width: map_get($grid-breakpoints, 'md')) {
+        padding: 32px 16px 0 16px;
+        margin: 32px 0 32px 0;
+        text-align: center;
+      }
+
+      .quote {
+        position: absolute;
+        width: 136px;
+        left: 0;
+        top: 0;
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          width: 68px;
+          left: 8px;
+          top: 0;
+        }
+      }
+
+      .text {
+        font-size: 18px;
+        font-style: italic;
+        line-height: 1.56;
+        padding: 56px 0 0 96px;
+        color: $text-grey;
+        text-align: left;
+
+        @media (max-width: map_get($grid-breakpoints, 'md')) {
+          text-align: center;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .location-info {
+    margin-top: 56px;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      margin-top: 32px;
+    }
+
+    .farm-info {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+
+      .title {
+        width: 100%;
+      }
+
+      .detail-farm {
+        color: black;
+        width: 100%;
+
+        @media (max-width: map_get($grid-breakpoints, 'sm')) {
+          max-width: 100vw;
+          width: 100vw;
+        }
+
+        .extra-info-row {
+          align-items: center;
+          display: flex;
+          height: 96px;
+          border-bottom: 1px dashed $greyHeavyBorder;
+
+          .extra-info-icon-container {
+            text-align: center;
+
+            i {
+              font-size: 32px;
+
+              @media (max-width: map_get($grid-breakpoints, 'md')) {
+                margin-top: 24px;
+              }
+            }
+          }
+        }
+
+        .company-name-icon-color svg path {
+          fill: map_get($color, 'brand');
+        }
+      }
+    }
+
+    .farm-map {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 368px;
+      margin-top: 24px;
+
+      @media (max-width: map_get($grid-breakpoints, 'sm')) {
+        height: 152px;
+        margin: 0 16px 0 16px;
+      }
+
+      .map-frame {
+        width: 100%;
+        border: 0;
+        box-shadow: 0 5px 10 -1px rgba(0, 0, 0, 0.3);
+        height: 100%;
+      }
+    }
+  }
+}

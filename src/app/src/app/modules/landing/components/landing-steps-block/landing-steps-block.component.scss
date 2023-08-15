@@ -1,0 +1,65 @@
+@import '../../../../../scss/variables';
+@import '../../../../../scss/colors';
+
+.landing-steps-block {
+  margin-top: 30px;
+
+  &__header {
+    text-align: center;
+
+    & h4 {
+      color: map_get($color, 'black-4');
+      font-weight: 800;
+      font-size: 32px;
+    }
+
+    p {
+      color: map_get($color, 'grey-11');
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &__index {
+    font-size: 80px;
+    position: absolute;
+    left: 25%;
+
+    @media (max-width: map_get($grid-breakpoints, 'lg')) {
+      left: 20%;
+    }
+
+    @media (max-width: map_get($grid-breakpoints, 'sm')) {
+      left: 60px;
+    }
+  }
+
+  & img {
+    width: 100%;
+    max-width: 257px;
+    height: auto;
+  }
+
+  &__card-texts {
+    margin-top: 0.75rem;
+    text-align: center;
+
+    & h3 {
+      color: map_get($color, 'grey-11');
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: -0.4px;
+    }
+
+    & p {
+      color: map_get($color, 'grey-11');
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.4px;
+    }
+  }
+}

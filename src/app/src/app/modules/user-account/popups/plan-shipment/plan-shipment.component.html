@@ -1,0 +1,91 @@
+<div id="plan-shipment-popup" class="position-relative" [ngClass]="{'h-100': domSrv.getIsDeviceSize()}" *transloco="let t">
+  <div class="plan-shipment-popup-container d-flex flex-column" [ngClass]="{'h-100': domSrv.getIsDeviceSize()}">
+    <h6 class="t-h6-medium t-black-H mb-xs">
+      {{t('global.plan-delivery.button')}}
+    </h6>
+    <p class="t-grey mb-l">{{textSrv.getText('Select shipping date')}}</p>
+
+    <div class="d-flex">
+      <!-- Image -->
+      <div class="image-container border-rs overflow-hidden" *ngIf="upCf">
+        <img [src]="upCf.pictureURL" alt="{{ upCf.name }} - {{ upCf | translation:'variety' }}" height="100%"
+          width="100%" />
+      </div>
+
+      <!-- Info -->
+      <div class="info-container ml-m">
+        <div *ngIf="upCf">
+          <p class="t-grey t-xs-regular nop nom">{{ up | translation:'variety' | titlecase }}</p>
+          <h6 class="t-black-H t-h6-bold nop nom">{{ upCf.name }}</h6>
+        </div>
+        <!-- Reserved boxes progress -->
+        <div class="reserved-progress d-flex justify-content-between align-items-center mt-s">
+          <div *ngFor="let box of boxesReserved" class="border-rs box-used"
+            [ngClass]="{'box-used': box === 'used', 'box-left': box === 'left', 'box-selected': box === 'selected'}">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="plan-shipment-body h-100 border-top-disabled-1x d-flex flex-column justify-content-between position-relative">
+      <div class="plan-shipment-body-container position-absolute d-flex flex-column">
+        <div class="plan-shipment-body-container-scroll d-flex flex-column align-items-center" id="dates-container">
+          <div class="w-100">
+            <div *ngFor="let item of product.shippingDates; let i = index" class="w-100">
+              <div class="plan-shipment-body-item no-mr no-ml closed">
+                <div class="position-relative">
+                  <div class="d-flex justify-content-between w-100 position-absolute pt-m pb-m"
+                    [ngClass]="domSrv.getIsDeviceSize() ? 'pl-m pr-m' : 'pl-l pr-l'">
+                    <!-- DATE -->
+                    <div class="plan-shipment-date" [ngClass]="{'pr-xs': domSrv.getIsDeviceSize()}">
+                      <p class="t-grey t-xs-regular nop nom">{{textSrv.getText('Estimated delivery date:')}}</p>
+
+                      <cf-selector (click)="openSelectDatesPopup(i)"
+                        [size]="domSrv.getIsDeviceSize() ? 's' : 'm'" [isOpen]="calendarSelectorOpen"
+                        [value]="product.shippingDates[i].date"
+                        [title]="utilsSrv.dateForFront(product.shippingDates[i].date)">
+                      </cf-selector>
+                    </div>
+
+                    <!-- QUANTITY -->
+                    <div class="plan-shipment-quantityno-pr" [ngClass]="{'pl-xs': domSrv.getIsDeviceSize()}">
+                      <p class="t-grey t-xs-regular nop nom">{{textSrv.getText('Quantity')}}</p>
+
+                      <div class="d-flex align-items-end mt-s">
+                        <cf-quantity [size]="'s'" (step)="addSubstractUms($event, i)"
+                          [quantity]="(item.selectedBoxes && item.selectedBoxes >= 1) ? item.selectedBoxes : minNumBoxes"
+                          [min]="product.shippingDates.length > 1 ? 0 : 1"
+                          [max]="product.shippingDates[i].remainingBoxes + product.shippingDates[i].selectedBoxes - minNumBoxes">
+                        </cf-quantity>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <cf-button [size]="'s'" [iconLeft]="true" [flat]="true"
+            [disabled]="((selBoxes + used) >= maxNumBoxes) || product.availableDates && (product.availableDates.length < 1)"
+            [ngStyle]="{'pointer-events': (selBoxes + used) >= maxNumBoxes || product.availableDates && (product.availableDates.length < 1) ? 'none' : 'all'}"
+            class="d-block mt-s mb-s" (click)="addShippingDate()">
+            <i class="eva eva-plus-outline" aria-hidden="true"></i>
+            <div>{{textSrv.getText('New shipping date')}}</div>
+          </cf-button>
+
+          <div *ngIf="product.availableDates && product.availableDates.length < 1" class="t-black-T pa-m t-a-center">
+            {{textSrv.getText('We have no more shipping dates')}}
+          </div>
+        </div>
+
+        <div class="border-top-disabled-1x" [ngClass]="domSrv.getIsDeviceSize() ? 'pl-m pr-m pt-m' : 'pl-l pr-l pt-l'">
+          <cf-button [width]="'auto'" [size]="'m'" class="d-block" id="plandelivery-btn-addall"
+            [ngStyle]="{'pointer-events': !product.shippingDates.length ? 'none' : 'all'}" (click)="addToCart($event)">
+            <div>{{textSrv.getText('Add to cart')}}</div>
+          </cf-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

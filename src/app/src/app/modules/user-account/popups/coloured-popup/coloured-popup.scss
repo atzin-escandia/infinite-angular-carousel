@@ -1,0 +1,16 @@
+@import '../../../../../scss/colors.scss';
+@import '../../../../../scss/variables.scss';
+
+:host {
+  .coloured-popup- {
+    &title {
+      color: map_get($color, 'white-1');
+      padding: 16px 24px;
+      margin: -16px -24px 0;
+    }
+  }
+
+  .popup-header-title {
+    padding: 0;
+  }
+}

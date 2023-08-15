@@ -1,0 +1,5 @@
+<div *ngIf="displayAgroupmentBlock" [ngClass]="{'py-5': !isNewHome}" class="sizingContainer projects m-auto my-5"
+  id="farmers">
+  <projects-agroupments [isLoading]="isLoading" [agroupments]="agroupments" [lang]="currentLang" [title]="'page-whats-in-season.title'">
+  </projects-agroupments>
+</div>

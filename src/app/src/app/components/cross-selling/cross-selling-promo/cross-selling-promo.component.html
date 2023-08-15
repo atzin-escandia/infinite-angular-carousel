@@ -1,0 +1,154 @@
+<ng-container *transloco="let t">
+  <a *ngIf="project" class="cs-promotion" [ngClass]="{'pt-0' : isLateralCs && domSrv.getIsDeviceSize()}">
+    <div class="d-flex flex-column justify-content-between h-100">
+      <div class="cs-promotion-container greyBG justify-content-center text-center h-100"
+        [ngClass]="{'first': i === 0, 'lateral': isLateralCs}">
+        <!-- IMAGE -->
+        <div class="image-cont position-relative" [ngClass]="[project.overharvest ? 'no-pointer' : '', isLateralCs ? 'mr-m' : 'pr-l-15']">
+          <div class="row" [ngClass]="{'image-cont-no-margin': isLateralCs}">
+            <i *ngIf="isGiftAvailable" class="gift-icon crosselling eva-gift-outline position-absolute t-text-regular"></i>
+            <image-lazy (click)="openInfoPopup()" [index]="i" [startLazyAt]="startLazyAt" [imageId]="'id' + project.farmerSlug"
+              [imageURL]="project.pictureURL" class="cs-promotion-image flex-center" [ngClass]="{'lateral': isLateralCs}">
+            </image-lazy>
+            <favourite-btn
+              [isOH]="project?.overharvest"
+              [project]="project"
+              [index]="i"
+              [path]="crossellingKey"
+              [isCrossellingBottom]="!isLateralCs"
+              [isCrossellingLateral]="isLateralCs">
+            </favourite-btn>
+          </div>
+        </div>
+
+        <!-- TEXT INFO (NO UP_CF) -->
+        <div *ngIf="!project.upCf" class="text-box d-flex flex-column justify-content-between h-100"
+          [ngClass]="[project.overharvest ? 'no-pointer' : '', !isLateralCs ? 'mt-s' : '']">
+
+          <!-- TITLE + SEALS -->
+          <div>
+            <!-- PROJECT AND FARM NAME -->
+            <div class="d-grid pr-l" (click)="openInfoPopup()">
+              <div class="title-text text-left t-m-medium t-black-H">
+                <span class="text-capitalize">
+                  {{(project | translation:'title')}}
+                </span>
+              </div>
+              <div class="farm-text text-left t-s-medium t-green-primary mb-xs">
+                {{(project | translation:'farmName')}}
+              </div>
+            </div>
+
+            <!-- SEALS -->
+            <div class="d-flex align-items-start">
+              <ds-seals-header [seals]="project.upSeals.header | translateSeals"></ds-seals-header>
+            </div>
+          </div>
+
+          <!-- BOXES AND PRICE + BUTTON -->
+          <div>
+            <div *ngIf="project.overharvest" class="data d-flex flex-row justify-content-between mt-s"
+              [ngClass]="isLateralCs ? (domSrv.getIsDeviceSize() ? '' : 'mb-m') : 'mb-s'">
+              <span class="box-info f14 align-self-center">
+                {{project.weight}}
+                {{(project.weightUnit)}}/{{t('global.box.text')}}
+              </span>
+              <span *ngIf="project?._mastersBoxes?.length >= 2">
+                {{t('global.Adopt.From')}}
+              </span>
+              <span *ngIf="project.price" class="f18">
+                {{project.price.amount | currency}}
+              </span>
+            </div>
+            <div *ngIf="!project.overharvest" (click)="openInfoPopup()"
+              class="data d-flex flex-row justify-content-between mt-s"
+              [ngClass]="isLateralCs ? (domSrv.getIsDeviceSize() ? '' : 'mb-m') : 'mb-s'">
+              <div class="d-flex align-self-center">
+                <span class="box-info-adoption f14">
+                  {{t('global.Info.title')}}
+                </span>
+                <img class="question ml-s" src="{{env.domain}}/assets/icon/common/question.svg" alt="">
+              </div>
+              <div>
+                <span *ngIf="project?._mastersBoxes?.length >= 2">
+                  {{t('global.Adopt.From')}}
+                </span>
+                <span *ngIf="project.price" class="f18">
+                  {{project.price.amount | currency}}
+                </span>
+              </div>
+            </div>
+
+            <!-- BUTTON ADD TO CART -->
+            <div class="promotion-button flex-center hide-mobile" (click)="addProductClick()">
+              <button class="add-button" [ngClass]="isLateralCs && isProductAdded ? 'added-button' : 'hover-button'">
+                <!-- Checkmark icon -->
+                <img *ngIf="isLateralCs && isProductAdded" class="mr-xs" src="../../../../assets/icon/common/checkmark.svg"
+                  alt="Check">
+                <!-- Button Text -->
+                {{t(isLateralCs && isProductAdded ? 'global.added.button' :
+                (buyNowText ? 'global.buy-now.button' : 'global.add.form'))}}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TEXT INFO (UP_CF) -->
+        <div *ngIf="project.upCf" class="text-box d-flex flex-column justify-content-between h-100"
+          [ngClass]="{'mt-s': !isLateralCs}">
+
+          <!-- PROJECT AND FARM NAME -->
+          <div class="d-grid pr-l">
+            <div class="title-text text-left f16 1w5">
+              <span class="text-capitalize">
+                {{(project | translation:'title')}}
+              </span>
+            </div>
+            <div class="farm-text text-left f14 mb-xs">
+              {{project.upCf.name}}
+            </div>
+          </div>
+
+          <!-- BOXES AND PRICE + BUTTON -->
+          <div>
+            <div class="data d-flex flex-row justify-content-between mt-s"
+              [ngClass]="isLateralCs ? (domSrv.getIsDeviceSize() ? '' : 'mb-m') : 'mb-s'">
+              <span class="box-info f14 align-self-center">
+                {{project.weight}}
+                {{(project.weightUnit)}}/{{t('global.box.text')}}
+              </span>
+              <span class="price-info f18">
+                {{project.price.amount | currency}}
+              </span>
+            </div>
+
+            <!-- BUTTON ADD TO CART -->
+            <div class="promotion-button flex-center hide-mobile" (click)="addProductClick()">
+              <button class="add-button" [ngClass]="isLateralCs && isProductAdded ? 'added-button' : 'hover-button'">
+                <!-- Checkmark icon -->
+                <img *ngIf="isLateralCs && isProductAdded" class="mr-xs" src="../../../../assets/icon/common/checkmark.svg"
+                  alt="Check">
+                <!-- Button Text -->
+                {{t(isLateralCs && isProductAdded ? 'global.added.button' :
+                (buyNowText ? 'global.buy-now.button' : 'global.add.form'))}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CART BUTTON (Only Mobile) -->
+      <div class="hide-desktop" [ngClass]="{'ph-12': !isLateralCs}" (click)="addProductClick()">
+        <button class="add-button" [ngClass]="isLateralCs && isProductAdded ? 'added-button' : 'hover-button'">
+          <!-- Checkmark icon -->
+          <img *ngIf="isLateralCs && isProductAdded" class="mr-xs" src="../../../../assets/icon/common/checkmark.svg"
+            alt="Check">
+          <!-- Button Text -->
+          {{t(isLateralCs && isProductAdded ? 'global.added.button' :
+          (buyNowText ? 'global.buy-now.button' : 'global.add.form'))}}
+        </button>
+      </div>
+    </div>
+
+  </a>
+</ng-container>

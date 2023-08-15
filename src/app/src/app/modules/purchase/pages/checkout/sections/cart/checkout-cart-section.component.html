@@ -1,0 +1,143 @@
+<ng-container *transloco="let t">
+  <div class="checkout-cart section">
+    <div class="row">
+      <div class="col-md-6 col-lg-8 mb-3 mb-md-0">
+        <div class="products-list">
+          <div class="products-list__elem" *ngFor="let product of products; let i = index">
+            <div class="row">
+              <div class="col">
+                <div id="cart-product-item-{{ i }}">
+                  <purchase-product
+                    [isCartSection]="true"
+                    [product]="product"
+                    [seals]="seals"
+                    [index]="i"
+                    [canUpdate]="true"
+                    [isGiftFormCompleted]="isGiftFormCompleted"
+                    [currentIso]="currentIso"
+                    [isSubscriptionAvailable]="isProductSubscriptionAvailable"
+                    [isGiftAvailable]="isProductGiftAvailable"
+                    [isInCheckout]="true"
+                    (delete)="deleteProduct(i)"
+                    (update)="onUpdateProduct($event, i)">
+                  </purchase-product>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="checkout-cart__footer">
+          <div class="d-flex align-items-center mb-2" *ngIf="productOver18">
+            <cf-check [checked]="accepted18" (checkedChange)="accepted18OnChange($event)" [colour]="warning18 ? 'red' : 'grey1BG'">
+              <span>
+                {{ t('page.legal-age.buttom') }} (
+                <span class="pointer t-green-primary green-link" (click)="over18InfoClick($event)">
+                  {{ t('page.alcohol-warning.text-info') }}
+                </span>
+                )
+              </span>
+            </cf-check>
+          </div>
+          <p class="t-grey t-m-regular nop nom">
+            <sup>*</sup>
+            {{ t('page.shipping-vary-weather.body') }}
+          </p>
+          <impact-message *ngIf="impactMessage && !isMobileDevice" [impactMessage]="impactMessage"></impact-message>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="sticky-col-container">
+          <div class="sticky-col">
+            <div class="default-actions">
+              <h5 class="t-black-H t-l-bold mb-3">
+                {{ t('global.summary.title') }}
+              </h5>
+              <div class="checkout-summary-price-wrapper mb-m">
+                <app-checkout-summary-price
+                  [price]="price$ | async"
+                  [finalPrice]="finalPrice$ | async"
+                  [credits]="credits"
+                  [creditsToSpend]="creditsToSpend"
+                  [showCreditsTooltip]="showCreditsTooltip"></app-checkout-summary-price>
+              </div>
+
+              <div class="buttons mb-l">
+                <div class="button-wrapper mb-m">
+                  <cf-button [width]="'auto'" [disabled]="isNextButtonDisabled" (click)="isNextButtonDisabled ? null : onNextButtonClick()">
+                    {{ t('page.complete-order.button') }}
+                  </cf-button>
+                </div>
+
+                <div *ngIf="isApplePayEnabled && !isAnyProductSubscriptionActive && ($canPayWithApplePay | async)" class="button-wrapper mb-m">
+                  <app-apple-payment
+                    [iso]="currentIso"
+                    [currency]="currentCurrency"
+                    [canBuyWithoutGiftRestrictions]="isGiftCompleted"
+                    [price]="finalPrice$ | async"
+                    [isUserLogged]="isUserLogged"
+                    [isDisabled]="isNextButtonDisabled"
+                    (giftFormEmpty)="handleApplePayReject($event)">
+                  </app-apple-payment>
+                </div>
+
+                <div class="button-wrapper mb-m">
+                  <cf-button [width]="'auto'" [flat]="true" (click)="continueBuying()">
+                    {{ t('global.continue-shopping.text-link') }}
+                  </cf-button>
+                </div>
+              </div>
+
+              <div class="pm-badges mb-l">
+                <div class="d-flex justify-content-center align-items-center mb-s">
+                  <i class="eva eva-lock-outline t-black-H mr-xs"></i>
+                  <span class="t-black-H t-xs-bold">
+                    {{ t('global.secure-payment.text-info') }}
+                  </span>
+                </div>
+
+                <div class="d-flex justify-content-center mb-s">
+                  <app-payments-methods-icons
+                    [showExtraBadges]="false"
+                    [shouldBeCentered]="true"
+                    [allowedPaymentMethods]="paymentMethodsIconsConfig"></app-payments-methods-icons>
+                </div>
+
+                <app-klarna-placement *ngIf="displayKlarnaAdvertising" dataKey="top-strip-promotion-auto-size"></app-klarna-placement>
+              </div>
+
+              <div *ngIf="isGroupOrderAvailable && isGroupOrderValidIso" class="gp-actions mt-3">
+                <p class="t-m-regular t-grey nom mb-3">
+                  {{ t('page.share-boxes-with-group-order.text-info') }}
+                </p>
+                <div id="go-purchase-btn" class="orange-btn">
+                  <cf-button
+                    [width]="'auto'"
+                    [disabled]="isNextButtonDisabled || !hasValidGOProducts || isAnyProductSubscriptionActive"
+                    (click)="
+                      isNextButtonDisabled || !hasValidGOProducts || isAnyProductSubscriptionActive ? null : onNextButtonClick(true)
+                    ">
+                    <div class="d-flex align-items-center">
+                      <i class="eva eva-people-outline text-white t-l-regular mr-2"></i>
+                      <span class="text-white">{{ t('global.group-order.text-info') }}</span>
+                    </div>
+                  </cf-button>
+                </div>
+                <div *ngIf="hasCredits" class="mt-3">
+                  <span class="t-s-regular t-grey">
+                    {{ t('page.credits-cannot-be-used-group order.text-info') }}
+                  </span>
+                </div>
+                <div *ngIf="hasValidGOProducts" class="mt-3">
+                  <span class="pointer t-s-regular t-green-primary green-link" (click)="gpInfoClick()">
+                    {{ t('global.more-information.text-link') }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <impact-message *ngIf="impactMessage && isMobileDevice" [impactMessage]="impactMessage"></impact-message>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,60 @@
+<ds-drawer-modal
+  *transloco="let t"
+  [isOpened]="isOpened"
+  [isRight]="true"
+  [title]="t('global.personalised-box.text-info')"
+  [link]="boxShoppingList?.length ? t('global.delete.text-link') : null"
+  (linkAction)="deleteList()"
+  (closeDrawer)="closeDrawer.emit(isOpened)">
+  <section body class="p-16">
+    <ng-container *ngIf="boxShoppingList?.length; else empty">
+      <div class="ec-drawer-modal-wrapper__header t-body-xs">
+        <ds-icon name="car" size="ds--size-20" color="semantic-primary-medium"></ds-icon>
+        <div
+          class="position-relative"
+          [innerHTML]="
+            t('page.shipping-included-estimated-date.text.info', { date: endDeliveryDate ? utilsSrv.dateForFront(endDeliveryDate) : '' })
+              | safeHtml
+          "></div>
+      </div>
+      <ec-list-summary [itemList]="boxShoppingList" [isOpened]="isOpened" (changeArticle)="changeArticle($event)" (selectArticle)="selectArticle()"></ec-list-summary>
+    </ng-container>
+  </section>
+  <section footer>
+    <span
+      *ngIf="checkMinPriceElementConditions(1, 'equal')"
+      class="t-body-s text-red-48 text-center"
+      [innerHTML]="
+        t('page.ecommerce-minimum-order.text-info.one', { amount: minPrice | currency, 'number-items': minElements }) | safeHtml
+      "></span>
+    <span
+      *ngIf="checkMinPriceElementConditions(1, 'greater')"
+      class="t-body-s text-red-48 text-center"
+      [innerHTML]="
+        t('page.ecommerce-minimum-order.text-info.other', { amount: minPrice | currency, 'number-items': minElements }) | safeHtml
+      "></span>
+    <span
+      *ngIf="checkMinPriceElementConditions(0, 'equal')"
+      class="t-body-s text-red-48 text-center"
+      [innerHTML]="t('page.ecommerce-minimum-order-value.text-info', { amount: minPrice | currency }) | safeHtml"></span>
+    <span
+      *ngIf="checkMinOnlyElementsCondition()"
+      class="t-body-s text-red-48 text-center"
+      [innerHTML]="
+        t(
+          minElements === 1
+            ? 'page.ecommerce-minimum-order-quantity.text-info.one'
+            : 'page.ecommerce-minimum-order-quantity.text-info.other',
+          { 'number-items': minElements }
+        ) | safeHtml
+      "></span>
+    <div class="ec-drawer-modal-wrapper__total">
+      <span class="t-body-xs text-primary-88">{{ t('page.final-price.text-info') }}</span>
+      <span class="text-primary-88 t-component-semibold-l">{{ totalPrice | currency }}</span>
+    </div>
+    <ds-button [disabled]="!areMinElements" [width]="'full'" (buttonClick)="buy()" [content]="t('page.cart.buttom')"></ds-button>
+  </section>
+</ds-drawer-modal>
+<ng-template #empty>
+  <ec-empty-summary [restrictions]="restrictions"></ec-empty-summary>
+</ng-template>

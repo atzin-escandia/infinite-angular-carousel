@@ -1,0 +1,9 @@
+<div class="info-popup">
+  <ng-container *transloco="let t">
+    <div>
+      <h2 class="info-popup__title">{{t(title)}}</h2>
+      <p class="info-popup__description">{{t(description)}}</p>
+    </div>
+    <cf-button (click)="handleClickCloseButton()">{{t(buttonLabel)}}</cf-button>
+  </ng-container>
+</div>

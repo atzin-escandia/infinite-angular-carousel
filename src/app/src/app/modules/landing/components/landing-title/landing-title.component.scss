@@ -1,0 +1,38 @@
+@import '../../../../../scss/colors';
+@import '../../../../../scss/commons';
+
+.landing-title {
+  &__text-wrapper {
+    text-align: center;
+
+    & h1 {
+      margin-bottom: 12px;
+      color: map_get($color, 'black-4');
+      font-weight: 800;
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: -0.6px;
+    }
+
+    & h4 {
+      margin-bottom: 56px;
+      color: map_get($color, 'grey-11');
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 32px;
+      letter-spacing: -0.4px;
+    }
+
+    & p {
+      color: map_get($color, 'grey-11');
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &.inner-block {
+    padding: 0;
+  }
+}

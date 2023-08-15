@@ -1,0 +1,10 @@
+@import '../../../../../scss/commons.scss';
+
+.crowdgiving {
+  border-radius: 5px;
+  border: 1px solid map_get($color, 'grey-2');
+
+  .img-container {
+    overflow: hidden;
+  }
+}

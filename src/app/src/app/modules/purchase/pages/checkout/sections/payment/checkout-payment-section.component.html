@@ -1,0 +1,119 @@
+<div class="checkout-payment" *transloco="let t">
+  <ng-container *ngIf="isGroupOrderGuestPaymentMode; else defaultPaymentModeTpl">
+    <div class="mb-l">
+      <app-order-summary
+        [isGroupOrder]="true"
+        [totalToPay]="purchaseInfo?.totalToPay?.amount"
+        [groupOrderAmount]="purchaseInfo?.totalToPay?.groupOrderAmount"
+        [guestsNum]="purchaseInfo?.guestsLimit"></app-order-summary>
+    </div>
+
+    <div class="mb-l">
+      <h4 class="t-h6-bold t-black-H mb-m">{{ t('global-shipment-address') }}</h4>
+
+      <div class="order-ok-card border-disabled-1x pa-m w-100 t-grey-o">
+        <div class="t-m-regular w-100 mb-xs">{{ purchaseInfoAddress.name }} {{ purchaseInfoAddress.surnames }}</div>
+        <div class="t-m-regular w-100 mb-xs">{{ purchaseInfoAddress.zip }}</div>
+        <div class="t-m-regular w-100">
+          {{ purchaseInfoAddress.city }}
+          <span *ngIf="countriesByIso && countriesByIso[purchaseInfoAddress.country]">
+            , {{ countriesByIso[purchaseInfoAddress.country] | translation: 'name' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="finalPrice > 0; else footerActionsTpl">
+    <h4 class="t-h6-bold t-black-H mb-m">
+      {{ t(isPaymentMethodSelectorActive ? 'page.add-payment-method.drop' : 'page.select-payment-method.title') }}
+    </h4>
+
+    <ng-container *ngIf="!isPaymentMethodSelectorActive; else paymentMethodSelectorTpl">
+      <ul class="payments-methods-list" *ngIf="availablePaymentMethods.length">
+        <li class="payments-methods-list__elem" *ngFor="let item of maxAvailablePaymentMethods">
+          <user-payment-card
+            [paymentMethod]="item"
+            [isOptionSelected]="selectedPaymentMethodId === item.source?.id"
+            (optionSelectedChange)="onSelectedPaymentChange(item)"
+            (removePaymentMethod)="removePaymentMethodHandler(item)"></user-payment-card>
+        </li>
+      </ul>
+
+      <div class="full-list-toggle-wrapper mb-l">
+        <full-list-toggle *ngIf="availablePaymentMethods.length > 2" [(displayFullList)]="fullListLength"></full-list-toggle>
+      </div>
+
+      <div class="pointer d-flex align-items-center mb-l" (click)="togglePaymentMethodSelector()">
+        <i class="eva eva-plus-outline t-m-medium mr-2" aria-hidden="true"></i>
+        <span class="t-m-medium">{{ t('page.add-payment-method.drop') }}</span>
+      </div>
+
+      <ng-container *ngTemplateOutlet="footerActionsTpl"></ng-container>
+    </ng-container>
+  </ng-container>
+
+  <div class="checkout-payment__footer mt-l">
+    <p class="t-s-14 t-grey">{{ t('page.secure-payment-methods.body') }}</p>
+    <ng-container *ngTemplateOutlet="paymentIconsTpl"></ng-container>
+  </div>
+</div>
+
+<ng-template #defaultPaymentModeTpl>
+  <ng-container *transloco="let t">
+    <div class="mb-l" *ngIf="isGroupOrder">
+      <h4 class="t-h6-bold t-black-H mb-m">{{ t('page.split-payment.title') }}</h4>
+      <app-split-payment
+        [promoterAssumesPayment]="promoterAssumesPayment"
+        [guestsNum]="guestsNum"
+        [groupOrderTotal]="$groupOrderTotal | async"
+        [lastPayDay]="lastPayDay"
+        (guestsNumChange)="guestsNumChangeHandler($event)"
+        (promoterAssumesPaymentChange)="promoterAssumesPaymentChangeHandler($event)"></app-split-payment>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #paymentMethodSelectorTpl>
+  <div class="row">
+    <div class="col">
+      <payment-method-selector
+        [options]="paymentMethodOpts"
+        [stripeRef]="stripeRef"
+        [isGroupOrder]="isGroupOrder"
+        [isAnyProductSubscriptionActive]="isAnyProductSubscriptionActive"
+        [displayKlarnaAdvertising]="displayKlarnaAdvertising"
+        (newPaymentMethod)="onNewPaymentMethod($event)"
+        (payWithCard)="payWithCardHandler($event)"
+        (payWithPaypal)="payWithPaypalHandler()"
+        (payWithKlarna)="payWithKlarnaHandler()"></payment-method-selector>
+    </div>
+  </div>
+  <div *ngIf="!isGroupOrderGuestPaymentMode || (isGroupOrderGuestPaymentMode && availablePaymentMethods.length)" class="row mt-l">
+    <div class="col-auto">
+      <span
+        *transloco="let t"
+        class="t-m-medium nom pointer"
+        (click)="availablePaymentMethods.length ? togglePaymentMethodSelector() : goBack()">
+        {{ t('page.return.button') }}
+      </span>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #paymentIconsTpl>
+  <app-payments-methods-icons [showExtraBadges]="true" [allowedPaymentMethods]="allowedPaymentMethods"></app-payments-methods-icons>
+</ng-template>
+
+<ng-template #footerActionsTpl>
+  <div class="row" *transloco="let t">
+    <div *ngIf="!isGroupOrderGuestPaymentMode" class="col-md-6 mb-3 mb-md-0">
+      <cf-button [width]="'auto'" [flat]="true" (click)="goBack()">{{ t('page.return.button') }}</cf-button>
+    </div>
+    <div [ngClass]="{ 'col-12': isGroupOrderGuestPaymentMode, 'col-md-6': !isGroupOrderGuestPaymentMode }">
+      <cf-button [width]="'auto'" [disabled]="!selectedPaymentMethodId && finalPrice > 0" (click)="onPay()">
+        {{ t('page.pay.button') }}
+      </cf-button>
+    </div>
+  </div>
+</ng-template>

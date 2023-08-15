@@ -1,0 +1,37 @@
+<!-- Desktop -->
+<div class="private-desktop-menu cf-shadow-m mt-xl" id="private-desktop-menu">
+  <div class="private-desktop-menu-container cf-shadow-m">
+    <!--  Header | Name -->
+    <div class="private-desktop-menu-title pa-l d-flex border-bottom-disabled-1x" *ngIf="user">
+      <div class="private-desktop-menu-img mr-s flex-center t-h3-bold t-green-primary">
+        {{user.name.split('')[0].toUpperCase()}}
+      </div>
+      <div class="private-desktop-menu-name">
+        <div class="t-s-regular">
+          {{textSrv.getText('Hello')}}
+        </div>
+        <div class="t-l-medium">
+          {{user.name}}
+        </div>
+      </div>
+    </div>
+
+    <!-- Move this block to the top when add all translations -->
+    <ng-container *transloco="let t">
+      <!-- Routes -->
+      <div class="private-desktop-menu-item t-m-regular flex-center justify-content-start" [id]="option.id + '-btn'"
+        [ngClass]="{active: option.active, 'border-bottom-disabled-1x': option.boderbottom}"
+        *ngFor="let option of menuOptions" (click)="routerSrv.navigate(option.route)">
+        <i class="eva {{option.icon}}" aria-hidden="true"></i> <span
+          class="overflow-text">{{ t(option['text']) }}</span>
+      </div>
+    </ng-container>
+
+    <!-- Logout -->
+    <div class="private-desktop-menu-item t-m-regular flex-center justify-content-start" (click)="authSrv.logout()"
+      id="logout-btn">
+      <i class="eva eva-log-out-outline rotated-icon" aria-hidden="true"></i>
+      <span class="overflow-text">{{textSrv.getText('Logout')}}</span>
+    </div>
+  </div>
+</div>

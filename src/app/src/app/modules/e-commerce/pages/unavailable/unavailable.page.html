@@ -1,0 +1,13 @@
+<ds-section *transloco="let t">
+  <section class="unavailable">
+    <div class="unavailable__data">
+      <h1 class="unavailable__title t-heading-xl">{{t('page.ecomerce-not-available.title')}}</h1>
+      <span class="unavailable__desc t-body-l">{{t(!isErrorPath ? 'page.ecomerce-not-available.body' : 'notification.action-error.text-info')}}</span>
+      <a class="ds-link t-component-semibold-m mb-2" (click)="goToInit()">{{t('global.go-home.buttom')}}</a>
+      <a class="ds-link t-component-semibold-m unavailable__sep-buttons" (click)="goToBuyBox()">{{t('global.buy-box.button')}}</a>
+    </div>
+    <div class="unavailable__img">
+      <img [src]="urlImage" />
+    </div>
+  </section>
+</ds-section>

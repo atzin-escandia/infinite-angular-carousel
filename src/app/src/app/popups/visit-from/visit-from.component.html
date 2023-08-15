@@ -1,0 +1,116 @@
+<div class="visit-from-popup-container">
+  <div class="close-button f20" [ngClass]="{'higher-position': !isAvailableCountry && !isNoCountryDetected}" (click)="closeModal()">
+    &#x2715;
+  </div>
+  <div class="visit-from-popup-wrapper">
+    <img class="visit-from-popup-wrapper-img mb-m" [ngClass]="{'hide': !isAvailableCountry && !isNoCountryDetected}"
+      src="https://common.crowdfarming.com/uploaded-images/1640278208517-00377f29-b043-4fe4-bd39-f94cebbb4b68.svg"
+      alt="">
+    <ng-container *ngIf="isNoCountryDetected">
+      <div class="visit-from-popup-wrapper-title mb-m f18 fw6 lh-28">
+        {{textSrv.getText('Which country deliver to')}}
+      </div>
+      <div class="visit-from-popup-wrapper-subtitle mb-m f16 lh-24">
+        {{textSrv.getText('Select country in menu show proyects')}}
+      </div>
+    </ng-container>
+    <ng-container *ngIf="isAvailableCountry && countryname">
+      <div class="visit-from-popup-wrapper-title mb-m f18 fw6 lh-28">
+        <ng-container *transloco="let t">
+          {{ t('notifications.country-detection-with-country.title', { countryname: countryname }) }}
+        </ng-container>
+      </div>
+      <div class="visit-from-popup-wrapper-subtitle mb-m f16 lh-24">
+        {{textSrv.getText('Select country in menu')}}
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!isAvailableCountry && !isNoCountryDetected">
+      <div class="visit-from-popup-wrapper-title mb-m f18 fw6 lh-28">
+        {{textSrv.getText('We dont deliver to your country')}}
+      </div>
+      <div class="visit-from-popup-wrapper-subtitle f16 lh-24">
+        {{textSrv.getText('Discovering new countries')}}
+      </div>
+    </ng-container>
+
+    <form [formGroup]="basicForm" class="form visit-from-popup-wrapper-form"
+      *ngIf="!isAvailableCountry && !isNoCountryDetected">
+      <cf-input #countryRef class="cf-input mb-xl">
+        <input class="country" placeholder="{{textSrv.getText('Country')}}" formControlName="country"
+          (keyup)="keyUpTyping(countryRef)"/>
+        <div class="error-wrapper" *ngIf="basicForm.controls.country.errors && basicForm.controls.country.touched">
+          <div class="eva eva-alert-triangle-outline">
+          </div>
+          <div *ngIf="basicForm.controls.country.errors.minMax" class="cf-input-error-msg">
+            {{textSrv.getText('Must be among 1 and 30 char')}}
+          </div>
+          <div *ngIf="basicForm.controls.country.errors.country && !basicForm.controls.country.errors.minMax"class="cf-input-error-msg">
+            {{textSrv.getText('Choose a correct country selector')}}
+          </div>
+        </div>
+      </cf-input>
+      <div class="autocomplete" [ngClass]="{'show-border': autocompleteHasMatches}" *ngIf="showListCountries">
+        <div class="autocomplete-item pl"
+          *ngFor="let country of allCountries | autocomplete: basicForm.controls.country.value"
+          (click)="chooseCountry(country)">{{country.name}}
+        </div>
+      </div>
+      <cf-input *ngIf="!country" #nameRef class="cf-input mb-xl">
+        <input class="name" placeholder="{{textSrv.getText('name')}}" formControlName="name"
+          (keyup)="keyUpTyping(nameRef)"/>
+        <div class="error-wrapper" *ngIf="basicForm.controls.name.errors && basicForm.controls.name.touched">
+          <div class="eva eva-alert-triangle-outline">
+          </div>
+          <div class="cf-input-error-msg">
+            {{textSrv.getText('Must be among 1 and 30 char')}}
+          </div>
+        </div>
+      </cf-input>
+      <cf-input *ngIf="!country" #surnamesRef class="cf-input mb-xl">
+        <input class="name" placeholder="{{textSrv.getText('surnames')}}" formControlName="surnames"
+          (keyup)="keyUpTyping(surnamesRef)" />
+        <div class="error-wrapper" *ngIf="basicForm.controls.surnames.errors && basicForm.controls.surnames.touched">
+          <div class="eva eva-alert-triangle-outline">
+          </div>
+          <div class="cf-input-error-msg">
+            {{textSrv.getText('Must be among 1 and 30 char')}}
+          </div>
+        </div>
+      </cf-input>
+      <cf-input #emailRef class="cf-input mb-xl" *ngIf="!country">
+        <input class="email" placeholder="{{textSrv.getText('Email')}}" formControlName="email"
+          (keyup)="keyUpTyping(emailRef)"/>
+        <div class="error-wrapper" *ngIf="basicForm.controls.email.errors && basicForm.controls.email.touched">
+          <div class="eva eva-alert-triangle-outline">
+          </div>
+          <div class="cf-input-error-msg" *ngIf="basicForm.controls.email.errors.minMax">
+            {{textSrv.getText('Must be among 1 and 30 char')}}
+          </div>
+          <div class="cf-input-error-msg" *ngIf="basicForm.controls.email.errors.email && !basicForm.controls.email.errors.minMax">
+            {{textSrv.getText('your email is invalid')}}
+          </div>
+        </div>
+      </cf-input>
+      <div *ngIf="country" class="allowed-message f16 fw4 pl lh-24 mb-16">
+        <ng-container *transloco="let t">
+          <span [innerHTML]="t('notifications.country-detection-form.text-info', { 'country-name': country })"></span>
+        </ng-container>
+      </div>
+    </form>
+    <ng-container *ngIf="!isAvailableCountry && !isNoCountryDetected; else notDetectedOrDetectedAmong">
+      <cf-button *ngIf="country; else noCountryMatch" [width]="'auto'" (click)="gotIt()">
+        {{textSrv.getText('go-crowdfarming')}}
+      </cf-button>
+      <ng-template #noCountryMatch>
+        <cf-button [width]="'auto'" (click)="send()">
+          {{textSrv.getText('Send')}}
+        </cf-button>
+      </ng-template>
+    </ng-container>
+    <ng-template #notDetectedOrDetectedAmong>
+      <cf-button [width]="'auto'" (click)="gotIt()">
+        {{textSrv.getText('Got it')}}
+      </cf-button>
+    </ng-template>
+  </div>
+</div>

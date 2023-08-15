@@ -1,0 +1,37 @@
+@import '../../../../scss/colors.scss';
+
+:host {
+  .stripe-ideal- {
+    transition: height 1.5s;
+
+    &form {
+      border-radius: 5px;
+    }
+
+    &container {
+      max-width: 100%;
+      margin: auto;
+    }
+
+    &element {
+      background: white;
+      border-radius: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    &error {
+      font-size: 14px;
+      color: $red;
+    }
+  }
+
+  .h-box {
+    height: 410px;
+    transition: height 1.5s;
+  }
+
+  .no-h-box {
+    height: auto;
+    transition: height 1.5s;
+  }
+}

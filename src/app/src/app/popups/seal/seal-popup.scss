@@ -1,0 +1,26 @@
+@import '../../../scss/colors.scss';
+@import '../../../scss/variables.scss';
+
+:host {
+  color: $black;
+
+  .seal-popup-container {
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      width: 544px;
+      max-width: none;
+    }
+
+    .file {
+      border-top: 1px dashed $greyHeavyBorder;
+      padding: 16px 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .eva {
+        font-size: 24px;
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="waves-container">
+  <div class="waves-container-top" [ngClass]="{
+      'wave-blue-top': waveColor === 'blue',
+      'wave-brown-top': waveColor === 'brown'
+    }"></div>
+  <div class="waves-container-content" [ngClass]="{
+    'bg-blue': waveColor === 'blue',
+    'bg-brown': waveColor === 'brown'}" >
+    <ng-content></ng-content>
+  </div>
+  <div class="waves-container-bottom" [ngClass]="{
+      'wave-blue-bottom': waveColor === 'blue',
+      'wave-brown-bottom': waveColor === 'brown'}"></div>
+</div>

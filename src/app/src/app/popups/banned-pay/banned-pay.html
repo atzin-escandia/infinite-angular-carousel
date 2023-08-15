@@ -1,0 +1,65 @@
+<div class="banned-pay-popup-container text-center row-no-margin" id="banned-pay">
+  <div class="banned-pay-title" *ngIf="config.data?.header" [innerHTML]="config.data?.header"></div>
+
+  <div class="col-12 flex-center">
+    {{textSrv.getText('Attention: this account is bloqued')}}
+    <br />
+    {{textSrv.getText('Reason of block: disputed pay')}}
+  </div>
+
+  <div class="col-12 mtm banned-pay-title">
+    <div class="row">
+      <div class="col-12 col-md-6 flex-center t-m-medium">{{textSrv.getText('Orders')}}</div>
+      <div class="col-12 col-md-6 flex-center t-m-medium banned-pay-price">{{textSrv.getText('Total amount')}}</div>
+    </div>
+  </div>
+
+  <div class="col-12 mtm banned-pay-order" *ngFor="let order of orders">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="row">
+          <div class="col-12 flex-center banned-pay-number">{{order.orderNumber}}</div>
+          <div class="col-12 banned-pay-products"
+            *ngIf="order.orderType === 'OVERHARVEST' || order.orderType === 'MULTI_SHOT_SINGLE_BOXES'">
+            <div class="w-100" *ngFor="let box of order.shipment.boxes">
+              {{textSrv.getText('Box/es of')}} {{box.products[0] | translation: 'name'}}
+            </div>
+          </div>
+          <div class="col-12 banned-pay-products"
+            *ngIf="order.orderType !== 'OVERHARVEST' && order.orderType !== 'MULTI_SHOT_SINGLE_BOXES'">
+            {{order.up | translation: 'variety'}}
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 flex-center banned-pay-price">
+        {{order.amount.totalToCollect | currency}} +
+        {{(order.disputes[0].data.object.balance_transactions[0].fee / order.ordersByPayment /
+        100) | currency}}* =
+        <b>
+          &nbsp;{{
+          (order.amount.totalToCollect + order.disputes[0].data.object.balance_transactions[0].fee /
+          order.ordersByPayment / 100) | currency
+          }}
+        </b>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12 mts text-left">
+    <span class="f14"> {{textSrv.getText('This is the commission that your bank for the dispute*')}} </span>
+    <br />
+    <br />
+    <span [innerHTML]="textSrv.getText('Please, make a transfer for each order and indicate the order number')"> </span>
+    <br />
+    <br />
+    <b>IBAN:</b> ES41 1491 0001 2730 0014 2143<br />
+    <b>SWIFT:</b> TRIOESMMXXX<br />
+    <b>{{textSrv.getText('Holder')}}:</b> CROWDFARMING SL<br />
+    <b>{{textSrv.getText('Bank')}}:</b> TRIODOS <br />
+    <b>{{textSrv.getText('Concept')}}:</b> CFXXXXXXXX
+    <br />
+    <br />
+    {{textSrv.getText('Please, send us the proof of transfer to hello@crowdfarming.com')}}
+    <br />
+  </div>
+</div>

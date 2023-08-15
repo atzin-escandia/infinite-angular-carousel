@@ -1,0 +1,49 @@
+.farmers-carousel {
+  padding: 16px;
+  border-radius: 5px;
+
+  .section-images {
+    &__carousel {
+      overflow: hidden;
+      position: relative;
+
+      &.active {
+        .farmer-col__content {
+          width: 50%;
+        }
+      }
+
+      &-arrow {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.left {
+          left: 0;
+        }
+
+        &.right {
+          right: 0;
+        }
+      }
+
+      &-content {
+        z-index: 1;
+        transition: all 0.25s ease-in-out;
+      }
+    }
+  }
+
+  .farmer-col {
+    padding: 0 16px;
+  }
+
+  .farmer-picture {
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+  }
+}

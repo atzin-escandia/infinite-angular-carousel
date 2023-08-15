@@ -1,0 +1,81 @@
+<ng-container *transloco="let t">
+ <div class="green-newsletter" *ngIf="!updatedUser">
+  <div class="d-flex justify-content-center">
+    <div class="col-12 col-md-6 col-lg-5 plm mbm">
+      <div class="cf-newsletter mbs">
+        {{t('global.newsletter-crowdfarming.title')}}
+      </div>
+      <div class="cf-newsletter-text">
+        {{t('page.cf-newsletter-text.body')}}
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="col-12 col-md-6 col-lg-5">
+      <div class="col-12 d-flex flex-column ptm pbm categories">
+        <div class="categories-header mbs">
+          {{t('page.select-categories-interest.title')}}
+        </div>
+        <div class="row">
+          <div *ngFor="let category of categories; index as id" class="col-12 col-lg-6 d-flex flex-row mts mbs">
+            <cf-check id="category._m_name.en" [(checked)]="settings[category._id]"
+              (checkedChange)="selectCategory()">
+              <div class="categories-text" [ngClass]="{selected: settings[category._id]}">
+                {{category | translation: 'name'}}
+              </div>
+            </cf-check>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 mts mbs pls">
+          <cf-button id="change-user-info-btn" (click)="updateCategories()">
+            {{t('global.Update.body')}}
+          </cf-button>
+        </div>
+        <div class="col-12 mtm">
+          <div class="categories-unsuscribe" *ngIf="unsuscribeAllActive" (click)="unsuscribeAll()">
+            {{t('page.unsubscribe-all.body')}}
+          </div>
+          <div class="categories-unsuscribe" *ngIf="!unsuscribeAllActive" (click)="suscribeAll()">
+            {{t('page.unsubscribe-all.body')}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center mbb">
+    <div class="col-12 col-md-6 col-lg-5 go-crowdfarming mtm plm" (click)="routerSrv.navigate('/')">
+      {{t('page.go-to-crowdfarming.title')}}
+      <div class="fa fa-angle-right"></div>
+    </div>
+  </div>
+</div>
+
+<div class="green-newsletter" *ngIf="updatedUser">
+  <div class="d-flex justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4 plm mbs">
+      <div class="cf-newsletter mbs">
+        {{t('global.newsletter-crowdfarming.title')}}
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="col-12 d-flex flex-column align-items-center ptm pbm categories">
+        <i aria-hidden="true" class="fa fa-check-circle mts mbs"></i>
+        <div class="changed-interests mts mbs">
+          {{t('page.preferences.text-info')}}
+        </div>
+        <div class="back-interests mts mbs" (click)="goBackToInterests()">
+          {{t('global.back-to-preferences.button')}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4 go-crowdfarming mtm plm" (click)="routerSrv.navigate('/')">
+      {{t('page.go-to-crowdfarming.title')}}
+      <div class="fa fa-angle-right"></div>
+    </div>
+  </div>
+ </div>
+</ng-container>

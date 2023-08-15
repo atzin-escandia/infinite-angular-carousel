@@ -1,0 +1,36 @@
+<ng-container *transloco="let t">
+  <div id="favourite-projects" class="private-zone-section private-zone-favourites w-100">
+    <h3 class="t-h3-bold t-black-H">{{t('discoverybox.global.subscription.title')}}</h3>
+    <div class="private-zone-subtitle t-s-regular t-black-H">{{t('discoverybox.page.confirmation.body')}}</div>
+
+    <ng-container *ngIf="subscription$ | async as subscription, else noSubscriptions">
+      <div class="subscription-box mb-s mt-32" [ngClass]="">
+        <div class="d-flex align-items-center">
+          <h3 class="t-l-medium mr-s">{{t('discoverybox.page.order-details.title')}} {{ subscription.price | currency:'EUR' }}</h3>
+        </div>
+        <ul>
+          <li>
+            <span class="icon"><ds-icon name="car" size="ds--size-28" color="semantic-primary-medium"></ds-icon></span>
+            <span>{{t('discoverybox.page.order-details-delivery-date.body')}}</span>
+            <span class="info">{{subscription.deliveryDate | date:'dd/MM/yyyy'}}*</span>
+          </li>
+          <li>
+            <span class="icon"><ds-icon name="calendar" size="ds--size-28" color="semantic-primary-medium"></ds-icon></span>
+            <span>{{t('discoverybox.page.order-details.body')}}</span>
+            <span class="info">{{subscription.billingDate | date:'dd/MM/yyyy'}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="t-black-T">{{t('discoverybox.page.order-details-note.body')}} {{subscription.processDate | date:'dd/MM/yyyy'}}</div>
+    </ng-container>
+  </div>
+
+  <ng-template #noSubscriptions>
+    <div class="empty-subscriptions d-flex flex-column flex-center">
+      <img src="{{env.domain}}/assets/img/subscription-box/subscription-detail.png" width="120" />
+      <h3 class="t-heading-s mv-m">{{t('discoverybox.page.empty-state.title')}}</h3>
+      <p class="t-component-regular-l mb-m">{{t('discoverybox.page.landing.body')}}</p>
+      <ds-button [content]="t('discoverybox.page.empty-state.button')" (buttonClick)="navigateToDiscoveryBoxLanding()"></ds-button>
+    </div>
+  </ng-template>
+</ng-container>

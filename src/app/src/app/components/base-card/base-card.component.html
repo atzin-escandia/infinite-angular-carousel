@@ -1,0 +1,30 @@
+<section class="base-card">
+  <div *ngIf="img; else emptyImg;" class="base-card__img" [ngStyle]="{ 'background-image': 'url(' + img + ')' }"></div>
+  <div class="base-card__body">
+    <div class="base-card--top">
+      <div class="base-card__data--top">
+        <div class="base-card__header">
+          <h2 class="base-card__content-1 t-component-semibold-s">{{ title }}</h2>
+          <p *ngIf="description" class="base-card__content-2 t-component-regular-xs">{{ description }}</p>
+        </div>
+        <ng-content select="[body]"></ng-content>
+      </div>
+    </div>
+
+    <div class="base-card--bottom">
+      <div class="base-card__price">
+        <p class="base-card__content-1 t-component-semibold-s">{{ price }}</p>
+        <p class="base-card__content-2 t-component-regular-xs">{{ pricePer }}</p>
+      </div>
+
+      <div class="base-card__button">
+        <ng-content select="[button]"></ng-content>
+      </div>
+    </div>
+  </div>
+  <ng-template #emptyImg>
+    <div class="base-card__img">
+      <ec-img-empty></ec-img-empty>
+    </div>
+  </ng-template>
+</section>

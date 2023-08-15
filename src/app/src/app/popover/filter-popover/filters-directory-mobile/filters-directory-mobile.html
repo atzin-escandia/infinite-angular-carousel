@@ -1,0 +1,38 @@
+<div *ngIf="domSrv.getIsDeviceSize()">
+  <ul class="filter-categories nop">
+    <li *ngFor="let filter of menuFilters; let i = index"
+      class="filter-categories-item pa-m d-flex justify-content-between align-items-center border-bottom-grey-2-2x"
+      (click)="pickFilter(filter.value)">
+      <div>
+        <span class="t-l-medium d-block">{{textSrv.getText(filter.buttonText)}}</span>
+        <div *ngIf="selectedFilters" class="filter-categories-item-selected w-100">
+          <div class="w-100 d-inline-block">
+            <span *ngFor="let item of selectedFilters[filter.value]; let id = index" class="t-xs-regular t-grey d-inline">
+              {{item | translation:'_m_name'}}
+              <span *ngIf="id < selectedFilters[filter.value].length - 1">
+                ,&nbsp;
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <i aria-hidden="true" class="eva eva-chevron-right-outline t-h2-regular"></i>
+    </li>
+  </ul>
+</div>
+<div class="filters-directory-container"
+  [ngClass]="{'is-mobile': domSrv.getIsDeviceSize(), 'filter-shown': filterShown}">
+  <div *ngIf="filterShown" class="d-flex align-items-center justify-content-between">
+    <div class="back-icon pt-s pb-s pl-m" (click)="filterShown = !filterShown">
+      <i aria-hidden=true class="eva eva-arrow-back-outline t-h1-regular"></i>
+    </div>
+    <div (click)="removeSelection()" class="t-grey t-s-regular remove pt-s pb-s pr-m">
+      {{textSrv.getText('remove selection')}}
+    </div>
+  </div>
+  <div *ngIf="filterShown && domSrv.getIsDeviceSize() && pickedFilterName"
+    class="filters-title t-black-T t-h5-bold t-a-center pa-s">
+    {{textSrv.getText(pickedFilterName.buttonText)}}
+  </div>
+  <ng-content></ng-content>
+</div>

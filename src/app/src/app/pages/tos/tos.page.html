@@ -1,0 +1,45 @@
+<div class="privacy text-black">
+  <div class="privacy-header t-h1-blackW">{{textSrv.getText('Privacy and cookies')}}</div>
+
+  <div class="container-fluid privacy-title pvb">
+    <div class="container">
+      <div class="row">
+        <div class="privacy-introduction col-12" [innerHTML]="textSrv.getText('Privacy and cookies introduction')">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="privacy-description col-12 mbm mtb"
+          [innerHTML]="textSrv.markdown(textSrv.getText('Privacy and cookies description'))"></div>
+      </div>
+
+      <div class="row" *ngFor="let dummy of ' '.repeat(20).split(''); let x = index">
+        <div *ngIf="textSrv.getText('Privacy and cookies title_' + (x + 1)) !== 'Privacy and cookies title_' + (x + 1)">
+          <div class="privacy-description col-12 t-h5-bold"
+            [innerHTML]="textSrv.getText('Privacy and cookies title_' + (x + 1))"></div>
+          <div class="privacy-description col-12"
+            [innerHTML]="textSrv.markdown(textSrv.getText('Privacy and cookies description_' + (x + 1)))"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid greyBG">
+    <div class="container">
+      <div class="row" *ngFor="let dummy of ' '.repeat(20).split(''); let x = index">
+        <div
+          *ngIf="textSrv.getText('Privacy and cookies explanation title_' + (x + 1)) !== 'Privacy and cookies explanation title_' + (x + 1)">
+          <div class="privacy-explanation col-12 t-m-bold t-green-primary mtb mbb"
+            [innerHTML]="textSrv.getText('Privacy and cookies explanation title_' + (x + 1))"></div>
+          <div class="privacy-explanation col-12"
+            [innerHTML]="textSrv.markdown(textSrv.getText('Privacy and cookies explanation description_' + (x + 1)))">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

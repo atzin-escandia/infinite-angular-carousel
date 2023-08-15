@@ -1,0 +1,17 @@
+<div class="input-emails-chips">
+  <div class="content-wrapper">
+    <ul class="chips-list">
+      <li class="chip" *ngFor="let item of emailsList; let i = index">
+        <chip [text]="item" [canRemove]="true" (remove)="removeChip(i)"></chip>
+      </li>
+      <li class="chip input" *ngIf="emailsList.length < maxEmailsLength">
+        <input
+          type="email"
+          [placeholder]="emailsList.length ? '' : 'Emails'"
+          [ngClass]="{ error: !isValidEmail }"
+          (input)="onInput($event)"
+          (keydown)="onKeydown($event)" />
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.ec-detail-summary {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    @extend .t-title-m;
+  }
+
+  &__desc {
+    @extend .t-body-s;
+  }
+
+  @include bp(device-s) {
+    &__title {
+      font-size: pxToRem(24);
+      font-weight: 600;
+      line-height: pxToRem(32);
+      letter-spacing: -0.4px;
+    }
+
+    &__desc {
+      font-size: pxToRem(16);
+      font-weight: 400;
+      line-height: pxToRem(24);
+      letter-spacing: -0.2px;
+    }
+  }
+}

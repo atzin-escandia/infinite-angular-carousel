@@ -1,0 +1,66 @@
+@import '../../../../../../../scss/commons.scss';
+
+.green-link {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.checkout-cart {
+  &.__price {
+    background: #fff;
+    box-shadow: 0 0 4px rgb(4 37 34 / 12%), 0 8px 16px rgb(4 37 34 / 8%);
+    border-radius: 8px;
+    padding: 16px;
+  }
+
+  &__footer {
+    padding: 24px 0 16px 0;
+
+    .over-18-info-btn {
+      font-size: 16px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    border-top: 2px solid map_get($color, 'grey-2');
+  }
+
+  .products-list {
+    @media (min-width: map_get($grid-breakpoints, 'md')) {
+      margin-top: -16px;
+    }
+
+    &__elem {
+      padding: 16px 0;
+
+      & + .products-list__elem {
+        margin: 16px 0;
+      }
+
+      &:last-child {
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+  @media (min-width: map_get($grid-breakpoints, 'md')) {
+    .sticky-col {
+      top: 85px;
+      width: 100%;
+      position: sticky;
+
+      &-container {
+        height: 100%;
+      }
+    }
+  }
+
+  .default-actions {
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px rgba(4, 37, 34, 0.12), 0 8px 16px rgba(4, 37, 34, 0.08);
+  }
+}

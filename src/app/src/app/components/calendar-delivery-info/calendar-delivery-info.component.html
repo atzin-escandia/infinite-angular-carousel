@@ -1,0 +1,60 @@
+<div class="calendar-delivery-info-container">
+  <!-- Title -->
+  <div class="d-flex calendar-delivery-info-title">
+    <div class="calendar-delivery-info-title-scroll-arrows" id="delivery-calendar-years-container">
+      <div *ngIf="yearsContainerTranslate !== 0 && needsScroll" class="arrow-container">
+        <cf-arrow (click)="scrollCalendar()" class='mr-s arrow-left' [size]="'m'">
+        </cf-arrow>
+      </div>
+      <div *ngIf="yearsContainerTranslate === 0 && needsScroll" class="arrow-container">
+        <cf-arrow class='ml-s arrow-right' [size]="'m'" [right]="true" (click)="scrollCalendar()">
+        </cf-arrow>
+      </div>
+    </div>
+    <div class="d-flex calendar-delivery-info-years-container" [ngClass]="{'full-width': needsScroll === false}"
+      [ngStyle]="{'transform': 'translateX(' + yearsContainerTranslate + 'px)'}" id="delivery-calendar-years">
+      <div *ngFor="let year of years; let last = last; let i = index"
+        class="calendar-delivery-info-years-container-year" [ngClass]="{'full-width': last === true}">
+        <div class="t-s-regular pa-s border-bottom-grey-2-1x">
+          {{year.name}}
+        </div>
+        <div class="d-flex">
+          <div *ngFor="let month of year.months; let j = index" (click)="changeMonth(year, month)"
+            class="calendar-delivery-info-years-container-month pr-s pl-s pt-l pb-l t-l-regular"
+            [ngClass]="{'calendar-delivery-info-years-container-month-active': isActiveMonth(year, month), 'mob-ml-s': j === 0}">
+            {{textSrv.getText(month.name)}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Week -->
+  <div class="calendar-delivery-info-week border-top-grey-2-1x border-bottom-grey-2-1x">
+    <div *ngFor="let dayName of week; let i = index" class="calendar-delivery-info-name t-s-regular t-grey">
+      {{textSrv.getText(dayName)}}
+    </div>
+  </div>
+  <!-- Days -->
+  <div *ngFor="let week of month; let i = index" class="calendar-delivery-info-days"
+    [ngClass]="{'calendar-delivery-info-days-space': month.length === 5 && i === 4}">
+    <div *ngFor="let day of week; let j = index" class="calendar-delivery-info-day t-l-regular t-grey border-grey-2-1x">
+      <span class="calendar-delivery-info-date">
+        {{day.date !== 0 ? day.date : ''}}
+      </span>
+      <i *ngIf="day.available"
+        class="eva eva-car t-h3-regular hide-mobile t-green-primary calendar-delivery-info-available-icon">
+      </i>
+      <i *ngIf="day.available"
+        class="eva eva-car t-h6-regular hide-desktop t-green-primary calendar-delivery-info-available-icon">
+      </i>
+    </div>
+  </div>
+  <!-- Advises -->
+  <div class="calendar-delivery-info-advise t-xs-regular mt-s mob-pl-s mob-pr-s">
+    <div class="calendar-delivery-info-advise-available flex-center justify-content-start pt-l pb-m">
+      <i class="eva eva-car t-h3-regular t-green-primary mr-s">
+      </i>
+      {{textSrv.getText('Available dates of shipment')}}
+    </div>
+  </div>
+</div>

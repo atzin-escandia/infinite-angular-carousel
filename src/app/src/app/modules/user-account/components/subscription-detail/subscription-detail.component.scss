@@ -1,0 +1,49 @@
+@import '../../../../../scss/commons.scss';
+@import '../../../../../scss/colors.scss';
+
+.subscription {
+  padding-bottom: 24px;
+
+  &-img {
+    height: 84px;
+    width: 84px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 5px;
+
+    &.empty {
+      background-color: $greyLight;
+
+      img {
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+
+  &-separator {
+    height: 2px;
+    width: 100%;
+    margin: 24px 0;
+    background: map_get($color, 'grey-2');
+  }
+
+  &-overview {
+    img {
+      width: 30px;
+      height: 20px;
+    }
+  }
+
+  &-actions {
+    max-width: 50%;
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      max-width: none;
+    }
+  }
+
+  &-cancel {
+    padding: 16px 0;
+  }
+}

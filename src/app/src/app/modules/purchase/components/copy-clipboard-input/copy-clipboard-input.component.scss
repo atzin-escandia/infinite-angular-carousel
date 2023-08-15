@@ -1,0 +1,42 @@
+.copy-clipboard-input {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #c9d0d0;
+
+  &__text {
+    max-width: 95%;
+
+    p {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &__icon {
+    position: relative;
+
+    .tooltip {
+      z-index: 9;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.75);
+      border-radius: 5px;
+      padding: 4px;
+      opacity: 0;
+      width: max-content;
+      max-width: 120px;
+      transition: opacity 0.125s ease-in-out;
+
+      &.active {
+        opacity: 1;
+      }
+
+      &__text {
+        color: #fff;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class="backdrop" *ngIf="active" (click)="closeModal()"></div>
+
+<div class="cf-options-container" *ngIf="active">
+  <div class="cf-options-close-button" (click)="closeModal()">
+    <i class="eva eva-close-outline" aria-hidden="true"></i>
+  </div>
+  <div class="cf-options-list">
+    <div class="cf-options-option" *ngFor="let option of options">
+      <cf-check class="options-modal-check" [(checked)]="statusChecked[option]">
+        {{optionsToShow ? optionsToShow[option] : option}}
+      </cf-check>
+    </div>
+  </div>
+  <div class="cf-options-footer">
+    <p class="cf-options-footer-button reset" (click)="resetData()">
+      {{restoreText}}
+    </p>
+    <p class="cf-options-footer-button" (click)="closeModal()">
+      {{applyText}}
+    </p>
+  </div>
+</div>

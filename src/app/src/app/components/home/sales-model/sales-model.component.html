@@ -1,0 +1,27 @@
+<div *transloco="let t" class="text-center container sales-wrapper p-0">
+  <h1 class="t-heading-m">
+    {{ t('sales-model.home.title') }}
+  </h1>
+  <p class="t-grey t-a-center pt-4 fw-4">
+    {{ t('sales-model.home.body') }}
+  </p>
+  <div class="row sales-model-container mx-auto" [ngClass]="{ overflow: cards.length === 3, 
+    'justify-content-center': cards.length === 2 && isMobile }">
+    <div
+      class="sales-info"
+      [ngClass]="{
+        'justify-content-center': cards.length === 3,
+        'justify-content-around': cards.length === 2 && isMobile,
+        'max-width': cards.length === 3 && isMobile
+      }">
+      <div *ngFor="let card of cards" class="card text-center p-3 col-4" 
+        (click)="card.navigate()">
+        <div [ngStyle]="{ 'background-image': 'url(' + (card.img | cdn : 800) + ')' }" 
+          class="image-block text-center p-5"></div>
+        <a class="text-center t-xl-regular mt-3">
+          {{ t(card.linkText) }}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

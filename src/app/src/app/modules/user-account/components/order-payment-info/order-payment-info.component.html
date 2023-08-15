@@ -1,0 +1,41 @@
+<section class="cf-order-payment-info" *transloco="let t">
+  <h3 class="t-title-s text-primary-88 mb-8">{{ paymentTitle }}</h3>
+  <div class="d-flex align-items-center">
+    <cf-payment-icon
+      *ngIf="paymentData"
+      [isSepa]="isSepa"
+      [isVisa]="isVisa"
+      [isKlarna]="isKlarna"
+      [isPaypal]="isPaypal"
+      [isCard]="isCard"
+      [isApplePay]="isApplePay"
+      [brand]="cardBrand">
+    </cf-payment-icon>
+    <h3 class="t-component-semibold-m text-primary-88 ml-8">
+      {{
+        isCard ? t('page.last-four-numbers.form', { last4: cardLast4 }) : 
+        isPaypal ? t('global.payment-method-used.text-info') + ' ' + t('global.paypal-account.label') : 
+        isSepa ? t('page.last-four-numbers.form', { last4: paymentData.sepa.sepa_debit.last4 }) : 
+        isKlarna ? t('global.payment-method-used.text-info') + ' ' + t('global.pay-klarna.title') :
+        isApplePay ? t('global.payment-method-used.text-info') + ' ' + 'Apple Pay' : t('global.paid.text-info')
+      }}
+    </h3>
+    <h3 *ngIf="isPaypal" class="t-component-semibold-m text-primary-88 ml-8">
+      
+    </h3>
+  </div>
+  <div class="order-payment-info__payment-data">
+    <div class="d-flex mb-16">
+      <span class="t-body-s text-grey-56 mr-8">
+        {{ utilsSrv.dateForFront(orderData.createdAt) }}
+      </span>
+      <cf-payment-status *ngIf="paymentStatus" [paymentStatusText]="paymentStatus"></cf-payment-status>
+    </div>
+    <div class="d-flex">
+      <div *ngFor="let receipt of orderData.receipts" (click)="getReceipt(receipt.url)" class="t-green-primary flex-center pointer mr-m">
+        <i class="eva eva-download-outline f20 mr-s"></i>
+        {{ getReceiptText(receipt.type) }}
+      </div>
+    </div>
+  </div>
+</section>

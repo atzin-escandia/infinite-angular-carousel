@@ -1,0 +1,12 @@
+<div *transloco="let t" class="container no-results-container text-center mb-5">
+  <p class="title t-heading-s">{{ t('page.no-results-search.title') }}</p>
+  <p class="t-body-s text-grey-subheader mt-2">{{ t('page.no-result-see-suggestion.text-info') }}</p>
+</div>
+
+<cross-selling-block-component
+  [params]="csParams"
+  [specifications]="csSpecifications"
+  [fromFM]="true"
+  (crossSellingProductAdded)="addedCrossSelling()"
+  (crossSellingProductReceived)="hideSkeletonLoader()">
+</cross-selling-block-component>

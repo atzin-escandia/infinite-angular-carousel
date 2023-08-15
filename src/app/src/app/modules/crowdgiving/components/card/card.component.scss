@@ -1,0 +1,21 @@
+@import '../../../../../scss/commons.scss';
+
+.card {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid map_get($color, 'grey-2');
+
+  &.selectable {
+    box-shadow: none;
+    transition: all 0.25s ease-in-out;
+  }
+
+  &.selected {
+    border-color: map_get($color, 'primary');
+  }
+
+  &__footer {
+    padding: 6px 8px;
+    background-color: #fff;
+  }
+}

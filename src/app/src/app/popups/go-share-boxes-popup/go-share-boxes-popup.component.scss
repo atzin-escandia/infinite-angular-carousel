@@ -1,0 +1,96 @@
+@import '../../../scss/commons.scss';
+
+.go-share-boxes-popup-container {
+  width: 100%;
+  max-width: 100%;
+
+  @media (min-width: map_get($grid-breakpoints, 'xl')) {
+    width: 1140px;
+    max-width: 1140px;
+  }
+
+  .steps {
+    .carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+
+      &-arrow {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.left {
+          left: 0;
+        }
+
+        &.right {
+          right: 0;
+        }
+      }
+
+      &-content {
+        z-index: 1;
+        transition: all 0.25s ease-in-out;
+
+        .step-col {
+          padding: 0 16px;
+
+          &__content-img {
+            width: 75%;
+          }
+        }
+      }
+    }
+  }
+
+  .step-block {
+    &__content-img {
+      height: 196px;
+    }
+  }
+
+  .popup-footer {
+    position: relative;
+
+    &__text {
+      color: map_get($color, 'supp-4');
+      text-decoration: underline dotted  map_get($color, 'supp-4');
+    }
+
+    .tooltip {
+      z-index: 9;
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      width: 260px;
+      transition: opacity 0.125s ease-in-out;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 6px;
+      box-shadow: 0 0 4px rgba(4, 37, 34, 0.12), 0 8px 16px rgba(4, 37, 34, 0.08);
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        width: 12px;
+        height: 12px;
+        transform: translateX(-50%) rotate(45deg);
+        background-color: #fff;
+        border-right: 1px solid rgba(4, 37, 34, 0.12);
+        border-bottom: 1px solid rgba(4, 37, 34, 0.12);
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}

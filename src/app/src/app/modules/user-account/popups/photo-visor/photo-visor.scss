@@ -1,0 +1,13 @@
+@import '../../../../../scss/colors.scss';
+
+:host {
+  .photo-visor- {
+    &container {
+      padding: 10px;
+      height: 70vh;
+      width: 70vw;
+      min-width: 320px;
+      max-width: 100%;
+    }
+  }
+}

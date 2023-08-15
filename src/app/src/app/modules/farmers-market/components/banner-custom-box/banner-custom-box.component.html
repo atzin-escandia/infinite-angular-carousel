@@ -1,0 +1,20 @@
+<ds-section>
+  <section class="banner-custom-box" [ngStyle]="{ 'background-image': 'url(../../../../../assets/img/custom-banner/Bodegon_madera.png)' }">
+    <div class="banner-custom-box__content"></div>
+    <h1 class="banner-custom-box__title">
+      {{ title }}
+    </h1>
+    <h3 class="banner-custom-box__desc">
+      {{ description }}
+    </h3>
+    <div class="banner-custom-box__btn-content" #ecommerceCTABtn>
+      <custom-button
+        variant="secondary"
+        [light]="true"
+        size="m"
+        [content]="labelEvent"
+        width="full"
+        (buttonClick)="goTo.emit()"></custom-button>
+    </div>
+  </section>
+</ds-section>

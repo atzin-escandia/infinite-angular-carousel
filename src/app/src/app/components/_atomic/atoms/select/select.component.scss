@@ -1,0 +1,88 @@
+@import '../../../../../scss/commons.scss';
+
+.select-field {
+  position: relative;
+
+  &__label {
+    display: block;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 4px;
+  }
+
+  &__container {
+    position: relative;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+
+    .fake-select {
+      width: 100%;
+      max-width: calc(100% - 40px);
+      border: none;
+      padding: 14px 0 14px 16px;
+      font-size: 14px;
+      line-height: 20px;
+      outline: none;
+      color: #000;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.grey {
+        color: #79838f;
+      }
+    }
+
+    .arrow-icon {
+      position: absolute;
+      right: 8px;
+      font-size: 24px;
+      top: 50%;
+      margin-top: -12px;
+    }
+
+    &.focus {
+      outline: map_get($color, 'primary') auto 1px;
+    }
+  }
+
+  .options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 20;
+    background-color: map_get($color, 'white-1');
+    border: 1px solid map_get($color, 'primary');
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px 0 rgb(0 0 0 / 30%);
+
+    &__elem {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      background-color: map_get($color, 'white-1');
+      transition: background-color 0.25s ease-out;
+
+      &:hover {
+        background-color: map_get($color, 'grey-1');
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #777;
+      }
+
+      &.selected {
+        background-color: rgba(46, 158, 147, 0.08);
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+<section *transloco="let t">
+  <div class="container py-5">
+    <div class="row content justify-content-center">
+      <div class="col-12 col-md-6">
+        <div *ngIf="title" class="header t-h1-bold t-grey mb-l">
+          {{t(title)}}
+        </div>
+        <div *ngIf="image" class="mhm">
+          <img src="{{image | cdn}}" class="img100">
+        </div>
+      </div>
+      <div class="col-12 col-md-6 d-flex justify-content-center flex-column">
+        <div *ngFor="let faq of faqs; index as id" class="mb-s mt-s">
+          <cf-faq [content]="{answer: t(faq?.answer), question: t(faq?.question)}" [id]="'ID' + (id + 1)"></cf-faq>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

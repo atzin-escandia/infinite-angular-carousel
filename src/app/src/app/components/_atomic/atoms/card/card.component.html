@@ -1,0 +1,24 @@
+<div class="card" [ngClass]="{ selectable: selectable, selected: selectable && selected }">
+  <div class="card__body pa-m" (click)="onSelect()">
+    <div class="row" [ngClass]="{'align-items-center': inputBtnPosition === 'left' && !multi, 'align-items-md-center': inputBtnPosition === 'left' && multi}">
+      <div class="col" [ngClass]="{'order-2': inputBtnPosition === 'left'}">
+        <ng-content select="[body]"></ng-content>
+      </div>
+      <div class="col-auto" [ngClass]="{'order-1': inputBtnPosition === 'left'}" *ngIf="selectable && withInputBtn">
+        <cf-check *ngIf="multi; else radioBtnTpl" [checked]="selected"></cf-check>
+
+        <ng-template #radioBtnTpl>
+          <radio-button [isSelected]="selected"></radio-button>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+
+  <div class="card__footer" *ngIf="hasFooter">
+    <div class="row justify-content-end">
+      <div class="col-auto">
+        <ng-content select="[footer]"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

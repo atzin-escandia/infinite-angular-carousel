@@ -1,0 +1,6026 @@
+[
+  {
+    "mpboID": "Selected country",
+    "lokaliseID": "global.selected-country.title"
+  },
+  {
+    "mpboID": "metaTitle.farmersMarket",
+    "lokaliseID": "global.farmers-market-adoptions.metatitle"
+  },
+  {
+    "mpboID": "metaDescription.farmersMarket",
+    "lokaliseID": "global.farmers-market-adoptions.metadescription"
+  },
+  {
+    "mpboID": "metaTitle.farmersMarketSearch",
+    "lokaliseID": "global.farmers-market-search.metatitle"
+  },
+  {
+    "mpboID": "metaDescription.farmersMarketSearch",
+    "lokaliseID": "global.farmers-market-search.metadescription"
+  },
+  {
+    "mpboID": "metaTitle.manifest",
+    "lokaliseID": "global.manifest.metatitle"
+  },
+  {
+    "mpboID": "metaTitle.subscriptionBox",
+    "lokaliseID": "global.subscription-box.metatitle"
+  },
+  {
+    "mpboID": "metaDescription.subscriptionBox",
+    "lokaliseID": "global.subscription-box.metadescription"
+  },
+  {
+    "mpboID": "metaTitle.ecommerce",
+    "lokaliseID": "global.ecommerce.metatitle"
+  },
+  {
+    "mpboID": "metaDescription.ecommerce",
+    "lokaliseID": "global.ecommerce.metadescription"
+  },
+  {
+    "mpboID": "metaTitle.ecommerce-detail",
+    "lokaliseID": "global.ecommerce-detail.metatitle"
+  },
+  {
+    "mpboID": "metaDescription.ecommerce-detail",
+    "lokaliseID": "global.ecommerce.metadescription"
+  },
+  {
+    "mpboID": "metaDescription.manifest",
+    "lokaliseID": "global.manifest.metadescription"
+  },
+  {
+    "mpboID": "metaTitle.farmersMarketOH",
+    "lokaliseID": "global.farmers-market-oh.metatitle"
+  },
+  {
+    "mpboID": "metaDescription.farmersMarketOH",
+    "lokaliseID": "global.farmers-market-oh.metadescription"
+  },
+  {
+    "mpboID": "Country not available",
+    "lokaliseID": "global.country-not.available.label"
+  },
+  {
+    "mpboID": "Deliver to",
+    "lokaliseID": "global.delivery-country.title"
+  },
+  {
+    "mpboID": "Selected language",
+    "lokaliseID": "global.selected-language.title"
+  },
+  {
+    "mpboID": "To which country do you want us to deliver your orders",
+    "lokaliseID": "page.country-selector.body"
+  },
+  {
+    "mpboID": "Choose your language",
+    "lokaliseID": "page.language-selector.title"
+  },
+  {
+    "mpboID": "Save changes",
+    "lokaliseID": "page.country-selector.button"
+  },
+  {
+    "mpboID": "Choose the delivery country",
+    "lokaliseID": "page.country-selector.title"
+  },
+  {
+    "mpboID": "Extra message fortunately we send to {country}",
+    "lokaliseID": "notifications.country-detection-form.text-info"
+  },
+  {
+    "mpboID": "Discovering new countries",
+    "lokaliseID": "notifications.country-detection-form.body"
+  },
+  {
+    "mpboID": "We dont deliver to your country",
+    "lokaliseID": "notifications.country-detection-form.title"
+  },
+  {
+    "mpboID": "Select country in menu show proyects",
+    "lokaliseID": "notifications.country-detection-without-country.body"
+  },
+  {
+    "mpboID": "Which country deliver to",
+    "lokaliseID": "notifications.country-detection-without-country.title"
+  },
+  {
+    "mpboID": "Got it",
+    "lokaliseID": "notifications.country-detection-with-country.button"
+  },
+  {
+    "mpboID": "Select country in menu",
+    "lokaliseID": "notifications.country-detection-with-country.body"
+  },
+  {
+    "mpboID": "Visiting us from {countryname}",
+    "lokaliseID": "notifications.country-detection-with-country.title"
+  },
+  {
+    "mpboID": "Default address updated",
+    "lokaliseID": "notifications.default-address-updated.text-info"
+  },
+  {
+    "mpboID": "Required field",
+    "lokaliseID": "global.requiered-field.text-info"
+  },
+  {
+    "mpboID": "Must be bigger or equal than {requiredLength} char",
+    "lokaliseID": "global.bigger-or-equal-character.label"
+  },
+  {
+    "mpboID": "Must be less or equal than {requiredLength} char",
+    "lokaliseID": "global.less-or-equal-character.label"
+  },
+  {
+    "mpboID": "Invalid value",
+    "lokaliseID": "global.invalid-value.label"
+  },
+  {
+    "mpboID": "Invalid pattern",
+    "lokaliseID": "global.invalid-pattern.label"
+  },
+  {
+    "mpboID": "Box content",
+    "lokaliseID": "global.content-box.text-link"
+  },
+  {
+    "mpboID": "Warning",
+    "lokaliseID": "page.alcohol-warning.text-info"
+  },
+  {
+    "mpboID": "Understood",
+    "lokaliseID": "global.understood.button"
+  },
+  {
+    "mpboID": "Add shipment address",
+    "lokaliseID": "global.add-shipment-address.text-link"
+  },
+  {
+    "mpboID": "Successfuly added {paymentMethod}",
+    "lokaliseID": "notifications.payment-method-successfully-added.text-info"
+  },
+  {
+    "mpboID": "{paymentMethod} successfuly deleted",
+    "lokaliseID": "notifications.succesfully-deleted-payment-method.text-info"
+  },
+  {
+    "mpboID": "ideal delete",
+    "lokaliseID": "notifications.ideal-deleted.text-info"
+  },
+  {
+    "mpboID": "ideal delete confirm question",
+    "lokaliseID": "notifications.ideal-deleted-confirmation.text-info"
+  },
+  {
+    "mpboID": "Adopted",
+    "lokaliseID": "global.adopted.drop"
+  },
+  {
+    "mpboID": "Open incident",
+    "lokaliseID": "global.open-incident.drop"
+  },
+  {
+    "mpboID": "Possible delay",
+    "lokaliseID": "global.possible-delay.drop"
+  },
+  {
+    "mpboID": "Auto-SEO-Description OH HIVE",
+    "lokaliseID": "page.buy-directly-from-the-beekeeper-pure-honey-limited-harvest.body"
+  },
+  {
+    "mpboID": "Please, make a transfer for each order and indicate the order number",
+    "lokaliseID": "page.make-transfer-rejected-order.text-info"
+  },
+  {
+    "mpboID": "Cancellation step 1",
+    "lokaliseID": "page.receive-confirmation.body"
+  },
+  {
+    "mpboID": "No more boxes left",
+    "lokaliseID": "notification.no-units-left.text-info"
+  },
+  {
+    "mpboID": "Debit card",
+    "lokaliseID": "page.debit-card.title"
+  },
+  {
+    "mpboID": "funding data social third text",
+    "lokaliseID": "page.better-price-farmers.body"
+  },
+  {
+    "mpboID": "We want to remove intermediaries",
+    "lokaliseID": "page.remove-intermediaries.body"
+  },
+  {
+    "mpboID": "title win win winner 1",
+    "lokaliseID": "page.designed-for-farmer.body"
+  },
+  {
+    "mpboID": "food/tropiterranean",
+    "lokaliseID": "global.food-tropiterranean"
+  },
+  {
+    "mpboID": "25% - A part of the product missing",
+    "lokaliseID": "global.25affected.text-link"
+  },
+  {
+    "mpboID": "Number of workers",
+    "lokaliseID": "global.team.body"
+  },
+  {
+    "mpboID": "plant",
+    "lokaliseID": "global.adopt.body"
+  },
+  {
+    "mpboID": "are you crowdfarmer?",
+    "lokaliseID": "global.already-a-crowdfarmer."
+  },
+  {
+    "mpboID": "POPUP_BASE_PRICE_INFO_ADOPTION",
+    "lokaliseID": "page.annual-commitment-refund.body"
+  },
+  {
+    "mpboID": "\"phone\" Invalid phone number",
+    "lokaliseID": "global.wrong-format-phone-number.text-info"
+  },
+  {
+    "mpboID": "Info Crowdfarmer term",
+    "lokaliseID": "page.what-become-adopt.body"
+  },
+  {
+    "mpboID": "philosophy",
+    "lokaliseID": "global.Philosophy.body"
+  },
+  {
+    "mpboID": "See your orders information",
+    "lokaliseID": "page.see-orders-information.text-info"
+  },
+  {
+    "mpboID": "You do not have any up adopted yet",
+    "lokaliseID": "page.not-adopted-yet.body"
+  },
+  {
+    "mpboID": "phoneCF",
+    "lokaliseID": "page.phone-cf.body"
+  },
+  {
+    "mpboID": "How does adoption works?",
+    "lokaliseID": "page.how-adoptions-work.title"
+  },
+  {
+    "mpboID": "Meet the farmers",
+    "lokaliseID": "page.meet-farmer.body"
+  },
+  {
+    "mpboID": "preparationSlideSubtitle",
+    "lokaliseID": "page.prepare-your-harvest-on-the.label"
+  },
+  {
+    "mpboID": "Privacy and cookies description",
+    "lokaliseID": "page.establishes-processes-using.body"
+  },
+  {
+    "mpboID": "Or access fast with",
+    "lokaliseID": "page.fast-access.title"
+  },
+  {
+    "mpboID": "noFarmersAvailable",
+    "lokaliseID": "global.no-farmers-available.text-info"
+  },
+  {
+    "mpboID": "filterBy",
+    "lokaliseID": "global.filter-by.title"
+  },
+  {
+    "mpboID": "whenReceiveIt",
+    "lokaliseID": "global.when-receive-products.text-info"
+  },
+  {
+    "mpboID": "whyAdopt",
+    "lokaliseID": "page.why-adopt.title"
+  },
+  {
+    "mpboID": "Send to another address",
+    "lokaliseID": "notifications.send-another-address.text-link"
+  },
+  {
+    "mpboID": "Create a password",
+    "lokaliseID": "global.set-password.form"
+  },
+  {
+    "mpboID": "See details",
+    "lokaliseID": "page.see-details.text-link"
+  },
+  {
+    "mpboID": "Privacy and cookies title_11",
+    "lokaliseID": "page.11.-exercise-of.rights.body"
+  },
+  {
+    "mpboID": "Privacy and cookies title_12",
+    "lokaliseID": "page.security-measures-privacy-cookies-title"
+  },
+  {
+    "mpboID": "cant cancel box",
+    "lokaliseID": "page.cannot-cancel-box.body"
+  },
+  {
+    "mpboID": "cancel confirm box",
+    "lokaliseID": "page.cancel-only-shipment-not-your-adoption.body"
+  },
+  {
+    "mpboID": "your message",
+    "lokaliseID": "page.your-message.form"
+  },
+  {
+    "mpboID": "crowdgiving associations? answer",
+    "lokaliseID": "page.crowdgiving-associations-answer.body"
+  },
+  {
+    "mpboID": "metaDescription.fruitimpact",
+    "lokaliseID": "page.pau-gasol-challenge-childhood-obesity.body"
+  },
+  {
+    "mpboID": "After adoption",
+    "lokaliseID": "global.plan-pay-shipment-boxes.text-info"
+  },
+  {
+    "mpboID": "History",
+    "lokaliseID": "global.history.title"
+  },
+  {
+    "mpboID": "Do you shop consciously",
+    "lokaliseID": "page.shop-consciously.text"
+  },
+  {
+    "mpboID": "Multi-local mindset versus globalisation",
+    "lokaliseID": "page.multi-local-versus-global.title"
+  },
+  {
+    "mpboID": "Do you want to try genuine food straight from the producer?",
+    "lokaliseID": "page.buy-source-destination.body"
+  },
+  {
+    "mpboID": "adoption landing header text",
+    "lokaliseID": "page.adopt-a-tree-and-receive-the-harvest-at-home.body"
+  },
+  {
+    "mpboID": "confirm order",
+    "lokaliseID": "global.oder-summary.title"
+  },
+  {
+    "mpboID": "technical profile",
+    "lokaliseID": "global.tecnical-profile.text-link"
+  },
+  {
+    "mpboID": "metaTitle.selectAddress",
+    "lokaliseID": "global.CrowdFarming.title"
+  },
+  {
+    "mpboID": "metaDescription.confirmOrder",
+    "lokaliseID": "global.confirm-order.button"
+  },
+  {
+    "mpboID": "Remember that we will charge in this method of Pay for the maintenance of your UPs",
+    "lokaliseID": "page.charge-method-mantainance.body"
+  },
+  {
+    "mpboID": "POPUP_FINAL_PRICE_INFO",
+    "lokaliseID": "notifications.final-price-and-select-country.body"
+  },
+  {
+    "mpboID": "card number",
+    "lokaliseID": "global.card-number.form"
+  },
+  {
+    "mpboID": "your email is invalid",
+    "lokaliseID": "page.format-not-valid.text-info"
+  },
+  {
+    "mpboID": "User not found",
+    "lokaliseID": "notification.user-not-found.text-info"
+  },
+  {
+    "mpboID": "February",
+    "lokaliseID": "global.february.tab"
+  },
+  {
+    "mpboID": "July",
+    "lokaliseID": "global.july.title"
+  },
+  {
+    "mpboID": "November",
+    "lokaliseID": "global.november.body"
+  },
+  {
+    "mpboID": "OverHarvest box {mbName}",
+    "lokaliseID": "global.box-from.text-info"
+  },
+  {
+    "mpboID": "Price",
+    "lokaliseID": "global.price.tab"
+  },
+  {
+    "mpboID": "Renewal season",
+    "lokaliseID": "page.seasonal-maintenance.body"
+  },
+  {
+    "mpboID": "Production with values",
+    "lokaliseID": "page.valuable-production.body"
+  },
+  {
+    "mpboID": "Privacy and cookies title_3",
+    "lokaliseID": "page.obrigarotiness-data-provision.titulo"
+  },
+  {
+    "mpboID": "Box",
+    "lokaliseID": "global.box.text"
+  },
+  {
+    "mpboID": "cancel",
+    "lokaliseID": "global.cancel.button"
+  },
+  {
+    "mpboID": "Account cancellation",
+    "lokaliseID": "page.account-cancellation.body"
+  },
+  {
+    "mpboID": "funding history title",
+    "lokaliseID": "page.History-of-CrowdFarming.title"
+  },
+  {
+    "mpboID": "Innovation",
+    "lokaliseID": "page.innovation.text-info"
+  },
+  {
+    "mpboID": "apology delivery landing body",
+    "lokaliseID": "page.contact-transport-locate.body"
+  },
+  {
+    "mpboID": "title model win win winner",
+    "lokaliseID": "global.win-win-winner-model.title"
+  },
+  {
+    "mpboID": "title win win winner 2",
+    "lokaliseID": "page.win-win-winner-2.title"
+  },
+  {
+    "mpboID": "newsletter-subscribe-end",
+    "lokaliseID": "page.receive-email-products.body"
+  },
+  {
+    "mpboID": "Must be between 1 and 40 characters",
+    "lokaliseID": "page.must-be-between-1-and-40-characters.body"
+  },
+  {
+    "mpboID": "I'm new in this",
+    "lokaliseID": "global.new-crowdfarmer.text-link"
+  },
+  {
+    "mpboID": "POPUP_SHIPMENT_PRICE_INFO",
+    "lokaliseID": "page.corresponds-shipment-address.body"
+  },
+  {
+    "mpboID": "Are you sure you want to delete the {variety} \"{upName}\" from your shopping cart?",
+    "lokaliseID": "page.are-you-sure-to-delete.body"
+  },
+  {
+    "mpboID": "product delivery address",
+    "lokaliseID": "page.delivery-address.text-info"
+  },
+  {
+    "mpboID": "lang_de",
+    "lokaliseID": "global.german.drop"
+  },
+  {
+    "mpboID": "Next step",
+    "lokaliseID": "page.next.body"
+  },
+  {
+    "mpboID": "metaDescription.loginRegister",
+    "lokaliseID": "global.access-Crowdfarming-account.title"
+  },
+  {
+    "mpboID": "Type of sheep",
+    "lokaliseID": "page.type-of-sheep.body"
+  },
+  {
+    "mpboID": "Info UP term",
+    "lokaliseID": "page.you-adopt-an animal-a-part-of-a-garden.body"
+  },
+  {
+    "mpboID": "Adopt an UP",
+    "lokaliseID": "global.adopt-plan-harvest.text-link"
+  },
+  {
+    "mpboID": "Get more boxes",
+    "lokaliseID": "page.order-more-boxes.text-link"
+  },
+  {
+    "mpboID": "order summary",
+    "lokaliseID": "page.order-overwiew.label"
+  },
+  {
+    "mpboID": "Farmer",
+    "lokaliseID": "global.farmer.title"
+  },
+  {
+    "mpboID": "Enjoy your harvest DESCRIPTION",
+    "lokaliseID": "page.adoption-allows-receive.body"
+  },
+  {
+    "mpboID": "preparationSlideDescription",
+    "lokaliseID": "page.the-time-necessary-for-the-Farmer-to-prepare-the-harvest-and-shipment.body"
+  },
+  {
+    "mpboID": "charityProject",
+    "lokaliseID": "global.charity-project.title"
+  },
+  {
+    "mpboID": "Information about the shipper message",
+    "lokaliseID": "page.message-read-carrier.body"
+  },
+  {
+    "mpboID": "adopt",
+    "lokaliseID": "global.adopt.text"
+  },
+  {
+    "mpboID": "tryABox",
+    "lokaliseID": "global.buy-box.button"
+  },
+  {
+    "mpboID": "Keep buying",
+    "lokaliseID": "global.continue-shopping.text-link"
+  },
+  {
+    "mpboID": "Confirm payment",
+    "lokaliseID": "page.confirm-payment.button"
+  },
+  {
+    "mpboID": "This product is not sended to your zip",
+    "lokaliseID": "global.not-ship-zip-code.text-info"
+  },
+  {
+    "mpboID": "Cancelled",
+    "lokaliseID": "global.cancelled.title"
+  },
+  {
+    "mpboID": "box",
+    "lokaliseID": "global.box.body"
+  },
+  {
+    "mpboID": "funding button",
+    "lokaliseID": "page.register-to-invest.button"
+  },
+  {
+    "mpboID": "funding gallery environment text",
+    "lokaliseID": "page.funding-gallery-environment.body"
+  },
+  {
+    "mpboID": "funding benefits second",
+    "lokaliseID": "page.under-their-own-brand.body"
+  },
+  {
+    "mpboID": "funding data social second text",
+    "lokaliseID": "page.new-agro-entrepreneurs.title"
+  },
+  {
+    "mpboID": "funding future first title",
+    "lokaliseID": "page.expand-hunting-team.title"
+  },
+  {
+    "mpboID": "funding future third title",
+    "lokaliseID": "page.improve-our-technology.body"
+  },
+  {
+    "mpboID": "The renewal period has not yet begun",
+    "lokaliseID": "global.renewal-period-not-begun.text-info"
+  },
+  {
+    "mpboID": "Latest orders",
+    "lokaliseID": "page.latest-orders.titulo"
+  },
+  {
+    "mpboID": "Tropiavocado header",
+    "lokaliseID": "global.avocados-#tropiterranean.tittle"
+  },
+  {
+    "mpboID": "We do not have a purchasing hub",
+    "lokaliseID": "page.no-supermarket-directly-producer.body"
+  },
+  {
+    "mpboID": "Sustainability",
+    "lokaliseID": "global.sustainability.title"
+  },
+  {
+    "mpboID": "We have no more shipping dates",
+    "lokaliseID": "notification.no-more-shipping-dates-available.text-info"
+  },
+  {
+    "mpboID": "Order incident",
+    "lokaliseID": "page.order-incident.drop"
+  },
+  {
+    "mpboID": "quotes adoption landing farmer1",
+    "lokaliseID": "page.love-direct-motivation.body"
+  },
+  {
+    "mpboID": "adoption landing farmer2 name",
+    "lokaliseID": "global.Maria-Luisa-Henriquez.body"
+  },
+  {
+    "mpboID": "promo-app-benefit-1",
+    "lokaliseID": "global.order-seasonal-fruit.text-info"
+  },
+  {
+    "mpboID": "Years",
+    "lokaliseID": "global.years.title"
+  },
+  {
+    "mpboID": "address {n}",
+    "lokaliseID": "global.address.form"
+  },
+  {
+    "mpboID": "popup text 1",
+    "lokaliseID": "page.popup-text-1.anchor"
+  },
+  {
+    "mpboID": "tree name",
+    "lokaliseID": "page.name-tree.title"
+  },
+  {
+    "mpboID": "metaDescription.myUpPosition",
+    "lokaliseID": "page.location-of-your.body"
+  },
+  {
+    "mpboID": "metaTitle.myUpMore",
+    "lokaliseID": "global.crowdfarming.title"
+  },
+  {
+    "mpboID": "metaTitle.confirmOrder",
+    "lokaliseID": "page.order-confirmation.title"
+  },
+  {
+    "mpboID": "visitorsWelcome",
+    "lokaliseID": "page.visitorswelcome.text-link"
+  },
+  {
+    "mpboID": "Save card",
+    "lokaliseID": "page.save-card.button"
+  },
+  {
+    "mpboID": "The old password is wrong",
+    "lokaliseID": "global.sure-password-correctly.text-info"
+  },
+  {
+    "mpboID": "Adoption of {variety} and harvest reserve",
+    "lokaliseID": "global.adoption-variety.body"
+  },
+  {
+    "mpboID": "Login/Register",
+    "lokaliseID": "global.login-register.form"
+  },
+  {
+    "mpboID": "card",
+    "lokaliseID": "global.card.title"
+  },
+  {
+    "mpboID": "new password",
+    "lokaliseID": "page.enter-new-password.form"
+  },
+  {
+    "mpboID": "Essential cookies for a correct functionality of the web",
+    "lokaliseID": "page.how-cookies-work.body"
+  },
+  {
+    "mpboID": "Make a shipment",
+    "lokaliseID": "global.new-order.title"
+  },
+  {
+    "mpboID": "Refunded",
+    "lokaliseID": "globa.Refunded.body"
+  },
+  {
+    "mpboID": "Payment",
+    "lokaliseID": "page.order-payment.title"
+  },
+  {
+    "mpboID": "Adopt an {up} \"{name}\"",
+    "lokaliseID": "global.adoption.body"
+  },
+  {
+    "mpboID": "The data provided is faithful to the reality",
+    "lokaliseID": "page.confirm-information-is-correct-and-true.body"
+  },
+  {
+    "mpboID": "boxes to be planned",
+    "lokaliseID": "global.plan-delivery.text-link"
+  },
+  {
+    "mpboID": "See projects",
+    "lokaliseID": "global.farmers-market.titulo"
+  },
+  {
+    "mpboID": "remove selection",
+    "lokaliseID": "page.remove-selection.buttom"
+  },
+  {
+    "mpboID": "Date",
+    "lokaliseID": "global.date.tab"
+  },
+  {
+    "mpboID": "Adoption projects",
+    "lokaliseID": "global.adoption-projects.title"
+  },
+  {
+    "mpboID": "See less",
+    "lokaliseID": "global.see-less.text-link"
+  },
+  {
+    "mpboID": "CrowdFunding",
+    "lokaliseID": "page.crowdfunding.tex-link"
+  },
+  {
+    "mpboID": "values of",
+    "lokaliseID": "page.humanity-personal-service.body"
+  },
+  {
+    "mpboID": "contact form",
+    "lokaliseID": "page.contact-form.text-link"
+  },
+  {
+    "mpboID": "Click on donation",
+    "lokaliseID": "page.click-on-donation.button"
+  },
+  {
+    "mpboID": "Select other payment method",
+    "lokaliseID": "page.select-another-payment.text-link"
+  },
+  {
+    "mpboID": "Price per k",
+    "lokaliseID": "global.price-per-kilo.text"
+  },
+  {
+    "mpboID": "buy directly from farmer",
+    "lokaliseID": "global.buy-directly-from-farmer.body"
+  },
+  {
+    "mpboID": "See other projects",
+    "lokaliseID": "global.see-other-project.button"
+  },
+  {
+    "mpboID": "Be Compassionate",
+    "lokaliseID": "global.Be-compassionate.body"
+  },
+  {
+    "mpboID": "Annual Impact Report",
+    "lokaliseID": "global.annual-impact-report.text.link"
+  },
+  {
+    "mpboID": "limited and seasonal",
+    "lokaliseID": "page.limited-seasonal.body"
+  },
+  {
+    "mpboID": "available products now",
+    "lokaliseID": "notifications.available-products.text"
+  },
+  {
+    "mpboID": "oh faq order warrant question",
+    "lokaliseID": "global.purchasing-guarantee.text-link"
+  },
+  {
+    "mpboID": "secure payment",
+    "lokaliseID": "global.secure-payment.body"
+  },
+  {
+    "mpboID": "objective 1 adoption landing",
+    "lokaliseID": "page.choose.your-favorite-tree-give-a-name.body"
+  },
+  {
+    "mpboID": "Picture 2",
+    "lokaliseID": "global.picture-2.title"
+  },
+  {
+    "mpboID": "promo-app-card-2",
+    "lokaliseID": "page.choose-favorite.title"
+  },
+  {
+    "mpboID": "Delivery country must be the same country used for the adoption",
+    "lokaliseID": "notifications.delivery-country-must-be-the-same-country-for-adoption.body"
+  },
+  {
+    "mpboID": "We will notify you when you can renew",
+    "lokaliseID": "page.notify-when-open-renewal.body"
+  },
+  {
+    "mpboID": "Wed",
+    "lokaliseID": "global.Wed.form"
+  },
+  {
+    "mpboID": "No shipment applicable",
+    "lokaliseID": "notifications.order-without-shipment.body"
+  },
+  {
+    "mpboID": "Select another direction",
+    "lokaliseID": "global.select-another-address.text-link"
+  },
+  {
+    "mpboID": "Minimum {minMasterBox} and maximum {maxMasterBox} harvest by season",
+    "lokaliseID": "global.minimum-maximum-boxes.body"
+  },
+  {
+    "mpboID": "Info Farmer term",
+    "lokaliseID": "page.farmer-term.body"
+  },
+  {
+    "mpboID": "Add overharvest",
+    "lokaliseID": "global.order-a-box.button"
+  },
+  {
+    "mpboID": "Subscribe!",
+    "lokaliseID": "global.subscribe.button"
+  },
+  {
+    "mpboID": "MASTER_UNIT_LEAF",
+    "lokaliseID": "global.leaves.body"
+  },
+  {
+    "mpboID": "Welcome to your {upName}",
+    "lokaliseID": "global.welcome-to-your.title"
+  },
+  {
+    "mpboID": "If you need more reasons to adopt...",
+    "lokaliseID": "page.more-reason-adopt.body"
+  },
+  {
+    "mpboID": "Current country not available ended",
+    "lokaliseID": "notifications.country-not-available"
+  },
+  {
+    "mpboID": "Satisfied Crowdfarmers",
+    "lokaliseID": "page.crowdfarmer-community.title"
+  },
+  {
+    "mpboID": "Privacy and cookies explanation description_1",
+    "lokaliseID": "page.privacy-cookies-explanation.body"
+  },
+  {
+    "mpboID": "Order delivery date change success",
+    "lokaliseID": "notifications.date-delivery-correctly-changed.text"
+  },
+  {
+    "mpboID": "Privacy and cookies description_10",
+    "lokaliseID": "page.privacy-cookies-policy.title"
+  },
+  {
+    "mpboID": "Successfully subscribed",
+    "lokaliseID": "page.successfully-subscribed.text-info"
+  },
+  {
+    "mpboID": "Must be between 3 and 10 char",
+    "lokaliseID": "notofication.Mandatory-field.body"
+  },
+  {
+    "mpboID": "Cant send to this country",
+    "lokaliseID": "global.shipping-address-unavailable.text-info"
+  },
+  {
+    "mpboID": "or login with",
+    "lokaliseID": "page.login-email.body"
+  },
+  {
+    "mpboID": "All order statuses",
+    "lokaliseID": "page.status-order.title"
+  },
+  {
+    "mpboID": "Quantity affected",
+    "lokaliseID": "page.quantity-affected.drop"
+  },
+  {
+    "mpboID": "50% - Half of the product",
+    "lokaliseID": "page.half-affected.text-link"
+  },
+  {
+    "mpboID": "What happend?",
+    "lokaliseID": "page.what-happed.text"
+  },
+  {
+    "mpboID": "Others",
+    "lokaliseID": "global.other.text-info"
+  },
+  {
+    "mpboID": "modal max min text",
+    "lokaliseID": "page.register-interest-before.body"
+  },
+  {
+    "mpboID": "remove all",
+    "lokaliseID": "page.remove-all.buttom"
+  },
+  {
+    "mpboID": "relevance",
+    "lokaliseID": "global.relevance.drop"
+  },
+  {
+    "mpboID": "Fats and oils",
+    "lokaliseID": "global.fats-oils.text-link"
+  },
+  {
+    "mpboID": "Vegetables and legumes",
+    "lokaliseID": "page.vegetables-and-legumes.tittle"
+  },
+  {
+    "mpboID": "subscribe",
+    "lokaliseID": "page.subscribe.button"
+  },
+  {
+    "mpboID": "Discover the tropiterranean",
+    "lokaliseID": "page.discover-troppiteranean-movement.body"
+  },
+  {
+    "mpboID": "Harvesting memories",
+    "lokaliseID": "page.harvesting-memories.body"
+  },
+  {
+    "mpboID": "Frequently asked questions",
+    "lokaliseID": "page.frequently-asked-questions.title"
+  },
+  {
+    "mpboID": "What is CrowdGiving? answer",
+    "lokaliseID": "page.crowdgivers-association-need.body"
+  },
+  {
+    "mpboID": "funding data selling second number",
+    "lokaliseID": "page.funding-data.body"
+  },
+  {
+    "mpboID": "header how participate",
+    "lokaliseID": "page.participate-fruitimpact-challange.title"
+  },
+  {
+    "mpboID": "body how participate",
+    "lokaliseID": "page.start-cloth-record.body"
+  },
+  {
+    "mpboID": "text orange OK",
+    "lokaliseID": "page.fuitimpact-game.body"
+  },
+  {
+    "mpboID": "buy clementines",
+    "lokaliseID": "page.buy-organic-clementines.title"
+  },
+  {
+    "mpboID": "fruitimpact faq first answer",
+    "lokaliseID": "page.gasol-fights-obesity.body"
+  },
+  {
+    "mpboID": "fruitimpact faq third question",
+    "lokaliseID": "page.material-of-the-cloth-bag.body"
+  },
+  {
+    "mpboID": "fruitimpact faq third answer",
+    "lokaliseID": "page.cloth-bag.body"
+  },
+  {
+    "mpboID": "Fortunately we send to",
+    "lokaliseID": "page.we-do-ship.title"
+  },
+  {
+    "mpboID": "oh no available days for that country",
+    "lokaliseID": "global.no-available-shipment-dates.text-info"
+  },
+  {
+    "mpboID": "Auto-SEO-Description UP ANIMAL",
+    "lokaliseID": "global.adopt-from-receive.body"
+  },
+  {
+    "mpboID": "Auto-SEO-Description OH TREE",
+    "lokaliseID": "page.buy-fruit-from-the-farmer.body"
+  },
+  {
+    "mpboID": "blog news",
+    "lokaliseID": "global.blog.text-link"
+  },
+  {
+    "mpboID": "Reason of block: disputed pay",
+    "lokaliseID": "page.reason-payment-rejected.body"
+  },
+  {
+    "mpboID": "Please, send us the proof of transfer to hello@crowdfarming.com",
+    "lokaliseID": "page.please-send-us-the-transfer-receipt-to-hello@crowdfarming.com.body"
+  },
+  {
+    "mpboID": "And",
+    "lokaliseID": "global.and.body"
+  },
+  {
+    "mpboID": "newsletter-header",
+    "lokaliseID": "page.select-categories-interest.title"
+  },
+  {
+    "mpboID": "objectives adoption landing",
+    "lokaliseID": "page.how-adoption-work.tittle"
+  },
+  {
+    "mpboID": "Quantity missing",
+    "lokaliseID": "page.how-much-missing.title"
+  },
+  {
+    "mpboID": "50% - Half of the product missing",
+    "lokaliseID": "page.half-product-not-received.body"
+  },
+  {
+    "mpboID": "75% - A big part of the product missing",
+    "lokaliseID": "global.missing-big-part-products.drop"
+  },
+  {
+    "mpboID": "newsletter-unsubscribe-end",
+    "lokaliseID": "page.newsletter-unsibscribe.body"
+  },
+  {
+    "mpboID": "Politica_de_privacidad_y_de_cookies_CF",
+    "lokaliseID": "page.politica_privicidad_cookies.anchor"
+  },
+  {
+    "mpboID": "Max 30 characters",
+    "lokaliseID": "global.max-30-characters.text-info"
+  },
+  {
+    "mpboID": "VAT and shipment included",
+    "lokaliseID": "page.VAT-included.body"
+  },
+  {
+    "mpboID": "Ubication",
+    "lokaliseID": "global.location.body"
+  },
+  {
+    "mpboID": "change",
+    "lokaliseID": "global.change.button"
+  },
+  {
+    "mpboID": "Irrigation",
+    "lokaliseID": "global.irrigation.title"
+  },
+  {
+    "mpboID": "surnames",
+    "lokaliseID": "page.surname.form"
+  },
+  {
+    "mpboID": "repassword",
+    "lokaliseID": "page.confirm-password.form"
+  },
+  {
+    "mpboID": "I'm new",
+    "lokaliseID": "page.sign-up.title"
+  },
+  {
+    "mpboID": "my garden",
+    "lokaliseID": "page.my-garden.buttom"
+  },
+  {
+    "mpboID": "My Account",
+    "lokaliseID": "global.my-account.drop"
+  },
+  {
+    "mpboID": "POPUP_BASE_PRICE_INFO_ADOPTION_MS",
+    "lokaliseID": "page.adoption-not-reserved.body"
+  },
+  {
+    "mpboID": "Your card number is incorrect.",
+    "lokaliseID": "notifications.card-number-incorrect.tittle"
+  },
+  {
+    "mpboID": "Select payment method",
+    "lokaliseID": "page.select-payment-method.title"
+  },
+  {
+    "mpboID": "Cookies options",
+    "lokaliseID": "page.what-options.title"
+  },
+  {
+    "mpboID": "Hello",
+    "lokaliseID": "global.hello.body"
+  },
+  {
+    "mpboID": "Summary",
+    "lokaliseID": "global.summary.title"
+  },
+  {
+    "mpboID": "You have requested {num} boxes",
+    "lokaliseID": "page.planned-shipment-of.body"
+  },
+  {
+    "mpboID": "Card expires {month}/{year}",
+    "lokaliseID": "page.card-expires.text-info"
+  },
+  {
+    "mpboID": "Renewal",
+    "lokaliseID": "global.renewal.button"
+  },
+  {
+    "mpboID": "Country destination no available",
+    "lokaliseID": "page.not-ship-country.body"
+  },
+  {
+    "mpboID": "asdf1234123",
+    "lokaliseID": "page.asdf.body"
+  },
+  {
+    "mpboID": "You are late to adopt {publicVariety}, but you can buy overharvest of {publicName}",
+    "lokaliseID": "global.no-adoptions-left.text-info"
+  },
+  {
+    "mpboID": "How does season works?",
+    "lokaliseID": "http://page.how-season-work.title"
+  },
+  {
+    "mpboID": "Total season",
+    "lokaliseID": "global.total.body"
+  },
+  {
+    "mpboID": "Dark theme title",
+    "lokaliseID": "page.save-planet-while-surfing.title"
+  },
+  {
+    "mpboID": "Privacy and cookies title_1",
+    "lokaliseID": "page.identification.title"
+  },
+  {
+    "mpboID": "adoptTree",
+    "lokaliseID": "page.positive-social-and-environmental-impact.body"
+  },
+  {
+    "mpboID": "outOfSeason",
+    "lokaliseID": "global.out-of season.text-info"
+  },
+  {
+    "mpboID": "BecomeCrowdFarmer",
+    "lokaliseID": "page.become-crowdfarmer.body"
+  },
+  {
+    "mpboID": "Shipper message explanation",
+    "lokaliseID": "page.message-for-parcel-carrier.body"
+  },
+  {
+    "mpboID": "Estimated date",
+    "lokaliseID": "global.approximate-delivery-date.title"
+  },
+  {
+    "mpboID": "Shipment day may vary",
+    "lokaliseID": "page.depending-climate-shipment.body"
+  },
+  {
+    "mpboID": "Purchase completed!",
+    "lokaliseID": "notifications.order-complete.label"
+  },
+  {
+    "mpboID": "Create an account",
+    "lokaliseID": "global.create-account.button"
+  },
+  {
+    "mpboID": "Of_",
+    "lokaliseID": "global.of.title"
+  },
+  {
+    "mpboID": "One-shot confirmed {date}",
+    "lokaliseID": "page.next-renewal.body"
+  },
+  {
+    "mpboID": "Shipment address change",
+    "lokaliseID": "global.change-shipment-address.text-link"
+  },
+  {
+    "mpboID": "ORDER_REFUNDED",
+    "lokaliseID": "global.refunded.body"
+  },
+  {
+    "mpboID": "tracking box info {shippCompany} {scanDay}",
+    "lokaliseID": "page.shipment-by.tittle"
+  },
+  {
+    "mpboID": "Seasonal fruits",
+    "lokaliseID": "page.seasonal-food.title"
+  },
+  {
+    "mpboID": "funding gallery environment title",
+    "lokaliseID": "global.enviroment.title"
+  },
+  {
+    "mpboID": "funding faq fourth answer",
+    "lokaliseID": "page.funding-faq-fourth-answer"
+  },
+  {
+    "mpboID": "Buy more boxes",
+    "lokaliseID": "global.buy-more.button"
+  },
+  {
+    "mpboID": "We make mistakes",
+    "lokaliseID": "page.we_make_mistakes.title"
+  },
+  {
+    "mpboID": "Attach a file",
+    "lokaliseID": "page.attach-a-file.text-link"
+  },
+  {
+    "mpboID": "adoption landing farmer2 position",
+    "lokaliseID": "page.finca-doña-ana.title"
+  },
+  {
+    "mpboID": "adoption landing faq first answer",
+    "lokaliseID": "page.adoption-one-season.body"
+  },
+  {
+    "mpboID": "adoption landing faq second question",
+    "lokaliseID": "page.how-does-my-order-travel.tittle"
+  },
+  {
+    "mpboID": "€ / Year",
+    "lokaliseID": "global.season.tab"
+  },
+  {
+    "mpboID": "Add new card",
+    "lokaliseID": "page.add-new-card.title"
+  },
+  {
+    "mpboID": "hi {name}",
+    "lokaliseID": "page.hello.body"
+  },
+  {
+    "mpboID": "Attention: this account is bloqued",
+    "lokaliseID": "page.acoount-temporarily-blocked.text-info"
+  },
+  {
+    "mpboID": "cf-newsletter",
+    "lokaliseID": "global.newsletter-crowdfarming.title"
+  },
+  {
+    "mpboID": "interests updated",
+    "lokaliseID": "page.preferences.text-info"
+  },
+  {
+    "mpboID": "Cancellation-text",
+    "lokaliseID": "page.delete-account.text-info"
+  },
+  {
+    "mpboID": "Personal info",
+    "lokaliseID": "page.personal-info.body"
+  },
+  {
+    "mpboID": "Enjoy the cf experience",
+    "lokaliseID": "page.enyoy-the-experience.body"
+  },
+  {
+    "mpboID": "funding cta button",
+    "lokaliseID": "page.sign-up-participate.button"
+  },
+  {
+    "mpboID": "Tropiterranean",
+    "lokaliseID": "global.tropiterranean.title"
+  },
+  {
+    "mpboID": "header fruitimpact",
+    "lokaliseID": "page.fruitimpact-challenge.tittle"
+  },
+  {
+    "mpboID": "Food waste in figures",
+    "lokaliseID": "page.food-waste-in-figures-title"
+  },
+  {
+    "mpboID": "Refund of the money",
+    "lokaliseID": "page.refund.title"
+  },
+  {
+    "mpboID": "newsletter-subscribe",
+    "lokaliseID": "notifications.subcription-to-farmer-news.tittle"
+  },
+  {
+    "mpboID": "invalid email",
+    "lokaliseID": "page.check-email-wrong.text-info"
+  },
+  {
+    "mpboID": "lang_fr",
+    "lokaliseID": "global.french.drop"
+  },
+  {
+    "mpboID": "Not enough ups available",
+    "lokaliseID": "page.waitinglist-next-harvest.body"
+  },
+  {
+    "mpboID": "This {variety} can be gifted at the end of the purchase process, in your private area",
+    "lokaliseID": "page.make-gift-end-purchase.text-info"
+  },
+  {
+    "mpboID": "boxes",
+    "lokaliseID": "global.boxes.body"
+  },
+  {
+    "mpboID": "Login | Register",
+    "lokaliseID": "page.login.text-link."
+  },
+  {
+    "mpboID": "Info Crowdfarming term",
+    "lokaliseID": "global.food-supply-chain.text-info"
+  },
+  {
+    "mpboID": "Info Purity term",
+    "lokaliseID": "page.traceability-know-producer.body"
+  },
+  {
+    "mpboID": "You don't have mb left, but you can buy overharvest",
+    "lokaliseID": "page.box-surplus-harvest.body"
+  },
+  {
+    "mpboID": "There is a limited supply of harvest",
+    "lokaliseID": "global.limited-harvest.text-info"
+  },
+  {
+    "mpboID": "Join Crowdfarming, a new chain supply of foods",
+    "lokaliseID": "page.join-crowdfarming.body"
+  },
+  {
+    "mpboID": "Renew \"{name}\"",
+    "lokaliseID": "page.renew-name.buttom"
+  },
+  {
+    "mpboID": "conservationFree",
+    "lokaliseID": "global.without-preservatives.text-info"
+  },
+  {
+    "mpboID": "handMadeProduct",
+    "lokaliseID": "global.handmade.body"
+  },
+  {
+    "mpboID": "100Natural",
+    "lokaliseID": "page.non-processed-product.tittle"
+  },
+  {
+    "mpboID": "This project is active but you can try just one box",
+    "lokaliseID": "global.adopt-or-order.text-info"
+  },
+  {
+    "mpboID": "Enjoy your harvest",
+    "lokaliseID": "page.enjoy-your-harvest.body"
+  },
+  {
+    "mpboID": "Total price shipment",
+    "lokaliseID": "page.logistic-costs.tab"
+  },
+  {
+    "mpboID": "Contact information",
+    "lokaliseID": "global.contact-info.text-info"
+  },
+  {
+    "mpboID": "Check that all fields are filled in",
+    "lokaliseID": "page.fill-mandatory-fields.body"
+  },
+  {
+    "mpboID": "Changes successfuly updated",
+    "lokaliseID": "page.change-saved.body"
+  },
+  {
+    "mpboID": "Next shipping start date {date}",
+    "lokaliseID": "global.renewal-period.text-info"
+  },
+  {
+    "mpboID": "What wil you receive?",
+    "lokaliseID": "global.what-will-receive.title"
+  },
+  {
+    "mpboID": "ORDER_COLLECTED",
+    "lokaliseID": "global.paid.body"
+  },
+  {
+    "mpboID": "Add new stripe sepa",
+    "lokaliseID": "page.bank-account.button"
+  },
+  {
+    "mpboID": "funding gallery farmer text",
+    "lokaliseID": "page.recognize-roll-farmer.body"
+  },
+  {
+    "mpboID": "funding gon text",
+    "lokaliseID": "page.positive-social-and-environmental-impact.body"
+  },
+  {
+    "mpboID": "funding future second title",
+    "lokaliseID": "page.expand-Crowdfarmer-family.title"
+  },
+  {
+    "mpboID": "funding cta text",
+    "lokaliseID": "page.by-registering-interest.body"
+  },
+  {
+    "mpboID": "funding faq fifth answer",
+    "lokaliseID": "page.doubts-ideas.body"
+  },
+  {
+    "mpboID": "Farmer has adoptions",
+    "lokaliseID": "global.adoptions-available.text-info"
+  },
+  {
+    "mpboID": "number of visitors",
+    "lokaliseID": "page.number-visitors.body"
+  },
+  {
+    "mpboID": "message",
+    "lokaliseID": "global.message.body"
+  },
+  {
+    "mpboID": "crowdgiving  access to my data? answer",
+    "lokaliseID": "page.crowdgiving-info.body"
+  },
+  {
+    "mpboID": "Select shipping date",
+    "lokaliseID": "page.plan-one-various.body"
+  },
+  {
+    "mpboID": "metaTitle.myGarden",
+    "lokaliseID": "page.my-garden-cf.buttom"
+  },
+  {
+    "mpboID": "metaTitle.myUpPosition",
+    "lokaliseID": "global.crowdfarming.title"
+  },
+  {
+    "mpboID": "CF_TYPE_PLANTATION",
+    "lokaliseID": "global.adopt.tab"
+  },
+  {
+    "mpboID": "exp year",
+    "lokaliseID": "page.expire.body"
+  },
+  {
+    "mpboID": "familyFarmer",
+    "lokaliseID": "global.family-farmer.text-link"
+  },
+  {
+    "mpboID": "notificationLanguage",
+    "lokaliseID": "pagehttp://global.contact-language.body"
+  },
+  {
+    "mpboID": "Season",
+    "lokaliseID": "global.season.body"
+  },
+  {
+    "mpboID": "Select a {variety}",
+    "lokaliseID": "global.select-variety.text-info"
+  },
+  {
+    "mpboID": "Add a new card",
+    "lokaliseID": "page.add-cars.title"
+  },
+  {
+    "mpboID": "Select another method",
+    "lokaliseID": "page.another-payment-method.tab"
+  },
+  {
+    "mpboID": "Holder name",
+    "lokaliseID": "page.name-account-holder.form"
+  },
+  {
+    "mpboID": "May",
+    "lokaliseID": "global.may.title"
+  },
+  {
+    "mpboID": "June",
+    "lokaliseID": "global.june.body"
+  },
+  {
+    "mpboID": "August",
+    "lokaliseID": "global.august.tab"
+  },
+  {
+    "mpboID": "Your cart is empty",
+    "lokaliseID": "page.cart-empty-flowers.title"
+  },
+  {
+    "mpboID": "MASTER_UNIT_LITER",
+    "lokaliseID": "page.desceription.body"
+  },
+  {
+    "mpboID": "Or try just one master box",
+    "lokaliseID": "global.try-an-individual-box.title"
+  },
+  {
+    "mpboID": "Too late to renew this upCf",
+    "lokaliseID": "page.Too-late-renew.body"
+  },
+  {
+    "mpboID": "millarSep",
+    "lokaliseID": "global.millarSep.text-info"
+  },
+  {
+    "mpboID": "User already exists and has a profile",
+    "lokaliseID": "global.email-already-used.text-info"
+  },
+  {
+    "mpboID": "Remember",
+    "lokaliseID": "page.reset-password.body"
+  },
+  {
+    "mpboID": "CF_TYPE_ADOPTION",
+    "lokaliseID": "global.adopt.body"
+  },
+  {
+    "mpboID": "Notice that all your orders will be changed to this country",
+    "lokaliseID": "page.select-shipment-address.body"
+  },
+  {
+    "mpboID": "Currently adopters:",
+    "lokaliseID": "page.currently-adopter.body"
+  },
+  {
+    "mpboID": "Adoption of \"{name}\"",
+    "lokaliseID": "page.adoption-name.buttom"
+  },
+  {
+    "mpboID": "January",
+    "lokaliseID": "global.january.tab"
+  },
+  {
+    "mpboID": "Type of shearing",
+    "lokaliseID": "page.type_shearing.body"
+  },
+  {
+    "mpboID": "Overharvest {mbName}",
+    "lokaliseID": "page.box-of-{mbName}.label"
+  },
+  {
+    "mpboID": "OverHarvest from {mbName}",
+    "lokaliseID": "global.box-from.text-info"
+  },
+  {
+    "mpboID": "metaTitle.myShipments",
+    "lokaliseID": "page.shipments_crowdfarming.tab"
+  },
+  {
+    "mpboID": "Privacy and cookies explanation title_1",
+    "lokaliseID": "global.coockies.policy.tittle"
+  },
+  {
+    "mpboID": "Successfuly added address",
+    "lokaliseID": "page.address-added-correctly.text-info"
+  },
+  {
+    "mpboID": "New date can not be same day",
+    "lokaliseID": "page.sorry-delivery-differ.body"
+  },
+  {
+    "mpboID": "Must be between 3 and 30 char",
+    "lokaliseID": "notifications.mandatory-field.text-info"
+  },
+  {
+    "mpboID": "Must be between 6 and 12 char",
+    "lokaliseID": "global.mandatory-field.text-info"
+  },
+  {
+    "mpboID": "planned",
+    "lokaliseID": "global.planned.body"
+  },
+  {
+    "mpboID": "Privacy and cookies title_9",
+    "lokaliseID": "page.responsibility-of-the-user.tittle"
+  },
+  {
+    "mpboID": "Privacy and cookies title_10",
+    "lokaliseID": "page.commercial-promotional-communication.title"
+  },
+  {
+    "mpboID": "Total amount",
+    "lokaliseID": "page.total-amount.text-info"
+  },
+  {
+    "mpboID": "Add new shipment address",
+    "lokaliseID": "page.new-shipping-address.text-link"
+  },
+  {
+    "mpboID": "Keep reading",
+    "lokaliseID": "notifications.continue-reading.body"
+  },
+  {
+    "mpboID": "Continue with Facebook",
+    "lokaliseID": "global.continue-facebook.text-link"
+  },
+  {
+    "mpboID": "Tracking",
+    "lokaliseID": "global.tracking.title"
+  },
+  {
+    "mpboID": "Show all",
+    "lokaliseID": "page.show-all.drop"
+  },
+  {
+    "mpboID": "We need photos",
+    "lokaliseID": "page.send-us-photo.title"
+  },
+  {
+    "mpboID": "Photo of the inside",
+    "lokaliseID": "page.photo-of-box.title"
+  },
+  {
+    "mpboID": "The products lacks quality",
+    "lokaliseID": "global.product-not-expected-quality.text-info"
+  },
+  {
+    "mpboID": "Bad state products",
+    "lokaliseID": "page.product-bad-condition-claim.drop"
+  },
+  {
+    "mpboID": "Select affected products",
+    "lokaliseID": "page.which-product-affected.title"
+  },
+  {
+    "mpboID": "On season",
+    "lokaliseID": "global.donate.body"
+  },
+  {
+    "mpboID": "best seller",
+    "lokaliseID": "page.best-seller.title"
+  },
+  {
+    "mpboID": "show more",
+    "lokaliseID": "global.show-more.text-link"
+  },
+  {
+    "mpboID": "Condiments",
+    "lokaliseID": "page.condiments.tittle"
+  },
+  {
+    "mpboID": "Inactive projects",
+    "lokaliseID": "global.out-of-season-text-info"
+  },
+  {
+    "mpboID": "Boosting vitamins",
+    "lokaliseID": "page.Boosting-vitamins.body"
+  },
+  {
+    "mpboID": "Donate",
+    "lokaliseID": "page.donate.body"
+  },
+  {
+    "mpboID": "Economic_transparency_CF",
+    "lokaliseID": "page.economic-transparency.anchor"
+  },
+  {
+    "mpboID": "landing pau name",
+    "lokaliseID": "page.Pau-Gasol.title"
+  },
+  {
+    "mpboID": "3 step",
+    "lokaliseID": "page.3step.body"
+  },
+  {
+    "mpboID": "instagramPostList",
+    "lokaliseID": "page.post-insta.anchor"
+  },
+  {
+    "mpboID": "oh faq order shipping info question",
+    "lokaliseID": "page.how-order-traveling.title"
+  },
+  {
+    "mpboID": "delivery included",
+    "lokaliseID": "page.deliver-included.body"
+  },
+  {
+    "mpboID": "oh dont send to that country",
+    "lokaliseID": "global.product-not-shipped-country.text-info"
+  },
+  {
+    "mpboID": "Send a copy to your email",
+    "lokaliseID": "page.receive-copy-message.title"
+  },
+  {
+    "mpboID": "Register",
+    "lokaliseID": "global.sign-up.tab"
+  },
+  {
+    "mpboID": "is part of your life since",
+    "lokaliseID": "page.part-of-life.body"
+  },
+  {
+    "mpboID": "My profile",
+    "lokaliseID": "page.profile.button"
+  },
+  {
+    "mpboID": "You can not renew right now, but it wil be soon available. Take a look to other farmers",
+    "lokaliseID": "page.renewal-not-begun.body"
+  },
+  {
+    "mpboID": "Influence with your actions",
+    "lokaliseID": "page.actions.body"
+  },
+  {
+    "mpboID": "Adopt a {variety}",
+    "lokaliseID": "general.adopt.button"
+  },
+  {
+    "mpboID": "Privacy and cookies description_3",
+    "lokaliseID": "page.the-data-requested.body"
+  },
+  {
+    "mpboID": "Your card number is invalid",
+    "lokaliseID": "notification.card-number-invalid.body"
+  },
+  {
+    "mpboID": "Privacy and cookies title_7",
+    "lokaliseID": "page.data-shared-with-who.title"
+  },
+  {
+    "mpboID": "download receipt",
+    "lokaliseID": "page.download-reciept.text-link"
+  },
+  {
+    "mpboID": "Auto-SEO-Title UP TREE",
+    "lokaliseID": "global.adopt-farm-variety.title"
+  },
+  {
+    "mpboID": "credit note",
+    "lokaliseID": "global.Payment.body"
+  },
+  {
+    "mpboID": "Photo of the box",
+    "lokaliseID": "page.photo-box.body"
+  },
+  {
+    "mpboID": "10% - A small part of the product",
+    "lokaliseID": "page.small-part-affected.drop"
+  },
+  {
+    "mpboID": "name it",
+    "lokaliseID": "page.give-it-name.body"
+  },
+  {
+    "mpboID": "Purchase not available",
+    "lokaliseID": "page.purchase-unavailable.body"
+  },
+  {
+    "mpboID": "seasonal fruits",
+    "lokaliseID": "global.fruit.title"
+  },
+  {
+    "mpboID": "How does Crowdfarming works?",
+    "lokaliseID": "page.how-does-work.title"
+  },
+  {
+    "mpboID": "Let the Farmer",
+    "lokaliseID": "page.work.body"
+  },
+  {
+    "mpboID": "Adopt a tree, an animal or a piece of garden",
+    "lokaliseID": "global.choose-project-participate.body"
+  },
+  {
+    "mpboID": "Buy boxes directly",
+    "lokaliseID": "page.easy-shopping-home.body"
+  },
+  {
+    "mpboID": "first contact card question",
+    "lokaliseID": "page.doubts.title"
+  },
+  {
+    "mpboID": "second contact card answer",
+    "lokaliseID": "page.order-damaged-missing-products.text-info"
+  },
+  {
+    "mpboID": "Choose one that you like",
+    "lokaliseID": "page.choose-one-like.body"
+  },
+  {
+    "mpboID": "Offered payment methods allow us",
+    "lokaliseID": "page.secure-payment-methods.body"
+  },
+  {
+    "mpboID": "Select other shipment address",
+    "lokaliseID": "page.select-another-delivery-address.text-link"
+  },
+  {
+    "mpboID": "funding data social third number",
+    "lokaliseID": "page.funding-data-socia.body"
+  },
+  {
+    "mpboID": "2 step how participate text",
+    "lokaliseID": "page.participate-game.body"
+  },
+  {
+    "mpboID": "fruitimpact faq fifth answer",
+    "lokaliseID": "page.delivery-date-may-vary.body"
+  },
+  {
+    "mpboID": "We will let you know!",
+    "lokaliseID": "page.keep-informing.body"
+  },
+  {
+    "mpboID": "We are working towards removing intermediaries",
+    "lokaliseID": "page.removing-intermediaries.text-info"
+  },
+  {
+    "mpboID": "We believe that there is an approach",
+    "lokaliseID": "page.belive-approach.body"
+  },
+  {
+    "mpboID": "Be Innovative",
+    "lokaliseID": "page.innovative.body"
+  },
+  {
+    "mpboID": "We apologize text",
+    "lokaliseID": "page.already-working-solution.body"
+  },
+  {
+    "mpboID": "Add to cart",
+    "lokaliseID": "page.cart.buttom"
+  },
+  {
+    "mpboID": "promo-app-meet-the-farmers",
+    "lokaliseID": "global.sustainable-food-your-home.text-info"
+  },
+  {
+    "mpboID": "Renovation period open {maxRenovationDate}",
+    "lokaliseID": "page.renew-adoption-now.body"
+  },
+  {
+    "mpboID": "Our economic model",
+    "lokaliseID": "page.economic-profitability.body"
+  },
+  {
+    "mpboID": "10% - A small part of the product missing",
+    "lokaliseID": "page.small-part-not-received.drop"
+  },
+  {
+    "mpboID": "Select refund option",
+    "lokaliseID": "page.incident-involves-compensation.body"
+  },
+  {
+    "mpboID": "promo-app-benefit-4",
+    "lokaliseID": "page.notification-about-farmer-projects.text-info"
+  },
+  {
+    "mpboID": "Farming Techniques",
+    "lokaliseID": "global.cultivation-technique.tab"
+  },
+  {
+    "mpboID": "phone",
+    "lokaliseID": "global.phone.text-info"
+  },
+  {
+    "mpboID": "shopping cart",
+    "lokaliseID": "page.your-cart.link"
+  },
+  {
+    "mpboID": "CF_TYPE_PLANTATION_PRICE",
+    "lokaliseID": "global.price-plantation.tab"
+  },
+  {
+    "mpboID": "ValidationError",
+    "lokaliseID": "page.please-review.title"
+  },
+  {
+    "mpboID": "sent",
+    "lokaliseID": "page.send.body"
+  },
+  {
+    "mpboID": "select country",
+    "lokaliseID": "global.delivery-country.drop"
+  },
+  {
+    "mpboID": "aaa",
+    "lokaliseID": "page.aaa.body"
+  },
+  {
+    "mpboID": "MasterBox/es",
+    "lokaliseID": "page.box.body"
+  },
+  {
+    "mpboID": "documents",
+    "lokaliseID": "global.documents.text-link"
+  },
+  {
+    "mpboID": "Crowdfarming philosophy",
+    "lokaliseID": "page.receive-directly-source.body"
+  },
+  {
+    "mpboID": "Adoption",
+    "lokaliseID": "global.adoption.body"
+  },
+  {
+    "mpboID": "You dont have any payment method, you should add one",
+    "lokaliseID": "page.add-payment-method.drop"
+  },
+  {
+    "mpboID": "additiveFree",
+    "lokaliseID": "page.without-additives.body"
+  },
+  {
+    "mpboID": "awardWinningProduct",
+    "lokaliseID": "global.winning-product.body"
+  },
+  {
+    "mpboID": "vegan",
+    "lokaliseID": "global.vegan.text-link"
+  },
+  {
+    "mpboID": "Currently the farmer do not send to {country} yet",
+    "lokaliseID": "page.see-delivery-contries.text-link"
+  },
+  {
+    "mpboID": "Dark theme description",
+    "lokaliseID": "page.darker-version.body"
+  },
+  {
+    "mpboID": "metaTitle.myUpHarvest",
+    "lokaliseID": "global.crowdfarming.title"
+  },
+  {
+    "mpboID": "availability",
+    "lokaliseID": "global.availability.title"
+  },
+  {
+    "mpboID": "Delete",
+    "lokaliseID": "global.delete.text-link"
+  },
+  {
+    "mpboID": "Process order",
+    "lokaliseID": "page.process-order.body"
+  },
+  {
+    "mpboID": "New address",
+    "lokaliseID": "page.new-address.body"
+  },
+  {
+    "mpboID": "successfuly added sepa",
+    "lokaliseID": "page.bank-account-successfully-added.text-info"
+  },
+  {
+    "mpboID": "Edit order",
+    "lokaliseID": "page.edit-order.body"
+  },
+  {
+    "mpboID": "Order address change warning",
+    "lokaliseID": "notifications.change-address.text-info"
+  },
+  {
+    "mpboID": "Edit address",
+    "lokaliseID": "page.edit-address.button"
+  },
+  {
+    "mpboID": "Download",
+    "lokaliseID": "global.download.text-link"
+  },
+  {
+    "mpboID": "sepa delete",
+    "lokaliseID": "page.delete-payment.buttom"
+  },
+  {
+    "mpboID": "funding title",
+    "lokaliseID": "page.help-us-expand-sale.text-info"
+  },
+  {
+    "mpboID": "funding benefits first",
+    "lokaliseID": "page.sell-without-intermediaries.title"
+  },
+  {
+    "mpboID": "funding channel first text",
+    "lokaliseID": "page.where-food-grown.body"
+  },
+  {
+    "mpboID": "funding channel third title",
+    "lokaliseID": "page.protect-designation-origin.title"
+  },
+  {
+    "mpboID": "funding future title",
+    "lokaliseID": "page.what-plan-coming.title"
+  },
+  {
+    "mpboID": "funding future subtitle",
+    "lokaliseID": "page.funding-support-farmers-software.text-info"
+  },
+  {
+    "mpboID": "modal-anonymus-text",
+    "lokaliseID": "page.sign-up-to-contribute-body"
+  },
+  {
+    "mpboID": "Season can be shortened",
+    "lokaliseID": "page.season-may-shortened.body"
+  },
+  {
+    "mpboID": "Incident with my delivery",
+    "lokaliseID": "page.order-info.body"
+  },
+  {
+    "mpboID": "Organic citrus",
+    "lokaliseID": "global.organic-citrus-fruit-impact.text-info"
+  },
+  {
+    "mpboID": "Do you get the answer to these questions",
+    "lokaliseID": "page.get-anwser-question.body"
+  },
+  {
+    "mpboID": "We banish commercial beauty stereotypes",
+    "lokaliseID": "page.no-commercial-beauty-stereotypes.text-info"
+  },
+  {
+    "mpboID": "A lot of food waste happens before it reaches our homes",
+    "lokaliseID": "page.food-waste-percentage.body"
+  },
+  {
+    "mpboID": "We are human and everything we do can be improved.",
+    "lokaliseID": "page.we-make-mistakes.body"
+  },
+  {
+    "mpboID": "adoption landing faq second answer",
+    "lokaliseID": "page.carbon-footprint.body"
+  },
+  {
+    "mpboID": "video adoption landing",
+    "lokaliseID": "page.video-adoption-5czaq9oU_qA.anchor"
+  },
+  {
+    "mpboID": "Kgs",
+    "lokaliseID": "global.KG.body"
+  },
+  {
+    "mpboID": "Without blank spaces",
+    "lokaliseID": "page.blank-spaces.title"
+  },
+  {
+    "mpboID": "province",
+    "lokaliseID": "page.region-county.form"
+  },
+  {
+    "mpboID": "metaDescription.myGarden",
+    "lokaliseID": "global.Crowdfarming-garden.tab"
+  },
+  {
+    "mpboID": "Could not find payment information",
+    "lokaliseID": "page.review-payment-information.title"
+  },
+  {
+    "mpboID": "Basic information saved correctly",
+    "lokaliseID": "page.information-updated.lable"
+  },
+  {
+    "mpboID": "MASTER_UNIT_KILOGRAM",
+    "lokaliseID": "page.kg.body"
+  },
+  {
+    "mpboID": "youngFarmer",
+    "lokaliseID": "global.young-farmer-text-link"
+  },
+  {
+    "mpboID": "logout",
+    "lokaliseID": "global.log-out.drop"
+  },
+  {
+    "mpboID": "Essential for performance",
+    "lokaliseID": "page.features-services.body"
+  },
+  {
+    "mpboID": "Looking for a country?",
+    "lokaliseID": "global.search-country.form"
+  },
+  {
+    "mpboID": "Field Type",
+    "lokaliseID": "page.field-type.body"
+  },
+  {
+    "mpboID": "March",
+    "lokaliseID": "global.march.text-info"
+  },
+  {
+    "mpboID": "buy a box",
+    "lokaliseID": "global.tue.tab"
+  },
+  {
+    "mpboID": "reserved (shipment not included)",
+    "lokaliseID": "page.reserved-shipment-not.body"
+  },
+  {
+    "mpboID": "Estimated delivery date:",
+    "lokaliseID": "page.delivery-date.title"
+  },
+  {
+    "mpboID": "Renew",
+    "lokaliseID": "global.renew.button"
+  },
+  {
+    "mpboID": "Gender_treatment_CF",
+    "lokaliseID": "page.gender-treatment.anchor"
+  },
+  {
+    "mpboID": "Change your country",
+    "lokaliseID": "page.shipment-country.drop"
+  },
+  {
+    "mpboID": "nº box",
+    "lokaliseID": "global.number-of-boxes.text-info"
+  },
+  {
+    "mpboID": "Country of shipment",
+    "lokaliseID": "page.delivery-country.title"
+  },
+  {
+    "mpboID": "Privacy and cookies title_2",
+    "lokaliseID": "page.privacy-cookies-information-consent.title"
+  },
+  {
+    "mpboID": "Fields can not be empty",
+    "lokaliseID": "global.fill-in-fields.text-info"
+  },
+  {
+    "mpboID": "cancel confirm adoption {upName} oneshot",
+    "lokaliseID": "page.cancelling-part-life.body"
+  },
+  {
+    "mpboID": "Never miss a story",
+    "lokaliseID": "global.never-miss-story.text-info"
+  },
+  {
+    "mpboID": "Upload photo",
+    "lokaliseID": "page.upload-photo.button"
+  },
+  {
+    "mpboID": "Reason of the issue",
+    "lokaliseID": "page.what-reason-incident.body"
+  },
+  {
+    "mpboID": "We will find a solution",
+    "lokaliseID": "page.offer-solution.text-info"
+  },
+  {
+    "mpboID": "You have already consumed",
+    "lokaliseID": "page.already-consumed-your-boxes.title"
+  },
+  {
+    "mpboID": "in",
+    "lokaliseID": "global.in.body"
+  },
+  {
+    "mpboID": "Select the number of boxes you want. Min is {min}{weightUnit} and max is {max}{weightUnit}(bold)",
+    "lokaliseID": "global.select-number-boxes.text-info"
+  },
+  {
+    "mpboID": "Delivery dates",
+    "lokaliseID": "global.delivery-dates.text-info"
+  },
+  {
+    "mpboID": "Show more",
+    "lokaliseID": "global.show-more.text-link"
+  },
+  {
+    "mpboID": "selects country",
+    "lokaliseID": "global.select-country.drop"
+  },
+  {
+    "mpboID": "Filter by date",
+    "lokaliseID": "global.filter-by-delivery-date.drop"
+  },
+  {
+    "mpboID": "Buy boxes",
+    "lokaliseID": "global.buy-a-box.tab"
+  },
+  {
+    "mpboID": "Adopt an olive tree and receive",
+    "lokaliseID": "global.adopt-olive-tree.text-info"
+  },
+  {
+    "mpboID": "Associations",
+    "lokaliseID": "page.associations.title"
+  },
+  {
+    "mpboID": "How can I be part of CrowdGiving?",
+    "lokaliseID": "page.How-be-CrowdGiving.body"
+  },
+  {
+    "mpboID": "body buyClementinesInfo",
+    "lokaliseID": "page.organic-oranges-cloth-bag.boy"
+  },
+  {
+    "mpboID": "It seems you visit us",
+    "lokaliseID": "global.country-not-ship.text-info"
+  },
+  {
+    "mpboID": "reward the farmer",
+    "lokaliseID": "page.supports-farmers-packaging.body"
+  },
+  {
+    "mpboID": "Lovers of ugly fruit",
+    "lokaliseID": "page.lovers-frui-haters-waste.text-info"
+  },
+  {
+    "mpboID": "adopt mango tree malaga",
+    "lokaliseID": "global.adopt-mango.text-info"
+  },
+  {
+    "mpboID": "adoption landing header button",
+    "lokaliseID": "global.adopt-now.button"
+  },
+  {
+    "mpboID": "Auto-SEO-Description UP TREE",
+    "lokaliseID": "global.the-project-adopt.text-info"
+  },
+  {
+    "mpboID": "Unsuscribe all categories",
+    "lokaliseID": "page.unsubscribe-all.body"
+  },
+  {
+    "mpboID": "Auto-SEO-Title OH TREE",
+    "lokaliseID": "global.fresh-fruits-vegetables.title"
+  },
+  {
+    "mpboID": "back-interests",
+    "lokaliseID": "global.back-to-preferences.button"
+  },
+  {
+    "mpboID": "Cancellation steps",
+    "lokaliseID": "page.happen-when-delete.title"
+  },
+  {
+    "mpboID": "I have more than 18 years",
+    "lokaliseID": "page.legal-age.buttom"
+  },
+  {
+    "mpboID": "in(preposition of time)",
+    "lokaliseID": "global.in.text-info"
+  },
+  {
+    "mpboID": "objective 1 fruitimpact",
+    "lokaliseID": "page.raise-awareness-obesity.title"
+  },
+  {
+    "mpboID": "Were hiring",
+    "lokaliseID": "global.hiring-open-position.text-link"
+  },
+  {
+    "mpboID": "body model win win winner",
+    "lokaliseID": "page.win-win-winner.body"
+  },
+  {
+    "mpboID": "newsletter-subscribe-link",
+    "lokaliseID": "global.click-here.text-link"
+  },
+  {
+    "mpboID": "Continue",
+    "lokaliseID": "global.continue.body"
+  },
+  {
+    "mpboID": "emailCF",
+    "lokaliseID": "global.email-hello-crowdfarming.title"
+  },
+  {
+    "mpboID": "CF_RENOVATION_AUTOMATIC",
+    "lokaliseID": "page.yearly-auto.title"
+  },
+  {
+    "mpboID": "residuesFree",
+    "lokaliseID": "global.pesticide-free.body"
+  },
+  {
+    "mpboID": "farmers",
+    "lokaliseID": "global.farmers-market.drop"
+  },
+  {
+    "mpboID": "CF_TYPE_ADOPTION_PRICE",
+    "lokaliseID": "global.adoption.title"
+  },
+  {
+    "mpboID": "Invalid IBAN structure",
+    "lokaliseID": "page.invalid-iban.text-info"
+  },
+  {
+    "mpboID": "Pay with card",
+    "lokaliseID": "page.pay-with-card.button"
+  },
+  {
+    "mpboID": "What it is Crowdfarming?",
+    "lokaliseID": "page.what-is-crowdfarming.title"
+  },
+  {
+    "mpboID": "Default address",
+    "lokaliseID": "page.default-address.button"
+  },
+  {
+    "mpboID": "Default address warning",
+    "lokaliseID": "page.delete-default-shipment.address.tect-link"
+  },
+  {
+    "mpboID": "See more info",
+    "lokaliseID": "page.view-details.body"
+  },
+  {
+    "mpboID": "Invalid zip code. It should be in this format: {zipMask}",
+    "lokaliseID": "page.zip-code.body"
+  },
+  {
+    "mpboID": "Invalid zip code. It should be in one of this formats: {zipMasks}",
+    "lokaliseID": "page.invalid-zip-code.text-info"
+  },
+  {
+    "mpboID": "Buy overharvest directly from the farmer, without intermediaries",
+    "lokaliseID": "page.directly-without-intermediareies.body"
+  },
+  {
+    "mpboID": "See all your ups",
+    "lokaliseID": "page.enjoy-adoptions.body"
+  },
+  {
+    "mpboID": "Location",
+    "lokaliseID": "global.location.text-info"
+  },
+  {
+    "mpboID": "Season {seasonStart} - {seasonEnd}",
+    "lokaliseID": "global.season-start-end.body"
+  },
+  {
+    "mpboID": "Available dates of shipment",
+    "lokaliseID": "page.available-delivery-date.text-info"
+  },
+  {
+    "mpboID": "Checkout",
+    "lokaliseID": "page.complete-order.button"
+  },
+  {
+    "mpboID": "Last season orders",
+    "lokaliseID": "page.season-reserved.text-link"
+  },
+  {
+    "mpboID": "tracking box info warning",
+    "lokaliseID": "global.tracking-details.text-info"
+  },
+  {
+    "mpboID": "download credit note",
+    "lokaliseID": "page.download-cancellation-document.body"
+  },
+  {
+    "mpboID": "cancel no",
+    "lokaliseID": "global.cancel.link"
+  },
+  {
+    "mpboID": "Auto-SEO-Title UP ANIMAL",
+    "lokaliseID": "global.adopt.title"
+  },
+  {
+    "mpboID": "funding channel title",
+    "lokaliseID": "page.why-purchase-channels.body"
+  },
+  {
+    "mpboID": "funding gon position",
+    "lokaliseID": "page.CEO-Cofounder.body"
+  },
+  {
+    "mpboID": "funding faq first question",
+    "lokaliseID": "page.benefits-pre-registration.title"
+  },
+  {
+    "mpboID": "funding faq second answer",
+    "lokaliseID": "page.should-only-invest.body"
+  },
+  {
+    "mpboID": "order status refund",
+    "lokaliseID": "global.reunded.text-info"
+  },
+  {
+    "mpboID": "order status pending",
+    "lokaliseID": "page.sent-to-bank.label"
+  },
+  {
+    "mpboID": "Meanwhile you can see more",
+    "lokaliseID": "page.meantime-learn-more.body"
+  },
+  {
+    "mpboID": "Become a Farmer",
+    "lokaliseID": "global.become-farmer.text-link"
+  },
+  {
+    "mpboID": "How can I be part of CrowdGiving answer",
+    "lokaliseID": "page.participate-crowdgiving.body"
+  },
+  {
+    "mpboID": "objectives",
+    "lokaliseID": "page.impact-of-challenge.body"
+  },
+  {
+    "mpboID": "metaTitle.fruitimpact",
+    "lokaliseID": "page.fuitimpact.body"
+  },
+  {
+    "mpboID": "You only pay for the adoption for now",
+    "lokaliseID": "global.see-shipping-costs.body"
+  },
+  {
+    "mpboID": "next delivery",
+    "lokaliseID": "page.next-delivery.body"
+  },
+  {
+    "mpboID": "Farmers market",
+    "lokaliseID": "global.discover-seasonal-products.text-info"
+  },
+  {
+    "mpboID": "quotes adoption landing farmer2",
+    "lokaliseID": "page.organic-farming.body"
+  },
+  {
+    "mpboID": "adoption landing faq first question",
+    "lokaliseID": "global.how-long-adoption.title"
+  },
+  {
+    "mpboID": "First shipments",
+    "lokaliseID": "page.harvest-date.text-info"
+  },
+  {
+    "mpboID": "Minimum of one number",
+    "lokaliseID": "page.minimum-one-number.text-info"
+  },
+  {
+    "mpboID": "metaDescription.selectAddress",
+    "lokaliseID": "page.delivery-address-harvest.body"
+  },
+  {
+    "mpboID": "adoption description",
+    "lokaliseID": "page.adoption-information.body"
+  },
+  {
+    "mpboID": "Payments",
+    "lokaliseID": "page.payments-modes.title"
+  },
+  {
+    "mpboID": "September",
+    "lokaliseID": "global.semptember.body"
+  },
+  {
+    "mpboID": "October",
+    "lokaliseID": "global.october.table"
+  },
+  {
+    "mpboID": "Fri",
+    "lokaliseID": "global.fri.tab"
+  },
+  {
+    "mpboID": "Current country not available",
+    "lokaliseID": "page.select-a-country.title"
+  },
+  {
+    "mpboID": "Manage all your directions",
+    "lokaliseID": "page.manage-addresses.body"
+  },
+  {
+    "mpboID": "Account cancellation mail sent",
+    "lokaliseID": "page.confirmation-account-deleted.text-info"
+  },
+  {
+    "mpboID": "Not enough slots available for this uberup",
+    "lokaliseID": "page.adoption-not-available.body"
+  },
+  {
+    "mpboID": "If you have received your order day after",
+    "lokaliseID": "global.confirm-delivery-order.text-info"
+  },
+  {
+    "mpboID": "Wrong products",
+    "lokaliseID": "page.received-wrong-product.text-link"
+  },
+  {
+    "mpboID": "FINAL PRICE",
+    "lokaliseID": "page.final-price.text-info"
+  },
+  {
+    "mpboID": "Condiciones_de_uso_y_compra_CF",
+    "lokaliseID": "page.use-purchase-conditions.anchor"
+  },
+  {
+    "mpboID": "metaTitle.myAccountInfo",
+    "lokaliseID": "page.account-crowdfarming.title"
+  },
+  {
+    "mpboID": "Invalid parameter owner[name]. Owner name must be at least 3 characters long.",
+    "lokaliseID": "page.name-at-least-3.text-info"
+  },
+  {
+    "mpboID": "Marketing",
+    "lokaliseID": "global.marketing.title"
+  },
+  {
+    "mpboID": "Renewal date:",
+    "lokaliseID": "page.renewal-date.title"
+  },
+  {
+    "mpboID": "Our farmers",
+    "lokaliseID": "global.our-farmers.title"
+  },
+  {
+    "mpboID": "About us",
+    "lokaliseID": "page.about-us.title"
+  },
+  {
+    "mpboID": "No MasterBoxes left",
+    "lokaliseID": "global.no-boxes-left.text-info"
+  },
+  {
+    "mpboID": "Harvest",
+    "lokaliseID": "global.harvest.title"
+  },
+  {
+    "mpboID": "MB {num} available",
+    "lokaliseID": "page.num-box-available.body"
+  },
+  {
+    "mpboID": "Read more",
+    "lokaliseID": "page.learn-more.text-link"
+  },
+  {
+    "mpboID": "No time left to prepare that Master Box in date provided",
+    "lokaliseID": "page.select-date-delivery.text-info"
+  },
+  {
+    "mpboID": "crueltyFree",
+    "lokaliseID": "global.cruelty-free.body"
+  },
+  {
+    "mpboID": "Buy loose box",
+    "lokaliseID": "page.buy-single-box.texxt-link"
+  },
+  {
+    "mpboID": "What is to adopt a {variety}?",
+    "lokaliseID": "global.meaning-adoption.text-info"
+  },
+  {
+    "mpboID": "preparationSlideTitle",
+    "lokaliseID": "global.preparation.title"
+  },
+  {
+    "mpboID": "Privacy and cookies description_1",
+    "lokaliseID": "page.cookies-policy-description-1.body"
+  },
+  {
+    "mpboID": "No boxes left",
+    "lokaliseID": "global.no-boxes-left.text-info"
+  },
+  {
+    "mpboID": "cancel confirm adoption {upName} multishot",
+    "lokaliseID": "page.by-cancelling-order.body"
+  },
+  {
+    "mpboID": "cancel yes",
+    "lokaliseID": "page.cancel-order.text-link"
+  },
+  {
+    "mpboID": "cancel ok",
+    "lokaliseID": "global.ok.text-info"
+  },
+  {
+    "mpboID": "funding data selling title",
+    "lokaliseID": "page.sales-numbers.body"
+  },
+  {
+    "mpboID": "funding history subtitle",
+    "lokaliseID": "page.global-local-success.text-info"
+  },
+  {
+    "mpboID": "Boxes to plan",
+    "lokaliseID": "page.boxes-to -be-planned.tab"
+  },
+  {
+    "mpboID": "crowdgiving money?",
+    "lokaliseID": "page.who-receives-money.body"
+  },
+  {
+    "mpboID": "Tropiavocado info",
+    "lokaliseID": "page.tropitteranean-info.body"
+  },
+  {
+    "mpboID": "We did not come about by typing code in a garage",
+    "lokaliseID": "page.explanation-manifiesto.body"
+  },
+  {
+    "mpboID": "Farmer to visit",
+    "lokaliseID": "page.farmer-wish-visit.body"
+  },
+  {
+    "mpboID": "Tree",
+    "lokaliseID": "global.tree.body"
+  },
+  {
+    "mpboID": "country",
+    "lokaliseID": "global.country.drop"
+  },
+  {
+    "mpboID": "metaDescription.home",
+    "lokaliseID": "page.help-fight-waste.body"
+  },
+  {
+    "mpboID": "season",
+    "lokaliseID": "global.season.body"
+  },
+  {
+    "mpboID": "Wrong email/password",
+    "lokaliseID": "page.wrong-password.text-info"
+  },
+  {
+    "mpboID": "exp month",
+    "lokaliseID": "global.MM.form"
+  },
+  {
+    "mpboID": "Password change correctly",
+    "lokaliseID": "notifications.password-change.body"
+  },
+  {
+    "mpboID": "Once your {variety} is adopted you can make shipments from \"My Garden\"",
+    "lokaliseID": "global.prices-box-shipment-country.text-info"
+  },
+  {
+    "mpboID": "Your masterboxes available",
+    "lokaliseID": "page.Harvest-available.title"
+  },
+  {
+    "mpboID": "Paid with SEPA",
+    "lokaliseID": "page.paid-sepa.body"
+  },
+  {
+    "mpboID": "plantation",
+    "lokaliseID": "global.new-planting.text-link"
+  },
+  {
+    "mpboID": "renovation {variety}",
+    "lokaliseID": "page.maintenance-variety.body"
+  },
+  {
+    "mpboID": "vegan farmer email notification",
+    "lokaliseID": "page.vegan-products.body"
+  },
+  {
+    "mpboID": "Support fair and transparent trade",
+    "lokaliseID": "page.transparent-business.body"
+  },
+  {
+    "mpboID": "See project",
+    "lokaliseID": "global.see-project.title"
+  },
+  {
+    "mpboID": "Privacy and cookies description_4",
+    "lokaliseID": "page.privacy-coockies-description.body"
+  },
+  {
+    "mpboID": "Purchase summary",
+    "lokaliseID": "global.summary.title"
+  },
+  {
+    "mpboID": "successfuly added card",
+    "lokaliseID": "page.card-successfully-added.body"
+  },
+  {
+    "mpboID": "sepa successfuly deleted",
+    "lokaliseID": "notifications.bank-account-deleted.text-info"
+  },
+  {
+    "mpboID": "User already exists",
+    "lokaliseID": "page.address-already-existing.text-info"
+  },
+  {
+    "mpboID": "ORDER_REJECTED",
+    "lokaliseID": "global.rejected.body"
+  },
+  {
+    "mpboID": "Default payment method changed",
+    "lokaliseID": "notifications.change-payment-method.text-info"
+  },
+  {
+    "mpboID": "Auto-SEO-Title OH ANIMAL",
+    "lokaliseID": "global.from-farm-to-home.title"
+  },
+  {
+    "mpboID": "units left",
+    "lokaliseID": "page.units-left.title"
+  },
+  {
+    "mpboID": "Personal message",
+    "lokaliseID": "page.dedication.body"
+  },
+  {
+    "mpboID": "Thanks for your feedback",
+    "lokaliseID": "global.thanks-for-your-opinion.text-info"
+  },
+  {
+    "mpboID": "Only the box",
+    "lokaliseID": "page.only-packaging-damage.text-link"
+  },
+  {
+    "mpboID": "Good news",
+    "lokaliseID": "notifications.order-more-boxes.text.info"
+  },
+  {
+    "mpboID": "day",
+    "lokaliseID": "global.day.tab"
+  },
+  {
+    "mpboID": "No dates available for one of the products",
+    "lokaliseID": "page.unable-ship-country.body"
+  },
+  {
+    "mpboID": "seasonSimulator explanation. Calculate the total price of a season",
+    "lokaliseID": "notifications.logistics-costs.text-info"
+  },
+  {
+    "mpboID": "agricultural_women_video",
+    "lokaliseID": "page.agricultural-women.body"
+  },
+  {
+    "mpboID": "Shipment Address",
+    "lokaliseID": "page.shipping-address.title"
+  },
+  {
+    "mpboID": "cancelled",
+    "lokaliseID": "global.cancelled.body"
+  },
+  {
+    "mpboID": "Auto-SEO-Title UP TERRAIN",
+    "lokaliseID": "page.auto-seo-up-terrain.body"
+  },
+  {
+    "mpboID": "funding faq title",
+    "lokaliseID": "page.frequent-question.title"
+  },
+  {
+    "mpboID": "Lets upload photos",
+    "lokaliseID": "page.upload-photo.body"
+  },
+  {
+    "mpboID": "The box is inadequate",
+    "lokaliseID": "page.packaging.not.suitable.body"
+  },
+  {
+    "mpboID": "Bad product quality",
+    "lokaliseID": "page.not-happy-quality.drop"
+  },
+  {
+    "mpboID": "add boxes to you cart",
+    "lokaliseID": "http://page.youmight-also-like.body"
+  },
+  {
+    "mpboID": "No on-season adoptions",
+    "lokaliseID": "notification.no-seasonal-adoptions.text-info"
+  },
+  {
+    "mpboID": "Crowdgiving intro",
+    "lokaliseID": "page.provide-high-quality-fruit.body"
+  },
+  {
+    "mpboID": "Connect people",
+    "lokaliseID": "page.connect-people-fresh.body"
+  },
+  {
+    "mpboID": "fruitimpact faq second question",
+    "lokaliseID": "page.question-clementines.body"
+  },
+  {
+    "mpboID": "fruitimpact faq fourth question",
+    "lokaliseID": "page.question-box-gift.title"
+  },
+  {
+    "mpboID": "days left",
+    "lokaliseID": "page.days-left.title"
+  },
+  {
+    "mpboID": "Why demand a shiny piece of fruit",
+    "lokaliseID": "page.fruit-aesthetics.body"
+  },
+  {
+    "mpboID": "Be brave:",
+    "lokaliseID": "page.bravery.body"
+  },
+  {
+    "mpboID": "If you have received your order",
+    "lokaliseID": "page.have-receive-order.body"
+  },
+  {
+    "mpboID": "adopt mango tree malaga link",
+    "lokaliseID": "page.farmer-malaga-adopt.text-link"
+  },
+  {
+    "mpboID": "promo-app-card-1",
+    "lokaliseID": "page.explore-farming-project.title"
+  },
+  {
+    "mpboID": "first shipping date",
+    "lokaliseID": "page.first-shipping-date.page"
+  },
+  {
+    "mpboID": "apply selection",
+    "lokaliseID": "page.apply-selection.body"
+  },
+  {
+    "mpboID": "No units available",
+    "lokaliseID": "global.currently-not-available-text-info"
+  },
+  {
+    "mpboID": "Adopt a tree",
+    "lokaliseID": "page.choose-project-participate.body"
+  },
+  {
+    "mpboID": "select an address",
+    "lokaliseID": "page.select-address.text-info"
+  },
+  {
+    "mpboID": "landing pau position",
+    "lokaliseID": "page.basketball-player.text-info"
+  },
+  {
+    "mpboID": "Leave us your information",
+    "lokaliseID": "page.leave_your_information.body"
+  },
+  {
+    "mpboID": "video landing fruitimpact",
+    "lokaliseID": "page.DFruC1961xk.body"
+  },
+  {
+    "mpboID": "We are always faithful to our values",
+    "lokaliseID": "page.always-faithful-values.body"
+  },
+  {
+    "mpboID": "Auto-SEO-Title UP HIVE",
+    "lokaliseID": "page.auto-seo-up-hive.body"
+  },
+  {
+    "mpboID": "Auto-SEO-Description UP TERRAIN",
+    "lokaliseID": "global.adopt-receive-harvest-home.body"
+  },
+  {
+    "mpboID": "Bank",
+    "lokaliseID": "global.bank.body"
+  },
+  {
+    "mpboID": "cookies-text",
+    "lokaliseID": "page.coockies-preferences.body"
+  },
+  {
+    "mpboID": "Account successfuly deleted",
+    "lokaliseID": "page.account-deleted.text-info"
+  },
+  {
+    "mpboID": "Landing fruits feedback",
+    "lokaliseID": "page.direct-sale-hope.body"
+  },
+  {
+    "mpboID": "Change country",
+    "lokaliseID": "page.change-country.text-link"
+  },
+  {
+    "mpboID": "Purchase process",
+    "lokaliseID": "global.purchase-process.text-info"
+  },
+  {
+    "mpboID": "funding data selling first text",
+    "lokaliseID": "page.housholds-bying-directly.body"
+  },
+  {
+    "mpboID": "funding faq first answer",
+    "lokaliseID": "notifications.notify-autum-project-email.body"
+  },
+  {
+    "mpboID": "order status rejected",
+    "lokaliseID": "page.rejected.label"
+  },
+  {
+    "mpboID": "order received",
+    "lokaliseID": "page.I-got-it.button"
+  },
+  {
+    "mpboID": "We apologize header",
+    "lokaliseID": "page.order-not-arrived.title"
+  },
+  {
+    "mpboID": "title popular project",
+    "lokaliseID": "page.popular-projects.title"
+  },
+  {
+    "mpboID": "Contact",
+    "lokaliseID": "global.contact.body"
+  },
+  {
+    "mpboID": "Send to other address",
+    "lokaliseID": "page.another-address.text-link"
+  },
+  {
+    "mpboID": "password",
+    "lokaliseID": "global.password.form"
+  },
+  {
+    "mpboID": "Remove",
+    "lokaliseID": "gobal.remove.body"
+  },
+  {
+    "mpboID": "herbicideFree",
+    "lokaliseID": "page.herbicide-free.body"
+  },
+  {
+    "mpboID": "Thank you very much for your interest in CrowdFarming",
+    "lokaliseID": "global.farmers-planning-harvest.text-info"
+  },
+  {
+    "mpboID": "Address",
+    "lokaliseID": "global-shipment-address"
+  },
+  {
+    "mpboID": "Pay with SEPA",
+    "lokaliseID": "page.sepa.body"
+  },
+  {
+    "mpboID": "Our cookies and privacy policy",
+    "lokaliseID": "page.policy-cookies.gdpr.body"
+  },
+  {
+    "mpboID": "Certificates",
+    "lokaliseID": "global.certificates.body"
+  },
+  {
+    "mpboID": "not enough overharvest available",
+    "lokaliseID": "global.not-enough-surplus-available.text-info"
+  },
+  {
+    "mpboID": "Let the farmer work DESCRIPTION",
+    "lokaliseID": "page.nature-sets-rhythm.body"
+  },
+  {
+    "mpboID": "Privacy and cookies introduction",
+    "lokaliseID": "page. cookie-policy.body"
+  },
+  {
+    "mpboID": "register fast with",
+    "lokaliseID": "page.express-registration-through-social.text-info"
+  },
+  {
+    "mpboID": "deliveryCountry",
+    "lokaliseID": "page.deliver-to.body"
+  },
+  {
+    "mpboID": "Renew season",
+    "lokaliseID": "global.Renew.text-info"
+  },
+  {
+    "mpboID": "Better no",
+    "lokaliseID": "global.better-not.text-info"
+  },
+  {
+    "mpboID": "Planned",
+    "lokaliseID": "global.planned.body"
+  },
+  {
+    "mpboID": "Address change success",
+    "lokaliseID": "notifications.address-change-correctly.text-info"
+  },
+  {
+    "mpboID": "You need to login to continue",
+    "lokaliseID": "page.log-in.title"
+  },
+  {
+    "mpboID": "funding data selling second text",
+    "lokaliseID": "page.sales-cuntries.body"
+  },
+  {
+    "mpboID": "funding cta title",
+    "lokaliseID": "page.join-cf-team.body"
+  },
+  {
+    "mpboID": "modal-anonymus-btn",
+    "lokaliseID": "page.register-interest.button"
+  },
+  {
+    "mpboID": "Shipped boxes",
+    "lokaliseID": "page.schedueld-boxes.body"
+  },
+  {
+    "mpboID": "See more",
+    "lokaliseID": "global.see-more.text-link"
+  },
+  {
+    "mpboID": "Documentation",
+    "lokaliseID": "global.documentation.text-link"
+  },
+  {
+    "mpboID": "General information",
+    "lokaliseID": "page.crowdfarming-philosophy.title"
+  },
+  {
+    "mpboID": "crowdgiving send box? answer",
+    "lokaliseID": "page.crowdgiving-send-box.body"
+  },
+  {
+    "mpboID": "What happens when you buy directly",
+    "lokaliseID": "page.buy-directly-producer.title"
+  },
+  {
+    "mpboID": "Be innovative:",
+    "lokaliseID": "page.greatest-innovations-ideas.body"
+  },
+  {
+    "mpboID": "Manifest",
+    "lokaliseID": "global.Manifesto.button"
+  },
+  {
+    "mpboID": "Specifications",
+    "lokaliseID": "global.specifications.title"
+  },
+  {
+    "mpboID": "the tree",
+    "lokaliseID": "page.the-project.title"
+  },
+  {
+    "mpboID": "Select",
+    "lokaliseID": "global.Select.text-info"
+  },
+  {
+    "mpboID": "UP number:",
+    "lokaliseID": "page.up-number.form"
+  },
+  {
+    "mpboID": "total amount:",
+    "lokaliseID": "page.total-amount.body"
+  },
+  {
+    "mpboID": "text of leaf background",
+    "lokaliseID": "page.These-are-pillars.body"
+  },
+  {
+    "mpboID": "Add name to",
+    "lokaliseID": "global.write-a-name.form"
+  },
+  {
+    "mpboID": "You're CrowdFarmer!",
+    "lokaliseID": "page.congratulations-CrowdFarmer.body"
+  },
+  {
+    "mpboID": "lang_es",
+    "lokaliseID": "global.Spanish.text-info"
+  },
+  {
+    "mpboID": "€ / Season",
+    "lokaliseID": "global.season.tab"
+  },
+  {
+    "mpboID": "Place an order",
+    "lokaliseID": "page.place-an-order.body"
+  },
+  {
+    "mpboID": "Out of season",
+    "lokaliseID": "global.out-of-season.text-info"
+  },
+  {
+    "mpboID": "Bank account ending in ...{last4}",
+    "lokaliseID": "global.bank-account-ending.form"
+  },
+  {
+    "mpboID": "Fast shipment",
+    "lokaliseID": "http://page.fast-order.body"
+  },
+  {
+    "mpboID": "You can not renew for the next season yet",
+    "lokaliseID": "page.renewal-not-available.text-info"
+  },
+  {
+    "mpboID": "Manage your information",
+    "lokaliseID": "page.manage-your-information.text-info"
+  },
+  {
+    "mpboID": "Maintenance preparation and shipment of harvest",
+    "lokaliseID": "page.Maintenance-and-shipment.text-info"
+  },
+  {
+    "mpboID": "Privacy and cookies description_5",
+    "lokaliseID": "page.privacy-cookies-description.text-info"
+  },
+  {
+    "mpboID": "OS one delivery date",
+    "lokaliseID": "page.shipping-vary-weather.body"
+  },
+  {
+    "mpboID": "Renovation period not opened yet",
+    "lokaliseID": "global.renewal-period-not-started.text-info"
+  },
+  {
+    "mpboID": "This is the commission that your bank for the dispute*",
+    "lokaliseID": "global.commission-charged.text-info"
+  },
+  {
+    "mpboID": "Landing fruits text",
+    "lokaliseID": "page.buy-directly-farmer.body"
+  },
+  {
+    "mpboID": "Go to cart",
+    "lokaliseID": "page.shopping.cart.buttom"
+  },
+  {
+    "mpboID": "objective 2 adoption landing",
+    "lokaliseID": "page.follow-your-tree.text-info"
+  },
+  {
+    "mpboID": "Picture 1",
+    "lokaliseID": "global.picture1.text-info"
+  },
+  {
+    "mpboID": "promo-app-benefits",
+    "lokaliseID": "global.crowdfarming-app.title"
+  },
+  {
+    "mpboID": "purchase conditions",
+    "lokaliseID": "page.use-purchase-conditions.text-link"
+  },
+  {
+    "mpboID": "Adopt",
+    "lokaliseID": "global.adopt.button"
+  },
+  {
+    "mpboID": "plasticFree",
+    "lokaliseID": "global.plastic-free.text-link"
+  },
+  {
+    "mpboID": "gift",
+    "lokaliseID": "page.Friendsfarming-Familyfarming.body"
+  },
+  {
+    "mpboID": "Confirm and accept sepa",
+    "lokaliseID": "page.providing-iban-authorize-payment.text-info"
+  },
+  {
+    "mpboID": "Support CrowdFarming",
+    "lokaliseID": "page.questions-answers.title"
+  },
+  {
+    "mpboID": "How it works",
+    "lokaliseID": "page.How-it-works.title"
+  },
+  {
+    "mpboID": "legal form",
+    "lokaliseID": "global.Imprint.text-info"
+  },
+  {
+    "mpboID": "Make your shipments before",
+    "lokaliseID": "page.plan-shipments-before-end.text-info"
+  },
+  {
+    "mpboID": "Box info reminder {kilos}{weight}",
+    "lokaliseID": "page.Reminder-box-approx.body"
+  },
+  {
+    "mpboID": "Make shipment",
+    "lokaliseID": "page.Plan-new-shipment.text-info"
+  },
+  {
+    "mpboID": "ecological farmer email notification",
+    "lokaliseID": "global.organic-products.text-info"
+  },
+  {
+    "mpboID": "meteTitle.myUpOrdersLIst",
+    "lokaliseID": "page.My-garden-CrowdFarming.title"
+  },
+  {
+    "mpboID": "meteTitle.myUpCertificates",
+    "lokaliseID": "page.garden.drop"
+  },
+  {
+    "mpboID": "You are late to adopt {publicVariety}, but you can take a look to other proyects",
+    "lokaliseID": "global.no-units-available.text-body"
+  },
+  {
+    "mpboID": "Adopt your {variety}",
+    "lokaliseID": "page.adopt-variety.body"
+  },
+  {
+    "mpboID": "Current season ended",
+    "lokaliseID": "global.currently-out-of-season.text-info"
+  },
+  {
+    "mpboID": "Select which masterBox you want",
+    "lokaliseID": "global.select-your-box.text-info"
+  },
+  {
+    "mpboID": "Message for the shipper",
+    "lokaliseID": "page.Message-transport-company.title"
+  },
+  {
+    "mpboID": "Shipment address",
+    "lokaliseID": "page.shipping-address.title"
+  },
+  {
+    "mpboID": "apply",
+    "lokaliseID": "page.apply.button"
+  },
+  {
+    "mpboID": "ourPhilosofy",
+    "lokaliseID": "page.our-philosophy.title"
+  },
+  {
+    "mpboID": "wantToBeAFarmer",
+    "lokaliseID": "global.wanna-be-farmer.text-link"
+  },
+  {
+    "mpboID": "Privacy and cookies",
+    "lokaliseID": "page.privacy-cookies-policy.title"
+  },
+  {
+    "mpboID": "whatReceive",
+    "lokaliseID": "page.What-receive.title"
+  },
+  {
+    "mpboID": "remaining {units}",
+    "lokaliseID": "global.remaining-units.tab"
+  },
+  {
+    "mpboID": "This product is not sended to your country",
+    "lokaliseID": "global.shipment-address-not-available.text-info"
+  },
+  {
+    "mpboID": "You have to accept conditions and privacy",
+    "lokaliseID": "page.accept-terms-conditions.body"
+  },
+  {
+    "mpboID": "Sent",
+    "lokaliseID": "globa.sent.label"
+  },
+  {
+    "mpboID": "Address change info",
+    "lokaliseID": "page.changed-address-saving.text-info"
+  },
+  {
+    "mpboID": "Change",
+    "lokaliseID": "global.Change.body"
+  },
+  {
+    "mpboID": "Continue with Google",
+    "lokaliseID": "global.continue-Google.text-link"
+  },
+  {
+    "mpboID": "card delete",
+    "lokaliseID": "page.Delete-payment-method.body"
+  },
+  {
+    "mpboID": "funding subtitle",
+    "lokaliseID": "page.consumers-producers-owners.body"
+  },
+  {
+    "mpboID": "funding benefits title",
+    "lokaliseID": "page.objective-food-chain.title"
+  },
+  {
+    "mpboID": "modal-registered-text",
+    "lokaliseID": "page.Help-expand-food.body"
+  },
+  {
+    "mpboID": "If you do not wish to renew",
+    "lokaliseID": "page.not-adoptions-renewal.body"
+  },
+  {
+    "mpboID": "Farmer has not available",
+    "lokaliseID": "global.no-adoptions-available.text-info"
+  },
+  {
+    "mpboID": "Visit a Farmer",
+    "lokaliseID": "page.Visit-a-farmer.title"
+  },
+  {
+    "mpboID": "crowdgiving money? answer",
+    "lokaliseID": "page.crowdgiving.information.body"
+  },
+  {
+    "mpboID": "crowdgiving products reacehes associations?",
+    "lokaliseID": "page.products-donated-association.title"
+  },
+  {
+    "mpboID": "crowdgiving products reacehes associations? answer",
+    "lokaliseID": "page.Traceability-transparency-crowdgiving.body"
+  },
+  {
+    "mpboID": "Phone number error",
+    "lokaliseID": "page.phone-number-incorrect.text-info"
+  },
+  {
+    "mpboID": "choose {publicVariety}",
+    "lokaliseID": "global.choose-variety.title"
+  },
+  {
+    "mpboID": "The deadline for renewal is {maxRenovationDate}",
+    "lokaliseID": "page.dedline-for-renewal.body"
+  },
+  {
+    "mpboID": "This beautiful vision",
+    "lokaliseID": "page.This-idyllic-vision.body"
+  },
+  {
+    "mpboID": "Be Sustainable",
+    "lokaliseID": "page.be-sustainable.title"
+  },
+  {
+    "mpboID": "objective 3 adoption landing",
+    "lokaliseID": "page.Receive-harvest-straight.body"
+  },
+  {
+    "mpboID": "adoption landing faq third answer",
+    "lokaliseID": "page.adoption-landing-faq.body"
+  },
+  {
+    "mpboID": "Available units",
+    "lokaliseID": "global.units-left.tab"
+  },
+  {
+    "mpboID": "password not match",
+    "lokaliseID": "page.Passwords-not-match.body"
+  },
+  {
+    "mpboID": "consumed",
+    "lokaliseID": "global.harvest-delivery.text-info"
+  },
+  {
+    "mpboID": "XXXX XXXX XXXX {last4}",
+    "lokaliseID": "page.iban-last-four.form"
+  },
+  {
+    "mpboID": "Select another sepa",
+    "lokaliseID": "page.select-another-sepa.body"
+  },
+  {
+    "mpboID": "Cart summary",
+    "lokaliseID": "page.summary.title"
+  },
+  {
+    "mpboID": "Refunding",
+    "lokaliseID": "page.refunded.label"
+  },
+  {
+    "mpboID": "sepa delete confirm question",
+    "lokaliseID": "page.want-delete-bank.body"
+  },
+  {
+    "mpboID": "I have read and accept the privacy policy.",
+    "lokaliseID": "page.read-and-accept.body"
+  },
+  {
+    "mpboID": "Credit card",
+    "lokaliseID": "page.credit-card.button"
+  },
+  {
+    "mpboID": "max characters {num}",
+    "lokaliseID": "page.Maximum-charactersbody"
+  },
+  {
+    "mpboID": "Tree maintenance",
+    "lokaliseID": "global.adoption.body"
+  },
+  {
+    "mpboID": "select address",
+    "lokaliseID": "page.select-address.text-info"
+  },
+  {
+    "mpboID": "order status cancelled",
+    "lokaliseID": "gobal.cancelled.body"
+  },
+  {
+    "mpboID": "Describe what happend",
+    "lokaliseID": "page.describe-what-happened.form"
+  },
+  {
+    "mpboID": "With the products",
+    "lokaliseID": "page.photo-products-received.text-info"
+  },
+  {
+    "mpboID": "Products photos",
+    "lokaliseID": "page.photo-affected-products.body"
+  },
+  {
+    "mpboID": "Show all products affected",
+    "lokaliseID": "page.photo-products-affected.body"
+  },
+  {
+    "mpboID": "Incomplete products",
+    "lokaliseID": "page.order-incomplete-complaint.drop"
+  },
+  {
+    "mpboID": "Edit cart",
+    "lokaliseID": "page.Edit-cart.body"
+  },
+  {
+    "mpboID": "thanks-header",
+    "lokaliseID": "page.thanks-for-participating.title"
+  },
+  {
+    "mpboID": "No old-garden adoptions",
+    "lokaliseID": "page.adoption-not-renewed.text-info"
+  },
+  {
+    "mpboID": "help center",
+    "lokaliseID": "page.Help-Center.title"
+  },
+  {
+    "mpboID": "third contact card question",
+    "lokaliseID": "page.directly-contact.title"
+  },
+  {
+    "mpboID": "Help us to reach more people. Share!",
+    "lokaliseID": "page.help-us-reaching-people.text-info"
+  },
+  {
+    "mpboID": "objective 2 fruitimpact",
+    "lokaliseID": "page.Promote-consumption-fruit.body"
+  },
+  {
+    "mpboID": "payment",
+    "lokaliseID": "page.payment.title"
+  },
+  {
+    "mpboID": "Invalid delivery date",
+    "lokaliseID": "page.shipping-date-unavailable.text-info"
+  },
+  {
+    "mpboID": "1 step",
+    "lokaliseID": "page.Step-1.title"
+  },
+  {
+    "mpboID": "they also participate",
+    "lokaliseID": "page.fruit-impact-challange.text-info"
+  },
+  {
+    "mpboID": "link landing fruitimpact",
+    "lokaliseID": "page.fruit-impact.text-link"
+  },
+  {
+    "mpboID": "Order modification",
+    "lokaliseID": "page.Order-modification.body"
+  },
+  {
+    "mpboID": "Quantity per box",
+    "lokaliseID": "global.box.title"
+  },
+  {
+    "mpboID": "metaDescription.adoptionLanding",
+    "lokaliseID": "page.enjoy-fresh-organic-fruit.text-info"
+  },
+  {
+    "mpboID": "promo-app-card-3",
+    "lokaliseID": "page.Plan-harvest-receive.title"
+  },
+  {
+    "mpboID": "Your account has been suspended",
+    "lokaliseID": "page.account-blocked-text-info"
+  },
+  {
+    "mpboID": "*Available this season:",
+    "lokaliseID": "page.available-harvest.title"
+  },
+  {
+    "mpboID": "Shipments of",
+    "lokaliseID": "page.Reservation-of.body"
+  },
+  {
+    "mpboID": "To {maxMasterBox}. More options available.",
+    "lokaliseID": "global.more-options-available.text-info"
+  },
+  {
+    "mpboID": "Shipping not available",
+    "lokaliseID": "global.out-of-season.text-info"
+  },
+  {
+    "mpboID": "Adoption season",
+    "lokaliseID": "page.adoption-season.body"
+  },
+  {
+    "mpboID": "youngFarmer farmer email notification",
+    "lokaliseID": "global.young-farmer.text-info"
+  },
+  {
+    "mpboID": "You are the owner of your information",
+    "lokaliseID": "page.personal-information.text-info"
+  },
+  {
+    "mpboID": "Why adopt?",
+    "lokaliseID": "page.why-adopt.title"
+  },
+  {
+    "mpboID": "Name it",
+    "lokaliseID": "global.name-adoption.form"
+  },
+  {
+    "mpboID": "Select your {variety}",
+    "lokaliseID": "global.select-variety.text-info"
+  },
+  {
+    "mpboID": "Price by box",
+    "lokaliseID": "page.Cost-per-box.body"
+  },
+  {
+    "mpboID": "payment method updated",
+    "lokaliseID": "notifications.payment-method.update.text-info"
+  },
+  {
+    "mpboID": "Rejected",
+    "lokaliseID": "global.rejected.label"
+  },
+  {
+    "mpboID": "card successfuly deleted",
+    "lokaliseID": "page.card-successfully-deleted.text-info"
+  },
+  {
+    "mpboID": "Privacy and cookies description_9",
+    "lokaliseID": "page.privacy-cookies-over-18.body"
+  },
+  {
+    "mpboID": "Change address",
+    "lokaliseID": "page.Change-shipping-address.body"
+  },
+  {
+    "mpboID": "What happend with the order?",
+    "lokaliseID": "page.what-happened-order.drop"
+  },
+  {
+    "mpboID": "The way of transport",
+    "lokaliseID": "page.handling-carrier.text-info"
+  },
+  {
+    "mpboID": "Hi crowdfarmer, its a new experience. Send us some info.",
+    "lokaliseID": "page.what-went-wrong.body"
+  },
+  {
+    "mpboID": "You have pending orders to plan",
+    "lokaliseID": "global.pending-orders-plan.label"
+  },
+  {
+    "mpboID": "Old garden",
+    "lokaliseID": "page.older-adoptions.tab"
+  },
+  {
+    "mpboID": "Farmer country",
+    "lokaliseID": "page.Farmer-country.button"
+  },
+  {
+    "mpboID": "How it works?",
+    "lokaliseID": "page.how-it-works.title"
+  },
+  {
+    "mpboID": "funding data environment first number",
+    "lokaliseID": "page.percentage-75.text-info"
+  },
+  {
+    "mpboID": "funding data environment second number",
+    "lokaliseID": "page.funding-data-environment-35.text"
+  },
+  {
+    "mpboID": "funding data selling first number",
+    "lokaliseID": "page.number-230k.text-info"
+  },
+  {
+    "mpboID": "1 step how participate text",
+    "lokaliseID": "page.video-orange-challange.text-info"
+  },
+  {
+    "mpboID": "2 step",
+    "lokaliseID": "page.Step-2.title"
+  },
+  {
+    "mpboID": "header buyClementinesInfo",
+    "lokaliseID": "page.box-oranges-bag-gift.text-info"
+  },
+  {
+    "mpboID": "Fruitimpact cta",
+    "lokaliseID": "page.organic-citrus.title"
+  },
+  {
+    "mpboID": "Ecoavocado cta",
+    "lokaliseID": "page.buy-organic-avocado.body"
+  },
+  {
+    "mpboID": "priceIncludes buybox",
+    "lokaliseID": "global.taxes-shipping-costs-included.tab"
+  },
+  {
+    "mpboID": "adopt mango tree malaga body",
+    "lokaliseID": "page.farmer-Vanesa-tropical-mango.body"
+  },
+  {
+    "mpboID": "Auto-SEO-Description UP ANIMAL  _OLD_",
+    "lokaliseID": "page.fruta-verdura-domicilio.body"
+  },
+  {
+    "mpboID": "Auto-SEO-Description OH ANIMAL",
+    "lokaliseID": "global.buy-directly-from-producer.text-info"
+  },
+  {
+    "mpboID": "Auto-SEO-Description OH TERRAIN",
+    "lokaliseID": "global.buy-straight-from-farm.body"
+  },
+  {
+    "mpboID": "go-crowdfarming",
+    "lokaliseID": "page.go-to-crowdfarming.title"
+  },
+  {
+    "mpboID": "Cancellation step 3",
+    "lokaliseID": "page.Cancellation-step.body"
+  },
+  {
+    "mpboID": "Cancel account confirmation",
+    "lokaliseID": "page.confirm-cancel-account.text-info"
+  },
+  {
+    "mpboID": "Crowdfarming news description",
+    "lokaliseID": "page.buying-food-powerful.body"
+  },
+  {
+    "mpboID": "crowdgiving need? answer",
+    "lokaliseID": "notifications.account-donation.text-info"
+  },
+  {
+    "mpboID": "We are not an online supermarket",
+    "lokaliseID": "page.not-supermarket.text-info"
+  },
+  {
+    "mpboID": "Your name",
+    "lokaliseID": "page.Your-name.form"
+  },
+  {
+    "mpboID": "read more",
+    "lokaliseID": "global.read-more.text-tab"
+  },
+  {
+    "mpboID": "From {minMasterBox}. More options available.",
+    "lokaliseID": "global.minimum-harvest-adoption-box.text-info"
+  },
+  {
+    "mpboID": "new repassword",
+    "lokaliseID": "page.Confirm-new-password.body"
+  },
+  {
+    "mpboID": "User registrarion not finished, complete your registration using the same email",
+    "lokaliseID": "page.registrarion-not-finished.text-info"
+  },
+  {
+    "mpboID": "Helpdocs_support_CrowdFarming",
+    "lokaliseID": "page.support-questions-answers.anchor"
+  },
+  {
+    "mpboID": "No remaining units, only overharvest available",
+    "lokaliseID": "page.available-units-adopted.body"
+  },
+  {
+    "mpboID": "MB {num} requested",
+    "lokaliseID": "page.number-boxes-shipped.text-info"
+  },
+  {
+    "mpboID": "Make this payment method as favourite",
+    "lokaliseID": "page.choose-default-payment-method.button"
+  },
+  {
+    "mpboID": "Your orders",
+    "lokaliseID": "page.Your-orders.title"
+  },
+  {
+    "mpboID": "Price",
+    "lokaliseID": "global.price.tab"
+  },
+  {
+    "mpboID": "Your garden",
+    "lokaliseID": "global.my-garden.drop"
+  },
+  {
+    "mpboID": "You dont have any orders yet",
+    "lokaliseID": "page.pantry-sad-empty.body"
+  },
+  {
+    "mpboID": "1 box contains {weight} of {variety}",
+    "lokaliseID": "global.box-contains.text-info"
+  },
+  {
+    "mpboID": "Meet the farmers DESCRIPTION",
+    "lokaliseID": "global.farmers-cultivating-your-food.body"
+  },
+  {
+    "mpboID": "You have {days} days left",
+    "lokaliseID": "page.have-days-left.body"
+  },
+  {
+    "mpboID": "theProject",
+    "lokaliseID": "global.project.title"
+  },
+  {
+    "mpboID": "cvc",
+    "lokaliseID": "page.cvc.form"
+  },
+  {
+    "mpboID": "An account is necessary for manage your adoption",
+    "lokaliseID": "page.Create-CrowdFarming-account.body"
+  },
+  {
+    "mpboID": "Payment method changed",
+    "lokaliseID": "notifications.payment-method-updated.text-info"
+  },
+  {
+    "mpboID": "invest in fututre button",
+    "lokaliseID": "page.register-interest.button"
+  },
+  {
+    "mpboID": "funding data environment title",
+    "lokaliseID": "page.Environmental-impact-numbers.title"
+  },
+  {
+    "mpboID": "My Order",
+    "lokaliseID": "page.products-quality.body"
+  },
+  {
+    "mpboID": "Order number",
+    "lokaliseID": "page.order-number.title"
+  },
+  {
+    "mpboID": "crowdgiving box? answer",
+    "lokaliseID": "page.crowdgiving-box-answer.body"
+  },
+  {
+    "mpboID": "#fruitimpact challenge",
+    "lokaliseID": "global.#fuitimpact.body"
+  },
+  {
+    "mpboID": "We are at the peak season of European-grown organic citrus",
+    "lokaliseID": "page.organic-citrus-farmer-MariaLuisa.text-info"
+  },
+  {
+    "mpboID": "We are a solution for farming",
+    "lokaliseID": "page.solution-for-farming.body"
+  },
+  {
+    "mpboID": "We foster an agricultural market",
+    "lokaliseID": "page.agriculture-market.body"
+  },
+  {
+    "mpboID": "Limited date",
+    "lokaliseID": "global.last-day-adopt.text-info"
+  },
+  {
+    "mpboID": "metaDescription.myUpSeason",
+    "lokaliseID": "page.up-season.body"
+  },
+  {
+    "mpboID": "position",
+    "lokaliseID": "global.location.label"
+  },
+  {
+    "mpboID": "Select a saved card",
+    "lokaliseID": "page.select-payment-method.title"
+  },
+  {
+    "mpboID": "Order number {code}",
+    "lokaliseID": "page.Order-number.body"
+  },
+  {
+    "mpboID": "Please type your email address and we'll send instructions on how to reset your password",
+    "lokaliseID": "page.reset-password.text-info"
+  },
+  {
+    "mpboID": "Change password",
+    "lokaliseID": "page.change-my-password.button"
+  },
+  {
+    "mpboID": "How many Master Boxes do you want reserve for the season?",
+    "lokaliseID": "page.number-Master-Boxes.body"
+  },
+  {
+    "mpboID": "Flock size",
+    "lokaliseID": "global.flock-size.text-info"
+  },
+  {
+    "mpboID": "Average Up Age",
+    "lokaliseID": "global.since-year-foundation.text-info"
+  },
+  {
+    "mpboID": "Estimated date of delivery:",
+    "lokaliseID": "page.Estimated-delivery.body"
+  },
+  {
+    "mpboID": "Master Box",
+    "lokaliseID": "global.haverst-box.title"
+  },
+  {
+    "mpboID": "What is overharvest?",
+    "lokaliseID": "global.order-box-limited-units-text-info"
+  },
+  {
+    "mpboID": "You can update your information",
+    "lokaliseID": "page.Manage-CrowdFarmer-information.title"
+  },
+  {
+    "mpboID": "Purchase of box",
+    "lokaliseID": "page.purchase-box.tab"
+  },
+  {
+    "mpboID": "why the price?",
+    "lokaliseID": "global.calculate.text-link"
+  },
+  {
+    "mpboID": "Calculate",
+    "lokaliseID": "global.Calculate.body"
+  },
+  {
+    "mpboID": "Confirm action",
+    "lokaliseID": "page.confim-action.body"
+  },
+  {
+    "mpboID": "Plan shipment",
+    "lokaliseID": "global.plan-delivery.button"
+  },
+  {
+    "mpboID": "Must be between 1 and 30 characters",
+    "lokaliseID": "page.Must-be-between.text-info"
+  },
+  {
+    "mpboID": "private zone",
+    "lokaliseID": "global.user-account.drop"
+  },
+  {
+    "mpboID": "change delivery country",
+    "lokaliseID": "page.Change-shipping-country.body"
+  },
+  {
+    "mpboID": "100% - Everything",
+    "lokaliseID": "page.nothing-enjoyed.body"
+  },
+  {
+    "mpboID": "available adoptions",
+    "lokaliseID": "global.available-adoption.title"
+  },
+  {
+    "mpboID": "info",
+    "lokaliseID": "global.Info.title"
+  },
+  {
+    "mpboID": "force name it subtitle",
+    "lokaliseID": "page.adoption-name.title"
+  },
+  {
+    "mpboID": "Order",
+    "lokaliseID": "global.order.drop"
+  },
+  {
+    "mpboID": "Cancel account",
+    "lokaliseID": "page.Cancel-Account.title"
+  },
+  {
+    "mpboID": "Cancellation step 4",
+    "lokaliseID": "notification.delete-payment-details.text-info"
+  },
+  {
+    "mpboID": "No dates available",
+    "lokaliseID": "global-shipping-date-unavailable.text-info"
+  },
+  {
+    "mpboID": "The farmer does not ship to the selected country yet:",
+    "lokaliseID": "page.does-not-ship.title"
+  },
+  {
+    "mpboID": "Race: {variety}",
+    "lokaliseID": "global.race.body"
+  },
+  {
+    "mpboID": "metaTitle.adoptionLanding",
+    "lokaliseID": "global.adopt-a-tree.title"
+  },
+  {
+    "mpboID": "newsletter-unsubscribe",
+    "lokaliseID": "page.newsletter-unsubscribe.body"
+  },
+  {
+    "mpboID": "contact us:",
+    "lokaliseID": "global.contact-us.text-tab"
+  },
+  {
+    "mpboID": "I'm crowdfarmer",
+    "lokaliseID": "page.crowdfarmer.title"
+  },
+  {
+    "mpboID": "The name of you {variety} is invalid.",
+    "lokaliseID": "page.name-of-invalid.text-info"
+  },
+  {
+    "mpboID": "metaDescription.orderOK",
+    "lokaliseID": "notifications.order-received.text-info"
+  },
+  {
+    "mpboID": "Paid with credit card",
+    "lokaliseID": "page.credit-card.button"
+  },
+  {
+    "mpboID": "renewableEnergy",
+    "lokaliseID": "page.Renewable-energy.body"
+  },
+  {
+    "mpboID": "Owner of your data",
+    "lokaliseID": "page.data-owner.text-info"
+  },
+  {
+    "mpboID": "Receipt",
+    "lokaliseID": "page.receipt.text-link"
+  },
+  {
+    "mpboID": "Orders",
+    "lokaliseID": "global.Orders.body"
+  },
+  {
+    "mpboID": "You have {num} boxes left for this season",
+    "lokaliseID": "notifications.boxes-left.text-info"
+  },
+  {
+    "mpboID": "Make this address as favourite",
+    "lokaliseID": "page.choose-default-address.button"
+  },
+  {
+    "mpboID": "Overharvest box",
+    "lokaliseID": "page.Surplus-harvest.body"
+  },
+  {
+    "mpboID": "invalid zip code",
+    "lokaliseID": "notifications.invalid-zip-code.label"
+  },
+  {
+    "mpboID": "Less",
+    "lokaliseID": "global.less.text-link"
+  },
+  {
+    "mpboID": "seasonalFresh",
+    "lokaliseID": "page.Fresh-in-season.body"
+  },
+  {
+    "mpboID": "Information",
+    "lokaliseID": "global.information.body"
+  },
+  {
+    "mpboID": "local",
+    "lokaliseID": "global.local.text-info"
+  },
+  {
+    "mpboID": "Privacy and cookies title_5",
+    "lokaliseID": "page.DATA-CROWDFARMING-PROCESS.title"
+  },
+  {
+    "mpboID": "ShipmentCountry",
+    "lokaliseID": "page.delivery-country.form"
+  },
+  {
+    "mpboID": "comeInFarmerLanding",
+    "lokaliseID": "page.start-your-project.anchor"
+  },
+  {
+    "mpboID": "Box/es of",
+    "lokaliseID": "page.Box-with.body"
+  },
+  {
+    "mpboID": "name and surnames",
+    "lokaliseID": "page.name-surname.form"
+  },
+  {
+    "mpboID": "Privacy and cookies description_12",
+    "lokaliseID": "page.process-user-data.body"
+  },
+  {
+    "mpboID": "funding channel first title",
+    "lokaliseID": "page.Traceability-and-transparency.title"
+  },
+  {
+    "mpboID": "funding channel second text",
+    "lokaliseID": "page.environmental-impact.text-info"
+  },
+  {
+    "mpboID": "funding channel third text",
+    "lokaliseID": "page.decommodify-food.text-info"
+  },
+  {
+    "mpboID": "funding future third subtitle",
+    "lokaliseID": "page.grow-our-IT.body"
+  },
+  {
+    "mpboID": "funding faq fourth question",
+    "lokaliseID": "page.investment.body"
+  },
+  {
+    "mpboID": "funding faq fifth question",
+    "lokaliseID": "page.more-info-share-idea.text-info"
+  },
+  {
+    "mpboID": "tomorrow",
+    "lokaliseID": "global.tomorrow.body"
+  },
+  {
+    "mpboID": "Renewal period has not begun",
+    "lokaliseID": "page.renewal-period.text-info"
+  },
+  {
+    "mpboID": "contact message sent header",
+    "lokaliseID": "page.message-sent.label"
+  },
+  {
+    "mpboID": "contact message sent text",
+    "lokaliseID": "page.contact-message-sent.body"
+  },
+  {
+    "mpboID": "Blog CrowdFarming",
+    "lokaliseID": "page.visit-blog.body"
+  },
+  {
+    "mpboID": "objectives adoption landing text",
+    "lokaliseID": "global.enjoy-organic-fruit.body"
+  },
+  {
+    "mpboID": "New delivery date",
+    "lokaliseID": "page.New-delivery-date.text-info"
+  },
+  {
+    "mpboID": "Reason",
+    "lokaliseID": "global.reason.body"
+  },
+  {
+    "mpboID": "payment information",
+    "lokaliseID": "page.payment-info.text-info"
+  },
+  {
+    "mpboID": "plantation description",
+    "lokaliseID": "page.plantation-description.body"
+  },
+  {
+    "mpboID": "plan ahead",
+    "lokaliseID": "page.produce-on-demand.body"
+  },
+  {
+    "mpboID": "Privacy and cookies description_7",
+    "lokaliseID": "page.user-data-policy.body"
+  },
+  {
+    "mpboID": "metaTitle.loginRegister",
+    "lokaliseID": "page.Access-garden-CrowdFarming.title"
+  },
+  {
+    "mpboID": "Show personalized products",
+    "lokaliseID": "page.cookies-role.body"
+  },
+  {
+    "mpboID": "details uk",
+    "lokaliseID": "page.house-flat-suite-uk.form"
+  },
+  {
+    "mpboID": "Select shipment address",
+    "lokaliseID": "page.Select-shipping-address.body"
+  },
+  {
+    "mpboID": "Order delivery status",
+    "lokaliseID": "page.delivery-status-order."
+  },
+  {
+    "mpboID": "of",
+    "lokaliseID": "global.of.text-info"
+  },
+  {
+    "mpboID": "the challenge",
+    "lokaliseID": "page.El-challenge.title"
+  },
+  {
+    "mpboID": "Error text missing",
+    "lokaliseID": "notification.min-10-and-max-50.text-info"
+  },
+  {
+    "mpboID": "Consumers are more and more aware of food waste",
+    "lokaliseID": "page.manifest-ugly-fruit.text"
+  },
+  {
+    "mpboID": "Privacy and cookies description_11",
+    "lokaliseID": "page.Privacy-cookies-description.body"
+  },
+  {
+    "mpboID": "nonGMO",
+    "lokaliseID": "page.not-genetically-modified.body"
+  },
+  {
+    "mpboID": "Save",
+    "lokaliseID": "page.save.button"
+  },
+  {
+    "mpboID": "Final price",
+    "lokaliseID": "page.Final-price.title"
+  },
+  {
+    "mpboID": "December",
+    "lokaliseID": "global.december.table"
+  },
+  {
+    "mpboID": "Buy a mix box",
+    "lokaliseID": "global.mix-box.tab"
+  },
+  {
+    "mpboID": "Fruits for good",
+    "lokaliseID": "page.fruits-for-good.body"
+  },
+  {
+    "mpboID": "funding gallery consumer title",
+    "lokaliseID": "global.consumer.body"
+  },
+  {
+    "mpboID": "Next",
+    "lokaliseID": "global.continue.text-link"
+  },
+  {
+    "mpboID": "sepa account",
+    "lokaliseID": "global.sepa-account.form"
+  },
+  {
+    "mpboID": "Dark theme activate",
+    "lokaliseID": "page.activate-dark-mode.tab"
+  },
+  {
+    "mpboID": "zip",
+    "lokaliseID": "page.zip-code.form"
+  },
+  {
+    "mpboID": "Your information has been correctly registered",
+    "lokaliseID": "notification.information-registered.label"
+  },
+  {
+    "mpboID": "tracking code",
+    "lokaliseID": "page.tracking-number.form"
+  },
+  {
+    "mpboID": "crowdgiving box?",
+    "lokaliseID": "page-send-a-box.title"
+  },
+  {
+    "mpboID": "Thu",
+    "lokaliseID": "global.thu.body"
+  },
+  {
+    "mpboID": "Page",
+    "lokaliseID": "global.page.body"
+  },
+  {
+    "mpboID": "Add new address",
+    "lokaliseID": "page.add-address.button"
+  },
+  {
+    "mpboID": "prefix",
+    "lokaliseID": "global.country-code.form"
+  },
+  {
+    "mpboID": "MultiShots ups does not have an initial shipment",
+    "lokaliseID": "page.plan-the-shipment.body"
+  },
+  {
+    "mpboID": "Password successfuly updated",
+    "lokaliseID": "notification.password-saved-correctly.title"
+  },
+  {
+    "mpboID": "orderTicketOpened",
+    "lokaliseID": "notification.open-incident.body"
+  },
+  {
+    "mpboID": "first contact card answer",
+    "lokaliseID": "page.phone-call.body"
+  },
+  {
+    "mpboID": "meat farmer email notification",
+    "lokaliseID": "page.meat-products.body"
+  },
+  {
+    "mpboID": "crowdgiving need account?",
+    "lokaliseID": "page.account.title"
+  },
+  {
+    "mpboID": "\"surnames\" length must be at least 3 characters long",
+    "lokaliseID": "page.surname-3-characters-long.body"
+  },
+  {
+    "mpboID": "Between 6 and 64 characters",
+    "lokaliseID": "page.6-and-64-characters.body"
+  },
+  {
+    "mpboID": "Change payment method",
+    "lokaliseID": "page.change-payment-method.body"
+  },
+  {
+    "mpboID": "Privacy and cookies title_4",
+    "lokaliseID": "page.procces-personal-data.text-info"
+  },
+  {
+    "mpboID": "A new box",
+    "lokaliseID": "global.new-box-body"
+  },
+  {
+    "mpboID": "Delete address warning",
+    "lokaliseID": "notifications.orders-registered-not-changed.text-info"
+  },
+  {
+    "mpboID": "Privacy and cookies description_2",
+    "lokaliseID": "page.private-policy-crowdfarming.body"
+  },
+  {
+    "mpboID": "The current campaign has ended",
+    "lokaliseID": "page.farmer-organized-current-harvest.body"
+  },
+  {
+    "mpboID": "select country and lang",
+    "lokaliseID": "page.select-delivery-country-language.title"
+  },
+  {
+    "mpboID": "Ecoavocado link",
+    "lokaliseID": "global.avocado.link"
+  },
+  {
+    "mpboID": "metaDescription.shoppingCart",
+    "lokaliseID": "page.selected-trees.drop"
+  },
+  {
+    "mpboID": "Accept",
+    "lokaliseID": "global.accept.tab"
+  },
+  {
+    "mpboID": "oh faq covid info answer",
+    "lokaliseID": "page.history-of-what-you-eat.body"
+  },
+  {
+    "mpboID": "shipmentSlideDescription",
+    "lokaliseID": "page.period-receive-harvest.body"
+  },
+  {
+    "mpboID": "personalizedHarvest",
+    "lokaliseID": "page.personalized.harvest.body"
+  },
+  {
+    "mpboID": "error on the action",
+    "lokaliseID": "notifications.womething-wrong.label"
+  },
+  {
+    "mpboID": "we would like to help you",
+    "lokaliseID": "page.help.body"
+  },
+  {
+    "mpboID": "Hi_",
+    "lokaliseID": "global.hello.body"
+  },
+  {
+    "mpboID": "Renew date",
+    "lokaliseID": "page.renewal-date"
+  },
+  {
+    "mpboID": "funding data environment second text",
+    "lokaliseID": "page.food-waste.body"
+  },
+  {
+    "mpboID": "details",
+    "lokaliseID": "page.details.bbody"
+  },
+  {
+    "mpboID": "The harvest of the different farmers is limited",
+    "lokaliseID": "page.farmer-news.body"
+  },
+  {
+    "mpboID": "You have {num} boxes available for this season",
+    "lokaliseID": "page.boxes-availables.body"
+  },
+  {
+    "mpboID": "modal-registered-btn",
+    "lokaliseID": "page.register-interest.body"
+  },
+  {
+    "mpboID": "adoption landing faq title",
+    "lokaliseID": "page.doubts.title"
+  },
+  {
+    "mpboID": "learn who produces your food",
+    "lokaliseID": "page.food-produced.body"
+  },
+  {
+    "mpboID": "Farmer cannot send you more orders",
+    "lokaliseID": "notifications.refund-adoption-not-received.body"
+  },
+  {
+    "mpboID": "cookies-title",
+    "lokaliseID": "global.cookies.body"
+  },
+  {
+    "mpboID": "Legal_form_CF",
+    "lokaliseID": "page.legal-form.anchor"
+  },
+  {
+    "mpboID": "Pay with sepa account",
+    "lokaliseID": "page.pay-sepa.tab"
+  },
+  {
+    "mpboID": "Last shipment",
+    "lokaliseID": "page.last-shipment.title"
+  },
+  {
+    "mpboID": "Keep",
+    "lokaliseID": "global.keep.body"
+  },
+  {
+    "mpboID": "maintenance {variety} current season",
+    "lokaliseID": "page.maintenance.title"
+  },
+  {
+    "mpboID": "funding gon name",
+    "lokaliseID": "global.gonzalo-urculo.body"
+  },
+  {
+    "mpboID": "Fruitimpact brief info",
+    "lokaliseID": "page.cloth-bag.body"
+  },
+  {
+    "mpboID": "adoption landing faq third question",
+    "lokaliseID": "page.guarantee.body"
+  },
+  {
+    "mpboID": "Select the number of boxes you want. Min is {min}{weightUnit} and max is {max}{weightUnit}",
+    "lokaliseID": "page.boxes-reserve.form"
+  },
+  {
+    "mpboID": "title win win winner 3",
+    "lokaliseID": "page.our-planet.body"
+  },
+  {
+    "mpboID": "Be compassionate:",
+    "lokaliseID": "page.services.body"
+  },
+  {
+    "mpboID": "Receive your harvest in your home",
+    "lokaliseID": "page.harvest-at-home.body"
+  },
+  {
+    "mpboID": "Wool production",
+    "lokaliseID": "page.wool-production.title"
+  },
+  {
+    "mpboID": "New shipping date",
+    "lokaliseID": "page.additional-shipments.body"
+  },
+  {
+    "mpboID": "€ / MB",
+    "lokaliseID": "global.box.tab"
+  },
+  {
+    "mpboID": "promo-app-more",
+    "lokaliseID": "global.see-more.tab"
+  },
+  {
+    "mpboID": "Default address updated",
+    "lokaliseID": "notifications.default-address-updated.text-info"
+  },
+  {
+    "mpboID": "There is not overharvest available",
+    "lokaliseID": "notification.no-harvest-available.label"
+  },
+  {
+    "mpboID": "Save Changes",
+    "lokaliseID": "global.save-changes.tab"
+  },
+  {
+    "mpboID": "objective 3 fruitimpact",
+    "lokaliseID": "page.direct-sales.body"
+  },
+  {
+    "mpboID": "Must be between 1 and 10 char",
+    "lokaliseID": "notification.mandatory-field.title"
+  },
+  {
+    "mpboID": "type of box",
+    "lokaliseID": "global.type-of-box.title"
+  },
+  {
+    "mpboID": "Language",
+    "lokaliseID": "global.language.drop"
+  },
+  {
+    "mpboID": "email",
+    "lokaliseID": "page-email-address.form"
+  },
+  {
+    "mpboID": "This up is available to renew",
+    "lokaliseID": "page.renew-adoption-now.tittle"
+  },
+  {
+    "mpboID": "metaDescription.myUpMore",
+    "lokaliseID": "global.Up.text-info"
+  },
+  {
+    "mpboID": "You can renew for the next season!",
+    "lokaliseID": "page.confirm-maintenance.body"
+  },
+  {
+    "mpboID": "Humanity",
+    "lokaliseID": "global.Humanity.title"
+  },
+  {
+    "mpboID": "Reduce the waste of resources and food",
+    "lokaliseID": "page.reduce-waste.body"
+  },
+  {
+    "mpboID": "Buy organic mangos",
+    "lokaliseID": "oage.organic-avocados.tab"
+  },
+  {
+    "mpboID": "Cancellation step 2",
+    "lokaliseID": "notification.lose-all-adoptions.body"
+  },
+  {
+    "mpboID": "cancel success",
+    "lokaliseID": "notification.order-cancelled.text-info"
+  },
+  {
+    "mpboID": "or_id",
+    "lokaliseID": "global.or.body"
+  },
+  {
+    "mpboID": "Gender treatment",
+    "lokaliseID": "page.Gender-specification.title"
+  },
+  {
+    "mpboID": "apology delivery landing title",
+    "lokaliseID": "page.apology-delivery-landing.title"
+  },
+  {
+    "mpboID": "You soon will receive and email with the confirmation",
+    "lokaliseID": "page.receive-order-confirmation.text-info"
+  },
+  {
+    "mpboID": "Order detail",
+    "lokaliseID": "global.Order-details.text-info"
+  },
+  {
+    "mpboID": "I have read and accept the conditions and the privacy policy.",
+    "lokaliseID": "notifications.accept-policy-conditions.label"
+  },
+  {
+    "mpboID": "Thanks for your colaboration",
+    "lokaliseID": "page.Thank-for-cooperation.body"
+  },
+  {
+    "mpboID": "days",
+    "lokaliseID": "global.days.tab"
+  },
+  {
+    "mpboID": "Choose an olive grove",
+    "lokaliseID": "page.olive-tree.body"
+  },
+  {
+    "mpboID": "Edit shopping cart",
+    "lokaliseID": "page.edit-cart.button"
+  },
+  {
+    "mpboID": "Crowdfarming news",
+    "lokaliseID": "page.crowdfarming-news.title"
+  },
+  {
+    "mpboID": "Technical Issue",
+    "lokaliseID": "page.website-questions.tab"
+  },
+  {
+    "mpboID": "Shipping information",
+    "lokaliseID": "page.information.order.title"
+  },
+  {
+    "mpboID": "apology delivery landing subtext",
+    "lokaliseID": "page.apology-delivery-landing.body"
+  },
+  {
+    "mpboID": "Nothing left",
+    "lokaliseID": "page.No-adoptions-available.text-info"
+  },
+  {
+    "mpboID": "funding history text",
+    "lokaliseID": "page.funding-history.body"
+  },
+  {
+    "mpboID": "sort by",
+    "lokaliseID": "global.sort-by.drop"
+  },
+  {
+    "mpboID": "ORDER_CANCELLED",
+    "lokaliseID": "global.cencelled.label"
+  },
+  {
+    "mpboID": "completed",
+    "lokaliseID": "page.completed.label"
+  },
+  {
+    "mpboID": "Accept cookies",
+    "lokaliseID": "global.accept-cookies.button"
+  },
+  {
+    "mpboID": "Read less",
+    "lokaliseID": "global.read-less.text-link"
+  },
+  {
+    "mpboID": "Win-Win-Winner",
+    "lokaliseID": "page.win-win-winner.title"
+  },
+  {
+    "mpboID": "adoptionSlideSubtitle",
+    "lokaliseID": "global.availability-adoption-until.text-info"
+  },
+  {
+    "mpboID": "Your CF information",
+    "lokaliseID": "page.account-details.title"
+  },
+  {
+    "mpboID": "Privacy and cookies title_6",
+    "lokaliseID": "page.data-processing-policy.title"
+  },
+  {
+    "mpboID": "body win win winner 2",
+    "lokaliseID": "page.adoption-tree.body"
+  },
+  {
+    "mpboID": "cancel confirm box overharvest",
+    "lokaliseID": "page.cancel-shipment-not-box.text-info"
+  },
+  {
+    "mpboID": "The farmer has not any dates to {country}. Take a look to other proyects",
+    "lokaliseID": "global.not-available-shipment-dates.text-info"
+  },
+  {
+    "mpboID": "name",
+    "lokaliseID": "page.name.form"
+  },
+  {
+    "mpboID": "Back",
+    "lokaliseID": "page.return.button"
+  },
+  {
+    "mpboID": "blogLink",
+    "lokaliseID": "page.blog-link-crowdfarming.anchor"
+  },
+  {
+    "mpboID": "No off-season adoptions",
+    "lokaliseID": "page.no-off-season-adoptions.text-info"
+  },
+  {
+    "mpboID": "Send",
+    "lokaliseID": "page.send.button"
+  },
+  {
+    "mpboID": "superiorQuality",
+    "lokaliseID": "global.high-quality.text-info"
+  },
+  {
+    "mpboID": "payment method",
+    "lokaliseID": "page.payment-method.title"
+  },
+  {
+    "mpboID": "Meet the producers",
+    "lokaliseID": "global.meet-the-farmers.text-info"
+  },
+  {
+    "mpboID": "text orange KO",
+    "lokaliseID": "page.orange-challange-failed.body"
+  },
+  {
+    "mpboID": "restore",
+    "lokaliseID": "global.restore.button"
+  },
+  {
+    "mpboID": "Concept",
+    "lokaliseID": "global.concept.title"
+  },
+  {
+    "mpboID": "You need to login and give permission to register",
+    "lokaliseID": "page.registration-failed.text-info"
+  },
+  {
+    "mpboID": "funding data social first text",
+    "lokaliseID": "page.jobs-agricultural-sector.text-info"
+  },
+  {
+    "mpboID": "Delete address",
+    "lokaliseID": "globa.delete-address.text-link"
+  },
+  {
+    "mpboID": "funding data social third subtext",
+    "lokaliseID": "page.average-price-citrus-season.text-info"
+  },
+  {
+    "mpboID": "Item",
+    "lokaliseID": "global.item.text-info"
+  },
+  {
+    "mpboID": "See",
+    "lokaliseID": "global.see.text-info"
+  },
+  {
+    "mpboID": "3 step how participate text",
+    "lokaliseID": "page.orange-challange.text-info"
+  },
+  {
+    "mpboID": "Technical information and Location",
+    "lokaliseID": "page.technical-information.title"
+  },
+  {
+    "mpboID": "Discover how and where your food is cultivated",
+    "lokaliseID": "page.buy-directly-from-farmers.body"
+  },
+  {
+    "mpboID": "Sun",
+    "lokaliseID": "global.sun.tab"
+  },
+  {
+    "mpboID": "Pay",
+    "lokaliseID": "page.pay.button"
+  },
+  {
+    "mpboID": "Without shipment",
+    "lokaliseID": "page.shipment-to-schedule.label"
+  },
+  {
+    "mpboID": "subheader fruitimpact",
+    "lokaliseID": "page.impact-fruit-environment.body"
+  },
+  {
+    "mpboID": "Login",
+    "lokaliseID": "global.login.button"
+  },
+  {
+    "mpboID": "my payments methods",
+    "lokaliseID": "page.payment-mehods.title"
+  },
+  {
+    "mpboID": "privacy policy",
+    "lokaliseID": "page.privacy-cookies-policy.title"
+  },
+  {
+    "mpboID": "Sat",
+    "lokaliseID": "global.sat.tab"
+  },
+  {
+    "mpboID": "funding future first subtitle",
+    "lokaliseID": "page.growing-team-agricultural-engineers.text-info"
+  },
+  {
+    "mpboID": "certificate",
+    "lokaliseID": "page.certificate-adoption.button"
+  },
+  {
+    "mpboID": "Rejected payment header",
+    "lokaliseID": "page.rejected-payment.text-info"
+  },
+  {
+    "mpboID": "Variety: {variety}",
+    "lokaliseID": "global.variety.text-info"
+  },
+  {
+    "mpboID": "Can\\'t send to this country",
+    "lokaliseID": "global.shipping-address-unavailable.text-info"
+  },
+  {
+    "mpboID": "funding jul text",
+    "lokaliseID": "page.farmers-selling-europe.text-info"
+  },
+  {
+    "mpboID": "first cancel shipments",
+    "lokaliseID": "page.cancel-adoption.text-info"
+  },
+  {
+    "mpboID": "Dairy",
+    "lokaliseID": "global.dairy.text-link"
+  },
+  {
+    "mpboID": "withoutSelection",
+    "lokaliseID": "global.without-pre-selection.text-info"
+  },
+  {
+    "mpboID": "Adopt an olive tree mobile",
+    "lokaliseID": "global.adopt-olive-tree.tab"
+  },
+  {
+    "mpboID": "Register process failed",
+    "lokaliseID": "page.registration-failed.text-info"
+  },
+  {
+    "mpboID": "cant cancel adoption",
+    "lokaliseID": "page.cannot-cancel-adoption.text-info"
+  },
+  {
+    "mpboID": "Buy now",
+    "lokaliseID": "global.buy-now.button"
+  },
+  {
+    "mpboID": "The label must be included",
+    "lokaliseID": "page.photo-analyse. text-info"
+  },
+  {
+    "mpboID": "Privacy and cookies title_8",
+    "lokaliseID": "page.period-keeping-user-data.title"
+  },
+  {
+    "mpboID": "funding data social second subtext",
+    "lokaliseID": "page.march-2021.text-info"
+  },
+  {
+    "mpboID": "Info Waste term",
+    "lokaliseID": "page.food-waste.text-info"
+  },
+  {
+    "mpboID": "oh faq order warrant answer",
+    "lokaliseID": "page.refund-policy.body"
+  },
+  {
+    "mpboID": "Meet the associations",
+    "lokaliseID": "page.meet-associations-we-collaborate.text-info"
+  },
+  {
+    "mpboID": "Please, select a {variety}",
+    "lokaliseID": "global.select-variety-before-continue.text-info"
+  },
+  {
+    "mpboID": "products added to the shopping cart are not compatible",
+    "lokaliseID": "page.not-available-for-country.text-info"
+  },
+  {
+    "mpboID": "fruitimpact faq fourth answer",
+    "lokaliseID": "page.insert-name-address-recipient.body"
+  },
+  {
+    "mpboID": "We hope you enjoy it text",
+    "lokaliseID": "global.inform-products-bad-conditions.body"
+  },
+  {
+    "mpboID": "your adoption name",
+    "lokaliseID": "page.name-adoption.form"
+  },
+  {
+    "mpboID": "List of cookies options",
+    "lokaliseID": "page.accept-cookies.body"
+  },
+  {
+    "mpboID": "body win win winner 1",
+    "lokaliseID": "page.adoption."
+  },
+  {
+    "mpboID": "originAppellation",
+    "lokaliseID": "page.protected-designation-origin.text-info"
+  },
+  {
+    "mpboID": "No remanining units or out of date",
+    "lokaliseID": "global.no-available-units.text-info"
+  },
+  {
+    "mpboID": "Out of time of adoption",
+    "lokaliseID": "global.outside-adoption-period.text-info"
+  },
+  {
+    "mpboID": "metaTitle.orderOK",
+    "lokaliseID": "page.order-confirmation.tile"
+  },
+  {
+    "mpboID": "Select the number of boxes you want. Min is {min}{weightUnit}",
+    "lokaliseID": "global.select-number-boxes.text-info"
+  },
+  {
+    "mpboID": "Received",
+    "lokaliseID": "global.delivered.label"
+  },
+  {
+    "mpboID": "Shipment of box/es to {country}",
+    "lokaliseID": "global.shipment-boxes-to.text-info"
+  },
+  {
+    "mpboID": "body popular project",
+    "lokaliseID": "page.popular-adoptions.body"
+  },
+  {
+    "mpboID": "POPUP_YEAR_INFO",
+    "lokaliseID": "global.lifetime-adoption.body"
+  },
+  {
+    "mpboID": "Cookies information",
+    "lokaliseID": "page.cookies.body"
+  },
+  {
+    "mpboID": "Manage your info",
+    "lokaliseID": "page.communication-preferences-products.tab"
+  },
+  {
+    "mpboID": "my orders",
+    "lokaliseID": "page.orders.tab"
+  },
+  {
+    "mpboID": "Account number",
+    "lokaliseID": "page.iban-number.form"
+  },
+  {
+    "mpboID": "seasonSimulator advise",
+    "lokaliseID": "global.payment-logistical-cost.text-info"
+  },
+  {
+    "mpboID": "Notes to the shipper",
+    "lokaliseID": "page.message-to-carrier.form"
+  },
+  {
+    "mpboID": "smallFarmer",
+    "lokaliseID": "global.small-farmer.text-info"
+  },
+  {
+    "mpboID": "Cultivated Area",
+    "lokaliseID": "global.cultivated-area.tab"
+  },
+  {
+    "mpboID": "We have trouble generating your certificate now.<br><br>Please try it later",
+    "lokaliseID": "page.problem-generation-certificate.text-info"
+  },
+  {
+    "mpboID": "Adopt a tree, an animal or a piece of orchard",
+    "lokaliseID": "global.purchase-generate-impact.text-info"
+  },
+  {
+    "mpboID": "lang_en",
+    "lokaliseID": "global.english-language.drop"
+  },
+  {
+    "mpboID": "Save address",
+    "lokaliseID": "page.save-address.button"
+  },
+  {
+    "mpboID": "adoption landing farmer1 position",
+    "lokaliseID": "page.farmer-altos-cantarrijan.text-info"
+  },
+  {
+    "mpboID": "Our projects",
+    "lokaliseID": "global.farmers-market.title"
+  },
+  {
+    "mpboID": "Landing video Id",
+    "lokaliseID": "page.video-_Rp4xsbih0Y.anchor"
+  },
+  {
+    "mpboID": "VAT included",
+    "lokaliseID": "global.vat-included.text-info"
+  },
+  {
+    "mpboID": "second contact card question",
+    "lokaliseID": "page.help-order.text-info"
+  },
+  {
+    "mpboID": "Be Brave",
+    "lokaliseID": "page.bebrave.title"
+  },
+  {
+    "mpboID": "What is CrowdGiving?",
+    "lokaliseID": "page.crowdgiving.title"
+  },
+  {
+    "mpboID": "Default payment mehtod",
+    "lokaliseID": "page.default-payment-method.text-info"
+  },
+  {
+    "mpboID": "Your cart",
+    "lokaliseID": "global.cart.button"
+  },
+  {
+    "mpboID": "Auto-SEO-Title OH HIVE",
+    "lokaliseID": "page.CrowdFarming-pure-honey.body"
+  },
+  {
+    "mpboID": "Change your password",
+    "lokaliseID": "page.change-password.button"
+  },
+  {
+    "mpboID": "crowdgiving irpf?",
+    "lokaliseID": "page.Can-deduct-IRPF.body"
+  },
+  {
+    "mpboID": "orderIssue",
+    "lokaliseID": "page.Report-issue.title"
+  },
+  {
+    "mpboID": "Estimated arrival date changed",
+    "lokaliseID": "page.arrival-date-changed.text-info"
+  },
+  {
+    "mpboID": "othersAnalysis",
+    "lokaliseID": "global.other-analysis.text-link"
+  },
+  {
+    "mpboID": "Date of order",
+    "lokaliseID": "page.order-date.text-info"
+  },
+  {
+    "mpboID": "You dont have enough units reserved",
+    "lokaliseID": "global.no-harvest-available.text-info"
+  },
+  {
+    "mpboID": "card delete confirm question",
+    "lokaliseID": "page.sure-delete-card.body"
+  },
+  {
+    "mpboID": "intro video adoption landing",
+    "lokaliseID": "page.most-powerful-act.body"
+  },
+  {
+    "mpboID": "review",
+    "lokaliseID": "page.In-Review.drop"
+  },
+  {
+    "mpboID": "Descarga nuestra app",
+    "lokaliseID": "page.Download-our-App.title"
+  },
+  {
+    "mpboID": "Fruitimpact header",
+    "lokaliseID": "page.fruitimpact-challenge.title"
+  },
+  {
+    "mpboID": "adopt mango tree malaga cta",
+    "lokaliseID": "global.adopt-a-tree.text-info"
+  },
+  {
+    "mpboID": "You can change your password to keep it safe",
+    "lokaliseID": "page.change-password-account.button"
+  },
+  {
+    "mpboID": "Manage all your payment methods",
+    "lokaliseID": "page.manage-payment-methods.text-info"
+  },
+  {
+    "mpboID": "Items",
+    "lokaliseID": "global.products.text-info"
+  },
+  {
+    "mpboID": "Please, select a {variety} with enough shares",
+    "lokaliseID": "global.select-variety-adoptions-available.text-info"
+  },
+  {
+    "mpboID": "shipmentSlideSubtitle",
+    "lokaliseID": "global.delivery-starting-date.text-info"
+  },
+  {
+    "mpboID": "We will revise your order",
+    "lokaliseID": "page.revise-status-order.text-info"
+  },
+  {
+    "mpboID": "Save changes",
+    "lokaliseID": "page.save-changes.button"
+  },
+  {
+    "mpboID": "quotes fruitimpact pau",
+    "lokaliseID": "page.orange-challange.body"
+  },
+  {
+    "mpboID": "Available season",
+    "lokaliseID": "page.your-harvest.title"
+  },
+  {
+    "mpboID": "In preparation",
+    "lokaliseID": "page.in-preparation.label"
+  },
+  {
+    "mpboID": "suggested promos",
+    "lokaliseID": "global.farmers-sending-your-country.text-info"
+  },
+  {
+    "mpboID": "filter",
+    "lokaliseID": "global.cultivation.drop"
+  },
+  {
+    "mpboID": "shipmentSlideTitle",
+    "lokaliseID": "global.shipment.title"
+  },
+  {
+    "mpboID": "the farm",
+    "lokaliseID": "global.the-farm.title"
+  },
+  {
+    "mpboID": "The renewal deadline is",
+    "lokaliseID": "page.renewal-deadline.text-info"
+  },
+  {
+    "mpboID": "Let the farmer work",
+    "lokaliseID": "global.let-farmer-work.text-info"
+  },
+  {
+    "mpboID": "Get farmers news",
+    "lokaliseID": "global.newsletter-receive-farmers-news.text-info"
+  },
+  {
+    "mpboID": "End to {last4}",
+    "lokaliseID": "page.last-four-numbers.form"
+  },
+  {
+    "mpboID": "Did not receive",
+    "lokaliseID": "page.claim-order-not-arrived.drop"
+  },
+  {
+    "mpboID": "Choose a subject",
+    "lokaliseID": "page.claim-choose-subjects.drop"
+  },
+  {
+    "mpboID": "crowdgiving contact? answer",
+    "lokaliseID": "page.yes.button"
+  },
+  {
+    "mpboID": "organic",
+    "lokaliseID": "global.organic.text-link"
+  },
+  {
+    "mpboID": "moreInfo",
+    "lokaliseID": "global.further-information.text-link"
+  },
+  {
+    "mpboID": "no search results",
+    "lokaliseID": "page.no-result-see-suggestion.text-info"
+  },
+  {
+    "mpboID": "funding future second subtitle",
+    "lokaliseID": "page.social-media-spread-products.text-info"
+  },
+  {
+    "mpboID": "Organic citrus link",
+    "lokaliseID": "page.dona-ana-orange-overharvest.anchor"
+  },
+  {
+    "mpboID": "Renewal period has ended",
+    "lokaliseID": "page.renewal-period-ended.text-info"
+  },
+  {
+    "mpboID": "where do we send it to?",
+    "lokaliseID": "page.where-send-harvest.drop"
+  },
+  {
+    "mpboID": "Select missing products",
+    "lokaliseID": "page.product-missing.form"
+  },
+  {
+    "mpboID": "promo-app-meet-farmers",
+    "lokaliseID": "page.Meet-Farmers.body"
+  },
+  {
+    "mpboID": "funding data social title",
+    "lokaliseID": "page.Social-impact-numbers.title"
+  },
+  {
+    "mpboID": "funding gallery consumer text",
+    "lokaliseID": "page.Reduce-the-impact.body"
+  },
+  {
+    "mpboID": "Subscribe from everything",
+    "lokaliseID": "page.Subscribe-to-everything.title"
+  },
+  {
+    "mpboID": "Payment by shipment of MB apart",
+    "lokaliseID": "page.Separate-payment-logistical.body"
+  },
+  {
+    "mpboID": "Sepa is not available for your country",
+    "lokaliseID": "page.This payment-not-available.body"
+  },
+  {
+    "mpboID": "Adoption plus shipment",
+    "lokaliseID": "global.Adoption.title"
+  },
+  {
+    "mpboID": "Auto-SEO-Description UP HIVE",
+    "lokaliseID": "page.Adopt-from-beekeper.body"
+  },
+  {
+    "mpboID": "Regadío",
+    "lokaliseID": "global.irrigation.title"
+  },
+  {
+    "mpboID": "address selected",
+    "lokaliseID": "page.Default-shipping-address.body"
+  },
+  {
+    "mpboID": "feedback suggestion",
+    "lokaliseID": "page.Share-ideas.body"
+  },
+  {
+    "mpboID": "funding benefits subtitle",
+    "lokaliseID": "page.inefficiencies-of-chain.body"
+  },
+  {
+    "mpboID": "Season ended",
+    "lokaliseID": "page.End-harvest-season.body"
+  },
+  {
+    "mpboID": "Give a smile",
+    "lokaliseID": "page.Give-smile.body"
+  },
+  {
+    "mpboID": "What is a cookie and what do we use them for?",
+    "lokaliseID": "page.What-is-cookie.title"
+  },
+  {
+    "mpboID": "We cultivate the planet Earth for the beings (humans or otherwise) who inhabit it",
+    "lokaliseID": "page.cultivate-planet-Earth.body"
+  },
+  {
+    "mpboID": "crowdgiving access to my data?",
+    "lokaliseID": "page.Who-will-access.title"
+  },
+  {
+    "mpboID": "Hurrey! The name is",
+    "lokaliseID": "page.Hurrey-name-is.body"
+  },
+  {
+    "mpboID": "Update",
+    "lokaliseID": "global.Update.body"
+  },
+  {
+    "mpboID": "75% - A big part of the product",
+    "lokaliseID": "page.majority-product-affected.title"
+  },
+  {
+    "mpboID": "Country",
+    "lokaliseID": "page.Country.title"
+  },
+  {
+    "mpboID": "Altitude",
+    "lokaliseID": "global.Altitude.title"
+  },
+  {
+    "mpboID": "Cereals",
+    "lokaliseID": "global.Cereals.title"
+  },
+  {
+    "mpboID": "Have you received your order?",
+    "lokaliseID": "page.Have-received-order.title"
+  },
+  {
+    "mpboID": "Add new stripe card",
+    "lokaliseID": "page.Credit-card.body"
+  },
+  {
+    "mpboID": "Mon",
+    "lokaliseID": "global.Mon.title"
+  },
+  {
+    "mpboID": "fruitimpact faq fifth question",
+    "lokaliseID": "page.When-receive-box.title"
+  },
+  {
+    "mpboID": "Box content",
+    "lokaliseID": "page.Contents-of-box.body"
+  },
+  {
+    "mpboID": "Operation not available",
+    "lokaliseID": "page.action-not-completed.body"
+  },
+  {
+    "mpboID": "harvest break {farmerName} information",
+    "lokaliseID": "page.bad-weather-conditions.body"
+  },
+  {
+    "mpboID": "Not available",
+    "lokaliseID": "page.Not-available.text-info"
+  },
+  {
+    "mpboID": "Auto-SEO-Title OH TERRAIN",
+    "lokaliseID": "page.directly-from-producer.title"
+  },
+  {
+    "mpboID": "Your payments methods",
+    "lokaliseID": "page.Payment-methods.title"
+  },
+  {
+    "mpboID": "crowdgiving send box?",
+    "lokaliseID": "page.Can-send-association.title"
+  },
+  {
+    "mpboID": "body fruitimpact",
+    "lokaliseID": "page.fruitimpact.body"
+  },
+  {
+    "mpboID": "processing",
+    "lokaliseID": "page.In-process.body"
+  },
+  {
+    "mpboID": "categories",
+    "lokaliseID": "global.Categories.button"
+  },
+  {
+    "mpboID": "Register me",
+    "lokaliseID": "page.Sign-Up.title"
+  },
+  {
+    "mpboID": "my address",
+    "lokaliseID": "global.Addresses.drop"
+  },
+  {
+    "mpboID": "funding jul position",
+    "lokaliseID": "page.Co-founder.body"
+  },
+  {
+    "mpboID": "The product can be sent to",
+    "lokaliseID": "page.Select-delivery-country.title"
+  },
+  {
+    "mpboID": "Edit",
+    "lokaliseID": "global.Edit.body"
+  },
+  {
+    "mpboID": "Renewal not available",
+    "lokaliseID": "page.Future-renewal.body"
+  },
+  {
+    "mpboID": "cf-newsletter-text",
+    "lokaliseID": "page.cf-newsletter-text.body"
+  },
+  {
+    "mpboID": "filters",
+    "lokaliseID": "global.Filters.body"
+  },
+  {
+    "mpboID": "Buy a box of {variety}",
+    "lokaliseID": "page.Buy-box-of.body"
+  },
+  {
+    "mpboID": "formatDate",
+    "lokaliseID": "page.format-Date.form"
+  },
+  {
+    "mpboID": "Be sustainable:",
+    "lokaliseID": "page.but-for-real.body"
+  },
+  {
+    "mpboID": "metaTitle.foodFruits",
+    "lokaliseID": "page.CrowdFarming-Fresh-fruits.title"
+  },
+  {
+    "mpboID": "Adopt your variety DESCRIPTION",
+    "lokaliseID": "page.Adopt-variety-DESCRIPTION.body"
+  },
+  {
+    "mpboID": "funding benefits third",
+    "lokaliseID": "page.receive-feedback-from.body"
+  },
+  {
+    "mpboID": "Beverages",
+    "lokaliseID": "page.Beverages.text-link"
+  },
+  {
+    "mpboID": "We need 2 photos",
+    "lokaliseID": "page.send-photos-product.body"
+  },
+  {
+    "mpboID": "This project is active. Adopt {publicVariety}",
+    "lokaliseID": "page.right-on-time.body"
+  },
+  {
+    "mpboID": "Economic transparency",
+    "lokaliseID": "page.Economic-transparency.title"
+  },
+  {
+    "mpboID": "oh faq impact answer",
+    "lokaliseID": "page.impact-answer.body"
+  },
+  {
+    "mpboID": "Adopt an olive tree",
+    "lokaliseID": "page.adopt-olive-tree.button"
+  },
+  {
+    "mpboID": "decimalSep",
+    "lokaliseID": "page.decimal-sep.body"
+  },
+  {
+    "mpboID": "Bought in:",
+    "lokaliseID": "global.adoption-date.text-info"
+  },
+  {
+    "mpboID": "Holder",
+    "lokaliseID": "page.holder.text-info"
+  },
+  {
+    "mpboID": "Las cosechas de los productores s",
+    "lokaliseID": "global.cosechas-productores.text-info"
+  },
+  {
+    "mpboID": "End of season",
+    "lokaliseID": "global.end-season.text-info"
+  },
+  {
+    "mpboID": "You can see all the details in your private zone",
+    "lokaliseID": "page.notification-order-confirmation.text-info"
+  },
+  {
+    "mpboID": "fruitimpact faq second answer",
+    "lokaliseID": "page.dona-ana-farm.body"
+  },
+  {
+    "mpboID": "Your notifications",
+    "lokaliseID": "page.your-notifications.text-info"
+  },
+  {
+    "mpboID": "We have send you an email for remember your pass",
+    "lokaliseID": "page-email-access-your-account.text-info"
+  },
+  {
+    "mpboID": "funding data social first subtext",
+    "lokaliseID": "global.august-2020.text-info"
+  },
+  {
+    "mpboID": "You are empowering them",
+    "lokaliseID": "page.empowering-farmers.body"
+  },
+  {
+    "mpboID": "This is not a real photo of your {variety}",
+    "lokaliseID": "global.generic-picture-real-picture.text-info"
+  },
+  {
+    "mpboID": "Add",
+    "lokaliseID": "global.add.form"
+  },
+  {
+    "mpboID": "promo-app-benefit-3",
+    "lokaliseID": "global.access-your-garden.text-info"
+  },
+  {
+    "mpboID": "Optional 2 photos",
+    "lokaliseID": "page.upload-photos.form"
+  },
+  {
+    "mpboID": "newsletter-title",
+    "lokaliseID": "page.newsletter.title"
+  },
+  {
+    "mpboID": "Renewal plus shipment",
+    "lokaliseID": "global.renewal-plus-shipment.text-info"
+  },
+  {
+    "mpboID": "quotes fruitimpact",
+    "lokaliseID": "page.fruit-impact-social-ambiental.text-info"
+  },
+  {
+    "mpboID": "metaTitle.myUpLife",
+    "lokaliseID": "page.my-garden.title"
+  },
+  {
+    "mpboID": "We will confirm your issue and contact with you",
+    "lokaliseID": "page.email-confirming-claim.text-info"
+  },
+  {
+    "mpboID": "adoption landing faq fourth answer",
+    "lokaliseID": "page.landing-fourth-anwser.body"
+  },
+  {
+    "mpboID": "Invalid zip code. Forbidden zone.",
+    "lokaliseID": "page.not-zip-code.body"
+  },
+  {
+    "mpboID": "Manage cookies",
+    "lokaliseID": "page.Manage-cookies.text-link"
+  },
+  {
+    "mpboID": "CrowdFarming Blog",
+    "lokaliseID": "page.CrowdFarming-blog.tab"
+  },
+  {
+    "mpboID": "destination country:",
+    "lokaliseID": "page.Country-of-delivery.title"
+  },
+  {
+    "mpboID": "Order: nº",
+    "lokaliseID": "global.Order.text-info"
+  },
+  {
+    "mpboID": "choose {publicVariety}, suggested {name}",
+    "lokaliseID": "page.Choose.body"
+  },
+  {
+    "mpboID": "metaTitle.home",
+    "lokaliseID": "page.Farm-fresh-food.title"
+  },
+  {
+    "mpboID": "thanks-subheader",
+    "lokaliseID": "page.launch-private-investment.body"
+  },
+  {
+    "mpboID": "Logistic calculator link",
+    "lokaliseID": "page.Calculate-logistics-costs.body"
+  },
+  {
+    "mpboID": "crowdgiving irpf? answer",
+    "lokaliseID": "page.manage-fiscality-donations.body"
+  },
+  {
+    "mpboID": "oh faq covid info question",
+    "lokaliseID": "page.What-benefits.title"
+  },
+  {
+    "mpboID": "meteTitle.myUpHarvest",
+    "lokaliseID": "page.Garden.CrowdFarming.tab"
+  },
+  {
+    "mpboID": "adoption landing adopt button",
+    "lokaliseID": "global.Adopt-now.button"
+  },
+  {
+    "mpboID": "Harvest reserve",
+    "lokaliseID": "page.Reserved-quantity.text-info"
+  },
+  {
+    "mpboID": "You may select the delivery date of your box as suggested by the Farmer at check-out.",
+    "lokaliseID": "page.Indicative-calendar-season.body"
+  },
+  {
+    "mpboID": "or access with",
+    "lokaliseID": "page.Register-with-email.text-info"
+  },
+  {
+    "mpboID": "metaTitle.myUpSeason",
+    "lokaliseID": "global.CrowdFarming.title"
+  },
+  {
+    "mpboID": "force name it title",
+    "lokaliseID": "page.Think-of-name.body"
+  },
+  {
+    "mpboID": "Page start",
+    "lokaliseID": "page.top-of-page.text-info"
+  },
+  {
+    "mpboID": "0% - Only wanted to give feedback",
+    "lokaliseID": "page.wanted-send-feedback.text-info"
+  },
+  {
+    "mpboID": "link_video_home",
+    "lokaliseID": "page.link-video-home.text-link"
+  },
+  {
+    "mpboID": "oh faq order shipping info answer",
+    "lokaliseID": "page.order-shipping-info.body"
+  },
+  {
+    "mpboID": "oh faq impact question",
+    "lokaliseID": "page.What-impact-purchase.title"
+  },
+  {
+    "mpboID": "MasterBox shipments available on {seasonStartDay}/{seasonStartMonth}",
+    "lokaliseID": "page.season-not-started.body"
+  },
+  {
+    "mpboID": "nº box (propongo utilizar el ID \"boxes\" que ya existe",
+    "lokaliseID": "page.Number-of-boxes.text-info"
+  },
+  {
+    "mpboID": "Country for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvestCountry for the \n shipment of the harvest",
+    "lokaliseID": "global.Logistics.text-info"
+  },
+  {
+    "mpboID": "POPUP_BASE_PRICE_INFO",
+    "lokaliseID": "page.includes-adoption-maintenance.text-info"
+  },
+  {
+    "mpboID": "Famerfamilial",
+    "lokaliseID": "page.Small-Farmer.title"
+  },
+  {
+    "mpboID": "old password",
+    "lokaliseID": "page.Current-password.title"
+  },
+  {
+    "mpboID": "you can also find",
+    "lokaliseID": "page.prefer-to-investigate.body"
+  },
+  {
+    "mpboID": "funding faq second question",
+    "lokaliseID": "page.How-much-invest.title"
+  },
+  {
+    "mpboID": "There is not available dates to make a shipment, it can be too late or too early",
+    "lokaliseID": "page.Out-adoption-period.text-info"
+  },
+  {
+    "mpboID": "Confirm order",
+    "lokaliseID": "page.Confirm-order.text-info"
+  },
+  {
+    "mpboID": "Your basic information",
+    "lokaliseID": "page.Your-CrowdFarmer-information.text-info"
+  },
+  {
+    "mpboID": "Buy overharvest",
+    "lokaliseID": "page.Buy-surplus-harvest.title"
+  },
+  {
+    "mpboID": "funding faq third question",
+    "lokaliseID": "page.What-role-investor.title"
+  },
+  {
+    "mpboID": "city",
+    "lokaliseID": "global.City.text-info"
+  },
+  {
+    "mpboID": "Total",
+    "lokaliseID": "page.Final-price.title"
+  },
+  {
+    "mpboID": "order not received",
+    "lokaliseID": "page.order-not-received.text-info"
+  },
+  {
+    "mpboID": "Shipment",
+    "lokaliseID": "global.Shipping.text-info"
+  },
+  {
+    "mpboID": "funding jul name",
+    "lokaliseID": "page.funding-juliette-name.text-info"
+  },
+  {
+    "mpboID": "id",
+    "lokaliseID": "global.id.text-info"
+  },
+  {
+    "mpboID": "order status paid",
+    "lokaliseID": "global.paid.text-info"
+  },
+  {
+    "mpboID": "Write name of your {variety}",
+    "lokaliseID": "page.Name-of-variety.form"
+  },
+  {
+    "mpboID": "newsletter-unsubscribe-link",
+    "lokaliseID": "global.unsubscribe.text-link"
+  },
+  {
+    "mpboID": "WHAT IT IS CROWDFARMING?",
+    "lokaliseID": "page.WHAT-CROWDFARMING.title"
+  },
+  {
+    "mpboID": "Select another card",
+    "lokaliseID": "page.Select-another-card.text-info"
+  },
+  {
+    "mpboID": "funding data social second number",
+    "lokaliseID": "page.funding-data-social.text-info"
+  },
+  {
+    "mpboID": "You can also order",
+    "lokaliseID": "page.What-products-available.text-info"
+  },
+  {
+    "mpboID": "Tropiavocado cta",
+    "lokaliseID": "page.Adopt-avocado-tree.text-info"
+  },
+  {
+    "mpboID": "whatAdopt",
+    "lokaliseID": "page.What-adopt.title"
+  },
+  {
+    "mpboID": "orderIssueDescription",
+    "lokaliseID": "page.report-incident.body"
+  },
+  {
+    "mpboID": "direction",
+    "lokaliseID": "global.Address.text-info"
+  },
+  {
+    "mpboID": "Dedicatory message explanation",
+    "lokaliseID": "page.Write-personal-message.body"
+  },
+  {
+    "mpboID": "agricultural women",
+    "lokaliseID": "http://page.linkage.agricultural-women.text-info"
+  },
+  {
+    "mpboID": "Delivered",
+    "lokaliseID": "global.Delivered.text-info"
+  },
+  {
+    "mpboID": "fruitimpact faq first question",
+    "lokaliseID": "page.What-objective-challenge.title"
+  },
+  {
+    "mpboID": "min. {minNumber} Master Box / Season",
+    "lokaliseID": "page.Min-amount.text-info"
+  },
+  {
+    "mpboID": "Bad request, error in parameters",
+    "lokaliseID": "page.enter-necessary-information.text-info"
+  },
+  {
+    "mpboID": "change date",
+    "lokaliseID": "page.Change-date.button"
+  },
+  {
+    "mpboID": "Street, city, province and zip should have 3 characters minimun",
+    "lokaliseID": "page.Please-check-again.text-info"
+  },
+  {
+    "mpboID": "first contact card extra",
+    "lokaliseID": "page.Our-opening-hours.text-info"
+  },
+  {
+    "mpboID": "third contact card answer",
+    "lokaliseID": "page.third-contact-card.body"
+  },
+  {
+    "mpboID": "Bravery",
+    "lokaliseID": "page.bravery.title"
+  },
+  {
+    "mpboID": "Name your UP",
+    "lokaliseID": "page.Farmer-nature-work.text-info"
+  },
+  {
+    "mpboID": "Choose about what you are interested and want to be notified",
+    "lokaliseID": "page.according-interests-lifestyle.body"
+  },
+  {
+    "mpboID": "Add new sepa",
+    "lokaliseID": "page.Add-new-sepa.text-info"
+  },
+  {
+    "mpboID": "Now you adopt",
+    "lokaliseID": "page.The-initial-payment.body"
+  },
+  {
+    "mpboID": "funding data environment first text",
+    "lokaliseID": "page.funding-data-environment.body"
+  },
+  {
+    "mpboID": "number",
+    "lokaliseID": "page.House-number.form"
+  },
+  {
+    "mpboID": "You can also help us",
+    "lokaliseID": "page.You-can-help.body"
+  },
+  {
+    "mpboID": "*Possible days of delivery",
+    "lokaliseID": "page.Possible-days-delivery.body"
+  },
+  {
+    "mpboID": "promo-app-instagram",
+    "lokaliseID": "page.CrowdFarming-on-Instagram.title"
+  },
+  {
+    "mpboID": "subject",
+    "lokaliseID": "global.subject.text-info"
+  },
+  {
+    "mpboID": "We hope you enjoy it header",
+    "lokaliseID": "page.hope-you-enjoy.body"
+  },
+  {
+    "mpboID": "April",
+    "lokaliseID": "global.April.title"
+  },
+  {
+    "mpboID": "street",
+    "lokaliseID": "page.street-address.form"
+  },
+  {
+    "mpboID": "Include message",
+    "lokaliseID": "page.Send-as-gift.text-info"
+  },
+  {
+    "mpboID": "We've received your orders!",
+    "lokaliseID": "page.taken-care-of.text-info"
+  },
+  {
+    "mpboID": "Where do you visit us from",
+    "lokaliseID": "page.Where-visit-from.title"
+  },
+  {
+    "mpboID": "Shopping cart",
+    "lokaliseID": "global.Shopping-cart.text-info"
+  },
+  {
+    "mpboID": "Countries",
+    "lokaliseID": "global.Countries.body"
+  },
+  {
+    "mpboID": "see more",
+    "lokaliseID": "global.more.text-info"
+  },
+  {
+    "mpboID": "adoptionSlideDescription",
+    "lokaliseID": "page.point-in-time.body"
+  },
+  {
+    "mpboID": "Sweets",
+    "lokaliseID": "global.Sweets.title"
+  },
+  {
+    "mpboID": "not included in this order*",
+    "lokaliseID": "page.logistics-not-included.text-info"
+  },
+  {
+    "mpboID": "Preparation and shipment of the Master Box (MB)",
+    "lokaliseID": "global.Logistics-costs.text-info"
+  },
+  {
+    "mpboID": "adoption landing faq fourth question",
+    "lokaliseID": "page.money-farmer-receive.text-info"
+  },
+  {
+    "mpboID": "Forgot password",
+    "lokaliseID": "page.Forgot-your-password.title"
+  },
+  {
+    "mpboID": "Email",
+    "lokaliseID": "page.email-address.form"
+  },
+  {
+    "mpboID": "lower price",
+    "lokaliseID": "global.lowest-price.button"
+  },
+  {
+    "mpboID": "adoption landing farmer1 name",
+    "lokaliseID": "page.jose-antonio-fajardo.title"
+  },
+  {
+    "mpboID": "Write a country for shipping",
+    "lokaliseID": "global.select-delivery-country.drop"
+  },
+  {
+    "mpboID": "Farm",
+    "lokaliseID": "global.farm.title"
+  },
+  {
+    "mpboID": "adoptionSlideTitle",
+    "lokaliseID": "global.adoption.title"
+  },
+  {
+    "mpboID": "exp month / year",
+    "lokaliseID": "page.expire-date.form"
+  },
+  {
+    "mpboID": "Adoption date:",
+    "lokaliseID": "page.Adoption-date.text-info"
+  },
+  {
+    "mpboID": "Your Garden",
+    "lokaliseID": "page.Your-Garden.text-info"
+  },
+  {
+    "mpboID": "body win win winner 3",
+    "lokaliseID": "page.grow-sustainable-without-pesticides.text-info"
+  },
+  {
+    "mpboID": "metaTitle.shoppingCart",
+    "lokaliseID": "page.CrowdFarming-your-nursery.title"
+  },
+  {
+    "mpboID": "Quantity",
+    "lokaliseID": "global.Quantity.text-info"
+  },
+  {
+    "mpboID": "promo-app-benefit-2",
+    "lokaliseID": "page.Adopt-own-tree.body"
+  },
+  {
+    "mpboID": "Bank account from {country}",
+    "lokaliseID": "page.Bank-account-from.text-info"
+  },
+  {
+    "mpboID": "ORDER_PARTIALLY_REFUNDED",
+    "lokaliseID": "page.partially-refunded.text-info"
+  },
+  {
+    "mpboID": "The card number is not a valid credit card number.",
+    "lokaliseID": "page.Invalid-card-number.text-info"
+  },
+  {
+    "mpboID": "25% - A part of the product",
+    "lokaliseID": "page.A-part-affected.text-info"
+  },
+  {
+    "mpboID": "where you want to send?",
+    "lokaliseID": "global.Delivery-country.text-info"
+  },
+  {
+    "mpboID": "funding faq third answer",
+    "lokaliseID": "page.funding-faq-anwser.body"
+  },
+  {
+    "mpboID": "Size",
+    "lokaliseID": "global.Size.text-info"
+  },
+  {
+    "mpboID": "Minimum of one capital and one small letter",
+    "lokaliseID": "page.Minimum-capital-small.text-info"
+  },
+  {
+    "mpboID": "funding data social first number",
+    "lokaliseID": "page.funding-data-social-800.text-info"
+  },
+  {
+    "mpboID": "You can choose the dates later",
+    "lokaliseID": "page.view-available-dates.text-info"
+  },
+  {
+    "mpboID": "The farmer will improve",
+    "lokaliseID": "page.improve-products-shipments.body"
+  },
+  {
+    "mpboID": "crowdgiving associations?",
+    "lokaliseID": "page.What-associations.title"
+  },
+  {
+    "mpboID": "newsletter-select-all-error",
+    "lokaliseID": "page.select-one-category.text-info"
+  },
+  {
+    "mpboID": "Thanks from our farmers!",
+    "lokaliseID": "page.Thank-you-behalf.text-info"
+  },
+  {
+    "mpboID": "TRANSFER_PAYMENT",
+    "lokaliseID": "global.paid.text-info"
+  },
+  {
+    "mpboID": "ORDER_PAID",
+    "lokaliseID": "global.paid.text-info"
+  },
+  {
+    "mpboID": "You can't make a shipment from boxes or overharvest",
+    "lokaliseID": "page.no-harvest-left.text-info"
+  },
+  {
+    "mpboID": "dairy farmer email notification",
+    "lokaliseID": "page.Dairy-products.body"
+  },
+  {
+    "mpboID": "try adopt",
+    "lokaliseID": "global.Adopt.text-info"
+  },
+  {
+    "mpboID": "crowdgiving contact?",
+    "lokaliseID": "page.contact-association.title"
+  },
+  {
+    "mpboID": "funding gallery farmer title",
+    "lokaliseID": "global.Farmer.title"
+  },
+  {
+    "mpboID": "funding channel second title",
+    "lokaliseID": "page.Generate-impact.title"
+  },
+  {
+    "mpboID": "funding text",
+    "lokaliseID": "page.funding-text.body"
+  },
+  {
+    "mpboID": "Address successfuly deleted",
+    "lokaliseID": "page.address-successfully-removed.text-info"
+  },
+  {
+    "mpboID": "withoutWaxes",
+    "lokaliseID": "global.No-wax.text-info"
+  },
+  {
+    "mpboID": "Tropiavocado link",
+    "lokaliseID": "page.refijo-adopt-avocado.text-link"
+  },
+  {
+    "mpboID": "Become a crowdgiver",
+    "lokaliseID": "page.Become-a-CrowdGiver.text-info"
+  },
+  {
+    "mpboID": "Share this experience with the world ...",
+    "lokaliseID": "page.Share-your-experience.title"
+  },
+  {
+    "mpboID": "Use credit card ending with ...{last4}",
+    "lokaliseID": "page.Credit-card-ending.text-info"
+  },
+  {
+    "mpboID": "the farmer",
+    "lokaliseID": "global.the-farmer.text-info"
+  },
+  {
+    "mpboID": "Privacy and cookies description_6",
+    "lokaliseID": "page.Privacy-cookies-description.body"
+  },
+  {
+    "mpboID": "Privacy and cookies description_8",
+    "lokaliseID": "page.Privacy-cookies-description.body"
+  },
+  {
+    "mpboID": "Politically incorrect",
+    "lokaliseID": "page.Open-socially-responsible.text-info"
+  },
+  {
+    "mpboID": "Renovation period closed {farmerName}",
+    "lokaliseID": "page.renewal-period-finished.body"
+  },
+  {
+    "mpboID": "box/es",
+    "lokaliseID": "global.box.text-info"
+  },
+  {
+    "mpboID": "header-de-button",
+    "lokaliseID": "page.header-de-button.button"
+  },
+  {
+    "mpboID": "header-de-subtitle",
+    "lokaliseID": "page.header-de-subtitle.body"
+  },
+  {
+    "mpboID": "header-de-title",
+    "lokaliseID": "page.header-de-title.title"
+  },
+  {
+    "mpboID": "Alcohol sales to minors prohibited",
+    "lokaliseID": "page.alcohol-minors.body"
+  },
+  {
+    "mpboID": "Alcohol not consumed pregnant women",
+    "lokaliseID": "page.alcohol-pregnant.body"
+  },
+  {
+    "mpboID": "total boxes",
+    "lokaliseID": "page.total-boxes.body"
+  },
+  {
+    "mpboID": "total adopted trees",
+    "lokaliseID": "page.total-adopted-trees.body"
+  },
+  {
+    "mpboID": "total farmers",
+    "lokaliseID": "page.total-farmers.body"
+  },
+  {
+    "mpboID": "total Projects in transition",
+    "lokaliseID": "page.projects-transition.body"
+  },
+  {
+    "mpboID": "Bank account",
+    "lokaliseID": "global.bank-account.label"
+  },
+  {
+    "mpboID": "Paypal account",
+    "lokaliseID": "global.paypal-account.label"
+  },
+  {
+    "mpboID": "lang_sv",
+    "lokaliseID": "global.lang-sv.drop"
+  },
+  {
+    "mpboID": "Discovering new countries",
+    "lokaliseID": "page.discovering-new-countries.body"
+  },
+  {
+    "mpboID": "Select country in menu",
+    "lokaliseID": "global.select-country-menu.drop"
+  },
+  {
+    "mpboID": "Which country deliver to",
+    "lokaliseID": "page.which-country-deliver-to.body"
+  },
+  {
+    "mpboID": "Visiting us from",
+    "lokaliseID": "page.visiting-us-from.body"
+  },
+  {
+    "mpboID": "View",
+    "lokaliseID": "global.view.button"
+  },
+  {
+    "mpboID": "Alcohol abuse dangerous",
+    "lokaliseID": "page.alcohol-abuse.body"
+  },
+  {
+    "mpboID": "Legal age to buy alcohol",
+    "lokaliseID": "page.legal-age-alcohol.form"
+  },
+  {
+    "mpboID": "Which country deliver orders",
+    "lokaliseID": "page.which-country-delivers.body"
+  },
+  {
+    "mpboID": "closed incident",
+    "lokaliseID": "global.closed-incident.label"
+  },
+  {
+    "mpboID": "Alcoholic beverages warning",
+    "lokaliseID": "page.alcohol-warning.text-info"
+  },
+  {
+    "mpboID": "Delete filters",
+    "lokaliseID": "global.delete-filters.button"
+  },
+  {
+    "mpboID": "Got it",
+    "lokaliseID": "global.got-it.button"
+  },
+  {
+    "mpboID": "We dont deliver to your country",
+    "lokaliseID": "global.we-dont-deliver-country.body"
+  },
+  {
+    "mpboID": "lang_nl",
+    "lokaliseID": "global.lang-nl.drop"
+  },
+  {
+    "mpboID": "Find a project",
+    "lokaliseID": "global.find-a-project.form"
+  },
+  {
+    "mpboID": "lang_it",
+    "lokaliseID": "global.lang-it.drop"
+  },
+  {
+    "mpboID": "We have a new app",
+    "lokaliseID": "page.new-app.title"
+  },
+  {
+    "mpboID": "Download it for free on",
+    "lokaliseID": "page.download-app.title"
+  },
+  {
+    "mpboID": "Company Name",
+    "lokaliseID": "page.company-name.label"
+  }
+]

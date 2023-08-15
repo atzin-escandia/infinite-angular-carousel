@@ -1,0 +1,12 @@
+<div *ngIf="!app" class="private-zone-back hide-tablet flex-center">
+  <div *transloco="let t" class="private-zone-back-container border-bottom-grey-2-2x d-flex w-100">
+    <div class="flex-center" (click)="routerSrv.navigate('private-zone/my-order')">
+      <i class="eva eva-arrow-ios-back-outline f26 mr-s" aria-hidden="true"></i>
+      {{t('page.Your-orders.title')}}
+    </div>
+  </div>
+</div>
+
+<order-group-detail *ngIf="groupOrder" class="col-12" [order]="groupOrder" [ordersInGroup]="groupOrder.orders"
+(checkLoginEvn)="autoLoginValidation($event)"
+></order-group-detail>

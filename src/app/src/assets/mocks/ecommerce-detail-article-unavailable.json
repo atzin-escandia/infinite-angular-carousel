@@ -1,0 +1,273 @@
+{
+  "imgUrl": "https://common.crowdfarming.com/uploaded-images/1629976883865-7917cccb-51a6-40fa-87df-fe6e325cbd65.jpg",
+  "id": "63579e0d0e6fd8126c17cd08",
+  "_m_title": {
+    "en": "Naranjas Navel",
+    "de": "Naranjas Navel",
+    "es": "Naranjas Navel",
+    "fr": "Naranjas Navel",
+    "it": "Naranjas Navel",
+    "sv": "Naranjas Navel",
+    "nl": "Naranjas Navel"
+  },
+  "_m_subtitle": {
+    "en": "2kg",
+    "de": "2kg",
+    "es": "2kg",
+    "fr": "2kg",
+    "it": "2kg",
+    "sv": "2kg",
+    "nl": "2kg"
+  },
+  "seals": [
+    {
+      "_seal": "5e007fe5cb2c392bc4eab8a9"
+    },
+    {
+      "_seal": "5e007fe5cb2c392bc4eab8a8"
+    }
+  ],
+  "pricePerUnit": 3.76,
+  "currency": "EUR",
+  "minQuantity": 2,
+  "_m_units": {
+    "en": "kg",
+    "de": "kg",
+    "es": "kg",
+    "fr": "kg",
+    "it": "kg",
+    "sv": "kg",
+    "nl": "kg"
+  },
+  "dates": ["2023-04-05T00:00:00.000Z", "2023-04-12T00:00:00.000Z", "2023-04-19T00:00:00.000Z"],
+  "status": 2,
+  "subvarieties": [
+    {
+      "_m_description": {
+        "en": "Manzanilla cacereña, cornezuelo y verdial.",
+        "de": "Manzanilla cacereña, cornezuelo y verdial.",
+        "es": "Manzanilla cacereña, cornezuelo y verdial.",
+        "fr": "Manzanilla cacereña, cornezuelo y verdial.",
+        "it": "Manzanilla cacereña, cornezuelo y verdial.",
+        "sv": "Manzanilla cacereña, cornezuelo y verdial.",
+        "nl": "Manzanilla cacereña, cornezuelo y verdial."
+      },
+      "_m_name": {
+        "en": "Navel",
+        "de": "Navel",
+        "es": "Navel",
+        "fr": "Navel",
+        "it": "Navel",
+        "sv": "Navel",
+        "nl": "Navel"
+      }
+    },
+    {
+      "_m_description": {
+        "en": "Moar moar moar moar moar and Manzanilla cacereña, cornezuelo y verdial.",
+        "de": "Moar moar moar moar moar and Manzanilla cacereña, cornezuelo y verdial.",
+        "es": "Moar moar moar moar moar and Manzanilla cacereña, cornezuelo y verdial.",
+        "fr": "Moar moar moar moar moar and Manzanilla cacereña, cornezuelo y verdial.",
+        "it": "Moar moar moar moar moar and Manzanilla cacereña, cornezuelo y verdial.",
+        "sv": "Moar moar moar moar moar and Manzanilla cacereña, cornezuelo y verdial.",
+        "nl": "Moar moar moar moar moar and Manzanilla cacereña, cornezuelo y verdial."
+      },
+      "_m_name": {
+        "en": "Tardia",
+        "de": "Tardia",
+        "es": "Tardia",
+        "fr": "Tardia",
+        "it": "Tardia",
+        "sv": "Tardia",
+        "nl": "Tardia"
+      }
+    }
+  ],
+  "farmer": {
+    "name": "Inés Gasset",
+    "farmName": "Finca Campomanes",
+    "extraInfo": [
+      {
+        "id": "ALTITUDE",
+        "lokaliseId": "global.Altitude.title",
+        "_m_value": {
+          "es": "160m",
+          "en": "160m",
+          "de": "160m",
+          "fr": "160m",
+          "nl": "160m",
+          "it": "160m",
+          "sv": "160m"
+        }
+      },
+      {
+        "id": "TEAM",
+        "lokaliseId": "global.team.body",
+        "_m_value": {
+          "es": "1 mujer y 12 hombres",
+          "en": "1 woman and 12 men",
+          "de": "1 Frau und 12 Männer",
+          "fr": "1 femme et 12 hommes",
+          "nl": "1 vrouw en 12 mannen",
+          "it": "1 donna e 12 uomini",
+          "sv": "1 kvinna och 12 män"
+        }
+      },
+      {
+        "id": "SIZE",
+        "lokaliseId": "global.Size.text-info",
+        "_m_value": {
+          "es": "50ha",
+          "en": "50ha",
+          "de": "50ha",
+          "fr": "50ha",
+          "nl": "50ha",
+          "it": "50ha",
+          "sv": "50ha"
+        }
+      },
+      {
+        "id": "ADDRESS",
+        "lokaliseId": "global.Address.text-info",
+        "_m_value": {
+          "es": "Hort de Bitem, Bitem, ES",
+          "en": "Hort de Bitem, Bitem, ES",
+          "de": "Hort de Bitem, Bitem, ES",
+          "fr": "Hort de Bitem, Bitem, ES",
+          "nl": "Hort de Bitem, Bitem, ES",
+          "it": "Hort de Bitem, Bitem, ES",
+          "sv": "Hort de Bitem, Bitem, ES"
+        }
+      },
+      {
+        "id": "FIELD",
+        "lokaliseId": "page.field-type.body",
+        "_m_value": {
+          "es": "50ha",
+          "en": "50ha",
+          "de": "50ha",
+          "fr": "50ha",
+          "nl": "50ha",
+          "it": "50ha",
+          "sv": "50ha"
+        }
+      },
+      {
+        "id": "FLOCK",
+        "lokaliseId": "global.flock-size.text-info",
+        "_m_value": {
+          "es": "50ha",
+          "en": "50ha",
+          "de": "50ha",
+          "fr": "50ha",
+          "nl": "50ha",
+          "it": "50ha",
+          "sv": "50ha"
+        }
+      },
+      {
+        "id": "CULTIVATION_TECHNIQUES",
+        "lokaliseId": "global.cultivation-technique.tab",
+        "_m_value": {
+          "es": "Agricultura ecológica",
+          "en": "Organic Farming",
+          "de": "Biologische Landwirtschaft",
+          "fr": "Agriculture écologique",
+          "nl": "Biologische landbouw",
+          "it": "Agricoltura biologica",
+          "sv": "Ekologisk odling"
+        }
+      },
+      {
+        "id": "IRRIGATION",
+        "lokaliseId": "global.irrigation.title",
+        "_m_value": {
+          "es": "Riego por goteo",
+          "en": "Drip irrigation",
+          "de": "Tröpfchenbewässerung",
+          "fr": "Irrigation au goutte à goutte",
+          "nl": "Druppelirrigatie",
+          "it": "Irrigazione a goccia",
+          "sv": "Droppbevattning"
+        }
+      }
+    ],
+    "mapURL": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3193.245461528682!2d-4.221356684709094!3d36.83659697994104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDUwJzExLjgiTiA0wrAxMycwOS4wIlc!5e0!3m2!1ses!2ses!4v1622720725283!5m2!1ses!2ses",
+    "_m_slogan": {
+      "es": "¡Me encantan los desafíos! El primero fue abrirme paso en el sector, más tarde transformar la finca a cultivo ecológico y ahora la venta directa. Estoy convencida de que han sido los pasos correctos a dar, me ilusiona que me conozcáis y quiero que disfrutéis de la fruta tanto como yo lo hago. Ser madre y Farmer es un trabajo a tiempo completo, ¡Con vuestro apoyo y el de CrowdFarming será todo más fácil!",
+      "en": "I love challenges! The first was to make my way in the sector, later to transform the farm to organic farming and now direct sales. I am convinced that they have been the correct steps to take, I am excited that you get to know me and I want you to enjoy the fruit as much as I do. Being a mother and a Farmer is a full-time job, with your support and that of CrowdFarming, everything will be easier!",
+      "de": "Ich liebe Herausforderungen! Die erste bestand darin, in dieser Branche Fuß zu fassen, danach die Umstellung der Finca auf biologischen Anbau und jetzt der Direktverkauf. Ich bin überzeugt, dass dies die richtigen Schritte waren; ich freue mich, dass du mich kenngelernt hast, und wünsche mir, dass du die Frucht genauso genießt wie ich es tue. Mutter und Farmerin zu sein ist ein Vollzeitjob. Mit der Unterstützung von dir und von CrowdFarming wird alles einfacher sein!",
+      "fr": "J'adore les défis ! Le premier a été de percer dans le secteur, puis de convertir l'exploitation en agriculture biologique et maintenant, c'est la vente directe. Je suis convaincue que ce sont les bonnes décisions, j'ai hâte que vous appreniez à me connaître et  j'aimerais que vous puissiez apprécier les fruits autant que moi. Être mère et agricultrice est un travail à plein temps, avec votre soutien et celui du CrowdFarming, tout sera plus facile !",
+      "nl": "Ik hou van uitdagingen! Mijn eerste uitdaging was mijn weg te vinden in de sector, later om de boerderij om te zetten naar biologische landbouw en nu de directe verkoop. Ik ben ervan overtuigd dat dit de juiste stappen zijn geweest, ik ben verheugd dat je mij hebt leren kennen en ik wil dat je net zoveel van het fruit geniet als ik. Moeder en boer zijn is een fulltime baan, met jouw steun en die van CrowdFarming wordt alles makkelijker!",
+      "it": "Amo le sfide! La prima è stata quella di farmi strada nel settore, poi di convertire l'azienda all'agricoltura biologica e ora la vendita diretta. Sono convinta che siano state le scelte giuste e sono entusiasta del fatto che tu possa conoscermi e che questa frutta ti possa piacere tanto quanto a me. Essere mamma e Farmer è un lavoro a tempo pieno, ma con il tuo supporto e quello di CrowdFarming tutto sarà più semplice!",
+      "sv": "Jag älskar utmaningar! Den första var att vinna framgång i sektorn, och senare att omvandla odlingen till ekologiskt jordbruk, och nu direktförsäljning. Jag är övertygad om att de här stegen har varit de rätta – jag tycker det är spännande att du kan lära känna mig, och jag vill att du ska njuta av frukten lika mycket som jag gör. Att vara mamma och odlare är ett heltidsarbete, men med ditt stöd och CrowdFarmings stöd blir allt lättare!"
+    }
+  },
+  "detailSeals": [
+    {
+      "_seal": "5e007fe4cb2c392bc4eab898",
+      "files": []
+    },
+    {
+      "_seal": "5e007fe6cb2c392bc4eab8ad",
+      "files": []
+    },
+    {
+      "_seal": "5e007fe5cb2c392bc4eab8a9",
+      "files": [
+        {
+          "name": "Organic Farming certificate Dehesa de Cútar ",
+          "url": "https://common.crowdfarming.com/uploaded-farm/1674137055480-f2f38791-689c-44da-a970-225424dec838.pdf"
+        }
+      ]
+    },
+    {
+      "_seal": "5e007fe5cb2c392bc4eab8a8",
+      "files": []
+    },
+    {
+      "_seal": "5e007fe5cb2c392bc4eab8a6",
+      "files": [
+        {
+          "name": "Harvest analysis Dehesa de Cútar_aguacate",
+          "url": "https://common.crowdfarming.com/uploaded-farm/1630390765097-19b3f00d-a489-436c-9bdd-e951ddb75df2.pdf"
+        },
+        {
+          "name": "Harvest analysis Dehesa de Cútar_kumquat",
+          "url": "https://common.crowdfarming.com/uploaded-farm/1664202497813-1e0ce269-694d-4cd0-924b-56d15e26f40c.pdf"
+        },
+        {
+          "name": "Harvest analysis Dehesa de Cútar_kumquat_Anexo",
+          "url": "https://common.crowdfarming.com/uploaded-farm/1664202532500-0c97840b-0a1e-4277-ab8f-f0984ab7563f.pdf"
+        }
+      ]
+    },
+    {
+      "_seal": "5e007fe6cb2c392bc4eab8af",
+      "files": [
+        {
+          "name": "Efficient use of water Certificate Dehesa de Cútar",
+          "url": "https://common.crowdfarming.com/uploaded-farm/1643890160809-180f2cac-eec7-4e3f-91e2-83505c78be3a.pdf"
+        }
+      ]
+    }
+  ],
+  "additionalInfo": {
+    "en": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "de": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "es": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "fr": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "it": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "sv": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "nl": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit"
+  },
+  "preservationInfo": {
+    "en": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "de": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "es": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "fr": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "it": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "sv": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit",
+    "nl": "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Variedad cornezuelo: Sed ut perspiciatis unde omnis iste natus error sit"
+  }
+}

@@ -1,0 +1,26 @@
+.product-go-invitation {
+  border: 1px solid #c9d0d0;
+  padding: 16px;
+  border-radius: 4px;
+
+  .eva-chevron-down-outline {
+    cursor: pointer;
+    font-size: 32px;
+    transform: rotate(0deg);
+    transition: transform 0.25s ease-in-out;
+
+    &.rotate {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__detail {
+    &-container {
+      padding-top: 16px;
+
+      .product-go-invitation-price {
+        margin-top: 8px;
+      }
+    }
+  }
+}

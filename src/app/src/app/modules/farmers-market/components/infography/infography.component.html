@@ -1,0 +1,28 @@
+<ng-container *transloco="let t">
+  <div class="infography mx-3 mx-sm-4 mx-md-4 mx-lg-5 mx-xxl-0">
+    <h2 class="title t-heading-m">{{ t('landing.adopt-a-tree.point-image.title') }}</h2>
+    <div class="infography-items">
+      <infography-item
+        class="item"
+        img="../../../../../../assets/img/infography/1.jpg"
+        [title]="t('page.info-adoptions-step1.title')"
+        [description]="t('page.info-adoptions-step1.body')"></infography-item>
+      <infography-item
+        class="item"
+        [img]="'../../../../../../assets/img/infography/2.' + lang + '.jpg'"
+        errorImg="../../../../../../assets/img/infography/2.en.jpg"
+        [title]="t('page.info-adoptions-step2.title')"
+        [description]="t('page.info-adoptions-step2.body')"></infography-item>
+      <infography-item
+        class="item"
+        img="../../../../../../assets/img/infography/3.jpg"
+        [title]="t('page.info-adoptions-step3.title')"
+        [description]="t('page.info-adoptions-step3.body')"></infography-item>
+      <infography-item
+        class="item"
+        img="../../../../../../assets/img/infography/4.jpg"
+        [title]="t('page.info-adoptions-step4.title')"
+        [description]="t('page.info-adoptions-step4.body')"></infography-item>
+    </div>
+  </div>
+</ng-container>

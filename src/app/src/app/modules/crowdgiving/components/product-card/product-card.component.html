@@ -1,0 +1,19 @@
+<div class="product-card">
+  <div class="row align-items-center">
+    <div class="col-12 col-md-auto mb-3 mb-md-0">
+      <div class="product-card__pic">
+        <img [src]="product.img">
+      </div>
+    </div>
+
+    <div class="col-12 col-md mb-3 mb-md-0">
+      <h5 class="t-black-T product-card__title"><ng-container *ngIf="showQuantityLabel">x{{ product.selectedQuantity }}</ng-container> {{ product.name }}</h5>
+      <p class="t-grey product-card__subtitle">{{ product.farmer.name }} ({{ product.farmer.country }})</p>
+      <p class="t-black-T product-card__price">{{ product.price | currency }}</p>
+    </div>
+
+    <div *ngIf="showQuantitySelector" class="col-auto">
+      <ds-counter [counter]="quantity" (counterChange)="onCounterChange($event)"></ds-counter>
+    </div>
+  </div>
+</div>

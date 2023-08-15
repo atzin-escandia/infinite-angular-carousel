@@ -1,0 +1,48 @@
+@import '../../../scss/commons.scss';
+
+.gift-info-popup-container {
+  max-width: 750px;
+
+  .steps {
+    .carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 0 auto;
+
+      &-arrow {
+        z-index: 2;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &.left {
+          left: 0;
+        }
+
+        &.right {
+          right: 0;
+        }
+      }
+
+      &-content {
+        z-index: 1;
+        transition: all 0.25s ease-in-out;
+
+        .step-col {
+          padding: 0 16px;
+
+          &__content-img {
+            width: 25%;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: map_get($grid-breakpoints, 'xl')) {
+    width: 1140px;
+    max-width: 1140px;
+  }
+}

@@ -1,0 +1,73 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+@import '../../../../../scss/utils';
+
+.unavailable {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: pxToRem(580);
+  max-height: pxToRem(738);
+  margin: pxToRem(48) 0;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__data {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    color: $ds--color-primary-88;
+    margin-bottom: pxToRem(8);
+  }
+
+  &__desc {
+    color: $ds--color-grey-56;
+    margin-bottom: pxToRem(24);
+    text-align: center;
+  }
+
+  &__sep-buttons {
+    margin-bottom: pxToRem(40);
+  }
+
+  &__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    img {
+      max-width: pxToRem(408);
+    }
+  }
+
+  @include bp(device-m) {
+    flex-direction: row;
+    gap: pxToRem(64);
+    margin: pxToRem(72) 0;
+
+    &__data {
+      justify-content: center;
+      align-items: baseline;
+    }
+
+    &__title {
+      margin-bottom: pxToRem(16);
+    }
+
+    &__desc {
+      text-align: left;
+    }
+
+    &__img {
+      min-width: pxToRem(464);
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

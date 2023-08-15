@@ -1,0 +1,13 @@
+@import '../../../scss/commons.scss';
+
+.user-addresses-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.user-address {
+  & + & {
+    margin-top: 16px;
+  }
+}

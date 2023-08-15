@@ -1,0 +1,39 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.ec-detail-info {
+  &__seals {
+    position: relative;
+  }
+
+  &__items {
+    position: relative;
+    margin-top: pxToRem(8);
+  }
+
+  &__item {
+    padding: pxToRem(16) 0 pxToRem(15);
+    border-bottom: pxToRem(1) dashed $ds--color-grey-32;
+
+    &:first-child {
+      padding-top: pxToRem(8);
+    }
+
+    &:last-child {
+      padding: pxTorem(16) 0 pxToRem(16);
+      border-bottom: none;
+    }
+  }
+
+  .farm-map {
+    margin-top: pxToRem(8);
+
+    iframe {
+      min-width: 100%;
+      height: pxToRem(175);
+
+      @include bp(device-s) {
+        height: pxToRem(391);
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+@import '../../../scss/commons.scss';
+
+section {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+}
+
+.header_block {
+  background-image: url('../../../assets/img/promotion-campaign/grounds/desktop/ground-1.svg');
+
+  .row {
+    padding-bottom: 50px;
+  }
+
+  h2 {
+    font-size: 35px;
+    line-height: 1.17;
+  }
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    background-image: url('../../../assets/img/promotion-campaign/grounds/mobile/ground-1.svg');
+    margin-top: 50px;
+
+    .row {
+      padding-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+  }
+}
+
+.cards_block {
+  background-color: #faf3e8;
+  background-image: url('../../../assets/img/promotion-campaign/grounds/desktop/ground-2.svg');
+
+  .row {
+    padding-bottom: 100px;
+  }
+
+  .card_section {
+    .card {
+      min-height: 352px;
+      min-width: 352px;
+      padding: 16px;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px -1px #79838f;
+      display: grid;
+      background-color: white;
+      align-items: center;
+
+      img {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    @media (max-width: map_get($grid-breakpoints, 'md')) {
+      overflow-x: auto;
+      padding-bottom: 0;
+
+      .card {
+        min-height: 288px;
+        min-width: 232px;
+
+        img {
+          width: 120px;
+          height: 120px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    .row {
+      padding-bottom: 0;
+    }
+
+    background-image: url('../../../assets/img/promotion-campaign/grounds/mobile/ground-2.svg');
+  }
+}
+
+.benefits_block {
+  background-color: #cfe5e3;
+  background-image: url('../../../assets/img/promotion-campaign/grounds/desktop/wave-1.svg');
+
+  .benefit_img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .farmer_img {
+    height: 416px;
+    width: 400px;
+  }
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    .container {
+      .farmer_img {
+        margin: auto;
+      }
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+  }
+}
+
+.instagram_block {
+  background-image: url('../../../assets/img/promotion-campaign/grounds/desktop/ground-3.svg');
+  padding-bottom: 90px;
+
+  .insta_button {
+    width: 30%;
+  }
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    background-image: url('../../../assets/img/promotion-campaign/grounds/mobile/ground-3.svg');
+    padding-bottom: 0;
+
+    .insta_button {
+      width: 100%;
+    }
+  }
+}
+
+.newsletter_block {
+  background-image: url('../../../assets/img/promotion-campaign/grounds/desktop/wave-2.svg');
+  margin-bottom: -1px; // avoid white line
+
+  @media (max-width: map_get($grid-breakpoints, 'md')) {
+    background-image: url('../../../assets/img/promotion-campaign/grounds/mobile/wave-2.svg');
+  }
+}

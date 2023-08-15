@@ -1,0 +1,15 @@
+<div *transloco="let t" class="gall-card position-relative">
+  <div *ngIf="showText" class="layer-opacity"></div>
+  <div class="layer d-flex flex-column align-items-center justify-content-between"
+    [ngStyle]="{'background-image': 'url(' + (info.image | cdn) + ')'}">
+    <div class="texts">
+      <div class="gallery-header mb-m" [ngClass]="showText ? 'show-text' : ''">
+        {{textSrv.getText(info.title)}}
+      </div>
+      <div class="text t-l-regular" *ngIf="showText" [innerHTML]="textSrv.getText(info.text)"></div>
+      <div class="button d-flex align-items-center justify-content-center pointer" (click)="openText()">
+        <div class="eva f24" [ngClass]="showText ? 'eva-close-outline' : 'eva-plus-outline'"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+@import '@crowdfarming/ds-library/src/styles/global';
+
+.infography {
+  text-align: center;
+  margin: 50px 0;
+
+  .title {
+    margin-bottom: 32px;
+    color: map-get($contentColors, 'content-1');
+  }
+
+  .infography-items {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    max-width: 1216px;
+    margin: 0 auto;
+
+    @include bp(device-s) {
+      gap: 24px;
+    }
+
+    @include bp(device-m) {
+      gap: 32px;
+    }
+
+    @media (hover: none) {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .item {
+      flex: 1;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
