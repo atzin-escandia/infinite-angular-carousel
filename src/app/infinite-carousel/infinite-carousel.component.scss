@@ -10,7 +10,19 @@ $large-screen: 1200px;
   .container {
     padding: 0 50px;
     h2 {
-      font-size: 50px;
+      font-size: 30px;
+
+      @media (min-width: $small-screen) {
+        font-size: 40px;
+      }
+
+      @media (min-width: $medium-screen) {
+        font-size: 50px;
+      }
+
+      @media (min-width: $large-screen) {
+        font-size: 60px;
+      }
     }
   }
 

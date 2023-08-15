@@ -15,7 +15,7 @@ export class InfiniteCarouselComponent implements OnInit, OnDestroy {
   touchEndX = 0;
   maxSlidesInfiniteCarousel: number = 0;
   isTouchMoveHandled = false;
-  isMobile = false;
+  isMobile = this.isMobileDevice();
 
   constructor() {
   }
@@ -60,6 +60,10 @@ export class InfiniteCarouselComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.stopAutoTransition();
+  }
+
+  isMobileDevice(): boolean {
+    return /iPhone|iPad|iPod|Android|webOS|BlackBerry|Windows Phone/i.test(navigator.userAgent);
   }
 
   startAutoTransition(): void {
