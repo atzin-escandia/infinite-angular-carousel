@@ -1,6 +1,0 @@
-export enum Events {
-  NOT_AVAILABLE_GIFT = 'NOT_AVAILABLE_GIFT',
-}
-
-export const DAYS_AFTER_NOTIFICATION = 15;
-export const NO_AVAILABLE_DAYS_FOR_NOTIFICATION = 20;

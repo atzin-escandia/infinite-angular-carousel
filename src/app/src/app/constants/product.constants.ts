@@ -1,3 +1,0 @@
-export enum PRODUCT_TYPE {
-  ECOMMERCE = 'ECOMMERCE'
-}

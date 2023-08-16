@@ -1,7 +1,0 @@
-<div class="d-flex justify-content-center" [ngClass]="{'green-page': !!newsletter}">
-  <green-newsletter *ngIf="newsletter" class="col-12 col-md-10 nop" [categories]="categories" [settings]="settings"
-    [updatedUser]="updatedUser" (returnUser)="updateIntereses($event)" (backToInterests)="backToInterests($event)">
-  </green-newsletter>
-
-  <green-cancel *ngIf="cancelledAccount"></green-cancel>
-</div>

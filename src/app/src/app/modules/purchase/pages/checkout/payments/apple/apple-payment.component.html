@@ -1,7 +1,0 @@
-<div *ngIf="isUserLogged && canBuyWithoutGiftRestrictions && !isDisabled; else mockButtonTpl" id="payment-request-button"></div>
-
-<ng-template #mockButtonTpl>
-  <div class="apple-pay-mock-button" [ngClass]="{ 'apple-pay-disabled': isDisabled }" (click)="onMockButtonClick()">
-    <img src="../../../../../../../assets/icon/payments/apple-pay.svg" height="24" />
-  </div>
-</ng-template>

@@ -1,2 +1,0 @@
-export const NO_TRANSITION_TIMEOUT = 100;
-export const LEFT_TRANSITION_TIMEOUT = 500;
